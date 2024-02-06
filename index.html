@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3" />
+  <meta name='description' content='SpoinkOS is Ubuntu but striped down so you can focus on what matters!'>
+  <title>SpoinkOS - Modren, Fast, Simple</title>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxqqqsttia");
+  </script>
+  <!-- Add Turnstile -->
+  
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+
+  <!-- Add some style -->
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      color: blue;
+      background-color: #f0f0f0;
+      margin: 20px;
+      transition: background-color 0.5s ease; /* Smooth background color transition */
+    }
+
+    h1, h2 {
+      color: #333;
+      opacity: 0; /* Hidden by default, will fade in */
+    }
+
+    ul {
+      list-style-type: square;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      transition: color 0.3s ease; /* Smooth link color transition */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Welcome to SpoinkOS</h1>
+
+  <p>SpoinkOS is a user-friendly, open-source Linux distribution that aims to provide a smooth and efficient computing experience for everyone. Whether you're a beginner or a seasoned Linux enthusiast, our distro has something for you!</p>
+
+  <h2>Features</h2>
+
+  <ul>
+    <li>User-Friendly Interface</li>
+    <li>Customizability</li>
+    <li>Based on Ubuntu</li>
+    <li>Uses GNOME Desktop</li>
+  </ul>
+
+  <h2>Helpful Links</h2>
+
+  <ul>
+    <li><a href="https://discord.gg/f7eT26K4D7">Discord Server</a></li>
+    <li><a href="mailto:SpoinkOSGithub@gmail.com">Email</a></li>
+    <li><a href="https://archive.org/details/spoink-os">Internet Archive</a></li>
+  </ul>
+
+  <!-- Initialize Turnstile -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      turnstile.ready(function () {
+        turnstile.render('#download-form', {
+          sitekey: '0x4AAAAAAANVTQx56Tcv0IOW',
+          callback: function (token) {
+            console.log(`Challenge Success ${token}`);
+          },
+        });
+      });
+    });
+
+    // Add fadeIn animation with JavaScript
+    document.addEventListener("DOMContentLoaded", function () {
+      var headings = document.querySelectorAll('h1, h2');
+      headings.forEach(function (heading) {
+        setTimeout(function () {
+          heading.style.opacity = '1';
+        }, 500); // Delay for a smoother effect
+      });
+    });
+  </script>
+
+</body>
+
+</html>
