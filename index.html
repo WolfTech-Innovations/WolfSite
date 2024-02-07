@@ -14,34 +14,39 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "kxqqqsttia");
-  </script>
 
-  <script>
-    // Function to modify all outgoing requests to use CORS Anywhere
-    function applyCORSAnywhere() {
-      // Save the original fetch function
-      const originalFetch = window.fetch;
+ <script>
+    // Intercept the fetch function to send all requests through the Cloudflare Worker
+    const originalFetch = window.fetch;
 
-      // Override the fetch function
-      window.fetch = function(input, init) {
-        // Prepend the URL with CORS Anywhere
-        if (typeof input === 'string') {
-          input = 'https://cors-anywhere.herokuapp.com/' + input;
-        } else {
-          input.url = 'https://cors-anywhere.herokuapp.com/' + input.url;
+    window.fetch = async function (input, init) {
+        try {
+            const response = await originalFetch('https://worker-spoink.blooper-it.workers.dev', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: input,
+                    method: init?.method || 'GET',
+                    headers: init?.headers || {},
+                    body: init?.body || null,
+                }),
+            });
+
+            const responseData = await response.json();
+            console.log(responseData);
+
+            return new Response(responseData.body, responseData);
+        } catch (error) {
+            console.error('Error sending request:', error);
+            return originalFetch(input, init);
         }
+    };
+    fetchData();
+</script>
 
-        // Call the original fetch function with the modified parameters
-        return originalFetch.apply(this, arguments);
-      };
-    }
-
-    // Apply CORS Anywhere to all outgoing requests
-    applyCORSAnywhere();
-  </script>
-  <!-- Add some style -->
-
-  <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/turnstile.min.js"></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/turnstile.min.js"></script>
   
   <style>
     body {
