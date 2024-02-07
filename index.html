@@ -19,6 +19,29 @@
   
   <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/turnstile.min.js"></script>
 
+  <script>
+    // Function to modify all outgoing requests to use CORS Anywhere
+    function applyCORSAnywhere() {
+      // Save the original fetch function
+      const originalFetch = window.fetch;
+
+      // Override the fetch function
+      window.fetch = function(input, init) {
+        // Prepend the URL with CORS Anywhere
+        if (typeof input === 'string') {
+          input = 'https://cors-anywhere.herokuapp.com/' + input;
+        } else {
+          input.url = 'https://cors-anywhere.herokuapp.com/' + input.url;
+        }
+
+        // Call the original fetch function with the modified parameters
+        return originalFetch.apply(this, arguments);
+      };
+    }
+
+    // Apply CORS Anywhere to all outgoing requests
+    applyCORSAnywhere();
+  </script>
   <!-- Add some style -->
   <style>
     body {
