@@ -17,7 +17,7 @@
   </script>
   <!-- Add Turnstile -->
   
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
   <!-- Add some style -->
   <style>
@@ -51,7 +51,7 @@
 
   <h1>Welcome to SpoinkOS</h1>
 
-  <p>SpoinkOS is a user-friendly, open-source Linux distribution that aims to provide a smooth and efficient computing experience for everyone. Whether you're a beginner or a seasoned Linux enthusiast, our distro has something for you!</p>
+  <p>SpoinkOS is a Stripped down version of Ubuntu with extra features with simplcity in mind while still having the GNOME Desktop.</p>
 
   <h2>Features</h2>
 
@@ -62,7 +62,7 @@
     <li>Uses GNOME Desktop</li>
   </ul>
 
-  <h2>Helpful Links</h2>
+  <h2>Links</h2>
 
   <ul>
     <li><a href="https://discord.gg/f7eT26K4D7">Discord Server</a></li>
@@ -75,7 +75,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       turnstile.ready(function () {
         turnstile.render('#download-form', {
-          sitekey: '0x4AAAAAAANVTQx56Tcv0IOW',
+          sitekey: '0x4AAAAAAARdOf5Zmi7rtp5T',
           callback: function (token) {
             console.log(`Challenge Success ${token}`);
           },
