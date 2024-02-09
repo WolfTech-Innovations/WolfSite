@@ -7,129 +7,132 @@
   <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3" />
   <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg" />
   <meta name='description' content='SpoinkOS is Ubuntu but striped down so you can focus on what matters!'>
-  <title>SpoinkOS - Focused, Fast, Simple</title>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "kxqqqsttia");
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1B0WV09YR1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
+  
   gtag('config', 'G-1B0WV09YR1');
 </script>
-  <script>
-    // Intercept the fetch function to send all requests through the Cloudflare Worker
-    const originalFetch = window.fetch;
-
-    window.fetch = async function (input, init) {
-        try {
-            const response = await originalFetch('https://worker-spoink.blooper-it.workers.dev', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    url: input,
-                    method: init?.method || 'GET',
-                    headers: init?.headers || {},
-                    body: init?.body || null,
-                }),
-            });
-
-            const responseData = await response.json();
-            console.log(responseData);
-
-            return new Response(responseData.body, responseData);
-        } catch (error) {
-            console.error('Error sending request:', error);
-            return originalFetch(input, init);
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 20px;
+            padding: 20px;
+            line-height: 1.6;
         }
-    };
-    fetchData();
-  </script>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
-  
-  <style>
-    body {
-      font-family: 'Comic Sans MS', cursive;
-      color: blue;
-      background-color: #303030;
-      margin: 20px;
-      transition: background-color 0.5s ease; /* Smooth background color transition */
-    }
+        h1, h2, h3 {
+            color: #0066cc;
+        }
 
-    h1, h2 {
-      color: blue;
-      opacity: 0; /* Hidden by default, will fade in */
-    }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
 
-    ul {
-      list-style-type: square;
-    }
+        a {
+            color: #009933;
+        }
 
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      transition: color 0.3s ease; /* Smooth link color transition */
-    }
-  </style>
+        ul, ol {
+            margin-bottom: 20px;
+        }
 
+        ol {
+            list-style-type: decimal;
+        }
+
+        h2, h3 {
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        body > p:first-child {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 
 <body>
+    <h1 style="text-align: center;">Ahoy there! ⚓️</h1>
+    <img src="https://github.com/SpoinkOSDevs/SpoinkOS/blob/master/logo.png" alt="Logo">
 
-  <h1>Welcome to SpoinkOS</h1>
+    <p><a href="https://discord.gg/f7eT26K4D7">SpoinkOS Discord Server</a></p>
+    <p><a href="mailto:SpoinkOSGithub@gmail.com">Email me</a></p>
+    <p><a href="https://archive.org/details/spoink-os">Internet Archive</a></p>
+    <p><a href="https://archive.org/download/spoink-os/spoink-os_archive.torrent">Torrent</a></p>
+    <p><a href="https://spoink.pages.dev/">SpoinkOS Website (Hosted by Cloudflare)</a></p>
+    <p><a href="https://spoinkos.boards.net/">Forums</a></p>
 
-  <p>SpoinkOS is a Stripped down version of Ubuntu with extra features with simplcity in mind while still having the GNOME Desktop.</p>
+    <h2>PROJECT STATUS: ACTIVE</h2>
+    <h2>RELEASE: STABLE</h2>
 
-  <h2>Features</h2>
+    <h2>Overview:</h2>
+    <p>SpoinkOS is Ubuntu but stripped of bloatware so you can focus on what matters.</p>
 
-  <ul>
-    <li>User-Friendly Interface</li>
-    <li>Customizability</li>
-    <li>Based on Ubuntu</li>
-    <li>Uses GNOME Desktop</li>
-  </ul>
+    <h2>Features</h2>
+    <ul>
+        <li><strong>User-Friendly Interface:</strong> Our distro comes with a clean and intuitive desktop environment called
+            GNOME that makes it easy to use, even for newcomers.</li>
+        <li><strong>Based On Ubuntu</strong></li>
+    </ul>
 
-  <h2>Links</h2>
+    <h2>Installation:</h2>
+    <ol>
+        <li>Download the ISO image from the <a href="https://archive.org/details/spoink-os">Internet Archive mirror</a>.</li>
+        <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
+        <li>Boot your computer from the USB drive.</li>
+        <li>Follow the on-screen instructions to install SpoinkOS.</li>
+        <li>(For Developers) To make a NixOS-Like deployment system, first install the OS on hardware or a VM then use CLCTool
+            to execute the deployment / config scripts you have written; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
+    </ol>
 
-  <ul>
-    <li><a href="https://discord.gg/f7eT26K4D7">Discord Server</a></li>
-    <li><a href="mailto:SpoinkOSGithub@gmail.com">Email</a></li>
-    <li><a href="https://archive.org/details/spoink-os">Internet Archive</a></li>
-  </ul>
+    <h2>Conclusion:</h2>
+    <p>Thank you for choosing SpoinkOS! We hope you enjoy using our distro as much as we enjoyed creating it!</p>
+    <p>Happy computing!</p>
 
-  <!-- Initialize Turnstile -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      turnstile.ready(function () {
-        turnstile.render('body', {
-          sitekey: '0x4AAAAAAARdOf5Zmi7rtp5T',
-          callback: function (token) {
-            console.log(`Challenge Success ${token}`);
-          },
-        });
-      });
-    });
+    <h2>Extras:</h2>
 
-    // Add fadeIn animation with JavaScript
-    document.addEventListener("DOMContentLoaded", function () {
-      var headings = document.querySelectorAll('h1, h2');
-      headings.forEach(function (heading) {
-        setTimeout(function () {
-          heading.style.opacity = '1';
-        }, 500); // Delay for a smoother effect
-      });
-    });
-  </script>
+    <h3>Our Team</h3>
+    <ul>
+        <li>Carl - Head of SpoinkOS Development Team</li>
+        <li>Meco - Head Idea Manager of SpoinkOS Development Team</li>
+    </ul>
 
+    <h3>Concept:</h3>
+    <p>SpoinkOS believes that wherever you go you have to spring or "Spoink" into action like a spring! So We came up with the
+        name "SpoinkOS".</p>
+
+    <h3>Pronounced:</h3>
+    <p>"Spo-ink O-S" as in two words.</p>
+
+    <h3>Legal Stuff:</h3>
+    <p>SpoinkOS is copyleft, SpoinkOS has no parent company and is owned by a person / person(s) in this sense as though the
+        name is not copyrighted, we have no affiliation with Nintendo or Pokemon related products or services as though
+        this is entirely different.</p>
+
+    <h2>Github Repo Data:</h2>
+    <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="Alt">
 </body>
 
 </html>
+  
