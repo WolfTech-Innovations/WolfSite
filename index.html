@@ -2,181 +2,203 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3" />
-  <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg" />
-  <meta name='description' content='SpoinkOS is Ubuntu but striped down so you can focus on what matters!'>
-  <meta name="keywords" content="SpoinkOS, Ubuntu, lightweight, bloatware-free, GNOME, developer-friendly">
-  <title>SpoinkOS</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1B0WV09YR1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-1B0WV09YR1');
-    </script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3" />
+    <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg" />
+    <meta name='description' content='SpoinkOS is Ubuntu but stripped down so you can focus on what matters!'>
+    <meta name="keywords" content="SpoinkOS, Ubuntu, lightweight, bloatware-free, GNOME, developer-friendly">
+    <title>SpoinkOS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
     <style>
+        /* Global styles */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #303030;
-            color: #FFFFFF;
-            margin: 20px;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            color: #0066cc;
+        /* Header styles */
+        header {
+            background-color: #0078d4;
+            color: #fff;
+            text-align: center;
+            padding: 50px 0;
+            animation: fadeInUp 1.5s ease-out;
         }
 
-        a {
-            color: #009933;
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            opacity: 0;
         }
 
-        ul, ol {
+        /* Main content styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        h2 {
+            color: #0078d4;
+            margin-top: 40px;
+            font-size: 2.5em;
+            font-weight: 600;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        p {
             margin-bottom: 20px;
-        }
-
-        ol {
-            list-style-type: decimal;
-        }
-
-        h2, h3 {
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 5px;
-            margin-top: 20px;
-        }
-
-        h3 {
-            margin-top: 10px;
+            font-size: 1.1em;
+            animation: fadeInUp 1.5s ease-out;
         }
 
         ul {
-            list-style-type: disc;
-            margin-left: 20px;
+            list-style: none;
+            padding: 0;
+            animation: fadeInUp 1.5s ease-out;
         }
 
         li {
             margin-bottom: 10px;
+            font-size: 1.1em;
+            animation: fadeInUp 1.5s ease-out;
         }
 
-        p {
-            margin-bottom: 15px;
+        a {
+            color: #0078d4;
+            text-decoration: none;
+            transition: color 0.3s;
+            animation: fadeInUp 1.5s ease-out;
         }
 
-        body > p:first-child {
-            font-size: 1.2em;
+        a:hover {
+            color: #004d90;
         }
-    <style>
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-    }
 
-    .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-    }
+        /* Additional Styling */
+        section {
+            margin-bottom: 80px;
+        }
 
-    .left-text, .right-text {
-        font-size: 2em;
-        font-weight: bold;
-        transition: transform 0.3s ease-out;
-    }
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-    .left-text {
-        transform-origin: left bottom;
-    }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .right-text {
-        transform-origin: right bottom;
-    }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
 
-    .scroll-down {
-        height: 120vh; /* Adjust as needed */
-    }
-</style>
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
-<script>
-    window.onscroll = function() {
-        let scroll = window.scrollY / 5;
-        document.querySelector('.left-text').style.transform = `rotate(${scroll}deg)`;
-        document.querySelector('.right-text').style.transform = `rotate(-${scroll}deg)`;
-    }
-</script>
+        @keyframes scale {
+            0%,
+            100% {
+                transform: scale(1);
+            }
 
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #0078d4;
+            }
+
+            50% {
+                color: #004d90;
+            }
+
+            100% {
+                color: #0078d4;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1 style="text-align: center;">Ahoy there! ⚓️</h1>
+    <header>
+        <h1>SpoinkOS</h1>
+    </header>
 
-    <p><a href="https://discord.gg/f7eT26K4D7">SpoinkOS Discord Server</a></p>
-    <p><a href="mailto:SpoinkOSGithub@gmail.com">Email me</a></p>
-    <p><a href="https://archive.org/details/spoink-os">Internet Archive</a></p>
-    <p><a href="https://spoinkos.boards.net/">Forums</a></p>
+    <div class="container">
+        <section>
+            <h2>Welcome to SpoinkOS</h2>
+            <p>SpoinkOS is a lightweight, bloatware-free Linux distribution based on Ubuntu. We've stripped down Ubuntu to give you a clean and developer-friendly environment.</p>
+        </section>
 
-    <h2>PROJECT STATUS: ACTIVE</h2>
-    <h2>RELEASE: STABLE</h2>
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>User-Friendly Interface: Our distro comes with a clean and intuitive desktop environment called GNOME that makes it easy to use, even for newcomers.</li>
+                <li>Based On Ubuntu: SpoinkOS is built on the solid foundation of Ubuntu, ensuring compatibility and stability.</li>
+                <li>Developer-Friendly: SpoinkOS provides tools and libraries tailored for developers, making it an ideal platform for coding and testing.</li>
+            </ul>
+        </section>
 
-    <h2>Overview:</h2>
-    <p>SpoinkOS is Ubuntu but stripped of bloatware so you can focus on what matters.</p>
+        <section>
+            <h2>Installation</h2>
+            <ol>
+                <li>Download the ISO image from the <a href="https://archive.org/details/spoink-os">Internet Archive mirror</a>.</li>
+                <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
+                <li>Boot your computer from the USB drive.</li>
+                <li>Follow the on-screen instructions to install SpoinkOS.</li>
+                <li>(For Developers) To make a NixOS-Like deployment system, first install the OS on hardware or a VM then use CLCTool to execute the deployment / config scripts you have written; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
+            </ol>
+        </section>
 
-    <h2>Features</h2>
-    <ul>
-        <li><strong>User-Friendly Interface:</strong> Our distro comes with a clean and intuitive desktop environment called
-            GNOME that makes it easy to use, even for newcomers.</li>
-        <li><strong>Based On Ubuntu</strong></li>
-    </ul>
+        <section>
+            <h2>Conclusion</h2>
+            <p>Thank you for choosing SpoinkOS! We hope you enjoy using our distro as much as we enjoyed creating it!</p>
+            <p>Happy computing!</p>
+        </section>
 
-    <h2>Installation:</h2>
-    <ol>
-        <li>Download the ISO image from the <a href="https://archive.org/details/spoink-os">Internet Archive mirror</a>.</li>
-        <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
-        <li>Boot your computer from the USB drive.</li>
-        <li>Follow the on-screen instructions to install SpoinkOS.</li>
-        <li>(For Developers) To make a NixOS-Like deployment system, first install the OS on hardware or a VM then use CLCTool
-            to execute the deployment / config scripts you have written; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
-    </ol>
+        <section>
+            <h2>Extras</h2>
 
-    <h2>Conclusion:</h2>
-    <p>Thank you for choosing SpoinkOS! We hope you enjoy using our distro as much as we enjoyed creating it!</p>
-    <p>Happy computing!</p>
+            <h3>Our Team</h3>
+            <ul>
+                <li>Carl - Head of SpoinkOS Development Team</li>
+                <li>Meco - Head Idea Manager of SpoinkOS Development Team</li>
+            </ul>
 
-    <h2>Extras:</h2>
+            <h3>Concept</h3>
+            <p>SpoinkOS believes that wherever you go you have to spring or "Spoink" into action like a spring! So We came up with the name "SpoinkOS".</p>
 
-    <h3>Our Team</h3>
-    <ul>
-        <li>Carl - Head of SpoinkOS Development Team</li>
-        <li>Meco - Head Idea Manager of SpoinkOS Development Team</li>
-    </ul>
+            <h3>Pronounced</h3>
+            <p>"Spo-ink O-S" as in two words.</p>
 
-    <h3>Concept:</h3>
-    <p>SpoinkOS believes that wherever you go you have to spring or "Spoink" into action like a spring! So We came up with the
-        name "SpoinkOS".</p>
+            <h3>Legal Stuff</h3>
+            <p>SpoinkOS is copyleft, SpoinkOS has no parent company and is owned by a person / person(s) in this sense as though the name is not copyrighted, we have no affiliation with Nintendo or Pokemon related products or services as though this is entirely different.</p>
+        </section>
 
-    <h3>Pronounced:</h3>
-    <p>"Spo-ink O-S" as in two words.</p>
-
-    <h3>Legal Stuff:</h3>
-    <p>SpoinkOS is copyleft, SpoinkOS has no parent company and is owned by a person / person(s) in this sense as though the
-        name is not copyrighted, we have no affiliation with Nintendo or Pokemon related products or services as though
-        this is entirely different.</p>
-
-    <h2>Github Repo Data:</h2>
-    <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="Alt">
+        <section>
+            <h2>Github Repo Data</h2>
+            <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="Alt" style="animation: rotate 2s infinite, scale 1.1 2s infinite, colorChange 3s infinite;">
+        </section>
+    </div>
 </body>
 
 </html>
-  
