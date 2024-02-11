@@ -10,6 +10,22 @@
     <meta name="keywords" content="SpoinkOS, Ubuntu, lightweight, bloatware-free, GNOME, developer-friendly">
     <title>SpoinkOS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1B0WV09YR1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-1B0WV09YR1');
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "kxqqqsttia");
+    </script>
     <style>
         /* Global styles */
         body {
@@ -19,6 +35,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Header styles */
@@ -27,14 +44,13 @@
             color: #fff;
             text-align: center;
             padding: 50px 0;
-            animation: fadeInUp 1.5s ease-out;
+            animation: fadeIn 1s ease-out;
         }
 
         h1 {
             margin: 0;
             font-size: 3em;
             font-weight: 700;
-            opacity: 0;
         }
 
         /* Main content styles */
@@ -43,7 +59,7 @@
             margin: 0 auto;
             padding: 50px 20px;
             text-align: center;
-            animation: fadeInUp 1.5s ease-out;
+            animation: fadeInUp 1s ease-out;
         }
 
         h2 {
@@ -51,32 +67,27 @@
             margin-top: 40px;
             font-size: 2.5em;
             font-weight: 600;
-            animation: fadeInUp 1.5s ease-out;
         }
 
         p {
             margin-bottom: 20px;
             font-size: 1.1em;
-            animation: fadeInUp 1.5s ease-out;
         }
 
         ul {
             list-style: none;
             padding: 0;
-            animation: fadeInUp 1.5s ease-out;
         }
 
         li {
             margin-bottom: 10px;
             font-size: 1.1em;
-            animation: fadeInUp 1.5s ease-out;
         }
 
         a {
             color: #0078d4;
             text-decoration: none;
             transition: color 0.3s;
-            animation: fadeInUp 1.5s ease-out;
         }
 
         a:hover {
@@ -89,6 +100,16 @@
         }
 
         /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -101,6 +122,124 @@
             }
         }
 
+        /* Modern look enhancements */
+        section {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            padding-left: 0;
+            text-align: left;
+        }
+
+        li {
+            color: #666;
+        }
+
+        /* GitHub Repo Data styling */
+        img {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            display: block;
+            animation: rotate 2s infinite, scale 1.1 2s infinite, colorChange 3s infinite;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Additional Styles and Animations */
+        section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to right, #ddd 0%, #f8f8f8 50%, #ddd 100%);
+        }
+
+        h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #0078d4;
+            transform-origin: bottom left;
+            transform: scaleX(0);
+            transition: transform 0.5s ease-out;
+        }
+
+        h2:hover::before {
+            transform: scaleX(1);
+        }
+
+        p::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #0078d4;
+            margin: 20px auto;
+            transition: width 0.5s ease-out;
+        }
+
+        p:hover::after {
+            width: 80px;
+        }
+
+        li {
+            position: relative;
+            transition: transform 0.3s ease-out;
+        }
+
+        li:hover {
+            transform: translateX(10px);
+        }
+
+        a::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: #0078d4;
+            transition: width 0.5s ease-out;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        img {
+            filter: grayscale(50%);
+            transition: filter 0.5s ease-out;
+        }
+
+        img:hover {
+            filter: grayscale(0%);
+        }
+
+        footer {
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        /* Additional Animations */
         @keyframes rotate {
             0% {
                 transform: rotate(0deg);
@@ -196,9 +335,13 @@
 
         <section>
             <h2>Github Repo Data</h2>
-            <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="Alt" style="animation: rotate 2s infinite, scale 1.1 2s infinite, colorChange 3s infinite;">
+            <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="Alt">
         </section>
     </div>
+
+    <footer>
+        Happy Coding with SpoinkOS!
+    </footer>
 </body>
 
 </html>
