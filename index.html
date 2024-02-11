@@ -71,7 +71,52 @@
         body > p:first-child {
             font-size: 1.2em;
         }
-    </style>
+    <style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .left-text, .right-text {
+        font-size: 2em;
+        font-weight: bold;
+        transition: transform 0.3s ease-out;
+    }
+
+    .left-text {
+        transform-origin: left bottom;
+    }
+
+    .right-text {
+        transform-origin: right bottom;
+    }
+
+    .scroll-down {
+        height: 120vh; /* Adjust as needed */
+    }
+</style>
+
+<script>
+    window.onscroll = function() {
+        let scroll = window.scrollY / 5;
+        document.querySelector('.left-text').style.transform = `rotate(${scroll}deg)`;
+        document.querySelector('.right-text').style.transform = `rotate(-${scroll}deg)`;
+    }
+</script>
+
 </head>
 
 <body>
