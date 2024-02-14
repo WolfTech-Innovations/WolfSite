@@ -6,42 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3" />
     <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg" />
-    <meta name='description' content='SpoinkOS is Ubuntu but stripped down so you can focus on what matters!'>
+    <meta name='description' content='SpoinkOS is Ubuntu but stripped down for a focused experience!'>
     <meta name="keywords" content="SpoinkOS, Ubuntu, lightweight, bloatware-free, GNOME, developer-friendly">
     <title>SpoinkOS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1B0WV09YR1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-1B0WV09YR1');
     </script>
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "kxqqqsttia");
     </script>
     <style>
-        /* Global styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: #282c34;
+            color: #abb2bf;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Header styles */
         header {
-            background-color: #0078d4;
-            color: #fff;
+            background-color: #282c34;
+            color: #61dafb;
             text-align: center;
             padding: 50px 0;
             animation: fadeIn 1s ease-out;
@@ -53,7 +49,6 @@
             font-weight: 700;
         }
 
-        /* Main content styles */
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -63,7 +58,7 @@
         }
 
         h2 {
-            color: #0078d4;
+            color: #61dafb;
             margin-top: 40px;
             font-size: 2.5em;
             font-weight: 600;
@@ -72,207 +67,56 @@
         p {
             margin-bottom: 20px;
             font-size: 1.1em;
+            color: #abb2bf;
         }
 
-        ul {
-            list-style: none;
+        ul, ol {
             padding: 0;
+            list-style: none;
         }
 
         li {
             margin-bottom: 10px;
             font-size: 1.1em;
+            color: #abb2bf;
         }
 
         a {
-            color: #0078d4;
+            color: #61dafb;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: #004d90;
+            color: #40a9ff;
         }
 
-        /* Additional Styling */
         section {
             margin-bottom: 80px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Modern look enhancements */
-        section {
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #444c56;
             padding-bottom: 40px;
         }
 
-        h2 {
-            color: #333;
-        }
-
-        p {
-            color: #555;
-        }
-
-        ul {
-            padding-left: 0;
-            text-align: left;
-        }
-
-        li {
-            color: #666;
-        }
-
-        /* GitHub Repo Data styling */
-        img {
-            width: 100%;
-            max-width: 400px;
-            margin: 20px auto;
-            display: block;
-            animation: rotate 2s infinite, scale 1.1 2s infinite, colorChange 3s infinite;
-        }
-
-        /* Footer styles */
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: #282c34;
+            color: #61dafb;
             text-align: center;
             padding: 20px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
-        }
-
-        /* Additional Styles and Animations */
-        section {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(to right, #ddd 0%, #f8f8f8 50%, #ddd 100%);
-        }
-
-        h2::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50%;
-            height: 3px;
-            background-color: #0078d4;
-            transform-origin: bottom left;
-            transform: scaleX(0);
-            transition: transform 0.5s ease-out;
-        }
-
-        h2:hover::before {
-            transform: scaleX(1);
-        }
-
-        p::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #0078d4;
-            margin: 20px auto;
-            transition: width 0.5s ease-out;
-        }
-
-        p:hover::after {
-            width: 80px;
-        }
-
-        li {
-            position: relative;
-            transition: transform 0.3s ease-out;
-        }
-
-        li:hover {
-            transform: translateX(10px);
-        }
-
-        a::after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 2px;
-            background-color: #0078d4;
-            transition: width 0.5s ease-out;
-        }
-
-        a:hover::after {
-            width: 100%;
-        }
-
-        img {
-            filter: grayscale(50%);
-            transition: filter 0.5s ease-out;
-        }
-
-        img:hover {
-            filter: grayscale(0%);
-        }
-
-        footer {
             opacity: 0;
             animation: fadeIn 1s ease-out 1s forwards;
         }
 
-        /* Additional Animations */
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
-        @keyframes scale {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes colorChange {
-            0% {
-                color: #0078d4;
-            }
-
-            50% {
-                color: #004d90;
-            }
-
-            100% {
-                color: #0078d4;
-            }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -285,15 +129,15 @@
     <div class="container">
         <section>
             <h2>Welcome to SpoinkOS</h2>
-            <p>SpoinkOS is a lightweight, bloatware-free Linux distribution based on Ubuntu. We've stripped down Ubuntu to give you a clean and developer-friendly environment.</p>
+            <p>SpoinkOS is a lightweight, bloatware-free Linux distribution based on Ubuntu. Enjoy a clean and developer-friendly environment.</p>
         </section>
 
         <section>
             <h2>Features</h2>
             <ul>
-                <li>User-Friendly Interface: Our distro comes with a clean and intuitive desktop environment called GNOME that makes it easy to use, even for newcomers.</li>
-                <li>Based On Ubuntu: SpoinkOS is built on the solid foundation of Ubuntu, ensuring compatibility and stability.</li>
-                <li>Developer-Friendly: SpoinkOS provides tools and libraries tailored for developers, making it an ideal platform for coding and testing.</li>
+                <li>User-Friendly Interface: SpoinkOS features a clean and intuitive GNOME desktop environment.</li>
+                <li>Based On Ubuntu: Built on the solid foundation of Ubuntu for compatibility and stability.</li>
+                <li>Developer-Friendly: Tailored tools and libraries make SpoinkOS ideal for coding and testing.</li>
             </ul>
         </section>
 
@@ -303,14 +147,14 @@
                 <li>Download the ISO image from the <a href="https://archive.org/details/spoink-os">Internet Archive mirror</a>.</li>
                 <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
                 <li>Boot your computer from the USB drive.</li>
-                <li>Follow the on-screen instructions to install SpoinkOS.</li>
-                <li>(For Developers) To make a NixOS-Like deployment system, first install the OS on hardware or a VM then use CLCTool to execute the deployment / config scripts you have written; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
+                <li>Follow on-screen instructions to install SpoinkOS.</li>
+                <li>(For Developers) To make a NixOS-Like deployment system, install the OS, then use CLCTool for deployment / config scripts; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
             </ol>
         </section>
 
         <section>
             <h2>Conclusion</h2>
-            <p>Thank you for choosing SpoinkOS! We hope you enjoy using our distro as much as we enjoyed creating it!</p>
+            <p>Thanks for choosing SpoinkOS! We hope you enjoy using it as much as we enjoyed creating it!</p>
             <p>Happy computing!</p>
         </section>
 
@@ -320,22 +164,22 @@
             <h3>Our Team</h3>
             <ul>
                 <li>Carl - Head of SpoinkOS Development Team</li>
-                <li>Meco - Head Manager of SpoinkOS Development Team</li>
+                <li>Meco - Head Idea Manager of SpoinkOS Development Team</li>
             </ul>
 
             <h3>Concept</h3>
-            <p>SpoinkOS believes that wherever you go you have to spring or "Spoink" into action like a spring! So We came up with the name "SpoinkOS".</p>
+            <p>SpoinkOS believes in springing into action like a spring! Hence the name "SpoinkOS".</p>
 
             <h3>Pronounced</h3>
             <p>"Spo-ink O-S" as in two words.</p>
 
             <h3>Legal Stuff</h3>
-            <p>SpoinkOS is copyleft, SpoinkOS has no parent company and is owned by a person / person(s) in this sense as though the name is not copyrighted, we have no affiliation with Nintendo or Pokemon related products or services as though this is entirely different.</p>
+            <p>SpoinkOS is copyleft, owned by individuals. No affiliation with Nintendo or Pokemon.</p>
         </section>
 
         <section>
             <h2>Github Repo Data</h2>
-            <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="Alt">
+            <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="GitHub Repo Data">
         </section>
     </div>
 
