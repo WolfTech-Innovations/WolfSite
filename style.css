@@ -32,7 +32,7 @@ h1 {
 }
 
 h2 {
-    color: #4285f4;
+    color: #FFFFFF;
     margin-top: 2em;
     font-size: 2.5em;
     font-weight: 600;
@@ -54,7 +54,7 @@ ul, ol {
 li {
     margin-bottom: 1em;
     font-size: 1.1em;
-    color: #666;
+    color: #FFFFFF;
     animation: fadeInUp 1s ease-out;
 }
 
