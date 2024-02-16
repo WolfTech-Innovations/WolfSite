@@ -24,6 +24,30 @@
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "kxqqqsttia");
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+            // Function to toggle between light and dark theme
+            function toggleTheme(darkMode) {
+                const body = document.body;
+
+                if (darkMode) {
+                    body.classList.add("dark-theme");
+                } else {
+                    body.classList.remove("dark-theme");
+                }
+            }
+
+            // Initial check and set theme
+            toggleTheme(prefersDarkScheme.matches);
+
+            // Watch for changes in color scheme preference
+            prefersDarkScheme.addEventListener("change", function (e) {
+                toggleTheme(e.matches);
+            });
+        });
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 
