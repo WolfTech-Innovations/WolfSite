@@ -59,13 +59,13 @@ li {
 }
 
 a {
-    color: #4285f4;
+    color: ##007FFF;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #1967d2;
+    color: #FFFFFF;
     animation: scaleIn 0.3s ease-out;
 }
 
