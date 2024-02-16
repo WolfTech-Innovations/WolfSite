@@ -11,36 +11,36 @@ body {
 header {
     background-color: #4285f4;
     color: #ffffff;
-    text-align: center;
-    padding: 50px 0;
+    text-align: left;
+    padding: 2em;
     animation: fadeIn 1s ease-out;
 }
 
 h1 {
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 700;
     animation: fadeInUp 1s ease-out;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 50px 20px;
-    text-align: center;
+    margin: 0;
+    padding: 2em;
+    text-align: left;
     animation: fadeInUp 1s ease-out;
 }
 
 h2 {
     color: #4285f4;
-    margin-top: 40px;
+    margin-top: 2em;
     font-size: 2.5em;
     font-weight: 600;
     animation: fadeInUp 1s ease-out;
 }
 
 p {
-    margin-bottom: 20px;
+    margin-bottom: 1.5em;
     font-size: 1.1em;
     color: #666;
     animation: fadeInUp 1s ease-out;
@@ -52,7 +52,7 @@ ul, ol {
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 1em;
     font-size: 1.1em;
     color: #666;
     animation: fadeInUp 1s ease-out;
@@ -70,16 +70,16 @@ a:hover {
 }
 
 section {
-    margin-bottom: 80px;
+    margin-bottom: 4em;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 40px;
+    padding-bottom: 2em;
 }
 
 footer {
     background-color: #4285f4;
     color: #ffffff;
     text-align: center;
-    padding: 20px 0;
+    padding: 2em;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -87,17 +87,51 @@ footer {
     animation: fadeIn 1s ease-out 1s forwards;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.menu-icon {
+    display: none;
+    cursor: pointer;
 }
 
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 4em;
+    left: 2em;
+    background-color: #4285f4;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes scaleIn {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .container {
+        padding: 2em;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    .menu {
+        display: none;
+    }
+},
+body.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+header.dark-theme {
+    background-color: #1a1a1a;
 }
