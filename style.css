@@ -65,7 +65,7 @@ a {
 }
 
 a:hover {
-    color: #FFFFFF;
+    color: ##007FFF;
     animation: scaleIn 0.3s ease-out;
 }
 
