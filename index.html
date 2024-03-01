@@ -88,30 +88,6 @@
             <img src="https://repobeats.axiom.co/api/embed/9e173f4107ed537ec0ce258aff3280003b3e319f.svg" alt="GitHub Repo Data">
         </section>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-            // Function to toggle between light and dark theme
-            function toggleTheme(darkMode) {
-                const body = document.body;
-
-                if (darkMode) {
-                    body.classList.add("dark-theme");
-                } else {
-                    body.classList.remove("dark-theme");
-                }
-            }
-
-            // Initial check and set theme
-            toggleTheme(prefersDarkScheme.matches);
-
-            // Watch for changes in color scheme preference
-            prefersDarkScheme.addEventListener("change", function (e) {
-                toggleTheme(e.matches);
-            });
-        });
-    </script>
     <iframe src="https://discord.com/widget?id=1161416891533885555&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     <footer>
         HTML Last updated: 2/13/2024
