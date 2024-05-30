@@ -1,5 +1,6 @@
+/* Base Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #000000;
     color: #4285F4;
     margin: 0;
@@ -16,18 +17,18 @@ header {
     animation: fadeIn 1s ease-out;
 }
 
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: left;
+    animation: fadeInUp 1s ease-out;
+}
+
 h1 {
     margin: 0;
     font-size: 2.5em;
     font-weight: 700;
-    animation: fadeInUp 1s ease-out;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0;
-    padding: 2em;
-    text-align: left;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -39,77 +40,32 @@ h2 {
     animation: fadeInUp 1s ease-out;
 }
 
-p {
+p,
+li {
     margin-bottom: 1.5em;
     font-size: 1.1em;
     color: #FFFFFF;
     animation: fadeInUp 1s ease-out;
 }
 
-ul, ol {
+ul,
+ol {
     padding: 0;
     list-style: none;
 }
 
-li {
-    margin-bottom: 1em;
-    font-size: 1.1em;
-    color: #FFFFFF;
-    animation: fadeInUp 1s ease-out;
-}
-
 a {
-    color: ##007FFF;
+    color: #007FFF;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: ##007FFF;
+    color: #007FFF;
     animation: scaleIn 0.3s ease-out;
 }
 
-section {
-    margin-bottom: 4em;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 2em;
-}
-
-footer {
-    background-color: #4285f4;
-    color: #ffffff;
-    text-align: center;
-    padding: 2em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    opacity: 0;
-    animation: fadeIn 1s ease-out 1s forwards;
-}
-
-.menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 4em;
-    left: 2em;
-    background-color: #4285f4;
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.menu a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-bottom: 1em;
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
     .menu-icon {
         display: block;
@@ -126,7 +82,9 @@ footer {
     .menu {
         display: none;
     }
-},
+}
+
+/* Dark Theme */
 body.dark-theme {
     background-color: #333;
     color: #fff;
@@ -134,4 +92,34 @@ body.dark-theme {
 
 header.dark-theme {
     background-color: #1a1a1a;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
 }
