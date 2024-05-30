@@ -1,25 +1,26 @@
 /* Base Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333333;
+    background-color: #fdeeeb;
+    color: #ffffff;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden;
+    text-align: center; /* Center all text */
 }
 
 header {
-    background-color: #4caf50;
+    background-color: #ff715b; /* Sunset Red */
     color: #ffffff;
-    text-align: left;
+    text-align: center; /* Center header text */
     padding: 2em;
     animation: fadeIn 1s ease-out;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center container horizontally */
     padding: 2em;
     text-align: left;
     animation: fadeInUp 1s ease-out;
@@ -33,7 +34,7 @@ h1 {
 }
 
 h2 {
-    color: #4caf50;
+    color: #f9b4ab; /* Warm Pink */
     margin-top: 2em;
     font-size: 2.5em;
     font-weight: 600;
@@ -44,7 +45,7 @@ p,
 li {
     margin-bottom: 1.5em;
     font-size: 1.1em;
-    color: #333333;
+    color: #ffffff;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -55,13 +56,13 @@ ol {
 }
 
 a {
-    color: #009688;
+    color: #ffe0d9; /* Light Peach */
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #00796b;
+    color: #ffffff;
     animation: scaleIn 0.3s ease-out;
 }
 
@@ -76,7 +77,7 @@ a:hover {
     }
 
     header {
-        text-align: center;
+        text-align: center; /* Center header text */
     }
 
     .menu {
@@ -86,8 +87,8 @@ a:hover {
 
 /* Dark Theme */
 body.dark-theme {
-    background-color: #333;
-    color: #fff;
+    background-color: #333333;
+    color: #ffffff;
 }
 
 header.dark-theme {
