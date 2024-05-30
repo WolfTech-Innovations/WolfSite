@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #fdeeeb;
-    color: #ffffff;
+    color: #000000; /* Changed text color to black */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -45,7 +45,7 @@ p,
 li {
     margin-bottom: 1.5em;
     font-size: 1.1em;
-    color: #ffffff;
+    color: #000000; /* Changed text color to black */
     animation: fadeInUp 1s ease-out;
 }
 
