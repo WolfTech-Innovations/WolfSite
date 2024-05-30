@@ -1,8 +1,8 @@
 /* Base Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
-    color: #4285F4;
+    background-color: #f7f7f7;
+    color: #333333;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: #4285f4;
+    background-color: #4caf50;
     color: #ffffff;
     text-align: left;
     padding: 2em;
@@ -33,7 +33,7 @@ h1 {
 }
 
 h2 {
-    color: #FFFFFF;
+    color: #4caf50;
     margin-top: 2em;
     font-size: 2.5em;
     font-weight: 600;
@@ -44,7 +44,7 @@ p,
 li {
     margin-bottom: 1.5em;
     font-size: 1.1em;
-    color: #FFFFFF;
+    color: #333333;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -55,13 +55,13 @@ ol {
 }
 
 a {
-    color: #007FFF;
+    color: #009688;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #007FFF;
+    color: #00796b;
     animation: scaleIn 0.3s ease-out;
 }
 
