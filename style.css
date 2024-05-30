@@ -1,21 +1,28 @@
 /* Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fdeeeb;
-    color: #000000; /* Changed text color to black */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    background-color: #f8f8f8; /* Light gray background */
+    color: #333333; /* Dark gray text */
     margin: 0;
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden;
     text-align: center; /* Center all text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
 }
 
 header {
-    background-color: #ff715b; /* Sunset Red */
-    color: #ffffff;
+    background-color: #3f51b5; /* Modern blue */
+    color: #ffffff; /* White text */
     text-align: center; /* Center header text */
     padding: 2em;
-    animation: fadeIn 1s ease-out;
+    border-bottom: 2px solid #1a237e; /* Darker blue border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+header:hover {
+    background-color: #303f9f; /* Darker blue on hover */
 }
 
 .container {
@@ -23,30 +30,29 @@ header {
     margin: 0 auto; /* Center container horizontally */
     padding: 2em;
     text-align: left;
-    animation: fadeInUp 1s ease-out;
+    transition: margin 0.3s ease; /* Smooth margin transition */
 }
 
 h1 {
     margin: 0;
-    font-size: 2.5em;
-    font-weight: 700;
-    animation: fadeInUp 1s ease-out;
+    font-size: 3em; /* Increased font size */
+    font-weight: bold; /* Bold font */
+    transition: font-size 0.3s ease; /* Smooth font size transition */
 }
 
 h2 {
-    color: #f9b4ab; /* Warm Pink */
+    color: #3f51b5; /* Modern blue for headings */
     margin-top: 2em;
     font-size: 2.5em;
-    font-weight: 600;
-    animation: fadeInUp 1s ease-out;
+    font-weight: bold; /* Bold font */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 p,
 li {
     margin-bottom: 1.5em;
-    font-size: 1.1em;
-    color: #000000; /* Changed text color to black */
-    animation: fadeInUp 1s ease-out;
+    font-size: 1.2em; /* Increased font size */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 ul,
@@ -56,14 +62,28 @@ ol {
 }
 
 a {
-    color: #ffe0d9; /* Light Peach */
+    color: #009688; /* Modern green for links */
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 a:hover {
-    color: #ffffff;
-    animation: scaleIn 0.3s ease-out;
+    color: #00796b; /* Darker green on hover */
+}
+
+/* Decorative Styles */
+.decor {
+    border: 2px solid #3f51b5; /* Modern blue border */
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.decor:hover {
+    border-color: #303f9f; /* Darker blue border on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly raised shadow on hover */
 }
 
 /* Responsive Styles */
@@ -74,6 +94,7 @@ a:hover {
 
     .container {
         padding: 2em;
+        transition: padding 0.3s ease; /* Smooth padding transition */
     }
 
     header {
@@ -82,45 +103,5 @@ a:hover {
 
     .menu {
         display: none;
-    }
-}
-
-/* Dark Theme */
-body.dark-theme {
-    background-color: #333333;
-    color: #ffffff;
-}
-
-header.dark-theme {
-    background-color: #1a1a1a;
-}
-
-/* Animation Keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
     }
 }
