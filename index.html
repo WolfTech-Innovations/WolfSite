@@ -7,22 +7,92 @@
     <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3">
     <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg">
     <meta name="description" content="SpoinkOS - A modern and developer-friendly OS for laptops and PCs.">
-    <meta name="keywords" content="SpoinkOS, Ubuntu, lightweight, GNOME, developer-friendly, linux, debian, osdev, kernel, laptop, tech, web, internet, software, technology, operating system, coding, programming, open-source, software development, desktop environment, system, applications, tools, libraries, computer, PC, user interface, installation, download, bootable USB, ISO image, deployment, configuration, development team, marketing, concept, legal, copyleft, Nintendo, Pokemon, modern, bold, efficient, innovation, productivity, user experience, interface, compatibility, stability, coding environment, coding tools, developer tools, command line, terminal, software distribution, app development, web development, mobile development, cloud computing, server management, network security, data privacy, data protection, virtualization, containerization, artificial intelligence, machine learning, data analytics, cyber security, programming languages, scripting, coding standards, version control, collaboration, community, documentation, tutorials, forums, bug tracking, troubleshooting, performance optimization, software updates, patches, upgrades, customization, user support, technical support, system requirements, hardware compatibility, software licenses, terms of use, privacy policy, open-source community, software repositories, software packages, package management, software installation, software configuration, software deployment, software testing, software maintenance, software lifecycle, software development lifecycle, software architecture, software design, software engineering, software quality assurance, software project management, software development methodologies, agile development, waterfall model, iterative development, continuous integration, continuous delivery, continuous deployment, software release management, software documentation, software migration, software migration strategies, software migration tools, software migration planning, software migration risks, software migration challenges, software migration best practices, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning, software migration process, software migration steps, software migration considerations, software migration timeline, software migration costs, software migration case studies, software migration success stories, software migration lessons learned, software migration tips, software migration checklist, software migration resources, software migration experts, software migration consultants, software migration services, software migration solutions, software migration support, software migration training, software migration workshops, software migration seminars, software migration events, software migration news, software migration updates, software migration trends, software migration technologies, software migration frameworks, software migration techniques, software migration strategies, software migration methodologies, software migration approaches, software migration requirements, software migration challenges, software migration risks, software migration best practices, software migration tools, software migration planning">
+    <meta name="keywords" content="SpoinkOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
     <title>SpoinkOS - A Modern Developer-Friendly OS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #181818;
+            color: #ffffff;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        header, section, iframe {
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode header, 
+        body.dark-mode section, 
+        body.dark-mode iframe {
+            background: #242424;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .animate__animated {
+            visibility: hidden;
+        }
+    </style>
     <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "kxqqqsttia");
-</script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "kxqqqsttia");
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.createElement('button');
+            toggleButton.classList.add('dark-mode-toggle');
+            toggleButton.innerText = 'Toggle Dark Mode';
+            document.body.appendChild(toggleButton);
+
+            toggleButton.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            document.querySelectorAll('section').forEach(function (section) {
+                new Waypoint({
+                    element: section,
+                    handler: function () {
+                        section.classList.add('animate__animated', 'animate__fadeInUp');
+                        section.style.visibility = 'visible';
+                    },
+                    offset: '75%'
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
     <header>
-        <h1>SpoinkOS, The OS that rises to the challange</h1>
+        <h1>SpoinkOS, The OS that rises to the challenge</h1>
     </header>
 
     <div class="container">
@@ -43,13 +113,18 @@
         <section>
             <h2>Installation Guide</h2>
             <ol>
-                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
-                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://img.shields.io/sourceforge/dt/spoinkos.svg" ></a>
+                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48" srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a></li>
+                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://img.shields.io/sourceforge/dt/spoinkos.svg"></a></li>
                 <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
                 <li>Boot your computer from the USB drive.</li>
                 <li>Follow on-screen instructions to install SpoinkOS.</li>
                 <li>(For Developers) To create a NixOS-Like deployment system, install the OS, then use CLCTool for deployment/config scripts; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
             </ol>
+        </section>
+
+        <section>
+            <h2>Documentation</h2>
+            <p>For detailed information and tutorials, visit our <a href="documentation.html">Documentation Page</a>.</p>
         </section>
 
         <section>
