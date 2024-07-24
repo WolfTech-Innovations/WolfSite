@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpoinkOS Documentation - Comprehensive guides and tutorials for using SpoinkOS.">
+    <meta name="keywords" content="SpoinkOS, documentation, guides, tutorials, help">
+    <title>SpoinkOS Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #181818;
+            color: #ffffff;
+        }
+
+        header, nav, section {
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode header, 
+        body.dark-mode nav, 
+        body.dark-mode section {
+            background: #242424;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3;
+        }
+
+        section {
+            visibility: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.createElement('button');
+            toggleButton.classList.add('dark-mode-toggle');
+            toggleButton.innerText = 'Toggle Dark Mode';
+            document.body.appendChild(toggleButton);
+
+            toggleButton.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            document.querySelectorAll('section').forEach(function (section) {
+                new Waypoint({
+                    element: section,
+                    handler: function () {
+                        section.classList.add('animate__animated', 'animate__fadeInUp');
+                        section.style.visibility = 'visible';
+                    },
+                    offset: '75%'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>SpoinkOS Documentation</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to the SpoinkOS documentation. Here you'll find everything you need to get started with SpoinkOS.</p>
+        </section>
+
+        <section id="usage">
+            <h2>Usage</h2>
+            <p>You can use CLCTool to install things and configure things how you want after install.</p>
+        </section>
+
+
+        <section id="faq">
+            <h2>FAQ</h2>
+            <p> Q: Is SpoinkOS trying to replace Ubuntu? A: No. </p>
+        </section>
+    </div>
+</body>
+
+</html>
