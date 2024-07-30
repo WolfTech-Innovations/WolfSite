@@ -18,13 +18,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
             background-color: #181818;
             color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .dark-mode-toggle {
@@ -42,21 +38,55 @@
         header, section, iframe {
             margin: 20px;
             padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        body.dark-mode header, 
-        body.dark-mode section, 
-        body.dark-mode iframe {
             background: #242424;
+            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .animate__animated {
             visibility: hidden;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #242424;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .verification-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .verification-content {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
     </style>
     <script type="text/javascript">
@@ -86,11 +116,27 @@
                     offset: '75%'
                 });
             });
+
+            // Show the verification box
+            const verificationBox = document.createElement('div');
+            verificationBox.classList.add('verification-box');
+            verificationBox.innerHTML = `
+                <div class="verification-content">
+                    <h2>Site is verifying, please wait...</h2>
+                    <p>This process ensures your connection is secure.</p>
+                </div>
+            `;
+            document.body.appendChild(verificationBox);
+
+            // Simulate a delay for verification
+            setTimeout(() => {
+                verificationBox.style.display = 'none';
+            }, 3000); // 3 seconds delay
         });
     </script>
 </head>
 
-<body>
+<body class="dark-mode">
     <header>
         <h1>SpoinkOS, The OS that rises to the challenge</h1>
     </header>
@@ -147,6 +193,11 @@
     </div>
 
     <iframe src="https://discord.com/widget?id=1161416891533885555&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+    <footer>
+        <p>&copy; 2024 SpoinkOS Innovations. All rights reserved.</p>
+        <p><a href="terms-of-service.html">Terms of Service</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
+    </footer>
 </body>
 
 </html>
