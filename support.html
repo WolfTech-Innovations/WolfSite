@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpoinkOS Support">
+    <meta name="keywords" content="SpoinkOS, support, help, troubleshooting">
+    <title>SpoinkOS Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #181818;
+            color: #ffffff;
+        }
+
+        header, nav, section {
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode header, 
+        body.dark-mode nav, 
+        body.dark-mode section {
+            background: #242424;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3;
+        }
+
+        section {
+            visibility: hidden;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.createElement('button');
+            toggleButton.classList.add('dark-mode-toggle');
+            toggleButton.innerText = 'Toggle Dark Mode';
+            document.body.appendChild(toggleButton);
+
+            toggleButton.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            document.querySelectorAll('section').forEach(function (section) {
+                new Waypoint({
+                    element: section,
+                    handler: function () {
+                        section.classList.add('animate__animated', 'animate__fadeInUp');
+                        section.style.visibility = 'visible';
+                    },
+                    offset: '75%'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body class="dark-mode">
+    <header>
+        <h1>SpoinkOS Support</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#community">Community Support</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you need direct support, please join our SourceForge mailing list:</p>
+            <ul>
+                <li><a href="https://sourceforge.net/projects/spoinkos/lists/spoinkos-support">SpoinkOS Support Mailing List</a></li>
+            </ul>
+        </section>
+
+        <section id="community">
+            <h2>Community Support</h2>
+            <p>Join our community for support from other SpoinkOS users and developers on GitHub.</p>
+            <ul>
+                <li><a href="https://github.com/SpoinkOSDevs">GitHub</a></li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h2>Resources</h2>
+            <p>Here are some useful resources to help you get the most out of SpoinkOS:</p>
+            <ul>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool GitHub</a></li>
+                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download">Download SpoinkOS</a></li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>
