@@ -104,7 +104,7 @@
     </script>
 </head>
 
-<body>
+<body class="dark-mode">
     <header>
         <h1>SpoinkOS Documentation</h1>
     </header>
@@ -113,6 +113,7 @@
         <ul>
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#usage">Usage</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
     </nav>
@@ -128,10 +129,27 @@
             <p>You can use CLCTool to install things and configure things how you want after install.</p>
         </section>
 
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            <h3>Common Issues and Solutions</h3>
+            <ul>
+                <li><strong>Issue:</strong> SpoinkOS won't boot after installation.</li>
+                <li><strong>Solution:</strong> Ensure that the bootable USB was created correctly. Try recreating it with a different tool or using a different USB drive.</li>
+                <li><strong>Issue:</strong> Wi-Fi not working.</li>
+                <li><strong>Solution:</strong> Check if the Wi-Fi drivers are installed. You can install missing drivers using the `sudo apt-get install` command.</li>
+                <li><strong>Issue:</strong> System crashes or freezes.</li>
+                <li><strong>Solution:</strong> Make sure your hardware meets the minimum requirements for SpoinkOS. Check for any hardware compatibility issues.</li>
+            </ul>
+        </section>
 
         <section id="faq">
             <h2>FAQ</h2>
-            <p> Q: Is SpoinkOS trying to replace Ubuntu? A: No. </p>
+            <p><strong>Q:</strong> Is SpoinkOS trying to replace Ubuntu?<br>
+               <strong>A:</strong> No.</p>
+            <p><strong>Q:</strong> How do I update SpoinkOS?<br>
+               <strong>A:</strong> You can update SpoinkOS using the built-in package manager with the command `sudo apt-get update && sudo apt-get upgrade`.</p>
+            <p><strong>Q:</strong> Where can I find more help?<br>
+               <strong>A:</strong> For more assistance, visit our <a href="support.html">Support Page</a>.</p>
         </section>
     </div>
 </body>
