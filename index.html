@@ -8,7 +8,7 @@
     <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg">
     <meta name="description" content="SpoinkOS Homepage">
     <meta name="keywords" content="SpoinkOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
-    <title>SpoinkOS - A Modern Developer-Friendly OS</title>
+    <title>SpoinkOS - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -19,8 +19,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #FF8C00;
-            color: #ffffff;
+            background-color: #FFFAF0; /* Light orange background for better readability */
+            color: #000000;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -68,8 +68,75 @@
             text-decoration: underline;
         }
 
-        .verification-box {
-            display: none; /* Hide the verification box */
+        nav {
+            background: #FFA500;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+        }
+
+        #toc {
+            margin-top: 20px;
+            background: #FFD700;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        #toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #toc ul li {
+            margin: 10px 0;
+        }
+
+        #toc ul li a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        #toc ul li a:hover {
+            text-decoration: underline;
         }
     </style>
     <script type="text/javascript">
@@ -99,22 +166,54 @@
                     offset: '75%'
                 });
             });
+
+            document.querySelector('.hamburger-menu').addEventListener('click', function () {
+                document.querySelector('nav ul').classList.toggle('show');
+            });
         });
     </script>
 </head>
 
 <body class="dark-mode">
+    <nav>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#extras">Extras</a></li>
+        </ul>
+    </nav>
+
     <header class="animate__animated animate__bounceInDown">
         <h1><i class="fas fa-rocket"></i> SpoinkOS, The OS that rises to the challenge</h1>
     </header>
 
     <div class="container">
-        <section class="animate__animated animate__fadeInUp">
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#extras">Extras</a></li>
+            </ul>
+        </div>
+
+        <section id="home" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-laptop-code"></i> SpoinkOS - The New Way to Power up your projects</h2>
             <p>SpoinkOS is a lightweight, sleek, and developer-friendly operating system designed for laptops and PCs.</p>
         </section>
 
-        <section class="animate__animated animate__fadeInUp">
+        <section id="features" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-tools"></i> Key Features</h2>
             <ul>
                 <li><i class="fas fa-check"></i> User-Friendly Interface: SpoinkOS features a clean and intuitive desktop environment. (Interface Depends on Release)</li>
@@ -123,7 +222,7 @@
             </ul>
         </section>
 
-        <section class="animate__animated animate__fadeInUp">
+        <section id="installation" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-download"></i> Installation Guide</h2>
             <ol>
                 <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48" srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a></li>
@@ -135,18 +234,18 @@
             </ol>
         </section>
 
-        <section class="animate__animated animate__fadeInUp">
+        <section id="documentation" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-book"></i> Documentation</h2>
             <p>For detailed information and tutorials, visit our <a href="documentation.html">Documentation Page</a>.</p>
         </section>
 
-        <section class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-thumbs-up"></i> Conclusion</h2>
+        <section id="conclusion" class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
             <p>Thank you for choosing SpoinkOS! Enjoy the power of a modern, developer-friendly operating system.</p>
         </section>
 
-        <section class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-info-circle"></i> Extras</h2>
+        <section id="extras" class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-gift"></i> Extras</h2>
 
             <h3><i class="fas fa-lightbulb"></i> Concept</h3>
             <p>SpoinkOS embodies innovation and efficiency, delivering a seamless user experience.</p>
@@ -154,14 +253,14 @@
             <h3><i class="fas fa-volume-up"></i> Pronunciation</h3>
             <p>"Spo-ink O-S" as in two words.</p>
 
-            <h3><i class="fas fa-gavel"></i> Legal Information</h3>
+            <h3><i class="fas fa-balance-scale"></i> Legal Information</h3>
             <p>SpoinkOS is Public Domain and is managed by SpoinkOS Innovations.</p>
         </section>
     </div>
 
     <iframe src="https://discord.com/widget?id=1161416891533885555&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
-    <footer class="animate__animated animate__bounceInUp">
+    <footer>
         <p>&copy; 2024 SpoinkOS Innovations. All rights reserved.</p>
         <p><a href="terms-of-service.html">Terms of Service</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
     </footer>
