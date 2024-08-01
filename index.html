@@ -11,14 +11,15 @@
     <title>SpoinkOS - A Modern Developer-Friendly OS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #181818;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FF8C00;
             color: #ffffff;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -38,7 +39,7 @@
         header, section, iframe {
             margin: 20px;
             padding: 20px;
-            background: #242424;
+            background: #FFA500;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             transition: background 0.3s, box-shadow 0.3s;
@@ -51,7 +52,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: #242424;
+            background: #FFA500;
             color: #fff;
             margin-top: 20px;
             border-radius: 8px;
@@ -68,25 +69,7 @@
         }
 
         .verification-box {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-
-        .verification-content {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            display: none; /* Hide the verification box */
         }
     </style>
     <script type="text/javascript">
@@ -116,30 +99,32 @@
                     offset: '75%'
                 });
             });
+        });
+    </script>
 </head>
 
 <body class="dark-mode">
-    <header>
-        <h1>SpoinkOS, The OS that rises to the challenge</h1>
+    <header class="animate__animated animate__bounceInDown">
+        <h1><i class="fas fa-rocket"></i> SpoinkOS, The OS that rises to the challenge</h1>
     </header>
 
     <div class="container">
-        <section>
-            <h2>SpoinkOS - The New Way to Power up your projects</h2>
+        <section class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-laptop-code"></i> SpoinkOS - The New Way to Power up your projects</h2>
             <p>SpoinkOS is a lightweight, sleek, and developer-friendly operating system designed for laptops and PCs.</p>
         </section>
 
-        <section>
-            <h2>Key Features</h2>
+        <section class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-tools"></i> Key Features</h2>
             <ul>
-                <li>User-Friendly Interface: SpoinkOS features a clean and intuitive desktop environment. (Interface Depends on Release)</li>
-                <li>Based On Ubuntu: Built on the solid foundation of Ubuntu for compatibility and stability.</li>
-                <li>Developer-Friendly: Tailored tools and libraries make SpoinkOS ideal for coding, testing, and development projects.</li>
+                <li><i class="fas fa-check"></i> User-Friendly Interface: SpoinkOS features a clean and intuitive desktop environment. (Interface Depends on Release)</li>
+                <li><i class="fas fa-check"></i> Based On Ubuntu: Built on the solid foundation of Ubuntu for compatibility and stability.</li>
+                <li><i class="fas fa-check"></i> Developer-Friendly: Tailored tools and libraries make SpoinkOS ideal for coding, testing, and development projects.</li>
             </ul>
         </section>
 
-        <section>
-            <h2>Installation Guide</h2>
+        <section class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-download"></i> Installation Guide</h2>
             <ol>
                 <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48" srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a></li>
                 <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://img.shields.io/sourceforge/dt/spoinkos.svg"></a></li>
@@ -150,33 +135,33 @@
             </ol>
         </section>
 
-        <section>
-            <h2>Documentation</h2>
+        <section class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-book"></i> Documentation</h2>
             <p>For detailed information and tutorials, visit our <a href="documentation.html">Documentation Page</a>.</p>
         </section>
 
-        <section>
-            <h2>Conclusion</h2>
+        <section class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-thumbs-up"></i> Conclusion</h2>
             <p>Thank you for choosing SpoinkOS! Enjoy the power of a modern, developer-friendly operating system.</p>
         </section>
 
-        <section>
-            <h2>Extras</h2>
+        <section class="animate__animated animate__fadeInUp">
+            <h2><i class="fas fa-info-circle"></i> Extras</h2>
 
-            <h3>Concept</h3>
+            <h3><i class="fas fa-lightbulb"></i> Concept</h3>
             <p>SpoinkOS embodies innovation and efficiency, delivering a seamless user experience.</p>
 
-            <h3>Pronunciation</h3>
+            <h3><i class="fas fa-volume-up"></i> Pronunciation</h3>
             <p>"Spo-ink O-S" as in two words.</p>
 
-            <h3>Legal Information</h3>
+            <h3><i class="fas fa-gavel"></i> Legal Information</h3>
             <p>SpoinkOS is Public Domain and is managed by SpoinkOS Innovations.</p>
         </section>
     </div>
 
     <iframe src="https://discord.com/widget?id=1161416891533885555&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
-    <footer>
+    <footer class="animate__animated animate__bounceInUp">
         <p>&copy; 2024 SpoinkOS Innovations. All rights reserved.</p>
         <p><a href="terms-of-service.html">Terms of Service</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
     </footer>
