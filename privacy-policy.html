@@ -4,111 +4,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3">
+    <meta name="google-site-verification" content="6WX-auM6UehqzoTG4q-6Bt6CXyTHEolgXBhtEendUPg">
+    <meta name="description" content="SpoinkOS Privacy Policy">
+    <meta name="keywords" content="SpoinkOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
     <title>SpoinkOS - Privacy Policy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFAF0; /* Light orange background for better readability */
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
             background-color: #181818;
             color: #ffffff;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        header, section, footer {
+            margin: 20px;
             padding: 20px;
-        }
-
-        header {
-            margin-bottom: 40px;
-        }
-
-        h1, h2, h3 {
-            color: #ffa500;
-        }
-
-        section {
-            margin-bottom: 20px;
-            background: #242424;
-            padding: 20px;
+            background: #FFA500;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .dark-mode header,
+        .dark-mode section,
+        .dark-mode footer {
+            background: #242424;
+            color: #fff;
+        }
+
+        .animate__animated {
+            visibility: hidden;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background: #242424;
+            background: #FFA500;
             color: #fff;
             margin-top: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
+
+        .dark-mode footer {
+            background: #242424;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            background: #FFA500;
+            padding: 10px;
+        }
+
+        .dark-mode nav {
+            background: #242424;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+        }
+
+        #toc {
+            margin-top: 20px;
+            background: #FFD700;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        #toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #toc ul li {
+            margin: 10px 0;
+        }
+
+        #toc ul li a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        #toc ul li a:hover {
+            text-decoration: underline;
+        }
     </style>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "kxqqqsttia");
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.createElement('button');
+            toggleButton.classList.add('dark-mode-toggle');
+            toggleButton.innerText = 'Toggle Dark Mode';
+            document.body.appendChild(toggleButton);
+
+            toggleButton.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            document.querySelectorAll('section').forEach(function (section) {
+                new Waypoint({
+                    element: section,
+                    handler: function () {
+                        section.classList.add('animate__animated', 'animate__fadeInUp');
+                        section.style.visibility = 'visible';
+                    },
+                    offset: '75%'
+                });
+            });
+
+            document.querySelector('.hamburger-menu').addEventListener('click', function () {
+                document.querySelector('nav ul').classList.toggle('show');
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <header>
-        <h1>Privacy Policy for SpoinkOS and SpoinkOS Innovations</h1>
+    <nav>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#information">Information We Collect</a></li>
+            <li><a href="#use">How We Use Information</a></li>
+            <li><a href="#security">Data Security</a></li>
+            <li><a href="#third-party">Third-Party Services</a></li>
+            <li><a href="#updates">Updates and Changes</a></li>
+            <li><a href="#contact">Contact Information</a></li>
+        </ul>
+    </nav>
+
+    <header class="animate__animated animate__bounceInDown">
+        <h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
         <p><strong>Effective Date:</strong> 7/31</p>
     </header>
 
-    <section>
-        <h2>Introduction</h2>
-        <p>
-            SpoinkOS Innovations ("we," "our," or "us") values your privacy. This Privacy Policy outlines the types of information we collect from users of our services, how we use this information, and the steps we take to ensure it is protected. By using SpoinkOS and its associated services, you agree to the collection and use of information in accordance with this policy.
-        </p>
-    </section>
+    <div class="container">
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#information">Information We Collect</a></li>
+                <li><a href="#use">How We Use Information</a></li>
+                <li><a href="#security">Data Security</a></li>
+                <li><a href="#third-party">Third-Party Services</a></li>
+                <li><a href="#updates">Updates and Changes</a></li>
+                <li><a href="#contact">Contact Information</a></li>
+            </ul>
+        </div>
 
-    <section>
-        <h2>Information We Collect</h2>
-        <h3>1. Personal Information</h3>
-        <p>
-            When you interact with our services, we may collect personal information, such as your name, email address, and any other details you provide voluntarily.
-        </p>
+        <section id="introduction" class="animate__animated animate__fadeInUp">
+            <h2>Introduction</h2>
+            <p>
+                SpoinkOS Innovations ("we," "our," or "us") values your privacy. This Privacy Policy outlines the types of information we collect from users of our services, how we use this information, and the steps we take to ensure it is protected. By using SpoinkOS and its associated services, you agree to the collection and use of information in accordance with this policy.
+            </p>
+        </section>
 
-        <h3>2. Usage Data</h3>
-        <p>
-            We automatically collect information about how you access and use SpoinkOS, including your IP address, browser type, and operating system. This data helps us understand user behavior and improve our services.
-        </p>
+        <section id="information" class="animate__animated animate__fadeInUp">
+            <h2>Information We Collect</h2>
+            <h3>1. Personal Information</h3>
+            <p>
+                When you interact with our services, we may collect personal information, such as your name, email address, and any other details you provide voluntarily.
+            </p>
 
-        <h3>3. Cookies and Tracking Technologies</h3>
-        <p>
-            We use cookies and similar tracking technologies to monitor the activity on our services and store certain information. Cookies are files with a small amount of data that are sent to your browser from a website and stored on your device.
-        </p>
-    </section>
+            <h3>2. Usage Data</h3>
+            <p>
+                We automatically collect information about how you access and use SpoinkOS, including your IP address, browser type, and operating system. This data helps us understand user behavior and improve our services.
+            </p>
 
-    <section>
-        <h2>How We Use Information</h2>
-        <h3>1. To Provide and Maintain Our Services</h3>
-        <p>
-            We use the collected data to deliver, maintain, and improve SpoinkOS and its features.
-        </p>
+            <h3>3. Cookies and Tracking Technologies</h3>
+            <p>
+                We use cookies and similar tracking technologies to monitor the activity on our services and store certain information. Cookies are files with a small amount of data that are sent to your browser from a website and stored on your device.
+            </p>
+        </section>
 
-        <h3>2. To Communicate with You</h3>
-        <p>
-            Your personal information allows us to contact you with newsletters, marketing, or promotional materials and other information that may be of interest to you.
-        </p>
+        <section id="use" class="animate__animated animate__fadeInUp">
+            <h2>How We Use Information</h2>
+            <h3>1. To Provide and Maintain Our Services</h3>
+            <p>
+                We use the collected data to deliver, maintain, and improve SpoinkOS and its features.
+            </p>
 
-        <h3>3. To Improve Our Services</h3>
-        <p>
-            Usage data helps us understand how our services are accessed and used, enabling us to enhance the user experience.
-        </p>
+            <h3>2. To Communicate with You</h3>
+            <p>
+                Your personal information allows us to contact you with newsletters, marketing, or promotional materials and other information that may be of interest to you.
+            </p>
 
-        <h3>4. For Security</h3>
-        <p>
-            We may use your data to detect, prevent, and address technical issues or unauthorized activities.
-        </p>
-    </section>
+            <h3>3. To Improve Our Services</h3>
+            <p>
+                Usage data helps us understand how our services are accessed and used, enabling us to enhance the user experience.
+            </p>
 
-    <section>
-        <h2>Data Security</h2>
-        <p>
-            We prioritize the security of your personal information. SpoinkOS Innovations implements a variety of security measures to maintain the safety of your personal data. However, please note that no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
-        </p>
-    </section>
+            <h3>4. For Security</h3>
+            <p>
+                We may use your data to detect, prevent, and address technical issues or unauthorized activities.
+            </p>
+        </section>
 
-    <section>
-        <h2>Third-Party Services</h2>
-        <p>
-            SpoinkOS may include links to third-party websites or services that are not operated by us. If you click on a third-party link, you will be directed to that third party's site.
-        </p>
-    </section>
+        <section id="security" class="animate__animated animate__fadeInUp">
+            <h2>Data Security</h2>
+            <p>
+                We prioritize the security of your personal information. SpoinkOS Innovations implements a variety of security measures to maintain the safety of your personal data. However, please note that no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
+            </p>
+        </section>
+
+        <section id="third-party" class="animate__animated animate__fadeInUp">
+            <h2>Third-Party Services</h2>
+            <p>
+                SpoinkOS may include links to third-party websites or services that are not operated by us. If you click on a third-party link, you will be directed to that third party's site.
+            </p>
+        </section>
+
+        <section id="updates" class="animate__animated animate__fadeInUp">
+            <h2>Updates and Changes</h2>
+            <p>
+                We reserve the right to update and change this Privacy Policy from time to time. You are encouraged to review this policy periodically. Any changes will be posted on this page.
+            </p>
+        </section>
+
+        <section id="contact" class="animate__animated animate__fadeInUp">
+            <h2>Contact Information</h2>
+            <p>
+                If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:support@spoinkos.com">support@spoinkos.com</a>.
+            </p>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 SpoinkOS Innovations. All rights reserved.</p>
