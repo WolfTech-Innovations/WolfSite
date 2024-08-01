@@ -116,24 +116,6 @@
                     offset: '75%'
                 });
             });
-
-            // Show the verification box
-            const verificationBox = document.createElement('div');
-            verificationBox.classList.add('verification-box');
-            verificationBox.innerHTML = `
-                <div class="verification-content">
-                    <h2>Site is verifying, please wait...</h2>
-                    <p>This process ensures your connection is secure.</p>
-                </div>
-            `;
-            document.body.appendChild(verificationBox);
-
-            // Simulate a delay for verification
-            setTimeout(() => {
-                verificationBox.style.display = 'none';
-            }, 3000); // 3 seconds delay
-        });
-    </script>
 </head>
 
 <body class="dark-mode">
