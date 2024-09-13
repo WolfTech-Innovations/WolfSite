@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3">
     <meta name="google-site-verification" content="K03AtePYYCXw4LtNBXYuqRS5rzNVPcW1Sbmb6eh4ybc" />
-    <meta name="p:domain_verify" content="db8daa64dc9f6338255c654de15d03a1"/>
+    <meta name="p:domain_verify" content="db8daa64dc9f6338255c654de15d03a1" />
     <meta name="copyrighted-site-verification" content="9237ffa112716482" />
     <meta name="description" content="Welcome to the SpoinkOS Homepage! Here you can find downloads for SpoinkOS and other helpful info.">
     <meta name="keywords" content="SpoinkOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
@@ -18,98 +18,94 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
-    <div class="gfm-embed" data-url="https://www.gofundme.com/f/spoinkos-innovations-funding-for-spoinkx-phone-series/widget/large?sharesheet=dashboard&attribution_id=sl:3c28df14-a840-4686-8760-b293b933b856"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #FFFAF0; /* Light orange background for better readability */
-            color: #000000;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: #f5f7fa;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, section {
+            margin: 20px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        h1, h2 {
+            color: #34495e;
+        }
+
+        p, ul, ol {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        h2 i, h1 i {
+            color: #f39c12;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .dark-mode {
-            background-color: #181818;
-            color: #ffffff;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .dark-mode header, .dark-mode section {
+            background-color: #34495e;
+        }
+
+        .dark-mode h1, .dark-mode h2 {
+            color: #ecf0f1;
         }
 
         .dark-mode-toggle {
             position: fixed;
-            top: 10px;
-            right: 10px;
-            background: #000;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #f39c12;
             color: #fff;
             border: none;
-            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
             z-index: 1000;
         }
 
-        header, section, iframe {
-            margin: 20px;
-            padding: 20px;
-            background: #FFA500;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        .dark-mode header,
-        .dark-mode section,
-        .dark-mode footer,
-        .dark-mode iframe {
-            background: #242424;
-            color: #fff;
-        }
-
-        .animate__animated {
-            visibility: hidden;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #FFA500;
-            color: #fff;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .dark-mode footer {
-            background: #242424;
-        }
-
-        footer a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         nav {
-            background: #FFA500;
-            padding: 10px;
-        }
-
-        .dark-mode nav {
-            background: #242424;
+            display: flex;
+            justify-content: center;
+            background-color: #f39c12;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
             list-style: none;
+            margin: 0;
             padding: 0;
+            display: flex;
         }
 
         nav ul li {
-            display: inline;
-            margin-right: 20px;
+            margin: 0 20px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
         nav ul li a:hover {
@@ -118,58 +114,62 @@
 
         .hamburger-menu {
             display: none;
-            cursor: pointer;
         }
 
-        .hamburger-menu div {
-            width: 30px;
-            height: 3px;
-            background-color: #fff;
-            margin: 6px 0;
+        .dark-mode nav {
+            background-color: #e67e22;
         }
 
         @media (max-width: 768px) {
             nav ul {
                 display: none;
+                flex-direction: column;
+                background-color: #f39c12;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                padding: 20px 0;
+            }
+
+            nav ul.show {
+                display: flex;
             }
 
             .hamburger-menu {
                 display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                cursor: pointer;
+            }
+
+            .hamburger-menu div {
+                width: 30px;
+                height: 3px;
+                background-color: #fff;
+                margin: 5px 0;
             }
         }
 
-        #toc {
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f39c12;
+            color: white;
             margin-top: 20px;
-            background: #FFD700;
-            padding: 10px;
-            border-radius: 8px;
         }
 
-        #toc ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #toc ul li {
-            margin: 10px 0;
-        }
-
-        #toc ul li a {
-            color: #000;
+        footer a {
+            color: white;
             text-decoration: none;
         }
 
-        #toc ul li a:hover {
+        footer a:hover {
             text-decoration: underline;
         }
     </style>
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "kxqqqsttia");
-
         document.addEventListener('DOMContentLoaded', function () {
             const toggleButton = document.createElement('button');
             toggleButton.classList.add('dark-mode-toggle');
@@ -178,17 +178,6 @@
 
             toggleButton.addEventListener('click', function () {
                 document.body.classList.toggle('dark-mode');
-            });
-
-            document.querySelectorAll('section').forEach(function (section) {
-                new Waypoint({
-                    element: section,
-                    handler: function () {
-                        section.classList.add('animate__animated', 'animate__fadeInUp');
-                        section.style.visibility = 'visible';
-                    },
-                    offset: '75%'
-                });
             });
 
             document.querySelector('.hamburger-menu').addEventListener('click', function () {
@@ -220,18 +209,6 @@
     </header>
 
     <div class="container">
-        <div id="toc">
-            <h2>Table of Contents</h2>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#installation">Installation</a></li>
-                <li><a href="#documentation">Documentation</a></li>
-                <li><a href="#conclusion">Conclusion</a></li>
-                <li><a href="#extras">Extras</a></li>
-            </ul>
-        </div>
-
         <section id="home" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-laptop-code"></i> SpoinkOS - The New Way to Power up your projects</h2>
             <p>SpoinkOS is a lightweight, sleek, and developer-friendly operating system designed for laptops and PCs.</p>
@@ -240,7 +217,7 @@
         <section id="features" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-tools"></i> Key Features</h2>
             <ul>
-                <li><i class="fas fa-check"></i> User-Friendly Interface: SpoinkOS features a clean and intuitive desktop environment. (Interface Depends on Release)</li>
+                <li><i class="fas fa-check"></i> User-Friendly Interface: SpoinkOS features a clean and intuitive desktop environment.</li>
                 <li><i class="fas fa-check"></i> Based On Ubuntu: Built on the solid foundation of Ubuntu for compatibility and stability.</li>
                 <li><i class="fas fa-check"></i> Developer-Friendly: Tailored tools and libraries make SpoinkOS ideal for coding, testing, and development projects.</li>
             </ul>
@@ -249,43 +226,31 @@
         <section id="installation" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-download"></i> Installation Guide</h2>
             <ol>
-                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48" srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a></li>
-                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://img.shields.io/sourceforge/dt/spoinkos.svg"></a></li>
+                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48"></a></li>
                 <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
-                <li>Boot your computer from the USB drive.</li>
-                <li>Follow on-screen instructions to install SpoinkOS.</li>
-                <li>(For Developers) To create a NixOS-Like deployment system, install the OS, then use CLCTool for deployment/config scripts; More info at <a href="https://github.com/SpoinkOSDevs/CLCTool">CLCTool</a></li>
+                <li>Boot your computer from the USB drive and follow on-screen instructions to install SpoinkOS.</li>
             </ol>
         </section>
 
         <section id="documentation" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-book"></i> Documentation</h2>
-            <p>For detailed information and tutorials, visit our <a href="documentation.html">Documentation Page</a>.</p>
+            <p>For detailed information and tutorials, visit our <a href="documentation.html">documentation page</a>.</p>
         </section>
 
         <section id="conclusion" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
-            <p>Thank you for choosing SpoinkOS! Enjoy the power of a modern, developer-friendly operating system.</p>
+            <h2><i class="fas fa-info-circle"></i> Conclusion</h2>
+            <p>SpoinkOS aims to be a versatile and powerful operating system suitable for both casual users and developers alike. Get started today and see what SpoinkOS can do for you!</p>
         </section>
 
         <section id="extras" class="animate__animated animate__fadeInUp">
             <h2><i class="fas fa-gift"></i> Extras</h2>
-
-            <h3><i class="fas fa-lightbulb"></i> Concept</h3>
-            <p>SpoinkOS embodies innovation and efficiency, delivering a seamless user experience.</p>
-
-            <h3><i class="fas fa-volume-up"></i> Pronunciation</h3>
-            <p>"Spo-ink O-S" as in two words.</p>
-
-            <h3><i class="fas fa-balance-scale"></i> Legal Information</h3>
-            <p>SpoinkOS is based on the GPL License and is managed by SpoinkOS Innovations.</p>
+            <p>Looking for more? Check out our blog, community forums, and exclusive content!</p>
         </section>
     </div>
-    <iframe src="https://discord.com/widget?id=1270784695591899227&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
     <footer>
-        <p>&copy; 2024 SpoinkOS Innovations. All rights reserved.</p>
-        <p><a href="terms-of-service.html">Terms of Service</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
-        <a class="copyrighted-badge" title="Copyrighted.com Registered &amp; Protected" target="_blank" href="https://app.copyrighted.com/website/dZCaklzpX4uhAZr1"><img alt="Copyrighted.com Registered &amp; Protected" border="0" width="125" height="25" srcset="https://static.copyrighted.com/badges/125x25/01_1_2x.png 2x" src="https://static.copyrighted.com/badges/125x25/01_1.png"></a><script src="https://static.copyrighted.com/badges/helper.js"></script>
+        <p>Made with ❤️ By SpoinkOS Innovations</p>
+        <p><a href="https://github.com/SpoinkOSDevs">GitHub</a> | <a href="https://sourceforge.net/projects/spoinkos/files/latest/download">Download SpoinkOS</a></p>
     </footer>
 </body>
 
