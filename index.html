@@ -10,154 +10,155 @@
     <meta name="copyrighted-site-verification" content="9237ffa112716482" />
     <meta name="description" content="Welcome to the SpoinkOS Homepage! Here you can find downloads for SpoinkOS and other helpful info.">
     <meta name="keywords" content="SpoinkOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
-    <title>SpoinkOS Homepage</title>
+    <title>SpoinkOS - Power Up Your Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/microsoft-styles/1.0.0/css/microsoft-styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/micromodal/0.4.6/micromodal.min.js"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            color: #2c3e50;
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --text-color: #2d3436;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        header, section {
-            margin: 20px;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-        }
-
-        h1, h2 {
-            color: #34495e;
-        }
-
-        p, ul, ol {
-            font-size: 1.2rem;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-        }
-
-        h2 i, h1 i {
-            color: #f39c12;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        .dark-mode {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-
-        .dark-mode header, .dark-mode section {
-            background-color: #34495e;
-        }
-
-        .dark-mode h1, .dark-mode h2 {
-            color: #ecf0f1;
-        }
-
-        .dark-mode-toggle {
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
-            background-color: #f39c12;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav {
             display: flex;
-            justify-content: center;
-            background-color: #f39c12;
-            padding: 20px 0;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
-        nav ul li a:hover {
-            text-decoration: underline;
+        .nav-links {
+            display: flex;
+            list-style: none;
         }
 
-        .hamburger-menu {
-            display: none;
+        .nav-links li {
+            margin-left: 30px;
         }
 
-        .dark-mode nav {
-            background-color: #e67e22;
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: #f39c12;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                padding: 20px 0;
-            }
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
 
-            nav ul.show {
-                display: flex;
-            }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
 
-            .hamburger-menu {
-                display: block;
-                position: absolute;
-                right: 20px;
-                top: 20px;
-                cursor: pointer;
-            }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
 
-            .hamburger-menu div {
-                width: 30px;
-                height: 3px;
-                background-color: #fff;
-                margin: 5px 0;
-            }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .features {
+            padding: 100px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
         }
 
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f39c12;
+            background-color: var(--primary-color);
             color: white;
-            margin-top: 20px;
+            text-align: center;
+            padding: 30px 0;
         }
 
         footer a {
@@ -168,90 +169,78 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
     </style>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            const toggleButton = document.createElement('button');
-            toggleButton.classList.add('dark-mode-toggle');
-            toggleButton.innerText = 'Toggle Dark Mode';
-            document.body.appendChild(toggleButton);
-
-            toggleButton.addEventListener('click', function () {
-                document.body.classList.toggle('dark-mode');
-            });
-
-            document.querySelector('.hamburger-menu').addEventListener('click', function () {
-                document.querySelector('nav ul').classList.toggle('show');
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <nav>
-        <div class="hamburger-menu">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#installation">Installation</a></li>
-            <li><a href="#documentation">Documentation</a></li>
-            <li><a href="#conclusion">Conclusion</a></li>
-            <li><a href="#extras">Extras</a></li>
-        </ul>
-    </nav>
-
-    <header class="animate__animated animate__bounceInDown">
-        <h1><i class="fas fa-rocket"></i> SpoinkOS, The OS that rises to the challenge</h1>
+    <header>
+        <nav class="container">
+            <div class="logo">SpoinkOS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#docs">Docs</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container">
-        <section id="home" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-laptop-code"></i> SpoinkOS - The New Way to Power up your projects</h2>
-            <p>SpoinkOS is a lightweight, sleek, and developer-friendly operating system designed for laptops and PCs.</p>
-        </section>
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Power Up Your Projects with SpoinkOS</h1>
+            <p>A lightweight, sleek, and developer-friendly operating system designed for modern creators.</p>
+            <a href="#download" class="cta-button">Get Started</a>
+        </div>
+    </section>
 
-        <section id="features" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-tools"></i> Key Features</h2>
-            <ul>
-                <li><i class="fas fa-check"></i> User-Friendly Interface: SpoinkOS features a clean and intuitive desktop environment.</li>
-                <li><i class="fas fa-check"></i> Based On Ubuntu: Built on the solid foundation of Ubuntu for compatibility and stability.</li>
-                <li><i class="fas fa-check"></i> Developer-Friendly: Tailored tools and libraries make SpoinkOS ideal for coding, testing, and development projects.</li>
-            </ul>
-        </section>
-
-        <section id="installation" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-download"></i> Installation Guide</h2>
-            <ol>
-                <li><a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><img alt="Download SpoinkOS" src="https://a.fsdn.com/con/app/sf-download-button" width="276" height="48"></a></li>
-                <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
-                <li>Boot your computer from the USB drive and follow on-screen instructions to install SpoinkOS.</li>
-            </ol>
-        </section>
-
-        <section id="documentation" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-book"></i> Documentation</h2>
-            <p>For detailed information and tutorials, visit our <a href="documentation.html">documentation page</a>.</p>
-        </section>
-
-        <section id="conclusion" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-info-circle"></i> Conclusion</h2>
-            <p>SpoinkOS aims to be a versatile and powerful operating system suitable for both casual users and developers alike. Get started today and see what SpoinkOS can do for you!</p>
-        </section>
-
-        <section id="extras" class="animate__animated animate__fadeInUp">
-            <h2><i class="fas fa-gift"></i> Extras</h2>
-            <p>Looking for more? Check out SpoinkNET!</p>
-        </section>
-    </div>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-laptop-code"></i>
+                    <h3>Developer-Friendly</h3>
+                    <p>Tailored tools and libraries make SpoinkOS ideal for coding, testing, and development projects.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-tachometer-alt"></i>
+                    <h3>Lightweight &amp; Fast</h3>
+                    <p>Optimized for performance, SpoinkOS runs smoothly on a wide range of hardware.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-shield-alt"></i>
+                    <h3>Secure &amp; Stable</h3>
+                    <p>Built on the solid foundation of Ubuntu for enhanced security and stability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>Made with ❤️ By SpoinkOS Innovations</p>
-        <p><a href="https://github.com/SpoinkOSDevs">GitHub</a> | <a href="https://sourceforge.net/projects/spoinkos/files/latest/download">Download SpoinkOS</a></p>
+        <div class="container">
+            <p>Made with ❤️ by SpoinkOS Innovations</p>
+            <p><a href="https://github.com/SpoinkOSDevs">GitHub</a> | <a href="https://sourceforge.net/projects/spoinkos/files/latest/download">Download SpoinkOS</a></p>
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize any necessary JavaScript functionality here
+        });
+    </script>
 </body>
 
 </html>
