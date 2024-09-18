@@ -1,1 +1,1 @@
-The Offical SpoinkOS Website (GPL License)
+The Offical FoxOS Website (GPL License)
