@@ -94,13 +94,12 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: url('https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox2.png') no-repeat center center;
+            background-size: cover;
             color: white;
             text-align: center;
-            padding: 150px 0 100px;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding: 200px 0 100px;
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
@@ -110,16 +109,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://api.placeholder.com/1920x1080?text=Fox+Silhouette');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            animation: zoomInOut 20s infinite alternate;
+            background: rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes zoomInOut {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -138,8 +133,8 @@
 
         .cta-button {
             display: inline-block;
-            background-color: white;
-            color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
             padding: 15px 40px;
             border-radius: 30px;
             text-decoration: none;
@@ -154,17 +149,24 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .features {
+        .features, .about, .testimonials {
             padding: 100px 0;
         }
 
-        .feature-grid {
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .feature-grid, .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
 
-        .feature-card {
+        .feature-card, .testimonial-card {
             background-color: var(--card-bg);
             border-radius: 15px;
             padding: 40px;
@@ -173,8 +175,8 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px) rotateY(5deg);
+        .feature-card:hover, .testimonial-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
@@ -184,10 +186,32 @@
             margin-bottom: 25px;
         }
 
-        .feature-card h3 {
+        .feature-card h3, .testimonial-card h3 {
             margin-bottom: 20px;
             font-size: 1.5rem;
             font-family: 'Montserrat', sans-serif;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -221,22 +245,15 @@
             .hero p {
                 font-size: 1.1rem;
             }
-        }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            color: white;
-            animation: bounce 2s infinite;
-        }
+            .about-content {
+                flex-direction: column;
+            }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-20px) translateX(-50%); }
-            60% { transform: translateY(-10px) translateX(-50%); }
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
@@ -251,25 +268,24 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#docs">Docs</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <div class="container">
-            <h1 class="animate__animated animate__fadeInDown">Power Up Your Projects with FoxOS</h1>
-            <p class="animate__animated animate__fadeInUp animate__delay-1s">A sleek, lightweight, and developer-friendly operating system designed for modern creators. Unleash your coding potential!</p>
-            <a href="https://sourceforge.net/projects/spoinkos/files/latest/download" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download FoxOS</a>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="animate__animated animate__fadeInDown">Power Up Your Projects with FoxOS</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">A sleek, lightweight, and developer-friendly operating system designed for modern creators. Unleash your coding potential!</p>
+                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download FoxOS</a>
+            </div>
         </div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
+            <h2 class="section-title">Features</h2>
             <div class="feature-grid">
                 <div class="feature-card animate__animated animate__fadeInUp">
                     <i class="feature-icon fas fa-laptop-code"></i>
@@ -290,6 +306,21 @@
         </div>
     </section>
 
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About FoxOS</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>FoxOS is a cutting-edge operating system designed with developers and tech enthusiasts in mind. Born from a passion for innovation and a desire to create a more efficient coding environment, FoxOS combines the stability of Ubuntu with a suite of specialized tools and optimizations.</p>
+                    <p>Our mission is to provide a platform that not only enhances productivity but also inspires creativity. With FoxOS, we're reimagining what an operating system can be, pushing the boundaries of performance, security, and user experience.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://api.placeholder.com/500x300?text=FoxOS+in+Action" alt="FoxOS in Action">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <p>Crafted with 🦊 by TechFox Innovations</p>
@@ -302,14 +333,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Add scroll animation for feature cards
-            const featureCards = document.querySelectorAll('.feature-card');
+            // Add scroll animation for feature cards and testimonials
+            const animatedElements = document.querySelectorAll('.animate__animated');
             window.addEventListener('scroll', () => {
-                featureCards.forEach(card => {
-                    const cardTop = card.getBoundingClientRect().top;
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
                     const triggerBottom = window.innerHeight * 0.8;
-                    if (cardTop < triggerBottom) {
-                        card.classList.add('animate__fadeInUp');
+                    if (elementTop < triggerBottom) {
+                        element.classList.add('animate__fadeInUp');
                     }
                 });
             });
