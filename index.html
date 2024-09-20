@@ -1,51 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="msvalidate.01" content="749D74CCC14F8A2C37914B389596D7B3">
-    <meta name="google-site-verification" content="K03AtePYYCXw4LtNBXYuqRS5rzNVPcW1Sbmb6eh4ybc" />
-    <meta name="p:domain_verify" content="db8daa64dc9f6338255c654de15d03a1" />
-    <meta name="copyrighted-site-verification" content="9237ffa112716482" />
-    <meta name="description" content="Discover FoxOS: The ultimate Linux-based OS for developers and tech enthusiasts. Download now and unleash your coding potential! 🦊💻">
-    <meta name="keywords" content="FoxOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
-    <title>FoxOS - Unleash Your Coding Potential 💻</title>
+    <title>FoxOS - Power Up Your Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         :root {
             --primary-color: #ff6b35;
             --secondary-color: #f7c59f;
             --text-color: #2b2b2b;
             --bg-color: #fffbf7;
-            --card-bg: #ffffff;
-            --code-bg: #1e1e1e;
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #ff8c00;
-            --secondary-color: #ffa500;
-            --text-color: #f0f0f0;
-            --bg-color: #1a1a1a;
-            --card-bg: #2a2a2a;
-            --code-bg: #2c2c2c;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -61,7 +35,6 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav {
@@ -71,16 +44,8 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            font-family: 'Fira Code', monospace;
-        }
-
-        .logo img {
-            width: 50px;
-            margin-right: 10px;
         }
 
         .nav-links {
@@ -89,18 +54,12 @@
         }
 
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
         }
 
         .hero {
@@ -108,7 +67,7 @@
             background-size: cover;
             color: white;
             text-align: center;
-            padding: 200px 0 100px;
+            padding: 150px 0;
             position: relative;
         }
 
@@ -128,73 +87,52 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--primary-color);
             color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
+            padding: 10px 20px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            font-size: 1.1rem;
+            transition: transform 0.3s ease;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .features, .about, .testimonials {
-            padding: 100px 0;
+        .features, .about {
+            padding: 80px 0;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .feature-grid, .testimonial-grid {
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        .feature-card, .testimonial-card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 40px;
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .feature-card:hover, .testimonial-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .feature-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--primary-color);
-            margin-bottom: 25px;
-        }
-
-        .feature-card h3, .testimonial-card h3 {
             margin-bottom: 20px;
-            font-size: 1.5rem;
         }
 
         .about-content {
@@ -210,117 +148,44 @@
 
         .about-image {
             flex: 1;
-            text-align: center;
         }
 
         .about-image img {
             max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         footer {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 20px 0;
         }
 
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+        /* Jelly-like animation */
+        @keyframes jelly {
+            0%, 100% { transform: scale(1, 1); }
+            25% { transform: scale(0.9, 1.1); }
+            50% { transform: scale(1.1, 0.9); }
+            75% { transform: scale(0.95, 1.05); }
         }
 
-        footer a:hover {
-            color: var(--secondary-color);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(180deg);
-        }
-
-        .code-snippet {
-            background-color: var(--code-bg);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            font-family: 'Fira Code', monospace;
-            color: #f0f0f0;
-            overflow-x: auto;
-        }
-
-        .code-snippet pre {
-            margin: 0;
-        }
-
-        .disclaimer {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        .jelly-animate {
+            animation: jelly 0.5s;
         }
     </style>
 </head>
-
 <body>
     <header>
         <nav class="container">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox1.png" alt="FoxOS Logo">
-                FoxOS 🦊
+                <img src="https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox1.png" alt="FoxOS Logo" style="width: 50px; vertical-align: middle;">
+                FoxOS
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><button class="theme-toggle" id="themeToggle">🌓</button></li>
             </ul>
         </nav>
     </header>
@@ -328,31 +193,31 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="container">
-                <h1 class="animate__animated animate__fadeInDown">Unleash Your Coding Potential with FoxOS 🚀</h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">Experience the power of a sleek, lightweight, and developer-friendly Linux-based OS designed for modern creators. Your ultimate coding companion awaits! 🦊💻</p>
-                <a href="https://pub-435f59576ca64ae0a5d0b6c16d540c55.r2.dev/FoxOS/FoxOS64bit-GlossySandpaper.iso" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download FoxOS Now 🔥</a>
+                <h1 class="animate__animated animate__fadeInDown">Power Up Your Projects with FoxOS</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">A sleek, lightweight, and developer-friendly OS based on Zorin OS</p>
+                <a href="#" class="cta-button animate__animated animate__fadeInUp animate__delay-2s jelly-animate">Download FoxOS</a>
             </div>
         </div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Why Choose FoxOS? 🤔</h2>
+            <h2>Features</h2>
             <div class="feature-grid">
                 <div class="feature-card animate__animated animate__fadeInUp">
-                    <i class="feature-icon fas fa-laptop-code"></i>
-                    <h3>Developer's Paradise 🏝️</h3>
-                    <p>Tailored tools such as CLCTool make it easier for developers around the world to deploy with a custom ISO using cubic (Or any tool) by modifiying the preseed and adding the CLCTool commands; and with FoxOS it cones pre-installed</p>
+                    <i class="feature-icon fas fa-rocket"></i>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for speed and performance</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp animate__delay-1s">
-                    <i class="feature-icon fas fa-tachometer-alt"></i>
-                    <h3>Swift as a Fox 🦊</h3>
-                    <p>Optimized for lightning-fast performance, FoxOS runs smoothly on a wide range of hardware. From old laptops to high-end workstations, we've got you covered!</p>
+                    <i class="feature-icon fas fa-code"></i>
+                    <h3>Developer Friendly</h3>
+                    <p>Pre-installed tools for seamless development</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp animate__delay-2s">
                     <i class="feature-icon fas fa-shield-alt"></i>
-                    <h3>Rock-Solid Security 🛡️</h3>
-                    <p>Built on the robust foundation of Ubuntu, FoxOS provides enhanced security and stability. Focus on your code, not on system vulnerabilities!</p>
+                    <h3>Secure</h3>
+                    <p>Built on the robust foundation of Zorin OS</p>
                 </div>
             </div>
         </div>
@@ -360,31 +225,56 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About FoxOS 📖</h2>
+            <h2>About FoxOS</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>FoxOS is more than just an operating system - it's a revolution in the world of development! 🚀 Born from a passion for innovation and a desire to create a more efficient coding environment, FoxOS combines the stability of Ubuntu with a suite of specialized tools and optimizations.</p>
-                    <p>Our mission is to provide a platform that not only enhances productivity but also inspires creativity. With FoxOS, we're reimagining what an operating system can be, pushing the boundaries of performance, security, and user experience. Join us in this exciting journey and experience the future of development! 🦊💻</p>
-                    <div class="code-snippet">
-                        <pre><code>
-# Welcome to FoxOS
-echo "Hello, Developer! 🦊"
-echo "To get started, click download!"
-# Happy coding! 🚀
-                        </code></pre>
-                    </div>
+                    <p>FoxOS is a cutting-edge operating system based on Zorin OS, designed for developers and tech enthusiasts. It combines the stability of Zorin OS with specialized tools and optimizations to enhance your coding experience.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox2.png" alt="FoxOS Logo" class="animate-float">
+                    <img src="https://api.placeholder.com/400x300?text=FoxOS+Screenshot" alt="FoxOS Screenshot">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="disclaimer container">
-        <p><strong>Legal Disclaimer:</strong> We are not affiliated with TechFox IT Services LLC in any way.</p>
-    </div>
-
     <footer>
         <div class="container">
-            <p>
+            <p>&copy; 2024 FoxOS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            window.addEventListener('scroll', () => {
+                animatedElements.forEach(element => {
+                    if (isElementInViewport(element)) {
+                        element.classList.add('animate__fadeInUp');
+                    }
+                });
+            });
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Add jelly animation to buttons on hover
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.classList.add('jelly-animate');
+                });
+                button.addEventListener('animationend', () => {
+                    button.classList.remove('jelly-animate');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
