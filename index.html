@@ -8,12 +8,12 @@
     <meta name="google-site-verification" content="K03AtePYYCXw4LtNBXYuqRS5rzNVPcW1Sbmb6eh4ybc" />
     <meta name="p:domain_verify" content="db8daa64dc9f6338255c654de15d03a1" />
     <meta name="copyrighted-site-verification" content="9237ffa112716482" />
-    <meta name="description" content="Welcome to the FoxOS Homepage! Here you can find downloads for FoxOS and other helpful info.">
+    <meta name="description" content="Discover FoxOS: The ultimate Linux-based OS for developers and tech enthusiasts. Download now and unleash your coding potential! 🦊💻">
     <meta name="keywords" content="FoxOS, Ubuntu, Linux, developer-friendly, GNOME, lightweight, tech, software, coding, open-source">
-    <title>FoxOS - Power Up Your Projects</title>
+    <title>FoxOS - Unleash Your Coding Potential 🦊💻</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         :root {
@@ -22,6 +22,16 @@
             --text-color: #2b2b2b;
             --bg-color: #fffbf7;
             --card-bg: #ffffff;
+            --code-bg: #1e1e1e;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #ff8c00;
+            --secondary-color: #ffa500;
+            --text-color: #f0f0f0;
+            --bg-color: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --code-bg: #2c2c2c;
         }
 
         * {
@@ -31,10 +41,11 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -64,7 +75,7 @@
             font-weight: bold;
             display: flex;
             align-items: center;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Fira Code', monospace;
         }
 
         .logo img {
@@ -86,7 +97,6 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .nav-links a:hover {
@@ -121,14 +131,12 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-family: 'Montserrat', sans-serif;
         }
 
         .hero p {
             font-size: 1.3rem;
             max-width: 600px;
             margin: 0 auto 30px;
-            font-family: 'Roboto', sans-serif;
         }
 
         .cta-button {
@@ -141,7 +149,6 @@
             font-weight: bold;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-size: 1.1rem;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .cta-button:hover {
@@ -157,7 +164,6 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .feature-grid, .testimonial-grid {
@@ -189,7 +195,6 @@
         .feature-card h3, .testimonial-card h3 {
             margin-bottom: 20px;
             font-size: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
         }
 
         .about-content {
@@ -219,7 +224,6 @@
             color: white;
             text-align: center;
             padding: 40px 0;
-            font-family: 'Roboto', sans-serif;
         }
 
         footer a {
@@ -231,6 +235,43 @@
 
         footer a:hover {
             color: var(--secondary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+        }
+
+        .code-snippet {
+            background-color: var(--code-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            font-family: 'Fira Code', monospace;
+            color: #f0f0f0;
+            overflow-x: auto;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+        }
+
+        .disclaimer {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-color);
         }
 
         @media (max-width: 768px) {
@@ -255,6 +296,16 @@
                 margin-bottom: 30px;
             }
         }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
     </style>
 </head>
 
@@ -263,12 +314,13 @@
         <nav class="container">
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox1.png" alt="FoxOS Logo">
-                FoxOS
+                FoxOS 🦊
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
+                <li><button class="theme-toggle" id="themeToggle">🌓</button></li>
             </ul>
         </nav>
     </header>
@@ -276,31 +328,31 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="container">
-                <h1 class="animate__animated animate__fadeInDown">Power Up Your Projects with FoxOS</h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">A sleek, lightweight, and developer-friendly operating system designed for modern creators. Unleash your coding potential!</p>
-                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download FoxOS</a>
+                <h1 class="animate__animated animate__fadeInDown">Unleash Your Coding Potential with FoxOS 🚀</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Experience the power of a sleek, lightweight, and developer-friendly Linux-based OS designed for modern creators. Your ultimate coding companion awaits! 🦊💻</p>
+                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download FoxOS Now 🔥</a>
             </div>
         </div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Features</h2>
+            <h2 class="section-title">Why Choose FoxOS? 🤔</h2>
             <div class="feature-grid">
                 <div class="feature-card animate__animated animate__fadeInUp">
                     <i class="feature-icon fas fa-laptop-code"></i>
-                    <h3>Developer's Paradise</h3>
-                    <p>Tailored tools and libraries make FoxOS the ultimate playground for coding, testing, and bringing your ideas to life.</p>
+                    <h3>Developer's Paradise 🏝️</h3>
+                    <p>Tailored tools such as CLCTool make it easier for developers around the world to deploy with a custom ISO using cubic (Or any tool) by modifiying the preseed and adding the CLCTool commands; and with FoxOS it cones pre-installed</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp animate__delay-1s">
                     <i class="feature-icon fas fa-tachometer-alt"></i>
-                    <h3>Swift as a Fox</h3>
-                    <p>Optimized for lightning-fast performance, FoxOS runs smoothly on a wide range of hardware, from old laptops to high-end workstations.</p>
+                    <h3>Swift as a Fox 🦊💨/h3>
+                    <p>Optimized for lightning-fast performance, FoxOS runs smoothly on a wide range of hardware. From old laptops to high-end workstations, we've got you covered!</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp animate__delay-2s">
                     <i class="feature-icon fas fa-shield-alt"></i>
-                    <h3>Rock-Solid Security</h3>
-                    <p>Built on the robust foundation of Ubuntu, FoxOS provides enhanced security and stability for your peace of mind.</p>
+                    <h3>Rock-Solid Security 🛡️</h3>
+                    <p>Built on the robust foundation of Ubuntu, FoxOS provides enhanced security and stability. Focus on your code, not on system vulnerabilities!</p>
                 </div>
             </div>
         </div>
@@ -308,51 +360,31 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About FoxOS</h2>
+            <h2 class="section-title">About FoxOS 📖</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>FoxOS is a cutting-edge operating system designed with developers and tech enthusiasts in mind. Born from a passion for innovation and a desire to create a more efficient coding environment, FoxOS combines the stability of Ubuntu with a suite of specialized tools and optimizations.</p>
-                    <p>Our mission is to provide a platform that not only enhances productivity but also inspires creativity. With FoxOS, we're reimagining what an operating system can be, pushing the boundaries of performance, security, and user experience.</p>
+                    <p>FoxOS is more than just an operating system - it's a revolution in the world of development! 🚀 Born from a passion for innovation and a desire to create a more efficient coding environment, FoxOS combines the stability of Ubuntu with a suite of specialized tools and optimizations.</p>
+                    <p>Our mission is to provide a platform that not only enhances productivity but also inspires creativity. With FoxOS, we're reimagining what an operating system can be, pushing the boundaries of performance, security, and user experience. Join us in this exciting journey and experience the future of development! 🦊💻</p>
+                    <div class="code-snippet">
+                        <pre><code>
+# Welcome to FoxOS
+echo "Hello, Developer! 🦊"
+echo "To get started, click download!"
+# Happy coding! 🚀
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox2.png" alt="FoxOS Logo" class="animate-float">
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="disclaimer container">
+        <p><strong>Legal Disclaimer:</strong> We are not affiliated with TechFox IT Services LLC in any way.</p>
+    </div>
+
     <footer>
         <div class="container">
-            <p>Crafted with 🦊 by TechFox Innovations</p>
             <p>
-                <a href="https://github.com/TechFox-Innovations"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download"><i class="fas fa-download"></i> Download FoxOS</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add scroll animation for feature cards and testimonials
-            const animatedElements = document.querySelectorAll('.animate__animated');
-            window.addEventListener('scroll', () => {
-                animatedElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const triggerBottom = window.innerHeight * 0.8;
-                    if (elementTop < triggerBottom) {
-                        element.classList.add('animate__fadeInUp');
-                    }
-                });
-            });
-
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
-</body>
-
-</html>
