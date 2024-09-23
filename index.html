@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoxOS - Power Up Your Projects</title>
+    <meta name="google-site-verification" content="K03AtePYYCXw4LtNBXYuqRS5rzNVPcW1Sbmb6eh4ybc" />
+    <title>WolfOS - Unleash Your Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #ff6b35;
-            --secondary-color: #f7c59f;
-            --text-color: #2b2b2b;
-            --bg-color: #fffbf7;
+            --primary-color: #4a4a4a;
+            --secondary-color: #6e6e6e;
+            --text-color: #ffffff;
+            --bg-color: #1a1a1a;
+            --accent-color: #8b4513;
         }
 
         body {
@@ -30,7 +32,7 @@
 
         header {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-color);
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -58,14 +60,14 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
         }
 
         .hero {
-            background: url('https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox2.png') no-repeat center center;
+            background: url('https://github.com/WolfTech-Innovations/blob/master/WolfOS/WolfTech.png') no-repeat center center;
             background-size: cover;
-            color: white;
+            color: var(--text-color);
             text-align: center;
             padding: 150px 0;
             position: relative;
@@ -78,7 +80,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .hero-content {
@@ -93,8 +95,8 @@
 
         .cta-button {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--accent-color);
+            color: var(--text-color);
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
@@ -117,11 +119,11 @@
         }
 
         .feature-card {
-            background-color: white;
+            background-color: var(--secondary-color);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
 
@@ -131,7 +133,7 @@
 
         .feature-icon {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-bottom: 20px;
         }
 
@@ -157,21 +159,9 @@
 
         footer {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-color);
             text-align: center;
             padding: 20px 0;
-        }
-
-        /* Jelly-like animation */
-        @keyframes jelly {
-            0%, 100% { transform: scale(1, 1); }
-            25% { transform: scale(0.9, 1.1); }
-            50% { transform: scale(1.1, 0.9); }
-            75% { transform: scale(0.95, 1.05); }
-        }
-
-        .jelly-animate {
-            animation: jelly 0.5s;
         }
     </style>
 </head>
@@ -179,8 +169,8 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/TechFox-Innovations/FoxOS/master/TechFox1.png" alt="FoxOS Logo" style="width: 50px; vertical-align: middle;">
-                FoxOS
+                <img src="https://github.com/WolfTech-Innovations/blob/master/WolfOS/WolfTech.png" alt="WolfOS Logo" style="width: 50px; vertical-align: middle;">
+                WolfOS
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -193,9 +183,9 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="container">
-                <h1 class="animate__animated animate__fadeInDown">Power Up Your Projects with FoxOS</h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">A sleek, lightweight, and developer-friendly OS based on Zorin OS</p>
-                <a href="https://sourceforge.net/projects/spoinkos/files/latest/download" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download FoxOS</a>
+                <h1 class="animate__animated animate__fadeInDown">Unleash Your Projects with WolfOS</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">A powerful, lightweight, and developer-friendly OS based on Zorin OS</p>
+                <a href="https://sourceforge.net/projects/wolfos/files/latest/download" class="cta-button animate__animated animate__fadeInUp animate__delay-2s">Download WolfOS</a>
             </div>
         </div>
     </section>
@@ -205,18 +195,18 @@
             <h2>Features</h2>
             <div class="feature-grid">
                 <div class="feature-card animate__animated animate__fadeInUp">
-                    <i class="feature-icon fas fa-rocket"></i>
-                    <h3>Lightning Fast</h3>
-                    <p>Optimized for speed and performance</p>
+                    <i class="feature-icon fas fa-paw"></i>
+                    <h3>Wolf-like Speed</h3>
+                    <p>Optimized for lightning-fast performance</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp animate__delay-1s">
                     <i class="feature-icon fas fa-code"></i>
-                    <h3>Developer Friendly</h3>
+                    <h3>Developer's Den</h3>
                     <p>Pre-installed tools for seamless development</p>
                 </div>
                 <div class="feature-card animate__animated animate__fadeInUp animate__delay-2s">
                     <i class="feature-icon fas fa-shield-alt"></i>
-                    <h3>Secure</h3>
+                    <h3>Pack Protection</h3>
                     <p>Built on the robust foundation of Zorin OS</p>
                 </div>
             </div>
@@ -225,14 +215,20 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2>About FoxOS</h2>
+            <h2>About WolfOS</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>FoxOS is a cutting-edge operating system based on Zorin OS, designed for developers and tech enthusiasts. It combines the stability of Zorin OS with specialized tools and optimizations to enhance your coding experience.</p>
+                    <p>WolfOS is a fierce and powerful operating system based on Zorin OS, designed for developers and tech enthusiasts who prowl the digital wilderness. It combines the stability of Zorin OS with specialized tools and optimizations to enhance your coding experience, allowing you to howl at the moon while you work.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 WolfOS. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -252,19 +248,8 @@
                     rect.left >= 0 &&
                     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-
-            // Add jelly animation to buttons on hover
-            const buttons = document.querySelectorAll('.cta-button');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', () => {
-                    button.classList.add('jelly-animate');
-                });
-                button.addEventListener('animationend', () => {
-                    button.classList.remove('jelly-animate');
-                });
-            });
+                ); 
+           });
         });
     </script>
 </body>
