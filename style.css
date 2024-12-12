@@ -1,8 +1,8 @@
 /* Base Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-family: 'Roboto', roboto-bold; /* Modern font */
     background-color: #f8f8f8; /* Light gray background */
-    color: #333333; /* Dark gray text */
+    color: #00000F; /* White text */
     margin: 0;
     padding: 0;
     line-height: 1.6;
