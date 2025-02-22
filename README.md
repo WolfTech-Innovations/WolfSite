@@ -1,1 +1,1 @@
-The Offical WolfOS Website (GPL License)
+The Offical WolfOS Website (GPL License).
