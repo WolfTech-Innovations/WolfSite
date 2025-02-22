@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="K03AtePYYCXw4LtNBXYuqRS5rzNVPcW1Sbmb6eh4ybc" />
+    <meta name="copyrighted-site-verification" content="789f7835d28a205f" />
+    <meta name="google-adsense-account" content="ca-pub-8933145913893262">
+    <title>WolfOS - Built for unity userbase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/codedgar/Puppertino@latest/dist/css/newfull.css">
+    <link rel="stylesheet" href="./style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8933145913893262" crossorigin="anonymous"></script>
+    <script type="text/javascript" async src="//l.getsitecontrol.com/8w8r55y7.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/css/common.min.css">
+    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/css/os.min.css">
+    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/vendor/inter/inter.min.css">
+    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/vendor/space-grotesk/space-grotesk.min.css">
+    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/css/swiper.min.css">    
+<style>
+        .theme-custom {
+            --gradient: linear-gradient(to top left,#6441A5,#2a0845);
+            --background: 277 28.6% 3.6%;
+            --foreground: 277 4.4% 97.25%;
+            --muted: 277 22% 13.5%;
+            --muted-foreground: 277 4.4% 54.5%;
+            --popover: 277 56.2% 5.85%;
+            --popover-foreground: 277 4.4% 97.25%;
+            --card: 277 56.2% 5.85%;
+            --card-foreground: 277 4.4% 97.25%;
+            --border: 277 22% 13.5%;
+            --input: 277 22% 13.5%;
+            --primary: 277 44% 45%;
+            --primary-foreground: 277 4.4% 97.25%;
+            --secondary: 277 22% 13.5%;
+            --secondary-foreground: 277 4.4% 97.25%;
+            --accent: 277 22% 13.5%;
+            --accent-foreground: 277 4.4% 97.25%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 277 4.4% 97.25%;
+            --ring: 277 44% 45%;
+        }
+</style>    
+<style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-color: #007aff;
+            --gradient-primary: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6a88 0%, #ff6a88 50%, #ff6a88 100%);
+            --transition-speed: 0.4s;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Glassy Blur Effects */
+        .glassy-blur {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a.active ```html
+            .nav-links a:hover, .nav-links a.active {
+                color: var(--text-primary);
+            }
+
+            /* Hero Section */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                background: radial-gradient(ellipse at bottom, var(--bg-primary) 0%, #0c0c0c 100%);
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 10;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 4.5rem;
+                font-weight: 800;
+                background: var(--gradient-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 20px;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+                color: var(--text-secondary);
+                margin-bottom: 40px;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 15px 35px;
+                background: var(--gradient-primary);
+                color: white;
+                text-decoration: none;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: all 0.5s ease;
+                transform: perspective(1px) translateZ(0);
+                box-shadow: 0 10px 30px rgba(0,122,255,0.3);
+            }
+
+            .btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(0,122,255,0.5);
+            }
+
+            /* Features Section */
+            .features {
+                background: var(--bg-secondary);
+                padding: 100px 0;
+            }
+
+            .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+
+            .feature-card {
+                background: rgba(30, 30, 30, 0.6);
+                backdrop-filter: blur(10px);
+                border-radius: var(--border-radius);
+                padding: 40px;
+                text-align: center;
+                transition: all 0.4s ease;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+            .feature-icon {
+                font-size: 3.5rem;
+                background: var(--gradient-secondary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 20px;
+            }
+
+            .feature-card h3 {
+                margin-bottom: 15px;
+                color: var(--text-primary);
+            }
+
+            .feature-card p {
+                color: var(--text-secondary);
+            }
+
+            /* About Section */
+            .about {
+                padding: 100px 0;
+                background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+            }
+
+            footer {
+                background: var(--bg-secondary);
+                color: var(--text-secondary);
+                text-align: center;
+                padding: 30px 0;
+            }
+
+            @media (max-width: 768px) {
+                .hero h1 {
+                    font-size: 2.5rem;
+                }
+
+                .nav-links {
+                    display: none; /* Mobile menu placeholder */
+                }
+            }
+
+            /* Subtle Animations */
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+
+            .animate-float {
+                animation: float 4s ease-in-out infinite;
+            }
+	     /* Additional styles */
+    .linux-history {
+        background: var(--bg-secondary);
+        padding: 100px 0;
+        color: var(--text-primary);
+    }
+
+    .linux-history h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .linux-history p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+    }
+
+    .about {
+        padding: 100px 0;
+        background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+    }
+
+    footer {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .nav-links {
+            display: none; /* Mobile menu placeholder */
+        }
+    }
+
+    /* Subtle Animations */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+        </style>
+    </head>
+    <body>
+        <header class="glassy-blur">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="logo">WolfOS</a>
+                    <ul class="nav-links">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content animate-float">
+                    <h1>Unleash Your Projects with WolfOS</h1>
+		    <img alt="SourceForge Downloads" src="https://img.shields.io/sourceforge/dt/wolfos?style=for-the-badge&color=white">
+                    <p>A powerful, lightweight, and developer-friendly OS based on the WolfKernel Linux Fork, designed for modern creators and innovators</p>
+		    <a href="https://sourceforge.net/projects/wolfos/files/latest/download" class="btn">Download WolfOS for x86_64</a>
+	            <a href="https://sourceforge.net/projects/cactusrom/files/latest/download" class="btn">Download CactusROM for the PinePhone [STABLE] (Boot from SD on PinePhone after flash)</a>
+	            <p>Disclaimer 1: When flashing the CactusROM PinePhone image with the auto-installer, keep in mind that any bricking or damage to your device is your fault</p>
+		    <a href="https://wolfetechinnovations.created.app/" class="btn">WolfTech Innovations Projects Portal</a>
+		    <a href="https://barkie.pages.dev" class="btn">Barkie -- Bark your bio</a>
+		</div>
+            </div>
+        </section>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Welcome to WolfOS! 🐺</h2>
+            <h3>Overview</h3>
+            <p>WolfOS is designed for developers, offering a simple configuration system that lets you install all the packages you need using a single config file after installation. Updates? It's easy! Specify the packages in the config, and you can even set your preferred kernel version.</p>
+	    <p>Developers and Desktop Users alike can use it, no matter your expirenece in Linux, KDE makes it simple.</p>
+	    <p>Let's hop into the Installation below ⬇</p>
+            <h3>Installation</h3>
+            <ol>
+                <li>Download the ISO from the Sourceforge Mirror.</li>
+                <li>Create a bootable USB drive using your preferred tool (e.g., Rufus, Etcher).</li>
+                <li>Boot your computer from the USB drive.</li>
+                <li>Follow the on-screen instructions to install WolfOS.</li>
+		<h3>Welcome aboard new user! 🥳</h3>
+		<p>All that's left now is to customize your desktop to your liking! And you'll be set to sail ⛵</p>    
+                </div>
+            </div>
+        </section>
+        
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon animate-float">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3>Wolf-like Speed</h3>
+                        <p>Optimized for lightning-fast performance, allowing you to work at the speed of thought.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon animate-float">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Home of the one and only CLCTool</h3>
+                        <p>WolfOS comes with CLCTool Pre-installed for easy to use update deployment for comapnies of any size</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon animate-float">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>A Myriad of uses</h3>
+                        <p>Built for any user, any use, anywhere, anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h2>WolfOS in Action</h2>
+        <img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/Screenshot%20from%202025-01-30%2015-29-01-2a51d40a.png/max/max/1" alt="WolfOS Screenshot">
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Our Team</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Christopher F.</h3> 
+			<p>This is the founder of WolfTech Innovations, the one behind ALL the scenes.</p>
+		        <h3>Joseph S. D.</h3>
+		        <p>Here comes Joseph! A good friend of Christopher as well as being the project manager.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+      <section id="community" class="about">
+    <div class="container">
+        <h2>Community & Legal</h2>
+        <p>Meet the WolfOS team, led by Chris F., and learn about our GPL license. We value community collaboration and ensure that WolfOS stays open and free.</p>
+    </div>
+</section>
+    <section id="roadmap">
+    <div class="container">
+        <h2>CactusROM Roadmap</h2>
+        <div class="roadmap-timeline">
+            <div class="roadmap-item" data-phase="Upcoming">
+                <h3>Upcoming</h3>
+                <p>Better user expirience</p>
+            </div>
+            <div class="roadmap-item" data-phase="In Progress">
+                <h3>In Progress</h3>
+                <p>Adding support for more phones</p>
+            </div>
+            <div class="roadmap-item" data-phase="Completed">
+                <h3>Completed</h3>
+                <p>Support for new platforms</p>
+            </div>
+        </div>
+    </div>
+</section>
+	      
+</section>
+	    <section id="roadmap">
+    <div class="container">
+        <h2>WolfOS Roadmap</h2>
+        <div class="roadmap-timeline">
+            <div class="roadmap-item" data-phase="Upcoming">
+                <h3>Upcoming</h3>
+                <p>Expanded developer tools for easier deployment</p>
+            </div>
+            <div class="roadmap-item" data-phase="In Progress">
+                <h3>In Progress</h3>
+                <p>New kernel optimizations for better performance</p>
+            </div>
+            <div class="roadmap-item" data-phase="Completed">
+                <h3>Completed</h3>
+                <p>Support for new platforms</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+#roadmap {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.roadmap-timeline {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.roadmap-item {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+.roadmap-item[data-phase="Upcoming"] {
+    background-color: #ff9800;
+}
+
+.roadmap-item[data-phase="In Progress"] {
+    background-color: #2196f3;
+}
+
+.roadmap-item[data-phase="Completed"] {
+    background-color: #4caf50;
+}
+
+.roadmap-item:hover {
+    background-color: #555;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.roadmap-item');
+
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            if (item.dataset.phase === 'Upcoming') {
+                item.dataset.phase = 'In Progress';
+            } else if (item.dataset.phase === 'In Progress') {
+                item.dataset.phase = 'Completed';
+            }
+        });
+    });
+});
+</script>
+<section id="linux-history" class="about">
+    <div class="container">
+        <h2>History of Linux</h2>
+        <p>Linux is a family of open-source Unix-like operating systems based on the Linux kernel, first released on September 17, 1991, by Linus Torvalds. The Linux kernel was initially developed as a free operating system for personal computers based on the Intel x86 architecture, but it has since been ported to more platforms than any other operating system. It is the leading operating system on servers and other big iron systems such as mainframe computers, and the only OS used on TOP500 supercomputers (since November 2017, having gradually eliminated all competitors).</p>
+        <p>Early Linux distributions aimed at simplifying the installation and use of Linux on personal computers, while offering a variety of software packages and utilities. The first such distributions included MCC Interim Linux in February 1992, Softlanding Linux System (SLS) in 1992, Yggdrasil Linux/GNU/X in 1992, and Slackware in 1993. Debian, first released in 1993, has since become the basis for many other distributions, including the popular Ubuntu. Red Hat Linux, released in 1994, and SUSE Linux, released in 1994, also became major distributions.</p>
+        <p>The development of the Linux kernel is one of the most prominent examples of free and open-source software collaboration. The underlying source code can be used, modified, and distributed—commercially or non-commercially—by anyone under the terms of its respective licenses, such as the GNU General Public License. The Linux kernel, and the operating systems based on it, are generally considered to be very stable and secure.</p>
+        <p>Over the years, Linux has become the OS of choice for many applications and industries. It is widely used in servers, mainframes, and supercomputers, as well as in embedded systems such as routers, automation controls, televisions, digital video recorders, video game consoles, and smartwatches. The Android operating system, which is built on top of the Linux kernel, is the dominant operating system for smartphones and tablets.</p>
+        <p>Linux's use in personal computing has been growing as well, with many distributions offering user-friendly interfaces and extensive software repositories. The open-source nature of Linux has also led to extensive customization and flexibility, allowing it to be adapted for a wide range of uses and environments. The community-driven development model has fostered a rich ecosystem of applications and tools, making Linux a powerful and versatile platform for both personal and professional use.</p>
+        <p>One of the key strengths of Linux is its security. The open-source nature of the OS means that vulnerabilities are often quickly identified and patched by the community. Additionally, Linux's permissions-based security model and the use of tools such as SELinux (Security-Enhanced Linux) and AppArmor provide robust security measures to protect systems and data.</p>
+        <p>The Linux community is known for its collaborative and inclusive nature. Contributions to the Linux kernel and related projects come from individuals, hobbyists, and major corporations alike. Major tech companies, including IBM, Google, and Microsoft, have invested heavily in Linux development and support, recognizing its importance in the modern tech landscape.</p>
+        <p>Linux's impact on the tech industry is profound and far-reaching. It has driven innovation, provided a platform for countless applications and services, and fostered a global community of developers and users. With its continued evolution and adoption, Linux remains a cornerstone of the modern computing world, offering stability, security, and flexibility for a wide range of applications.</p>
+        <p>As Linux continues to grow and evolve, its future looks bright. The rise of cloud computing, the Internet of Things (IoT), and artificial intelligence (AI) are areas where Linux is expected to play a significant role. The open-source model of development ensures that Linux will continue to be at the forefront of technological advancements, providing a platform for innovation and collaboration.</p>
+    </div>
+</section>
+    </body>
+</html>
