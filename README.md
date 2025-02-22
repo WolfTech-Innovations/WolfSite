@@ -1,1 +1,1 @@
-Welcome to the WolfOS Website
+Welcome to the WolfOS Website.
