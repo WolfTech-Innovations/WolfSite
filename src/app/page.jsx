@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import TaskBar from "../components/task-bar";
+import NavBar from "../components/nav-bar";
 
 function MainComponent() {
   const [features, setFeatures] = useState([]);
@@ -41,10 +41,11 @@ function MainComponent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
-      <TaskBar />
+      <NavBar />
+
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center pt-10"
+        className="min-h-screen flex items-center justify-center pt-20"
       >
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
