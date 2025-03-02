@@ -11,15 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/codedgar/Puppertino@latest/dist/css/newfull.css">
-    <link rel="stylesheet" href="./style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8933145913893262" crossorigin="anonymous"></script>
     <script type="text/javascript" async src="//l.getsitecontrol.com/8w8r55y7.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/css/common.min.css">
-    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/css/os.min.css">
-    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/vendor/inter/inter.min.css">
-    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/vendor/space-grotesk/space-grotesk.min.css">
-    <link rel="stylesheet" type="text/css" href="https://assets.zorincdn.com/zorin.com/css/swiper.min.css">    
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&display=swap" rel="stylesheet"> 
 <style>
         .theme-custom {
             --gradient: linear-gradient(to top left,#6441A5,#2a0845);
@@ -49,10 +43,8 @@
             --bg-primary: #FFFFFF;
             --bg-secondary: #00000;
             --text-primary: #00000;
-            --text-secondary: #a0a0a0;
+            --text-secondary: #000000;
             --accent-color: #007aff;
-            --gradient-primary: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            --gradient-secondary: linear-gradient(135deg, #ff6a88 0%, #ff6a88 50%, #ff6a88 100%);
             --transition-speed: 0.4s;
             --border-radius: 12px;
         }
@@ -83,13 +75,6 @@
             padding: 0 15px;
         }
 
-        /* Glassy Blur Effects */
-        .glassy-blur {
-            background: rgba(30, 30, 30, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
         /* Header Navigation */
         header {
             position: fixed;
@@ -111,7 +96,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: var(--gradient-primary);
+            background: var(--bg-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
@@ -162,7 +147,7 @@
                 align-items: center;
                 position: relative;
                 overflow: hidden;
-                background: radial-gradient(ellipse at bottom, var(--bg-primary) 0%, #0c0c0c 100%);
+                background:var(--bg-primary);
             }
 
             .hero-content {
@@ -175,7 +160,7 @@
             .hero h1 {
                 font-size: 4.5rem;
                 font-weight: 800;
-                background: var(--gradient-primary);
+                background: var(--bg-primary);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 margin-bottom: 20px;
@@ -194,7 +179,7 @@
             .btn {
                 display: inline-block;
                 padding: 15px 35px;
-                background: var(--gradient-primary);
+                background: var(--bg-primary);
                 color: white;
                 text-decoration: none;
                 border-radius: 30px;
