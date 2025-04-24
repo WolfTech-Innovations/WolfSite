@@ -215,7 +215,7 @@
   <script type="module">
     (async () => {
       const cloudDevice = await CheerpX.CloudDevice.create(
-        "https://github.com/WolfTech-Innovations/WolfOS/releases/download/v1/WLFVM.img"
+        "https://sourceforge.net/projects/wolfos/files/WLFVM.img/download"
       );
       const idbDevice = await CheerpX.IDBDevice.create("block1");
       const overlayDevice = await CheerpX.OverlayDevice.create(cloudDevice, idbDevice);
