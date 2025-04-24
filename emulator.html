@@ -3,35 +3,702 @@
   <head>
     <meta charset="utf-8" />
     <title>Try WolfOS Online</title>
-    <script src="https://cxrtnc.leaningtech.com/1.1.2/cx.js"></script>
-    <script type="module">
-      // The read-only disk image from Leaning Technologies' fast cloud backend
-      const cloudDevice = await CheerpX.CloudDevice.create(
-        "https://wolfos.pages.dev/WolfOS-v1.iso"
-      );
-      // Read-write local storage for disk blocks, it is used both as a cache and as persisteny writable storage
-      const idbDevice = await CheerpX.IDBDevice.create("block1");
-      // A device to overlay the local changes to the disk with the remote read-only image
-      const overlayDevice = await CheerpX.OverlayDevice.create(
-        cloudDevice,
-        idbDevice
-      );
-      // Direct acces to files in your HTTP server
-      const webDevice = await CheerpX.WebDevice.create("");
-      // Convenient access to JavaScript binary data and strings
-      const dataDevice = await CheerpX.DataDevice.create();
-
-      const cx = await CheerpX.Linux.create({
-        mounts: [
-          { type: "ext2", path: "/", dev: overlayDevice },
-          { type: "dir", path: "/app", dev: webDevice },
-          { type: "dir", path: "/data", dev: dataDevice },
-          { type: "devs", path: "/dev" },
-        ],
-      });
-    </script>
+    <style>
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+        background: black;
+        color: #33ff33;
+        overflow: hidden;
+      }
+      #console {
+        height: 100%;
+        padding: 10px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        line-height: 1.2;
+        font-size: 14px;
+      }
+      .bold { font-weight: bold; }
+      .black { color: #000000; }
+      .red { color: #FF5555; }
+      .green { color: #55FF55; }
+      .yellow { color: #FFFF55; }
+      .blue { color: #5555FF; }
+      .magenta { color: #FF55FF; }
+      .cyan { color: #55FFFF; }
+      .white { color: #FFFFFF; }
+      
+      #tui {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: auto;
+      }
+      
+      .command-item {
+        padding: 2px 10px;
+        cursor: pointer;
+      }
+      
+      .command-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .command-item.selected {
+        color: #FFFF55;
+        font-weight: bold;
+      }
+      
+      .command-item.selected::before {
+        content: "> ";
+        color: #55FF55;
+      }
+      
+      #header, #footer {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+      #input-area {
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      #progress-bar {
+        height: 20px;
+        background-color: #55FFFF;
+        width: 0%;
+        transition: width 0.1s;
+      }
+      
+      #progress-container {
+        border: 1px solid #5555FF;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 5px;
+        display: none;
+      }
+    </style>
   </head>
-  <body style="height: 100%; background: black;">
-    <pre id="console" style="height: 100%;"></pre>
+  <body>
+    <pre id="console"></pre>
+    <div id="tui">
+      <div id="header"></div>
+      <div id="command-list"></div>
+      <div id="pagination"></div>
+      <div id="input-area">
+        <div id="command-display"></div>
+        <div id="args-display"></div>
+        <div id="controls"></div>
+      </div>
+      <div id="footer"></div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+    
+    <script>
+      // Maximum number of commands to display
+      const MAX_COMMANDS = 100;
+      const MAX_COMMAND_LENGTH = 64;
+      
+      // Command list storage
+      let commandList = [];
+      let commandCount = 0;
+      let selectedIndex = 0;
+      let startIdx = 0;
+      let currentArgs = "";
+      let terminalMode = true; // Start in terminal mode (splash screen)
+      
+      // DOM elements
+      const consoleEl = document.getElementById('console');
+      const tuiEl = document.getElementById('tui');
+      const headerEl = document.getElementById('header');
+      const commandListEl = document.getElementById('command-list');
+      const paginationEl = document.getElementById('pagination');
+      const inputAreaEl = document.getElementById('input-area');
+      const commandDisplayEl = document.getElementById('command-display');
+      const argsDisplayEl = document.getElementById('args-display');
+      const controlsEl = document.getElementById('controls');
+      const footerEl = document.getElementById('footer');
+      const progressContainerEl = document.getElementById('progress-container');
+      const progressBarEl = document.getElementById('progress-bar');
+      
+      // Initialize
+      document.addEventListener('DOMContentLoaded', init);
+      
+      function init() {
+        // Start with splash screen
+        displaySplash();
+        
+        // Set up keyboard events
+        document.addEventListener('keydown', handleKeyPress);
+      }
+      
+      function displaySplash() {
+        consoleEl.innerHTML = "";
+        appendToConsole(`\n\n`, ["bold", "blue"]);
+        appendToConsole(`██╗    ██╗ ██████╗ ██╗     ███████╗ ██████╗ ███████╗\n`, ["bold", "blue"]);
+        appendToConsole(`██║    ██║██╔═══██╗██║     ██╔════╝██╔═══██╗██╔════╝\n`, ["bold", "blue"]);
+        appendToConsole(`██║ █╗ ██║██║   ██║██║     █████╗  ██║   ██║███████╗\n`, ["bold", "blue"]);
+        appendToConsole(`██║███╗██║██║   ██║██║     ██╔══╝  ██║   ██║╚════██║\n`, ["bold", "blue"]);
+        appendToConsole(`╚███╔███╔╝╚██████╔╝███████╗██║     ╚██████╔╝███████║\n`, ["bold", "blue"]);
+        appendToConsole(` ╚══╝╚══╝  ╚═════╝ ╚══════╝╚═╝      ╚═════╝ ╚══════╝\n`, ["bold", "blue"]);
+        appendToConsole(`\n`);
+        
+        appendToConsole(`A Minimalist Command Line Interface\n\n`, ["bold", "cyan"]);
+        
+        // Animation sequence
+        setTimeout(() => animateLoading(), 500);
+      }
+      
+      function animateLoading() {
+        const frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
+        let frameCount = 10;
+        let i = 0;
+        
+        appendToConsole(`Initializing core components `, ["bold", "blue"]);
+        
+        const animInterval = setInterval(() => {
+          // Append with temporarily class to update later
+          let span = document.createElement('span');
+          span.className = 'spinner bold yellow';
+          span.textContent = frames[i % frameCount];
+          consoleEl.appendChild(span);
+          
+          i++;
+          if (i >= 20) {
+            clearInterval(animInterval);
+            
+            // Replace spinner with checkmark
+            const spinners = document.getElementsByClassName('spinner');
+            while (spinners.length > 0) {
+              spinners[0].remove();
+            }
+            
+            appendToConsole(`✓\n`, ["bold", "green"]);
+            
+            // Continue with boot sequence
+            setTimeout(() => {
+              fancyPrint("Configuring base system", "blue", "magenta", 15);
+              
+              setTimeout(() => {
+                showProgressBar("Setting up minimal environment", 600);
+                
+                setTimeout(() => {
+                  fancyPrint("Checking system resources", "blue", "magenta", 15);
+                  
+                  setTimeout(() => {
+                    showProgressBar("Welcome to WolfOS . . .", 600);
+                    
+                    setTimeout(() => {
+                      printSystemInfo();
+                      
+                      setTimeout(() => {
+                        checkInternetConnection();
+                        
+                        setTimeout(() => {
+                          // Final ready message
+                          appendToConsole(`\n╔════════════════════════════════════════════════════════════╗\n`, ["bold", "blue"]);
+                          appendToConsole(`║ `, ["bold", "blue"]);
+                          appendToConsole(`WolfOS is ready                                           `, ["bold", "green"]);
+                          appendToConsole(`║\n`, ["bold", "blue"]);
+                          appendToConsole(`╚══════════════════════════════════════════════════════════════╝\n\n`, ["bold", "blue"]);
+                          
+                          // Switch to TUI mode
+                          setTimeout(() => {
+                            refreshCommandList();
+                            switchToTUI();
+                          }, 1000);
+                        }, 300);
+                      }, 300);
+                    }, 1000);
+                  }, 300);
+                }, 1000);
+              }, 300);
+            }, 300);
+          }
+          
+          // Scroll to bottom
+          consoleEl.scrollTop = consoleEl.scrollHeight;
+        }, 100);
+      }
+      
+      function fancyPrint(text, color1, color2, delayMs) {
+        let i = 0;
+        
+        const printInterval = setInterval(() => {
+          const color = (i % 2 === 0) ? color1 : color2;
+          appendToConsole(text[i], ["bold", color]);
+          
+          i++;
+          if (i >= text.length) {
+            clearInterval(printInterval);
+            appendToConsole(`\n`);
+          }
+          
+          // Scroll to bottom
+          consoleEl.scrollTop = consoleEl.scrollHeight;
+        }, delayMs);
+      }
+      
+      function showProgressBar(text, durationMs) {
+        appendToConsole(`${text} [`, ["bold", "blue"]);
+        
+        const barWidth = 40;
+        const sleepPerStep = durationMs / barWidth;
+        
+        progressContainerEl.style.display = 'block';
+        progressBarEl.style.width = '0%';
+        
+        let i = 0;
+        const progressInterval = setInterval(() => {
+          i++;
+          progressBarEl.style.width = `${(i / barWidth) * 100}%`;
+          
+          if (i >= barWidth) {
+            clearInterval(progressInterval);
+            appendToConsole(`] Done!\n`, ["bold", "green"]);
+            progressContainerEl.style.display = 'none';
+          }
+        }, sleepPerStep);
+      }
+      
+      function printSystemInfo() {
+        appendToConsole(`\nSystem Information:\n`, ["bold", "blue"]);
+        
+        // Get hostname (browser info)
+        const hostname = window.navigator.userAgent;
+        appendToConsole(`▶ Browser: `, ["bold", "green"]);
+        appendToConsole(`${hostname}\n`);
+        
+        // Get "kernel" info (javascript engine)
+        const engineInfo = getJSEngineInfo();
+        appendToConsole(`▶ Engine: `, ["bold", "green"]);
+        appendToConsole(`${engineInfo}\n`);
+        
+        // Get memory info
+        appendToConsole(`▶ Memory: `, ["bold", "green"]);
+        try {
+          const memoryInfo = window.performance && window.performance.memory 
+            ? Math.round(window.performance.memory.jsHeapSizeLimit / (1024*1024)) + " MB"
+            : "Memory info not available";
+          appendToConsole(`${memoryInfo}\n`);
+        } catch (e) {
+          appendToConsole(`Memory info not available\n`);
+        }
+        
+        // Get screen dimensions
+        appendToConsole(`▶ Screen: `, ["bold", "green"]);
+        appendToConsole(`${window.screen.width}x${window.screen.height}\n`);
+        
+        // Get time
+        appendToConsole(`▶ Time: `, ["bold", "green"]);
+        appendToConsole(`${Math.floor(Date.now() / 1000)}\n`);
+      }
+      
+      function checkInternetConnection() {
+        // Use fetch to check internet connection
+        appendToConsole(`▶ Internet: `, ["bold", "green"]);
+        
+        return fetch('https://www.google.com', { 
+          mode: 'no-cors',
+          cache: 'no-store'
+        })
+        .then(() => {
+          appendToConsole(`Connected\n`, ["green"]);
+          return true;
+        })
+        .catch(() => {
+          appendToConsole(`Not connected\n`, ["red"]);
+          return false;
+        });
+      }
+      
+      function getJSEngineInfo() {
+        const userAgent = navigator.userAgent;
+        if (userAgent.includes('Chrome')) {
+          return 'V8 (Chrome)';
+        } else if (userAgent.includes('Firefox')) {
+          return 'SpiderMonkey (Firefox)';
+        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+          return 'JavaScriptCore (Safari)';
+        } else if (userAgent.includes('Edge')) {
+          return 'Chakra/EdgeHTML (Edge)';
+        } else {
+          return 'Unknown JS Engine';
+        }
+      }
+      
+      function refreshCommandList() {
+        // Reset command list
+        commandList = [];
+        
+        // Add built-in commands
+        commandList.push("refresh");
+        commandList.push("sysinfo");
+        commandList.push("clear");
+        commandList.push("restart");
+        commandList.push("help");
+        commandList.push("echo");
+        commandList.push("ls");
+        commandList.push("cat");
+        commandList.push("whoami");
+        commandList.push("date");
+        commandList.push("uname");
+        commandList.push("exit");
+        
+        // Add some simulated system commands
+        const systemCommands = [
+          "bash", "cd", "chmod", "cp", "du", "grep", "gunzip", "gzip", "head",
+          "less", "ln", "mkdir", "more", "mv", "pwd", "rm", "rmdir", "sed",
+          "tail", "tar", "touch", "uptime", "wc", "which", "find", "ping",
+          "ps", "kill", "man", "df", "nano", "vim", "ssh", "ifconfig", "ip"
+        ];
+        
+        // Add system commands to our list
+        for (const cmd of systemCommands) {
+          if (commandList.length < MAX_COMMANDS) {
+            commandList.push(cmd);
+          }
+        }
+        
+        // Sort commands alphabetically
+        commandList.sort();
+        
+        // Update command count
+        commandCount = commandList.length;
+      }
+      
+      function switchToTUI() {
+        terminalMode = false;
+        consoleEl.style.display = 'none';
+        tuiEl.style.display = 'block';
+        drawTUI();
+      }
+      
+      function switchToTerminal() {
+        terminalMode = true;
+        tuiEl.style.display = 'none';
+        consoleEl.style.display = 'block';
+      }
+      
+      function drawTUI() {
+        // Get terminal dimensions
+        const termWidth = window.innerWidth;
+        const termHeight = window.innerHeight;
+        const visibleCommands = Math.min(Math.max(termHeight / 24, 3), commandCount);
+        
+        // Draw header
+        headerEl.innerHTML = '';
+        const termWidthChars = Math.floor(termWidth / 8);
+        
+        const headerLine = document.createElement('div');
+        headerLine.className = 'bold blue';
+        headerLine.textContent = '═'.repeat(termWidthChars);
+        headerEl.appendChild(headerLine);
+        
+        const headerTextLine = document.createElement('div');
+        headerTextLine.className = 'bold green';
+        const headerText = `WolfOS Command Interface - ${commandCount} commands available`;
+        headerTextLine.textContent = headerText;
+        headerTextLine.style.textAlign = 'center';
+        headerEl.appendChild(headerTextLine);
+        
+        const headerLine2 = document.createElement('div');
+        headerLine2.className = 'bold blue';
+        headerLine2.textContent = '═'.repeat(termWidthChars);
+        headerEl.appendChild(headerLine2);
+        
+        // Clear command list
+        commandListEl.innerHTML = '';
+        
+        // Calculate visible range
+        const endIdx = Math.min(startIdx + visibleCommands, commandCount);
+        
+        // Show command list
+        for (let i = startIdx; i < endIdx; i++) {
+          const commandItem = document.createElement('div');
+          commandItem.className = 'command-item';
+          commandItem.textContent = commandList[i];
+          
+          if (i === selectedIndex) {
+            commandItem.classList.add('selected');
+          }
+          
+          commandListEl.appendChild(commandItem);
+        }
+        
+        // Show pagination info if needed
+        paginationEl.innerHTML = '';
+        if (commandCount > visibleCommands) {
+          const paginationInfo = document.createElement('div');
+          paginationInfo.className = 'bold blue';
+          paginationInfo.textContent = `Showing ${startIdx + 1}-${endIdx} of ${commandCount} commands`;
+          paginationInfo.style.textAlign = 'center';
+          paginationEl.appendChild(paginationInfo);
+        }
+        
+        // Update command display
+        commandDisplayEl.innerHTML = '';
+        const cmdLabel = document.createElement('span');
+        cmdLabel.className = 'bold green';
+        cmdLabel.textContent = 'Command: ';
+        const cmdValue = document.createElement('span');
+        cmdValue.textContent = commandList[selectedIndex];
+        commandDisplayEl.appendChild(cmdLabel);
+        commandDisplayEl.appendChild(cmdValue);
+        
+        // Update args display
+        argsDisplayEl.innerHTML = '';
+        const argsLabel = document.createElement('span');
+        argsLabel.className = 'bold cyan';
+        argsLabel.textContent = 'Arguments: ';
+        const argsValue = document.createElement('span');
+        argsValue.textContent = currentArgs;
+        argsDisplayEl.appendChild(argsLabel);
+        argsDisplayEl.appendChild(argsValue);
+        
+        // Update controls
+        controlsEl.innerHTML = '';
+        const controlsText = document.createElement('div');
+        controlsText.className = 'bold yellow';
+        controlsText.textContent = '[↑/↓] Navigate  [Enter] Execute  [Tab] Edit args  [R] Refresh list  [Q] Quit to restart';
+        controlsText.style.marginTop = '10px';
+        controlsEl.appendChild(controlsText);
+      }
+      
+      function handleKeyPress(event) {
+        if (terminalMode) {
+          // In terminal mode, any key continues to next step
+          return;
+        }
+        
+        // In TUI mode
+        const visibleCommands = Math.min(Math.max(window.innerHeight / 24, 3), commandCount);
+        
+        switch(event.key) {
+          case 'ArrowUp':
+            event.preventDefault();
+            selectedIndex--;
+            if (selectedIndex < 0) selectedIndex = commandCount - 1;
+            
+            // Adjust view if needed
+            if (selectedIndex < startIdx) 
+                startIdx = selectedIndex;
+            if (selectedIndex >= startIdx + visibleCommands) 
+                startIdx = selectedIndex - visibleCommands + 1;
+            
+            drawTUI();
+            break;
+            
+          case 'ArrowDown':
+            event.preventDefault();
+            selectedIndex++;
+            if (selectedIndex >= commandCount) selectedIndex = 0;
+            
+            // Adjust view if needed
+            if (selectedIndex < startIdx) 
+                startIdx = selectedIndex;
+            if (selectedIndex >= startIdx + visibleCommands) 
+                startIdx = selectedIndex - visibleCommands + 1;
+            
+            drawTUI();
+            break;
+            
+          case 'Tab':
+            event.preventDefault();
+            editArguments();
+            break;
+            
+          case 'Enter':
+            event.preventDefault();
+            executeCommand(commandList[selectedIndex], currentArgs);
+            break;
+            
+          case 'r':
+          case 'R':
+            refreshCommandList();
+            selectedIndex = 0;
+            startIdx = 0;
+            drawTUI();
+            break;
+            
+          case 'q':
+          case 'Q':
+            // Restart the system
+            displaySplash();
+            switchToTerminal();
+            break;
+        }
+      }
+      
+      function editArguments() {
+        currentArgs = prompt("Enter arguments:", currentArgs);
+        if (currentArgs === null) currentArgs = "";
+        drawTUI();
+      }
+      
+      function executeCommand(command, args) {
+        // Switch to terminal to show output
+        switchToTerminal();
+        
+        // Display command being executed
+        appendToConsole(`\n$ `, ["bold", "green"]);
+        appendToConsole(`${command} ${args}\n`, ["white"]);
+        
+        // Handle built-in commands
+        switch(command) {
+          case 'refresh':
+            fancyPrint("Refreshing command list...", "blue", "cyan", 15);
+            refreshCommandList();
+            continueAfterCommand();
+            break;
+            
+          case 'sysinfo':
+            printSystemInfo();
+            continueAfterCommand();
+            break;
+            
+          case 'clear':
+            consoleEl.innerHTML = '';
+            continueAfterCommand();
+            break;
+            
+          case 'restart':
+            fancyPrint("Restarting WolfOS...", "blue", "cyan", 15);
+            setTimeout(() => {
+              displaySplash();
+            }, 1000);
+            break;
+            
+          case 'help':
+            appendToConsole(`\nWolfOS Help\n`, ["bold", "blue"]);
+            appendToConsole(`============\n\n`, ["bold", "blue"]);
+            appendToConsole(`Available commands:\n`, ["bold", "yellow"]);
+            appendToConsole(`  help     - Display this help message\n`);
+            appendToConsole(`  clear    - Clear the terminal\n`);
+            appendToConsole(`  refresh  - Refresh command list\n`);
+            appendToConsole(`  restart  - Restart WolfOS\n`);
+            appendToConsole(`  sysinfo  - Display system information\n`);
+            appendToConsole(`  ls       - List directory contents\n`);
+            appendToConsole(`  cat      - View file contents\n`);
+            appendToConsole(`  echo     - Print text\n`);
+            appendToConsole(`  whoami   - Print current user\n`);
+            appendToConsole(`  exit     - Exit to restart\n\n`, ["bold", "cyan"]);
+            appendToConsole(`TUI Controls:\n`, ["bold", "yellow"]);
+            appendToConsole(`  Arrow Up/Down - Navigate commands\n`);
+            appendToConsole(`  Enter         - Execute selected command\n`);
+            appendToConsole(`  Tab           - Edit command arguments\n`);
+            appendToConsole(`  R             - Refresh command list\n`);
+            appendToConsole(`  Q             - Quit back to splash screen\n`);
+            continueAfterCommand();
+            break;
+            
+          case 'echo':
+            appendToConsole(`${args}\n`);
+            continueAfterCommand();
+            break;
+            
+          case 'ls':
+            if (args.includes("-la") || args.includes("-l")) {
+              appendToConsole(`total 32\n`);
+              appendToConsole(`drwxr-xr-x  2 web   web   4096 Apr 24 12:34 .\n`);
+              appendToConsole(`drwxr-xr-x 18 root  root  4096 Apr 24 10:15 ..\n`);
+              appendToConsole(`-rw-r--r--  1 web   web   1458 Apr 20 08:16 README.md\n`);
+              appendToConsole(`drwxr-xr-x  2 web   web   4096 Apr 20 08:16 Documents\n`);
+              appendToConsole(`drwxr-xr-x  2 web   web   4096 Apr 20 08:16 Pictures\n`);
+              appendToConsole(`-rwxr-xr-x  1 web   web  12680 Apr 20 08:16 main.js\n`);
+            } else {
+              appendToConsole(`Documents  Pictures  README.md  main.js\n`);
+            }
+            continueAfterCommand();
+            break;
+            
+          case 'cat':
+            if (!args) {
+              appendToConsole(`Usage: cat <filename>\n`, ["bold", "red"]);
+            } else if (args.includes("README.md")) {
+              appendToConsole(`# WolfOS Web Edition\n\n`);
+              appendToConsole(`This is a web-based simulation of a minimalist command line interface.\n\n`);
+              appendToConsole(`## Features\n\n`);
+              appendToConsole(`- Command execution\n`);
+              appendToConsole(`- Terminal UI (TUI) for command selection\n`);
+              appendToConsole(`- System information display\n`);
+              appendToConsole(`- Basic file system simulation\n`);
+            } else {
+              appendToConsole(`cat: ${args}: No such file or directory\n`, ["bold", "red"]);
+            }
+            continueAfterCommand();
+            break;
+            
+          case 'whoami':
+            appendToConsole(`web\n`);
+            continueAfterCommand();
+            break;
+            
+          case 'date':
+            appendToConsole(`${new Date().toString()}\n`);
+            continueAfterCommand();
+            break;
+            
+          case 'uname':
+            if (args.includes("-a")) {
+              appendToConsole(`WebOS JavaScript ${navigator.userAgent} WolfOS-WEB-1.0\n`);
+            } else {
+              appendToConsole(`WolfOS-WEB\n`);
+            }
+            continueAfterCommand();
+            break;
+            
+          case 'exit':
+            fancyPrint("Exiting WolfOS...", "blue", "cyan", 15);
+            setTimeout(() => {
+              displaySplash();
+            }, 1000);
+            break;
+            
+          default:
+            // Command not implemented
+            appendToConsole(`\nExecuting: ${command} ${args}\n`);
+            appendToConsole(`\nCommand executed in simulation mode.\n`, ["bold", "yellow"]);
+            appendToConsole(`Actual functionality not implemented in this web demo.\n`, ["bold", "yellow"]);
+            continueAfterCommand();
+        }
+      }
+      
+      function continueAfterCommand() {
+        appendToConsole(`\nPress any key to continue...`, ["bold", "yellow"]);
+        
+        // One-time event listener for any keypress
+        const keyHandler = () => {
+          document.removeEventListener('keydown', keyHandler);
+          switchToTUI();
+          drawTUI();
+        };
+        
+        document.addEventListener('keydown', keyHandler);
+      }
+      
+      function appendToConsole(text, classes = []) {
+        const span = document.createElement('span');
+        if (classes.length > 0) {
+          span.className = classes.join(' ');
+        }
+        span.textContent = text;
+        consoleEl.appendChild(span);
+        
+        // Scroll to bottom
+        consoleEl.scrollTop = consoleEl.scrollHeight;
+      }
+    </script>
   </body>
 </html>
