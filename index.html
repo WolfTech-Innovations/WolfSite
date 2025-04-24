@@ -8,10 +8,6 @@
     <meta name="google-adsense-account" content="ca-pub-8933145913893262">
     <meta name="copyrighted-site-verification" content="9ef2a0129cf2f8b8" />
     <title>WolfOS: A WolfTech Innovations Project</title>
-    <script type="module">
-      import * as CheerpX from "https://cxrtnc.leaningtech.com/1.1.2/cx.esm.js";
-      self.CheerpX = CheerpX;
-    </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -198,6 +194,7 @@
             <a href="https://status.wolfos.uk/">Status</a>
             <div>
                 <a href="https://sourceforge.net/projects/wolfos/files/latest/download" class="btn">Download WolfOS</a>
+                <a href="/emulator.html" class="btn">Try WolfOS Online</a>
                 <a href="https://sourceforge.net/projects/cactusrom/files/latest/download" class="btn btn-secondary">CactusROM for PinePhone</a>
                 <a href="https://github.com/WolfTech-Innovations" target="_blank" rel="noopener noreferrer">
                     <button class="button">
@@ -211,25 +208,7 @@
         </div>
     </section>
    
-  <iframe id="console"></iframe>
-  <script type="module">
-    (async () => {
-      const cloudDevice = await CheerpX.CloudDevice.create(
-        "https://wolfos.pages.dev/WolfOS-v1.iso"
-      );
-      const idbDevice = await CheerpX.IDBDevice.create("block1");
-      const overlayDevice = await CheerpX.OverlayDevice.create(cloudDevice, idbDevice);
 
-      const cx = await CheerpX.create({
-        devices: [overlayDevice],
-        memory: 512 * 1024 * 1024,
-        console: document.getElementById("console"),
-      });
-
-      await cx.run("/init", {
-      });
-    })();
-  </script>
 
     <section id="roadmap" class="section">
         <div class="container">
