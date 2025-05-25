@@ -7,243 +7,744 @@
     <meta name="copyrighted-site-verification" content="789f7835d28a205f" />
     <meta name="google-adsense-account" content="ca-pub-8933145913893262">
     <meta name="copyrighted-site-verification" content="9ef2a0129cf2f8b8" />
-    <title>cybr: A WolfTech Innovations Project</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>cybr: Minimal Kali Linux Fork with KDE Plasma</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Mono:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Global Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212; /* Dark background for dark mode */
-            color: #e0e0e0; /* Light text for contrast */
+        /* Global Styles - macOS + Kali Fusion */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        h1, h2, h3 {
-            font-weight: 700;
-            color: #ffffff; /* White headings */
-        }
-
-        p {
-            font-size: 1rem;
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation Bar */
-        nav {
-            background-color: #1f1f1f; /* Darker background for navigation */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            padding: 10px 0;
-        }
-
-        nav a {
-            color: #ffffff; /* White text color for links */
-            font-weight: 500;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            padding: 10px 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #bb86fc; /* Purple color on hover */
-        }
-        #console { width: 100%; height: 100%; border: none; }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #6200ea, #03dac6); /* Gradient background */
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            margin-bottom: 30px;
+            padding: 0 20px;
         }
 
-        .hero .btn {
-            background-color: #1a73e8;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            margin: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        /* macOS-style Glassmorphism Effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .hero .btn:hover {
-            background-color: #0c66cc;
+        /* Header/Navigation - macOS Style */
+        header {
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(54, 123, 240, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 20px rgba(0,0,0,0.2);
         }
 
-        .hero .btn-secondary {
-            background-color: #e8f0fe;
-            color: #1a73e8;
-        }
-
-        .hero .btn-secondary:hover {
-            background-color: #d1e1f7;
-        }
-
-        /* Sections */
-        .section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #ffffff; /* White text for section titles */
-        }
-
-        .roadmap-item {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #1f1f1f; /* Dark background for roadmap items */
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #367bf0;
+            text-decoration: none;
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .logo img {
+            margin-right: 12px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .roadmap-item h5 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #bb86fc; /* Purple for item titles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
         }
 
-        .phase-label {
-            font-size: 0.9rem;
-            padding: 5px 15px;
+        .nav-links a {
+            color: #e6edf3;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
             border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links a:hover {
+            background: rgba(54, 123, 240, 0.2);
+            color: #367bf0;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section - macOS Big Sur inspired */
+        .hero {
+            background: linear-gradient(135deg, #0f1419 0%, #1a1a1a 50%, #0f1419 100%);
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(54, 123, 240, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
             color: #ffffff;
-            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
         }
 
-        .upcoming {
-            background-color: #fbbc04;
+        .hero .tagline {
+            font-size: 1.6rem;
+            color: #367bf0;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
 
-        .progress {
-            background-color: #4285f4;
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #8b949e;
+            margin-bottom: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
         }
 
-        .completed {
-            background-color: #34a853;
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #367bf0 0%, #4a90e2 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(54, 123, 240, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(54, 123, 240, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #367bf0;
+            border: 1px solid rgba(54, 123, 240, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(54, 123, 240, 0.2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .github-btn {
+            background: rgba(33, 38, 45, 0.8);
+            color: white;
+            border: 1px solid rgba(48, 54, 61, 0.5);
+            backdrop-filter: blur(20px);
+        }
+
+        .github-btn:hover {
+            background: rgba(48, 54, 61, 0.9);
+            transform: translateY(-2px);
+        }
+
+        /* Terminal-style command examples */
+        .terminal-section {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27ca3f; }
+
+        .terminal-title {
+            color: #8b949e;
+            font-size: 0.9rem;
+            font-family: 'SF Mono', monospace;
+        }
+
+        .terminal-command {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-family: 'SF Mono', monospace;
+            font-size: 0.95rem;
+            border-left: 3px solid #367bf0;
+        }
+
+        .terminal-command .prompt {
+            color: #27ca3f;
+            margin-right: 8px;
+        }
+
+        .terminal-command .command {
+            color: #ffffff;
+        }
+
+        .terminal-command .comment {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #161b22;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #8b949e;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(54, 123, 240, 0.5);
+            box-shadow: 0 20px 40px rgba(54, 123, 240, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #367bf0;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #8b949e;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Kali Resources Section */
+        .kali-resources {
+            padding: 100px 0;
+            background: #0d1117;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(54, 123, 240, 0.5);
+        }
+
+        .resource-card h4 {
+            color: #367bf0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .resource-card p {
+            color: #8b949e;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .resource-card a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(54, 123, 240, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card a:hover {
+            background: rgba(54, 123, 240, 0.3);
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: #161b22;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: rgba(54, 123, 240, 0.5);
+        }
+
+        .team-member h4 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .team-member .role {
+            color: #367bf0;
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .team-member p {
+            color: #8b949e;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            background-color: #1f1f1f;
-            color: #ffffff;
-            padding: 40px 0;
+            background: #0d1117;
+            border-top: 1px solid rgba(33, 38, 45, 0.5);
+            padding: 60px 0 40px;
             text-align: center;
         }
 
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
         .footer-links a {
-            color: #e0e0e0;
-            font-size: 14px;
-            margin-right: 15px;
+            color: #8b949e;
+            text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s ease;
+            font-size: 1rem;
         }
 
         .footer-links a:hover {
-            color: #bb86fc; /* Purple on hover */
+            color: #367bf0;
         }
 
-        .footer-links {
-            margin-bottom: 20px;
+        .copyright {
+            color: #6e7681;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        footer p {
-            font-size: 0.9rem;
-            color: #e0e0e0;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid,
+            .resources-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .terminal-section {
+                margin: 20px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper container">
-            <a href="https://wolfos.pages.dev/img.png" class="brand-logo">
-              <img src="https://wolfos.pages.dev/img.png" alt="cybr" width="52" height="52">
+    <header>
+        <nav class="container">
+            <a href="https://wolfos.uk" class="logo">
+                <img src="https://wolfos.pages.dev/img.png" alt="cybr" width="40" height="40">
+                cybr
             </a>
-
-            <ul class="right hide-on-med-and-down">
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#tools">Install Tools</a></li>
+                <li><a href="#resources">Kali Resources</a></li>
                 <li><a href="#team">Team</a></li>
+                <li><a href="https://status.wolfos.uk">Status</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <section id="home" class="hero">
         <div class="container">
-            <h1>Unleash Your Cyber security potential with cybr</h1>
-            <p>A powerful cyber security Arch Linux distro.</p>
-            <a href="https://status.cybr.uk/">Status</a>
-            <div>
-                <a href="https://sourceforge.net/projects/wolfos/files/latest/download" class="btn">Download cybr</a>
-                <a href="https://sourceforge.net/projects/cactusrom/files/latest/download" class="btn btn-secondary">CactusROM for PinePhone</a>
-                <a href="https://github.com/WolfTech-Innovations" target="_blank" rel="noopener noreferrer">
-                    <button class="button">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0.296997C5.37 0.296997 0 5.67 0 12.297C0 17.6 3.438 22.097 8.205 23.682C8.805 23.795 9.025 23.424 9.025 23.105C9.025 22.82 9.015 22.065 9.01 21.065C5.672 21.789 4.968 19.455 4.968 19.455C4.422 18.07 3.633 17.7 3.633 17.7C2.546 16.956 3.717 16.971 3.717 16.971C4.922 17.055 5.555 18.207 5.555 18.207C6.625 20.042 8.364 19.512 9.05 19.205C9.158 18.429 9.467 17.9 9.81 17.6C7.145 17.3 4.344 16.268 4.344 11.67C4.344 10.36 4.809 9.29 5.579 8.45C5.444 8.147 5.039 6.927 5.684 5.274C5.684 5.274 6.689 4.952 8.984 6.504C9.944 6.237 10.964 6.105 11.984 6.099C13.004 6.105 14.024 6.237 14.984 6.504C17.264 4.952 18.269 5.274 18.269 5.274C18.914 6.927 18.509 8.147 18.389 8.45C19.154 9.29 19.619 10.36 19.619 11.67C19.619 16.28 16.814 17.295 14.144 17.59C14.564 17.95 14.954 18.686 14.954 19.81C14.954 21.416 14.939 22.706 14.939 23.096C14.939 23.411 15.149 23.786 15.764 23.666C20.565 22.092 24 17.592 24 12.297C24 5.67 18.627 0.296997 12 0.296997Z" fill="white"></path>
-                        </svg>
-                        <span class="text">WolfTech Innovations</span>
-                    </button>
-                </a>
+            <div class="hero-content">
+                <h1>cybr</h1>
+                <p class="tagline">Minimal Kali Linux Fork • KDE Plasma Desktop</p>
+                <p class="subtitle">Take complete control of your cybersecurity toolkit. Start with a minimal Kali Linux base and choose exactly what you need from the official Kali repositories. Pre-configured with KDE Plasma for a premium desktop experience.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://download.wolfos.uk" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download cybr
+                    </a>
+                    <a href="https://mobile.wolfos.uk" class="btn btn-secondary">
+                        <i class="fas fa-mobile-alt"></i>
+                        Mobile Version
+                    </a>
+                    <a href="https://github.wolfos.uk" class="btn github-btn">
+                        <i class="fab fa-github"></i>
+                        Source Code
+                    </a>
+                </div>
+
+                <div class="terminal-section">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <div class="terminal-title">Terminal — cybr@localhost</div>
+                    </div>
+                    <div class="terminal-command">
+                        <span class="prompt">$</span>
+                        <span class="command">sudo apt update && apt install kali-tools-top10</span>
+                        <span class="comment"># Install essential penetration testing tools</span>
+                    </div>
+                    <div class="terminal-command">
+                        <span class="prompt">$</span>
+                        <span class="command">apt search kali-tools-</span>
+                        <span class="comment"># Browse all available tool categories</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-   
 
-
-    <section id="roadmap" class="section">
+    <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Development Roadmap</h2>
-            <div class="roadmap-item">
-                <span class="phase-label completed">Platform Expansion</span>
-                <p>Extended hardware compatibility and support for new platforms</p>
+            <h2 class="section-title">Your Security, Your Choice</h2>
+            <p class="section-subtitle">Start minimal, install only what you need. Full access to Kali Linux repositories with the elegance of KDE Plasma.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Complete Control</h3>
+                    <p>Start with a minimal base system and install only the security tools you actually use. No bloat, no unnecessary packages—just pure efficiency.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3>Official Kali Repositories</h3>
+                    <p>Full access to all official Kali Linux repositories. Install any tool package with standard apt commands—from reconnaissance to post-exploitation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-kde"></i>
+                    </div>
+                    <h3>KDE Plasma Desktop</h3>
+                    <p>Pre-configured with KDE Plasma for a beautiful, customizable desktop environment. Professional appearance meets powerful functionality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Enhanced Performance</h3>
+                    <p>Minimal footprint means faster boot times, lower resource usage, and more system resources available for your security testing tasks.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="team" class="section">
+    <section id="tools" class="kali-resources">
         <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <ul>
-                <li><strong>Christopher Lee Fox</strong> - CEO & Lead Developer</li>
-                <li><strong>Joseph Daniels</strong> - Senior Software Engineer</li>
-                <li><strong>Christopher F</strong> - UX/UI Designer</li>
-            </ul>
+            <h2 class="section-title">Install Tool Categories</h2>
+            <p class="section-subtitle">Use these terminal commands to install specific categories of security tools from the official Kali repositories.</p>
+            
+            <div class="terminal-section">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-title">Terminal — Install Kali Tool Categories</div>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-information-gathering</span>
+                    <span class="comment"># Reconnaissance & OSINT tools</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-vulnerability-assessment</span>
+                    <span class="comment"># Vulnerability scanners & assessment</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-web-applications</span>
+                    <span class="comment"># Web application security testing</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-wireless</span>
+                    <span class="comment"># Wireless network security tools</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-exploitation</span>
+                    <span class="comment"># Exploitation frameworks & tools</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-forensics</span>
+                    <span class="comment"># Digital forensics & incident response</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-passwords</span>
+                    <span class="comment"># Password attacks & hash cracking</span>
+                </div>
+                <div class="terminal-command">
+                    <span class="prompt">$</span>
+                    <span class="command">sudo apt install kali-tools-reverse-engineering</span>
+                    <span class="comment"># Reverse engineering & malware analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="kali-resources">
+        <div class="container">
+            <h2 class="section-title">Official Kali Resources</h2>
+            <p class="section-subtitle">Connect with the official Kali Linux community and resources. cybr is built on Kali's solid foundation.</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>Kali Linux Official</h4>
+                    <p>The official Kali Linux website with documentation, news, and community resources.</p>
+                    <a href="https://kali.org" target="_blank">Visit Kali.org</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Kali Package Repository</h4>
+                    <p>Browse all available packages in the official Kali Linux repositories.</p>
+                    <a href="https://pkg.kali.org" target="_blank">Package Search</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Kali Documentation</h4>
+                    <p>Comprehensive documentation for all Kali Linux tools and features.</p>
+                    <a href="https://kali.org/docs" target="_blank">Read Docs</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Kali Training</h4>
+                    <p>Official Kali Linux penetration testing courses and certifications.</p>
+                    <a href="https://kali.training" target="_blank">Start Learning</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Kali Forums</h4>
+                    <p>Community support and discussions about Kali Linux tools and techniques.</p>
+                    <a href="https://forums.kali.org" target="_blank">Join Community</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Kali Bug Reports</h4>
+                    <p>Report issues and contribute to the improvement of Kali Linux.</p>
+                    <a href="https://bugs.kali.org" target="_blank">Report Bugs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">WolfTech Team</h2>
+            <p class="section-subtitle">The team behind cybr, bringing you a refined Kali Linux experience.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>Christopher Lee Fox</h4>
+                    <p class="role">CEO & Lead Developer</p>
+                    <p>Cybersecurity expert and Linux distribution architect, focused on creating efficient security-focused operating systems.</p>
+                </div>
+                <div class="team-member">
+                    <h4>Joseph Daniels</h4>
+                    <p class="role">Senior Security Engineer</p>
+                    <p>Penetration testing specialist and system security researcher with expertise in vulnerability assessment.</p>
+                </div>
+                <div class="team-member">
+                    <h4>Christopher F</h4>
+                    <p class="role">UX/UI Designer</p>
+                    <p>User experience designer specializing in security tool interfaces and desktop environment customization.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="/privacypolicy.html">Privacy Policy</a>
-                <a href="/mtos.html"> Mobile Terms of Service</a>
-                <a href="#">Other Products</a>
+                <a href="https://privacy.wolfos.uk">Privacy Policy</a>
+                <a href="https://terms.wolfos.uk">Terms of Service</a>
+                <a href="https://security.wolfos.uk">Security Advisory</a>
+                <a href="https://docs.wolfos.uk">Documentation</a>
+                <a href="https://support.wolfos.uk">Support</a>
             </div>
-            <p>© 2025 WolfTech Innovations. All rights reserved.</p>
+            <p class="copyright">
+                © 2025 WolfTech Innovations. All rights reserved.<br>
+                cybr is a specialized minimal fork of Kali Linux • Built with KDE Plasma<br>
+                <strong>wolfos.uk</strong> • Official Kali repositories • Your security, your choice
+            </p>
         </div>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
