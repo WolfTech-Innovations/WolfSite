@@ -10,8 +10,8 @@
     })(window, document, "clarity", "script", "rqygbany4e");
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="cybr - Minimal Kali Linux Fork with KDE Plasma. Your security, your choice. Start minimal and install only what you need.">
-    <meta name="keywords" content="cybr, kali linux, penetration testing, cybersecurity, KDE plasma, minimal linux, security tools, ethical hacking">
+    <meta name="description" content="cybr - Kali Linux rolling base without branding. Coffee and cybr time - pick what you need, respect the foundation.">
+    <meta name="keywords" content="cybr, kali linux, rolling release, unbranded, minimal, respectful fork, security tools">
     <meta name="author" content="WolfTech Innovations">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -19,15 +19,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wolfos.uk/">
-    <meta property="og:title" content="cybr - Minimal Kali Linux Fork with KDE Plasma">
-    <meta property="og:description" content="Your security, your choice. Start minimal and install only what you need.">
+    <meta property="og:title" content="cybr - Coffee and cybr time">
+    <meta property="og:description" content="Kali rolling foundation, respectfully unbranded. Sometimes bugs become the best features.">
     <meta property="og:image" content="https://wolfos.pages.dev/img.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://wolfos.uk/">
-    <meta property="twitter:title" content="cybr - Minimal Kali Linux Fork with KDE Plasma">
-    <meta property="twitter:description" content="Your security, your choice. Start minimal and install only what you need.">
+    <meta property="twitter:title" content="cybr - Coffee and cybr time">
+    <meta property="twitter:description" content="Kali rolling foundation, respectfully unbranded. Sometimes bugs become the best features.">
     <meta property="twitter:image" content="https://wolfos.pages.dev/img.png">
     
     <!-- Canonical URL -->
@@ -37,269 +37,44 @@
     <link rel="icon" type="image/png" href="https://wolfos.pages.dev/img.png">
     <link rel="apple-touch-icon" href="https://wolfos.pages.dev/img.png">
     
-    <title>cybr - Minimal Kali Linux Fork with KDE Plasma | Your Security, Your Choice</title>
+    <title>cybr - Coffee and cybr time ☕ | Kali Rolling Without the Branding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* Loader Styles */
-        .loader {
-            --duration: 3s;
-            --primary: rgba(39, 94, 254, 1);
-            --primary-light: #2f71ff;
-            --primary-rgba: rgba(39, 94, 254, 0);
-            width: 200px;
-            height: 320px;
-            position: relative;
-            transform-style: preserve-3d;
+        :root {
+            --primary: #1976d2;
+            --primary-variant: #1565c0;
+            --secondary: #03dac6;
+            --background: #ffffff;
+            --surface: #ffffff;
+            --error: #b00020;
+            --on-primary: #ffffff;
+            --on-secondary: #000000;
+            --on-background: #000000;
+            --on-surface: #000000;
+            --outline: #757575;
+            --surface-variant: #f5f5f5;
+            --shadow: rgba(0, 0, 0, 0.2);
         }
 
-        @media (max-width: 480px) {
-            .loader { zoom: 0.44; }
+        [data-theme="dark"] {
+            --primary: #90caf9;
+            --primary-variant: #42a5f5;
+            --secondary: #03dac6;
+            --background: #121212;
+            --surface: #1e1e1e;
+            --error: #cf6679;
+            --on-primary: #000000;
+            --on-secondary: #000000;
+            --on-background: #ffffff;
+            --on-surface: #ffffff;
+            --outline: #8a8a8a;
+            --surface-variant: #2d2d2d;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
 
-        .loader:before, .loader:after {
-            --r: 20.5deg;
-            content: "";
-            width: 320px;
-            height: 140px;
-            position: absolute;
-            right: 32%;
-            bottom: -11px;
-            background: #f8f9fa;
-            transform: translateZ(200px) rotate(var(--r));
-            animation: mask var(--duration) linear forwards infinite;
-        }
-
-        .loader:after {
-            --r: -20.5deg;
-            right: auto;
-            left: 32%;
-        }
-
-        .loader .ground {
-            position: absolute;
-            left: -50px;
-            bottom: -120px;
-            transform-style: preserve-3d;
-            transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
-        }
-
-        .loader .ground div {
-            transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
-            width: 200px;
-            height: 200px;
-            background: var(--primary);
-            background: linear-gradient(45deg, var(--primary) 0%, var(--primary) 50%, var(--primary-light) 50%, var(--primary-light) 100%);
-            transform-style: preserve-3d;
-            animation: ground var(--duration) linear forwards infinite;
-        }
-
-        .loader .ground div:before, .loader .ground div:after {
-            --rx: 90deg;
-            --ry: 0deg;
-            --x: 44px;
-            --y: 162px;
-            --z: -50px;
-            content: "";
-            width: 156px;
-            height: 300px;
-            opacity: 0;
-            background: linear-gradient(var(--primary), var(--primary-rgba));
-            position: absolute;
-            transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--x), var(--y)) translateZ(var(--z));
-            animation: ground-shine var(--duration) linear forwards infinite;
-        }
-
-        .loader .ground div:after {
-            --rx: 90deg;
-            --ry: 90deg;
-            --x: 0;
-            --y: 177px;
-            --z: 150px;
-        }
-
-        .loader .box {
-            --x: 0;
-            --y: 0;
-            position: absolute;
-            animation: var(--duration) linear forwards infinite;
-            transform: translate(var(--x), var(--y));
-        }
-
-        .loader .box div {
-            background-color: var(--primary);
-            width: 48px;
-            height: 48px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: var(--duration) ease forwards infinite;
-            transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
-        }
-
-        .loader .box div:before, .loader .box div:after {
-            --rx: 90deg;
-            --ry: 0deg;
-            --z: 24px;
-            --y: -24px;
-            --x: 0;
-            content: "";
-            position: absolute;
-            background-color: inherit;
-            width: inherit;
-            height: inherit;
-            transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--x), var(--y)) translateZ(var(--z));
-            filter: brightness(var(--b, 1.2));
-        }
-
-        .loader .box div:after {
-            --rx: 0deg;
-            --ry: 90deg;
-            --x: 24px;
-            --y: 0;
-            --b: 1.4;
-        }
-
-        .loader .box.box0 { --x: -220px; --y: -120px; left: 58px; top: 108px; }
-        .loader .box.box1 { --x: -260px; --y: 120px; left: 25px; top: 120px; }
-        .loader .box.box2 { --x: 120px; --y: -190px; left: 58px; top: 64px; }
-        .loader .box.box3 { --x: 280px; --y: -40px; left: 91px; top: 120px; }
-        .loader .box.box4 { --x: 60px; --y: 200px; left: 58px; top: 132px; }
-        .loader .box.box5 { --x: -220px; --y: -120px; left: 25px; top: 76px; }
-        .loader .box.box6 { --x: -260px; --y: 120px; left: 91px; top: 76px; }
-        .loader .box.box7 { --x: -240px; --y: 200px; left: 58px; top: 87px; }
-
-        .loader .box0 { animation-name: box-move0; }
-        .loader .box0 div { animation-name: box-scale0; }
-        .loader .box1 { animation-name: box-move1; }
-        .loader .box1 div { animation-name: box-scale1; }
-        .loader .box2 { animation-name: box-move2; }
-        .loader .box2 div { animation-name: box-scale2; }
-        .loader .box3 { animation-name: box-move3; }
-        .loader .box3 div { animation-name: box-scale3; }
-        .loader .box4 { animation-name: box-move4; }
-        .loader .box4 div { animation-name: box-scale4; }
-        .loader .box5 { animation-name: box-move5; }
-        .loader .box5 div { animation-name: box-scale5; }
-        .loader .box6 { animation-name: box-move6; }
-        .loader .box6 div { animation-name: box-scale6; }
-        .loader .box7 { animation-name: box-move7; }
-        .loader .box7 div { animation-name: box-scale7; }
-
-        @keyframes box-move0 {
-            12% { transform: translate(var(--x), var(--y)); }
-            25%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale0 {
-            6% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            14%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move1 {
-            16% { transform: translate(var(--x), var(--y)); }
-            29%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale1 {
-            10% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            18%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move2 {
-            20% { transform: translate(var(--x), var(--y)); }
-            33%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale2 {
-            14% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            22%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move3 {
-            24% { transform: translate(var(--x), var(--y)); }
-            37%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale3 {
-            18% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            26%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move4 {
-            28% { transform: translate(var(--x), var(--y)); }
-            41%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale4 {
-            22% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            30%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move5 {
-            32% { transform: translate(var(--x), var(--y)); }
-            45%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale5 {
-            26% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            34%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move6 {
-            36% { transform: translate(var(--x), var(--y)); }
-            49%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale6 {
-            30% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            38%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes box-move7 {
-            40% { transform: translate(var(--x), var(--y)); }
-            53%, 52% { transform: translate(0, 0); }
-            80% { transform: translate(0, -32px); }
-            90%, 100% { transform: translate(0, 188px); }
-        }
-
-        @keyframes box-scale7 {
-            34% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0); }
-            42%, 100% { transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1); }
-        }
-
-        @keyframes ground {
-            0%, 65% { transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0); }
-            75%, 90% { transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(1); }
-            100% { transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0); }
-        }
-
-        @keyframes ground-shine {
-            0%, 70% { opacity: 0; }
-            75%, 87% { opacity: 0.2; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes mask {
-            0%, 65% { opacity: 0; }
-            66%, 100% { opacity: 1; }
-        }
-
-        /* Main Styles */
         * {
             margin: 0;
             padding: 0;
@@ -307,471 +82,476 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #ffffff;
-            color: #202124;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            background: var(--background);
+            color: var(--on-background);
+            transition: background 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
         }
 
-        /* Loading Screen */
-        .loading-screen {
+        /* Header */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-text {
-            margin-top: 40px;
-            font-size: 18px;
-            color: #5f6368;
-            font-weight: 500;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e8eaed;
+            right: 0;
+            background: var(--surface);
             z-index: 1000;
-            padding: 0 24px;
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: background 0.3s ease;
         }
 
-        nav {
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 64px;
         }
 
         .logo {
             font-size: 24px;
-            font-weight: 600;
-            color: #275efe;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .nav-links {
             display: flex;
-            list-style: none;
             gap: 8px;
+            list-style: none;
         }
 
         .nav-links a {
-            color: #5f6368;
-            text-decoration: none;
             padding: 8px 16px;
-            border-radius: 24px;
-            transition: all 0.2s ease;
+            color: var(--on-surface);
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background 0.2s ease;
             font-weight: 500;
         }
 
         .nav-links a:hover {
-            background: #f8f9fa;
-            color: #275efe;
+            background: var(--surface-variant);
         }
 
-        .mobile-toggle {
-            display: none;
+        .theme-toggle {
             background: none;
-            border: none;
-            font-size: 24px;
+            border: 2px solid var(--outline);
+            color: var(--on-surface);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
-            color: #5f6368;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 80px 24px 40px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
-        .hero-content {
+        .theme-toggle:hover {
+            background: var(--surface-variant);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 72px;
             max-width: 800px;
+            padding: 0 24px;
+        }
+
+        .hero {
+            padding: 80px 0;
         }
 
         .hero h1 {
-            font-size: clamp(32px, 8vw, 72px);
+            font-size: clamp(48px, 8vw, 72px);
             font-weight: 700;
-            color: #202124;
             margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
         .hero-subtitle {
-            font-size: 20px;
-            color: #5f6368;
-            margin-bottom: 40px;
-            line-height: 1.5;
+            font-size: 24px;
+            color: var(--outline);
+            margin-bottom: 48px;
+            font-weight: 300;
+            line-height: 1.4;
         }
 
-        .cta-group {
+        .cta-buttons {
             display: flex;
             gap: 16px;
-            justify-content: center;
+            margin-bottom: 64px;
             flex-wrap: wrap;
-            margin-bottom: 60px;
         }
 
         .btn {
             padding: 12px 24px;
+            border: none;
             border-radius: 24px;
-            text-decoration: none;
             font-weight: 500;
-            transition: all 0.2s ease;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            border: none;
+            transition: all 0.2s ease;
             font-size: 14px;
         }
 
         .btn-primary {
-            background: #275efe;
-            color: white;
-            box-shadow: 0 1px 3px rgba(39, 94, 254, 0.3);
+            background: var(--primary);
+            color: var(--on-primary);
+            box-shadow: 0 2px 8px var(--shadow);
         }
 
         .btn-primary:hover {
-            background: #1e4ed8;
-            box-shadow: 0 2px 8px rgba(39, 94, 254, 0.4);
+            background: var(--primary-variant);
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow);
         }
 
-        .btn-secondary {
-            background: #f8f9fa;
-            color: #275efe;
-            border: 1px solid #e8eaed;
+        .btn-outlined {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
-        .btn-secondary:hover {
-            background: #e8f0fe;
-            border-color: #275efe;
+        .btn-outlined:hover {
+            background: var(--primary);
+            color: var(--on-primary);
         }
 
         /* Features Section */
         .features {
-            padding: 80px 24px;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+            padding: 64px 0;
         }
 
         .section-title {
             font-size: 36px;
             font-weight: 700;
-            color: #202124;
             margin-bottom: 16px;
         }
 
         .section-description {
             font-size: 18px;
-            color: #5f6368;
-            max-width: 600px;
-            margin: 0 auto;
+            color: var(--outline);
+            margin-bottom: 48px;
+            line-height: 1.6;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
         }
 
         .feature-card {
-            background: #f8f9fa;
-            padding: 32px;
-            border-radius: 16px;
-            text-align: center;
-            transition: transform 0.2s ease;
-            border: 1px solid #e8eaed;
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px var(--shadow);
+            transition: all 0.2s ease;
+            border: 1px solid var(--surface-variant);
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: #e8f0fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 24px;
-            color: #275efe;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
         }
 
         .feature-title {
             font-size: 20px;
-            font-weight: 600;
-            color: #202124;
+            font-weight: 700;
             margin-bottom: 12px;
+            color: var(--primary);
         }
 
         .feature-description {
-            color: #5f6368;
+            color: var(--on-surface);
             line-height: 1.6;
         }
 
+        /* Use Cases Section */
+        .use-cases {
+            padding: 64px 0;
+            background: var(--surface-variant);
+            margin: 0 -24px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .use-case-item {
+            margin-bottom: 32px;
+        }
+
+        .use-case-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .use-case-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--on-surface);
+        }
+
         /* Footer */
-        footer {
-            background: #f8f9fa;
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid #e8eaed;
+        .footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--outline);
+            margin-top: 64px;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            color: #5f6368;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
             gap: 32px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: #5f6368;
+            color: var(--outline);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .footer-links a:hover {
-            color: #275efe;
+            color: var(--primary);
         }
 
-        /* Responsive */
+        .footer-text {
+            color: var(--outline);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
-            .mobile-toggle {
-                display: block;
-            }
-
             .hero {
-                padding: 100px 16px 40px;
+                padding: 48px 0;
             }
 
-            .features {
-                padding: 60px 16px;
+            .hero h1 {
+                font-size: 48px;
             }
 
-            .cta-group {
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
 
             .footer-links {
-                flex-direction: column;
-                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
-<body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader">
-            <div class="ground">
-                <div></div>
-            </div>
-            <div class="box box0">
-                <div></div>
-            </div>
-            <div class="box box1">
-                <div></div>
-            </div>
-            <div class="box box2">
-                <div></div>
-            </div>
-            <div class="box box3">
-                <div></div>
-            </div>
-            <div class="box box4">
-                <div></div>
-            </div>
-            <div class="box box5">
-                <div></div>
-            </div>
-            <div class="box box6">
-                <div></div>
-            </div>
-            <div class="box box7">
-                <div></div>
-            </div>
-        </div>
-        <div class="loading-text">Loading Cybr...</div>
-    </div>
-
+<body data-theme="dark">
     <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">
-                <span>🔒</span>
-                cybr
-            </a>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">cybr</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Download</a></li>
             </ul>
-            <button class="mobile-toggle">☰</button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span id="themeIcon">🌙</span>
+            </button>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Your Security, Your Choice</h1>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Coffee and cybr time ☕</h1>
             <p class="hero-subtitle">
-                Minimal Kali Linux fork with KDE Plasma. Start clean, install only what you need, 
-                and take complete control of your cybersecurity toolkit.
+                Built on Kali's rolling foundation, stripped of branding out of respect. 
+                Think of it as a buffet. Pick what you need, build what you want.
             </p>
-            <div class="cta-group">
+            <div class="cta-buttons">
                 <a href="https://sourceforge.net/projects/wolfos/files/" target="_blank" class="btn btn-primary">
-                    ⬇️ Download Cybr
+                    Download Now
                 </a>
-                <a href="#features" class="btn btn-secondary">
-                    ✨ Learn More
+                <a href="#features" class="btn btn-outlined">
+                    Learn More
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Built for Security Professionals</h2>
-                <p class="section-description">
-                    Experience the power of Kali Linux with the elegance of minimalism. 
-                    No bloat, just pure efficiency.
-                </p>
-            </div>
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2 class="section-title">The Power to Choose</h2>
+            <p class="section-description">
+                Genuine Kali Linux foundation with the branding respectfully removed. 
+                Think of it as a buffet - take what you want, leave what you don't. 
+                Sometimes what looks like a bug becomes the most elegant solution.
+            </p>
+            
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Minimal & Fast</h3>
+                    <h3 class="feature-title">Pure. Uncompromised. Yours.</h3>
                     <p class="feature-description">
-                        Start with a clean base system. Faster boot times, 
-                        lower resource usage, maximum performance.
+                        Pure Kali Linux rolling base. Full access to repositories and tools, 
+                        just without the official branding out of respect. It's not about what we removed. It's about what we left.
                     </p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3 class="feature-title">Official Kali Tools</h3>
+                    <h3 class="feature-title">Thoughtfully Unbranded</h3>
                     <p class="feature-description">
-                        Full access to Kali repositories. Install any security tool 
-                        with standard apt commands.
+                        No logos. No assumptions. Just possibilities. Think of it as a 
+                        blank canvas that happens to be incredibly powerful underneath.
                     </p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3 class="feature-title">KDE Plasma</h3>
+                    <h3 class="feature-title">Magical. Simple. Different.</h3>
                     <p class="feature-description">
-                        Beautiful, customizable desktop environment. 
-                        Professional appearance meets powerful functionality.
+                        Modern KDE Plasma desktop that just works. Beautiful by default, 
+                        customizable by choice. It's not just an interface. It's your interface.
                     </p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3 class="feature-title">Complete Control</h3>
+                    <h3 class="feature-title">Always Fresh</h3>
                     <p class="feature-description">
-                        Choose exactly what you need. Build your perfect 
-                        security testing environment from the ground up.
+                        Rolling release means you're always current with Kali's updates. 
+                        Latest packages, security patches, and tools. Because standing still is moving backward.
                     </p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">Daily Driver Ready</h3>
+                    <h3 class="feature-title">Lightning Fast</h3>
                     <p class="feature-description">
-                        Not just for penetration testing. Clean, flexible 
-                        template perfect for everyday use.
+                        Lightweight design means faster boot times and better performance. 
+                        On new hardware, it flies. On older hardware, it soars. Speed isn't everything. It's the only thing.
                     </p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3 class="feature-title">Rolling Release</h3>
+                    <h3 class="feature-title">Bug? Feature.</h3>
                     <p class="feature-description">
-                        Always up-to-date with the latest security tools 
-                        and system updates from Kali.
+                        What started as an unintended consequence became our philosophy. 
+                        Sometimes the best innovations come from happy accidents. We didn't plan this. But we're glad it happened.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases">
+            <h2 class="section-title">One System. Infinite Possibilities.</h2>
+            
+            <div class="use-case-item">
+                <h3 class="use-case-title">Students & Explorers</h3>
+                <p class="use-case-description">
+                    Learn Linux without the complexity. Perfect for computer science students 
+                    or anyone curious about open source. Think of it as training wheels that you'll never want to take off.
+                </p>
+            </div>
+            
+            <div class="use-case-item">
+                <h3 class="use-case-title">Everyday Everything</h3>
+                <p class="use-case-description">
+                    Browse, create, stream, work. All the apps you need for daily life. 
+                    It's not just an operating system. It's your digital foundation.
+                </p>
+            </div>
+            
+            <div class="use-case-item">
+                <h3 class="use-case-title">Security Professionals</h3>
+                <p class="use-case-description">
+                    Full Kali toolset available through standard repos. Perfect for pentesting, 
+                    security research, or learning cybersecurity. Just remember - with great power comes great responsibility (and great coffee).
+                </p>
+            </div>
+            
+            <div class="use-case-item">
+                <h3 class="use-case-title">Hardware Revival</h3>
+                <p class="use-case-description">
+                    Give older computers a second life with efficient, modern computing. 
+                    What others call obsolete, we call opportunity. Your old laptop just got a new lease on life.
+                </p>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
                 <a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Download</a>
                 <a href="https://github.com/WolfTech-Innovations/cybr" target="_blank">GitHub</a>
             </div>
-            <p>© 2025 WolfTech Innovations. Built on Kali Linux foundation.</p>
+            <p class="footer-text">© 2025 WolfTech Innovations</p>
         </div>
     </footer>
 
     <script>
-        // Hide loading screen after animation completes
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loadingScreen = document.getElementById('loadingScreen');
-                loadingScreen.classList.add('hidden');
-                
-                // Remove from DOM after transition
-                setTimeout(function() {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 3000); // Wait for one full loader animation cycle
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Check for saved theme or default to dark
+        let savedTheme;
+        try {
+            savedTheme = localStorage.getItem('theme') || 'dark';
+        } catch (e) {
+            savedTheme = 'dark';
+        }
+        body.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            try {
+                localStorage.setItem('theme', newTheme);
+            } catch (e) {
+                // localStorage not available, continue without saving
+            }
+            updateThemeIcon(newTheme);
         });
+
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -779,18 +559,34 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Mobile menu toggle (basic implementation)
-        document.querySelector('.mobile-toggle').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        // Add scroll effect to header
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
     </script>
 </body>
