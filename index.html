@@ -10,573 +10,215 @@
     })(window, document, "clarity", "script", "rqygbany4e");
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="cybr - Kali Linux rolling base without branding. Coffee and cybr time - pick what you need, respect the foundation.">
-    <meta name="keywords" content="cybr, kali linux, rolling release, unbranded, minimal, respectful fork, security tools">
+    <meta name="description" content="Cybr Linux - Debian-based security-focused operating system with custom performance kernel, KDE Plasma desktop, and comprehensive build automation. Built with AI-powered system optimization and modern desktop experience.">
+    <meta name="keywords" content="cybr linux, debian bookworm, custom kernel, kde plasma, security tools, kali repositories, performance optimization, automated build system">
     <meta name="author" content="WolfTech Innovations">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wolfos.uk/">
-    <meta property="og:title" content="cybr - Coffee and cybr time">
-    <meta property="og:description" content="Kali rolling foundation, respectfully unbranded. Sometimes bugs become the best features.">
+    <meta property="og:title" content="Cybr Linux - Next-Generation Security Operating System">
+    <meta property="og:description" content="Debian-based OS with custom performance kernel, modern KDE desktop, and comprehensive security tools. Built with automated CI/CD pipeline and AI optimization.">
     <meta property="og:image" content="https://wolfos.pages.dev/img.png">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://wolfos.uk/">
-    <meta property="twitter:title" content="cybr - Coffee and cybr time">
-    <meta property="twitter:description" content="Kali rolling foundation, respectfully unbranded. Sometimes bugs become the best features.">
+    <meta property="twitter:title" content="Cybr Linux - Next-Generation Security OS">
+    <meta property="twitter:description" content="Debian-based OS with custom performance kernel, modern KDE desktop, and comprehensive security tools.">
     <meta property="twitter:image" content="https://wolfos.pages.dev/img.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://wolfos.uk/">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://wolfos.pages.dev/img.png">
     <link rel="apple-touch-icon" href="https://wolfos.pages.dev/img.png">
-    
-    <title>cybr - Coffee and cybr time ☕ | Kali Rolling Without the Branding</title>
+
+    <title>Cybr Linux - Advanced Debian-Based Security OS | Custom Performance Kernel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --primary: #1976d2;
-            --primary-variant: #1565c0;
-            --secondary: #03dac6;
-            --background: #ffffff;
-            --surface: #ffffff;
-            --error: #b00020;
-            --on-primary: #ffffff;
-            --on-secondary: #000000;
-            --on-background: #000000;
-            --on-surface: #000000;
-            --outline: #757575;
-            --surface-variant: #f5f5f5;
-            --shadow: rgba(0, 0, 0, 0.2);
-        }
-
-        [data-theme="dark"] {
-            --primary: #90caf9;
-            --primary-variant: #42a5f5;
-            --secondary: #03dac6;
-            --background: #121212;
-            --surface: #1e1e1e;
-            --error: #cf6679;
-            --on-primary: #000000;
-            --on-secondary: #000000;
-            --on-background: #ffffff;
-            --on-surface: #ffffff;
-            --outline: #8a8a8a;
-            --surface-variant: #2d2d2d;
-            --shadow: rgba(0, 0, 0, 0.5);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Roboto', sans-serif;
-            background: var(--background);
-            color: var(--on-background);
-            transition: background 0.3s ease, color 0.3s ease;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
         }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--surface);
-            z-index: 1000;
-            box-shadow: 0 2px 4px var(--shadow);
-            transition: background 0.3s ease;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 24px;
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
+        
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            padding: 8px 16px;
-            color: var(--on-surface);
-            text-decoration: none;
-            border-radius: 20px;
-            transition: background 0.2s ease;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            background: var(--surface-variant);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--outline);
-            color: var(--on-surface);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-toggle:hover {
-            background: var(--surface-variant);
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-top: 72px;
-            max-width: 800px;
-            padding: 0 24px;
-        }
-
-        .hero {
-            padding: 80px 0;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 72px);
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 24px;
-            color: var(--outline);
-            margin-bottom: 48px;
-            font-weight: 300;
-            line-height: 1.4;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 64px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 24px;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--on-primary);
-            box-shadow: 0 2px 8px var(--shadow);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-variant);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-
-        .btn-outlined {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outlined:hover {
-            background: var(--primary);
-            color: var(--on-primary);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 64px 0;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .section-description {
-            font-size: 18px;
-            color: var(--outline);
-            margin-bottom: 48px;
-            line-height: 1.6;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 64px;
-        }
-
-        .feature-card {
-            background: var(--surface);
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px var(--shadow);
-            transition: all 0.2s ease;
-            border: 1px solid var(--surface-variant);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-
-        .feature-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        .feature-description {
-            color: var(--on-surface);
-            line-height: 1.6;
-        }
-
-        /* Use Cases Section */
-        .use-cases {
-            padding: 64px 0;
-            background: var(--surface-variant);
-            margin: 0 -24px;
-            padding-left: 24px;
-            padding-right: 24px;
-        }
-
-        .use-case-item {
-            margin-bottom: 32px;
-        }
-
-        .use-case-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-
-        .use-case-description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--on-surface);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 48px 0;
-            border-top: 1px solid var(--outline);
-            margin-top: 64px;
-        }
-
-        .footer-content {
+        
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+            padding: 1rem 0;
         }
-
-        .footer-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .footer-links a {
-            color: var(--outline);
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
             text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
             font-weight: 500;
-            transition: color 0.2s ease;
         }
-
-        .footer-links a:hover {
-            color: var(--primary);
+        
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
         }
-
-        .footer-text {
-            color: var(--outline);
-            font-size: 14px;
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
         }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 48px 0;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero-subtitle {
-                font-size: 20px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+        
+        .cta {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
         }
     </style>
 </head>
-<body data-theme="dark">
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="#" class="logo">cybr</a>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Cybr Linux</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#build">Build System</a></li>
                 <li><a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Download</a></li>
+                <li><a href="https://status.wolfos.uk">Status</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span id="themeIcon">🌙</span>
-            </button>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
+    <main>
         <section id="home" class="hero">
-            <h1>Coffee and cybr time ☕</h1>
-            <p class="hero-subtitle">
-                Built on Kali's rolling foundation, stripped of branding out of respect. 
-                Think of it as a buffet. Pick what you need, build what you want.
-            </p>
-            <div class="cta-buttons">
-                <a href="https://sourceforge.net/projects/wolfos/files/" target="_blank" class="btn btn-primary">
-                    Download Now
-                </a>
-                <a href="#features" class="btn btn-outlined">
-                    Learn More
-                </a>
-                <a href="https://status.wolfos.uk" class="btn btn-outlined">
-                    Status
-               </a>
+            <div class="container">
+                <h1>Cybr Linux</h1>
+                <p class="subtitle">Next-Generation Security Operating System</p>
+                <a href="https://sourceforge.net/projects/wolfos/files/" class="cta" target="_blank">Download Now</a>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <h2 class="section-title">The Power to Choose</h2>
-            <p class="section-description">
-                Genuine Kali Linux foundation with the branding respectfully removed. 
-                Think of it as a buffet - take what you want, leave what you don't. 
-                Sometimes what looks like a bug becomes the most elegant solution.
-            </p>
+        <section id="build" class="container">
+            <h2>Advanced Build System Architecture</h2>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3 class="feature-title">Pure. Uncompromised. Yours.</h3>
-                    <p class="feature-description">
-                        Pure Kali Linux rolling base. Full access to repositories and tools, 
-                        just without the official branding out of respect. It's not about what we removed. It's about what we left.
-                    </p>
-                </div>
-                
-    <h3 class="feature-title">Magical. Simple. Different.</h3>
-                    <p class="feature-description">
-                        Modern KDE Plasma desktop that just works. Beautiful by default, 
-                        customizable by choice. It's not just an interface. It's your interface.
-                    </p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3 class="feature-title">Always Fresh</h3>
-                    <p class="feature-description">
-                        Rolling release means you're always current with Kali's updates. 
-                        Latest packages, security patches, and tools. Because standing still is moving backward.
-                    </p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3 class="feature-title">Lightning Fast</h3>
-                    <p class="feature-description">
-                        Lightweight design means faster boot times and better performance. 
-                        On new hardware, it flies. On older hardware, it soars. Speed isn't everything. It's the only thing.
-                    </p>
-                </div>
-                
-                <div class="feature-card">>
-                </div>
-            </div>
-        </section>
+            <p>Cybr Linux represents a sophisticated approach to Linux distribution development, built entirely through automated GitHub Actions workflows that create a highly customized, performance-optimized operating system. The build system employs multiple specialized hooks and compilation processes to deliver a unique user experience that combines security, performance, and usability.</p>
 
-        <!-- Use Cases Section -->
-        <section class="use-cases">
-            <h2 class="section-title">One System. Infinite Possibilities.</h2>
-            
-            <div class="use-case-item">
-                <h3 class="use-case-title">Students & Explorers</h3>
-                <p class="use-case-description">
-                    Learn Linux without the complexity. Perfect for computer science students 
-                    or anyone curious about open source. Think of it as training wheels that you'll never want to take off.
-                </p>
-            </div>
-            
-            <div class="use-case-item">
-                <h3 class="use-case-title">Everyday Everything</h3>
-                <p class="use-case-description">
-                    Browse, create, stream, work. All the apps you need for daily life. 
-                    It's not just an operating system. It's your digital foundation.
-                </p>
-            </div>
-            
-            <div class="use-case-item">
-                <h3 class="use-case-title">Security Professionals</h3>
-                <p class="use-case-description">
-                    Full Kali toolset available through standard repos. Perfect for pentesting, 
-                    security research, or learning cybersecurity. Just remember - with great power comes great responsibility (and great coffee).
-                </p>
-            </div>
-            
-            <div class="use-case-item">
-                <h3 class="use-case-title">Hardware Revival</h3>
-                <p class="use-case-description">
-                    Give older computers a second life with efficient, modern computing. 
-                    What others call obsolete, we call opportunity. Your old laptop just got a new lease on life.
-                </p>
-            </div>
+            <h3>Debian Foundation with Performance Enhancements</h3>
+            <p>The system is based on Debian Bookworm, providing a stable and well-tested foundation while incorporating significant performance optimizations. The build process begins with a clean Debian base and applies extensive customizations through a series of carefully orchestrated hooks that modify everything from the kernel to the desktop environment.</p>
+
+            <h3>Custom Performance Kernel Compilation</h3>
+            <p>One of the most significant aspects of the Cybr Linux build process is the compilation of a custom performance-optimized kernel. The build system downloads the latest kernel source code and applies a comprehensive set of performance optimizations including BBR TCP congestion control, BFQ I/O scheduler, transparent huge pages, and memory compaction features. The kernel is compiled with a 1000Hz timer frequency for improved responsiveness and includes modern CPU optimizations.</p>
+
+            <p>The kernel build process utilizes all available CPU cores during compilation and creates proper Debian packages with the distinctive "-cybr-performance" suffix. This custom kernel is automatically configured as the default boot option, ensuring users benefit from the performance improvements immediately upon installation.</p>
+
+            <h3>KDE Plasma Desktop Transformation</h3>
+            <p>The desktop environment undergoes extensive customization to create a Windows-like user experience while maintaining the power and flexibility of KDE Plasma. The build system configures a comprehensive desktop transformation that includes wobbly windows effects, advanced compositing with blur and transparency, and a carefully crafted dark theme that extends throughout the entire system.</p>
+
+            <p>The desktop configuration includes multiple dock applications such as Plank and Cairo Dock to provide macOS-style functionality, while the KDE environment is configured with Windows-style keyboard shortcuts and window management behaviors. This creates a familiar experience for users transitioning from other operating systems while providing access to the full power of Linux.</p>
+
+            <h3>Security Integration and Kali Repositories</h3>
+            <p>Cybr Linux provides seamless access to security tools through properly configured Kali Linux repositories. The build system adds these repositories with appropriate trust configurations and priority settings to ensure compatibility with the Debian base system. Users can install security tools directly through standard package management without compromising system stability.</p>
+
+            <p>The security integration includes firewall configuration through UFW, automatic security updates, and careful package prioritization that ensures Debian packages take precedence over Kali packages for core system components. This approach provides access to security tools while maintaining system reliability.</p>
+
+            <h3>Automated Build Pipeline and Quality Assurance</h3>
+            <p>The entire build process is orchestrated through GitHub Actions, providing consistent and reproducible builds. The pipeline includes multiple validation stages, comprehensive error handling, and automatic artifact generation. Each build creates detailed logs and summaries that track the build process and provide debugging information.</p>
+
+            <p>The build system includes conditional cleanup processes that only activate when disk space becomes constrained, preserving build artifacts and system state when possible. The pipeline also includes security scanning and comprehensive testing to ensure each build meets quality standards.</p>
+
+            <h3>AI-Powered System Optimization</h3>
+            <p>A unique aspect of the Cybr Linux build system is the integration of AI-powered optimization through the NEOIMPROVE system. This component uses local language models to analyze the build process and suggest improvements, creating a self-improving build system that evolves over time.</p>
+
+            <p>The AI system can generate additional build hooks, suggest UX improvements, and optimize system configurations based on analysis of build performance and user experience patterns. This creates a distribution that continuously improves through automated intelligence rather than manual intervention alone.</p>
+
+            <h3>Comprehensive User Experience Design</h3>
+            <p>The build process includes extensive user experience enhancements designed to make Linux accessible to users of all technical skill levels. This includes an automatic welcome system that launches on first boot, comprehensive documentation generation, and desktop shortcuts for common system management tasks.</p>
+
+            <p>The system creates context-sensitive help systems, beginner-friendly GUI tools for system administration, and detailed getting-started guides that are automatically generated during the build process. These components ensure that users can effectively utilize the system regardless of their Linux experience level.</p>
+
+            <h3>GRUB Bootloader Customization</h3>
+            <p>The build system includes complete GRUB bootloader rebranding with custom themes and configurations. The bootloader presents a professional appearance with branded graphics, custom color schemes, and optimized boot parameters that complement the performance-focused kernel configuration.</p>
+
+            <p>The GRUB configuration includes support for high-resolution displays, custom boot messages, and proper integration with the custom kernel options. This ensures a consistent branded experience from boot through desktop operation.</p>
+
+            <h3>Package Management and Repository Configuration</h3>
+            <p>Cybr Linux includes sophisticated package management configurations that balance access to multiple software repositories while maintaining system stability. The build process carefully configures APT preferences, repository priorities, and package conflict resolution to provide access to both Debian and Kali packages without creating dependency conflicts.</p>
+
+            <p>The system includes comprehensive package validation during the build process, removing non-existent packages and ensuring all configured software is available in the target repositories. This prevents build failures and ensures consistent installation experiences across different hardware configurations.</p>
+
+            <h3>Multi-Architecture Support and Hardware Optimization</h3>
+            <p>The build system is designed to create optimized images for modern x86_64 hardware while maintaining compatibility with a wide range of systems. The kernel compilation includes modern CPU feature detection and optimization, while the desktop configuration includes appropriate performance tuning for both newer and older hardware.</p>
+
+            <p>System configuration includes memory management optimizations, I/O scheduling improvements, and network stack enhancements that provide measurable performance improvements across different hardware configurations. These optimizations are applied automatically during the build process without requiring user intervention.</p>
+
+            <h3>Continuous Integration and Deployment</h3>
+            <p>The build system operates as a complete CI/CD pipeline that can automatically trigger builds based on upstream changes, scheduled intervals, or manual requests. Each build creates comprehensive artifacts including ISO images, build logs, performance metrics, and validation reports.</p>
+
+            <p>The pipeline includes automatic uploading to distribution platforms, notification systems for build status, and detailed reporting that tracks build quality over time. This creates a professional distribution development process that rivals commercial operating system development workflows.</p>
+
+            <p>Through this comprehensive build system, Cybr Linux delivers a unique operating system that combines the stability of Debian, the security tools of Kali Linux, the performance of custom kernel optimization, and the usability of modern desktop design. The automated build process ensures consistent quality while the AI-powered optimization components provide continuous improvement without manual intervention.</p>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Download</a>
-                <a href="https://github.com/WolfTech-Innovations/cybr" target="_blank">GitHub</a>
-            </div>
-            <p class="footer-text">© 2025 WolfTech Innovations</p>
+    <footer style="background: #1e293b; color: #e2e8f0; text-align: center; padding: 2rem 0; margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2025 WolfTech Innovations. Built with automated excellence.</p>
         </div>
     </footer>
-
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const body = document.body;
-
-        // Check for saved theme or default to dark
-        let savedTheme;
-        try {
-            savedTheme = localStorage.getItem('theme') || 'dark';
-        } catch (e) {
-            savedTheme = 'dark';
-        }
-        body.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            body.setAttribute('data-theme', newTheme);
-            try {
-                localStorage.setItem('theme', newTheme);
-            } catch (e) {
-                // localStorage not available, continue without saving
-            }
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.offsetTop;
-                    const offsetPosition = elementPosition - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        let lastScrollTop = 0;
-        const header = document.querySelector('.header');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-    </script>
 </body>
 </html>
