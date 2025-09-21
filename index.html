@@ -10,7 +10,7 @@
     })(window, document, "clarity", "script", "rqygbany4e");
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr Linux - Debian-based security-focused operating system with custom performance kernel, KDE Plasma desktop, and comprehensive build automation. Built with AI-powered system optimization and modern desktop experience.">
+    <meta name="description" content="Cybr Linux - Debian-based security-focused operating system with custom performance kernel, KDE Plasma desktop, and comprehensive build automation.">
     <meta name="keywords" content="cybr linux, debian bookworm, custom kernel, kde plasma, security tools, kali repositories, performance optimization, automated build system">
     <meta name="author" content="WolfTech Innovations">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wolfos.uk/">
     <meta property="og:title" content="Cybr Linux - Next-Generation Security Operating System">
-    <meta property="og:description" content="Debian-based OS with custom performance kernel, modern KDE desktop, and comprehensive security tools. Built with automated CI/CD pipeline and AI optimization.">
+    <meta property="og:description" content="Debian-based OS with custom performance kernel, modern KDE desktop, and comprehensive security tools. Built with automated CI/CD pipeline.">
     <meta property="og:image" content="https://wolfos.pages.dev/img.png">
 
     <!-- Twitter -->
@@ -302,6 +302,10 @@
         
         .subsection {
             margin: 3rem 0;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
         
         .subsection-title {
@@ -521,14 +525,6 @@
             <section id="features" class="features">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Performance Optimized</h3>
-                    <p class="feature-text">Custom kernel with BBR TCP congestion, BFQ I/O scheduler, and modern CPU optimizations for superior performance.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3 class="feature-title">Security Focused</h3>
@@ -542,17 +538,25 @@
                     <h3 class="feature-title">Modern Desktop</h3>
                     <p class="feature-text">Beautiful KDE Plasma desktop with Windows-like experience, wobbly windows, and advanced compositing effects.</p>
                 </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="feature-title">Automated Builds</h3>
+                    <p class="feature-text">Complete CI/CD pipeline with GitHub Actions for consistent, reproducible builds with quality assurance.</p>
+                </div>
             </section>
 
             <div class="stats">
                 <div class="stat-card">
-                    <div class="stat-number">1000Hz</div>
-                    <div class="stat-label">Timer Frequency</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Debian Compatible</div>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-number">AI</div>
-                    <div class="stat-label">Powered Optimization</div>
+                    <div class="stat-number">KDE</div>
+                    <div class="stat-label">Plasma Desktop</div>
                 </div>
                 
                 <div class="stat-card">
@@ -561,22 +565,22 @@
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-number">KDE</div>
-                    <div class="stat-label">Plasma Desktop</div>
+                    <div class="stat-number">BBR</div>
+                    <div class="stat-label">TCP Optimization</div>
                 </div>
             </div>
 
             <section id="build" class="build-system">
                 <h2 class="section-title">Advanced Build System Architecture</h2>
                 
-                <p>Cybr Linux represents a sophisticated approach to Linux distribution development, built entirely through automated GitHub Actions workflows that create a highly customized, performance-optimized operating system.</p>
+                <p>Cybr Linux represents a sophisticated approach to Linux distribution development, built entirely through automated GitHub Actions workflows that create a highly customized, performance-optimized operating system. The build system employs multiple specialized hooks and compilation processes to deliver a unique user experience that combines security, performance, and usability.</p>
 
                 <div class="subsection">
                     <h3 class="subsection-title">
                         <i class="fas fa-server subsection-icon"></i>
                         Debian Foundation with Performance Enhancements
                     </h3>
-                    <p>The system is based on Debian Bookworm, providing a stable and well-tested foundation while incorporating significant performance optimizations.</p>
+                    <p>The system is based on Debian Bookworm, providing a stable and well-tested foundation while incorporating significant performance optimizations. The build process begins with a clean Debian base and applies extensive customizations through a series of carefully orchestrated hooks that modify everything from the kernel to the desktop environment.</p>
                     
                     <div class="code-block">
                         <span class="code-comment"># Building on Debian with custom optimizations</span><br>
@@ -593,7 +597,9 @@
                         <i class="fas fa-cogs subsection-icon"></i>
                         Custom Performance Kernel Compilation
                     </h3>
-                    <p>The build system downloads the latest kernel source code and applies a comprehensive set of performance optimizations.</p>
+                    <p>One of the most significant aspects of the Cybr Linux build process is the compilation of a custom performance-optimized kernel. The build system downloads the latest kernel source code and applies a comprehensive set of performance optimizations including BBR TCP congestion control, BFQ I/O scheduler, transparent huge pages, and memory compaction features.</p>
+
+                    <p>The kernel build process utilizes all available CPU cores during compilation and creates proper Debian packages with the distinctive "-cybr-performance" suffix. This custom kernel is automatically configured as the default boot option, ensuring users benefit from the performance improvements immediately upon installation.</p>
                 </div>
 
                 <div class="subsection">
@@ -601,7 +607,9 @@
                         <i class="fas fa-desktop subsection-icon"></i>
                         KDE Plasma Desktop Transformation
                     </h3>
-                    <p>The desktop environment undergoes extensive customization to create a Windows-like user experience while maintaining the power of KDE Plasma.</p>
+                    <p>The desktop environment undergoes extensive customization to create a Windows-like user experience while maintaining the power and flexibility of KDE Plasma. The build system configures a comprehensive desktop transformation that includes wobbly windows effects, advanced compositing with blur and transparency, and a carefully crafted dark theme that extends throughout the entire system.</p>
+
+                    <p>The desktop configuration includes multiple dock applications such as Plank and Cairo Dock to provide macOS-style functionality, while the KDE environment is configured with Windows-style keyboard shortcuts and window management behaviors. This creates a familiar experience for users transitioning from other operating systems while providing access to the full power of Linux.</p>
                 </div>
 
                 <div class="subsection">
@@ -609,18 +617,72 @@
                         <i class="fas fa-lock subsection-icon"></i>
                         Security Integration and Kali Repositories
                     </h3>
-                    <p>Cybr Linux provides seamless access to security tools through properly configured Kali Linux repositories.</p>
+                    <p>Cybr Linux provides seamless access to security tools through properly configured Kali Linux repositories. The build system adds these repositories with appropriate trust configurations and priority settings to ensure compatibility with the Debian base system. Users can install security tools directly through standard package management without compromising system stability.</p>
+
+                    <p>The security integration includes firewall configuration through UFW, automatic security updates, and careful package prioritization that ensures Debian packages take precedence over Kali packages for core system components. This approach provides access to security tools while maintaining system reliability.</p>
                 </div>
 
                 <div class="subsection">
                     <h3 class="subsection-title">
-                        <i class="fas fa-robot subsection-icon"></i>
-                        AI-Powered System Optimization
+                        <i class="fas fa-code-branch subsection-icon"></i>
+                        Automated Build Pipeline and Quality Assurance
                     </h3>
-                    <p>A unique aspect of the Cybr Linux build system is the integration of AI-powered optimization through the NEOIMPROVE system.</p>
+                    <p>The entire build process is orchestrated through GitHub Actions, providing consistent and reproducible builds. The pipeline includes multiple validation stages, comprehensive error handling, and automatic artifact generation. Each build creates detailed logs and summaries that track the build process and provide debugging information.</p>
+
+                    <p>The build system includes conditional cleanup processes that only activate when disk space becomes constrained, preserving build artifacts and system state when possible. The pipeline also includes security scanning and comprehensive testing to ensure each build meets quality standards.</p>
                 </div>
 
-                <p>Through this comprehensive build system, Cybr Linux delivers a unique operating system that combines the stability of Debian, the security tools of Kali Linux, the performance of custom kernel optimization, and the usability of modern desktop design.</p>
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-user-check subsection-icon"></i>
+                        Comprehensive User Experience Design
+                    </h3>
+                    <p>The build process includes extensive user experience enhancements designed to make Linux accessible to users of all technical skill levels. This includes an automatic welcome system that launches on first boot, comprehensive documentation generation, and desktop shortcuts for common system management tasks.</p>
+
+                    <p>The system creates context-sensitive help systems, beginner-friendly GUI tools for system administration, and detailed getting-started guides that are automatically generated during the build process. These components ensure that users can effectively utilize the system regardless of their Linux experience level.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-compact-disc subsection-icon"></i>
+                        GRUB Bootloader Customization
+                    </h3>
+                    <p>The build system includes complete GRUB bootloader rebranding with custom themes and configurations. The bootloader presents a professional appearance with branded graphics, custom color schemes, and optimized boot parameters that complement the performance-focused kernel configuration.</p>
+
+                    <p>The GRUB configuration includes support for high-resolution displays, custom boot messages, and proper integration with the custom kernel options. This ensures a consistent branded experience from boot through desktop operation.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-box-open subsection-icon"></i>
+                        Package Management and Repository Configuration
+                    </h3>
+                    <p>Cybr Linux includes sophisticated package management configurations that balance access to multiple software repositories while maintaining system stability. The build process carefully configures APT preferences, repository priorities, and package conflict resolution to provide access to both Debian and Kali packages without creating dependency conflicts.</p>
+
+                    <p>The system includes comprehensive package validation during the build process, removing non-existent packages and ensuring all configured software is available in the target repositories. This prevents build failures and ensures consistent installation experiences across different hardware configurations.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-microchip subsection-icon"></i>
+                        Multi-Architecture Support and Hardware Optimization
+                    </h3>
+                    <p>The build system is designed to create optimized images for modern x86_64 hardware while maintaining compatibility with a wide range of systems. The kernel compilation includes modern CPU feature detection and optimization, while the desktop configuration includes appropriate performance tuning for both newer and older hardware.</p>
+
+                    <p>System configuration includes memory management optimizations, I/O scheduling improvements, and network stack enhancements that provide measurable performance improvements across different hardware configurations. These optimizations are applied automatically during the build process without requiring user intervention.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-sync-alt subsection-icon"></i>
+                        Continuous Integration and Deployment
+                    </h3>
+                    <p>The build system operates as a complete CI/CD pipeline that can automatically trigger builds based on upstream changes, scheduled intervals, or manual requests. Each build creates comprehensive artifacts including ISO images, build logs, performance metrics, and validation reports.</p>
+
+                    <p>The pipeline includes automatic uploading to distribution platforms, notification systems for build status, and detailed reporting that tracks build quality over time. This creates a professional distribution development process that rivals commercial operating system development workflows.</p>
+                </div>
+
+                <p>Through this comprehensive build system, Cybr Linux delivers a unique operating system that combines the stability of Debian, the security tools of Kali Linux, the performance of custom kernel optimization, and the usability of modern desktop design. The automated build process ensures consistent quality while the optimization components provide continuous improvement.</p>
             </section>
         </div>
     </main>
@@ -634,9 +696,9 @@
                     </a>
                     <p>Next-generation security operating system built on Debian with performance optimizations and modern desktop experience.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab-github"></i></a>
-                        <a href="#"><i class="fab-twitter"></i></a>
-                        <a href="#"><i class="fab-discord"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
                 
