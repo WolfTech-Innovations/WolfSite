@@ -41,8 +41,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --dark: #1e293b;
+            --gray-dark: #334155;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --border-radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -52,8 +71,9 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fafafa;
+            color: var(--dark);
+            background: var(--light);
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -62,13 +82,15 @@
             padding: 0 20px;
         }
         
+        /* Header & Navigation */
         header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: var(--white);
+            box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: var(--transition);
         }
         
         nav {
@@ -79,10 +101,17 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #2563eb;
+            color: var(--primary);
             text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
         }
         
         .nav-links {
@@ -93,132 +122,588 @@
         
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--dark);
             font-weight: 500;
+            transition: var(--transition);
+            position: relative;
         }
         
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Main content */
         main {
             margin-top: 80px;
             padding: 2rem 0;
         }
         
+        /* Hero section */
         .hero {
+            position: relative;
             text-align: center;
-            padding: 4rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
-            color: #1e293b;
         }
         
         .subtitle {
-            font-size: 1.25rem;
-            color: #64748b;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .cta {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            padding: 0.75rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            color: var(--primary);
+            padding: 0.9rem 2rem;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 50px;
             font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+        
+        /* Features section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-text {
+            color: var(--gray);
+        }
+        
+        /* Build system section */
+        .build-system {
+            margin: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .subsection {
+            margin: 3rem 0;
+        }
+        
+        .subsection-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .subsection-icon {
+            color: var(--primary);
+        }
+        
+        /* Code block styling */
+        .code-block {
+            background: var(--dark);
+            color: var(--light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        
+        .code-comment {
+            color: var(--gray);
+        }
+        
+        .code-keyword {
+            color: #ff79c6;
+        }
+        
+        .code-function {
+            color: #50fa7b;
+        }
+        
+        /* Stats section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--gray-light);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">Cybr Linux</a>
+            <a href="#" class="logo">
+                <i class="fas fa-shield-alt logo-icon"></i>
+                Cybr Linux
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
                 <li><a href="#build">Build System</a></li>
                 <li><a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Download</a></li>
                 <li><a href="https://status.wolfos.uk">Status</a></li>
             </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <div class="container">
+            <div class="container hero-content">
                 <h1>Cybr Linux</h1>
                 <p class="subtitle">Next-Generation Security Operating System</p>
-                <a href="https://sourceforge.net/projects/wolfos/files/" class="cta" target="_blank">Download Now</a>
+                <div class="cta-container">
+                    <a href="https://sourceforge.net/projects/wolfos/files/" class="cta" target="_blank">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
+                    <a href="#features" class="cta cta-secondary">
+                        <i class="fas fa-search"></i> Explore Features
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section id="build" class="container">
-            <h2>Advanced Build System Architecture</h2>
-            
-            <p>Cybr Linux represents a sophisticated approach to Linux distribution development, built entirely through automated GitHub Actions workflows that create a highly customized, performance-optimized operating system. The build system employs multiple specialized hooks and compilation processes to deliver a unique user experience that combines security, performance, and usability.</p>
+        <div class="container">
+            <section id="features" class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Performance Optimized</h3>
+                    <p class="feature-text">Custom kernel with BBR TCP congestion, BFQ I/O scheduler, and modern CPU optimizations for superior performance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Security Focused</h3>
+                    <p class="feature-text">Integrated Kali repositories, UFW firewall, and automatic security updates for a secure computing environment.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="feature-title">Modern Desktop</h3>
+                    <p class="feature-text">Beautiful KDE Plasma desktop with Windows-like experience, wobbly windows, and advanced compositing effects.</p>
+                </div>
+            </section>
 
-            <h3>Debian Foundation with Performance Enhancements</h3>
-            <p>The system is based on Debian Bookworm, providing a stable and well-tested foundation while incorporating significant performance optimizations. The build process begins with a clean Debian base and applies extensive customizations through a series of carefully orchestrated hooks that modify everything from the kernel to the desktop environment.</p>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">1000Hz</div>
+                    <div class="stat-label">Timer Frequency</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">AI</div>
+                    <div class="stat-label">Powered Optimization</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">CI/CD</div>
+                    <div class="stat-label">Automated Pipeline</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">KDE</div>
+                    <div class="stat-label">Plasma Desktop</div>
+                </div>
+            </div>
 
-            <h3>Custom Performance Kernel Compilation</h3>
-            <p>One of the most significant aspects of the Cybr Linux build process is the compilation of a custom performance-optimized kernel. The build system downloads the latest kernel source code and applies a comprehensive set of performance optimizations including BBR TCP congestion control, BFQ I/O scheduler, transparent huge pages, and memory compaction features. The kernel is compiled with a 1000Hz timer frequency for improved responsiveness and includes modern CPU optimizations.</p>
+            <section id="build" class="build-system">
+                <h2 class="section-title">Advanced Build System Architecture</h2>
+                
+                <p>Cybr Linux represents a sophisticated approach to Linux distribution development, built entirely through automated GitHub Actions workflows that create a highly customized, performance-optimized operating system.</p>
 
-            <p>The kernel build process utilizes all available CPU cores during compilation and creates proper Debian packages with the distinctive "-cybr-performance" suffix. This custom kernel is automatically configured as the default boot option, ensuring users benefit from the performance improvements immediately upon installation.</p>
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-server subsection-icon"></i>
+                        Debian Foundation with Performance Enhancements
+                    </h3>
+                    <p>The system is based on Debian Bookworm, providing a stable and well-tested foundation while incorporating significant performance optimizations.</p>
+                    
+                    <div class="code-block">
+                        <span class="code-comment"># Building on Debian with custom optimizations</span><br>
+                        <span class="code-keyword">FROM</span> debian:bookworm<br>
+                        <span class="code-keyword">RUN</span> apt-get update && apt-get install -y \<br>
+                        &nbsp;&nbsp;linux-source \<br>
+                        &nbsp;&nbsp;build-essential \<br>
+                        &nbsp;&nbsp;custom-optimizations
+                    </div>
+                </div>
 
-            <h3>KDE Plasma Desktop Transformation</h3>
-            <p>The desktop environment undergoes extensive customization to create a Windows-like user experience while maintaining the power and flexibility of KDE Plasma. The build system configures a comprehensive desktop transformation that includes wobbly windows effects, advanced compositing with blur and transparency, and a carefully crafted dark theme that extends throughout the entire system.</p>
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-cogs subsection-icon"></i>
+                        Custom Performance Kernel Compilation
+                    </h3>
+                    <p>The build system downloads the latest kernel source code and applies a comprehensive set of performance optimizations.</p>
+                </div>
 
-            <p>The desktop configuration includes multiple dock applications such as Plank and Cairo Dock to provide macOS-style functionality, while the KDE environment is configured with Windows-style keyboard shortcuts and window management behaviors. This creates a familiar experience for users transitioning from other operating systems while providing access to the full power of Linux.</p>
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-desktop subsection-icon"></i>
+                        KDE Plasma Desktop Transformation
+                    </h3>
+                    <p>The desktop environment undergoes extensive customization to create a Windows-like user experience while maintaining the power of KDE Plasma.</p>
+                </div>
 
-            <h3>Security Integration and Kali Repositories</h3>
-            <p>Cybr Linux provides seamless access to security tools through properly configured Kali Linux repositories. The build system adds these repositories with appropriate trust configurations and priority settings to ensure compatibility with the Debian base system. Users can install security tools directly through standard package management without compromising system stability.</p>
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-lock subsection-icon"></i>
+                        Security Integration and Kali Repositories
+                    </h3>
+                    <p>Cybr Linux provides seamless access to security tools through properly configured Kali Linux repositories.</p>
+                </div>
 
-            <p>The security integration includes firewall configuration through UFW, automatic security updates, and careful package prioritization that ensures Debian packages take precedence over Kali packages for core system components. This approach provides access to security tools while maintaining system reliability.</p>
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <i class="fas fa-robot subsection-icon"></i>
+                        AI-Powered System Optimization
+                    </h3>
+                    <p>A unique aspect of the Cybr Linux build system is the integration of AI-powered optimization through the NEOIMPROVE system.</p>
+                </div>
 
-            <h3>Automated Build Pipeline and Quality Assurance</h3>
-            <p>The entire build process is orchestrated through GitHub Actions, providing consistent and reproducible builds. The pipeline includes multiple validation stages, comprehensive error handling, and automatic artifact generation. Each build creates detailed logs and summaries that track the build process and provide debugging information.</p>
-
-            <p>The build system includes conditional cleanup processes that only activate when disk space becomes constrained, preserving build artifacts and system state when possible. The pipeline also includes security scanning and comprehensive testing to ensure each build meets quality standards.</p>
-
-            <h3>AI-Powered System Optimization</h3>
-            <p>A unique aspect of the Cybr Linux build system is the integration of AI-powered optimization through the NEOIMPROVE system. This component uses local language models to analyze the build process and suggest improvements, creating a self-improving build system that evolves over time.</p>
-
-            <p>The AI system can generate additional build hooks, suggest UX improvements, and optimize system configurations based on analysis of build performance and user experience patterns. This creates a distribution that continuously improves through automated intelligence rather than manual intervention alone.</p>
-
-            <h3>Comprehensive User Experience Design</h3>
-            <p>The build process includes extensive user experience enhancements designed to make Linux accessible to users of all technical skill levels. This includes an automatic welcome system that launches on first boot, comprehensive documentation generation, and desktop shortcuts for common system management tasks.</p>
-
-            <p>The system creates context-sensitive help systems, beginner-friendly GUI tools for system administration, and detailed getting-started guides that are automatically generated during the build process. These components ensure that users can effectively utilize the system regardless of their Linux experience level.</p>
-
-            <h3>GRUB Bootloader Customization</h3>
-            <p>The build system includes complete GRUB bootloader rebranding with custom themes and configurations. The bootloader presents a professional appearance with branded graphics, custom color schemes, and optimized boot parameters that complement the performance-focused kernel configuration.</p>
-
-            <p>The GRUB configuration includes support for high-resolution displays, custom boot messages, and proper integration with the custom kernel options. This ensures a consistent branded experience from boot through desktop operation.</p>
-
-            <h3>Package Management and Repository Configuration</h3>
-            <p>Cybr Linux includes sophisticated package management configurations that balance access to multiple software repositories while maintaining system stability. The build process carefully configures APT preferences, repository priorities, and package conflict resolution to provide access to both Debian and Kali packages without creating dependency conflicts.</p>
-
-            <p>The system includes comprehensive package validation during the build process, removing non-existent packages and ensuring all configured software is available in the target repositories. This prevents build failures and ensures consistent installation experiences across different hardware configurations.</p>
-
-            <h3>Multi-Architecture Support and Hardware Optimization</h3>
-            <p>The build system is designed to create optimized images for modern x86_64 hardware while maintaining compatibility with a wide range of systems. The kernel compilation includes modern CPU feature detection and optimization, while the desktop configuration includes appropriate performance tuning for both newer and older hardware.</p>
-
-            <p>System configuration includes memory management optimizations, I/O scheduling improvements, and network stack enhancements that provide measurable performance improvements across different hardware configurations. These optimizations are applied automatically during the build process without requiring user intervention.</p>
-
-            <h3>Continuous Integration and Deployment</h3>
-            <p>The build system operates as a complete CI/CD pipeline that can automatically trigger builds based on upstream changes, scheduled intervals, or manual requests. Each build creates comprehensive artifacts including ISO images, build logs, performance metrics, and validation reports.</p>
-
-            <p>The pipeline includes automatic uploading to distribution platforms, notification systems for build status, and detailed reporting that tracks build quality over time. This creates a professional distribution development process that rivals commercial operating system development workflows.</p>
-
-            <p>Through this comprehensive build system, Cybr Linux delivers a unique operating system that combines the stability of Debian, the security tools of Kali Linux, the performance of custom kernel optimization, and the usability of modern desktop design. The automated build process ensures consistent quality while the AI-powered optimization components provide continuous improvement without manual intervention.</p>
-        </section>
+                <p>Through this comprehensive build system, Cybr Linux delivers a unique operating system that combines the stability of Debian, the security tools of Kali Linux, the performance of custom kernel optimization, and the usability of modern desktop design.</p>
+            </section>
+        </div>
     </main>
 
-    <footer style="background: #1e293b; color: #e2e8f0; text-align: center; padding: 2rem 0; margin-top: 4rem;">
+    <footer>
         <div class="container">
-            <p>&copy; 2025 WolfTech Innovations. Built with automated excellence.</p>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-shield-alt"></i> Cybr Linux
+                    </a>
+                    <p>Next-generation security operating system built on Debian with performance optimizations and modern desktop experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab-github"></i></a>
+                        <a href="#"><i class="fab-twitter"></i></a>
+                        <a href="#"><i class="fab-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Downloads</h3>
+                    <ul>
+                        <li><a href="#">Current Release</a></li>
+                        <li><a href="#">Previous Releases</a></li>
+                        <li><a href="#">Source Code</a></li>
+                        <li><a href="#">Verify Downloads</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 WolfTech Innovations. Built with automated excellence.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
