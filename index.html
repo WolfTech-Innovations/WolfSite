@@ -11,33 +11,43 @@
     })(window, document, "clarity", "script", "rqygbany4e");
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr Linux - A modern, secure operating system with Neo AI integration. Download the latest version with advanced security features and performance optimizations.">
-    <meta name="keywords" content="cybr linux, neo ai, operating system, security, download, debian based">
+    <meta name="description" content="Cybr Linux Arch Edition - A beautiful Arch-based operating system with Hyprland, end-4 dotfiles, and BlackArch security tools. Dawn light shines upon the arches.">
+    <meta name="keywords" content="cybr linux, arch linux, hyprland, end-4, illogical-impulse, blackarch, wayland, neo ai, operating system">
     <meta name="author" content="WolfTech Innovations">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wolfos.uk/">
-    <meta property="og:title" content="Cybr">
-    <meta property="og:description" content="Download Cybr Linux - A secure, modern OS with integrated Neo AI assistant. Super + Shift + N to activate.">
+    <meta property="og:title" content="Cybr Linux - Arch Edition">
+    <meta property="og:description" content="Beautiful Arch Linux with Hyprland WM, end-4 dotfiles, and BlackArch tools. Dawn light shines upon the arches.">
     <meta property="og:image" content="https://wolfos.pages.dev/img.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://wolfos.uk/">
-    <meta property="twitter:title" content="Cybr Linux with Neo AI">
-    <meta property="twitter:description" content="Modern OS with AI integration. Super + Shift + N for instant AI assistance.">
+    <meta property="twitter:title" content="Cybr Linux Arch Edition">
+    <meta property="twitter:description" content="Arch Linux meets modern aesthetics. Hyprland + end-4 dotfiles + BlackArch security tools.">
     <meta property="twitter:image" content="https://wolfos.pages.dev/img.png">
 
     <link rel="canonical" href="https://wolfos.uk/">
     <link rel="icon" type="image/png" href="https://wolfos.pages.dev/img.png">
     <link rel="apple-touch-icon" href="https://wolfos.pages.dev/img.png">
 
-    <title>Cybr Linux - Operating System with Neo AI</title>
+    <title>Cybr Linux - Arch Edition with Hyprland</title>
+    
+    <!-- MDUI Material You CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -47,92 +57,22 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --google-blue: #1a73e8;
-            --google-blue-hover: #1557b0;
-            --google-grey: #5f6368;
-            --google-grey-light: #f8f9fa;
-            --google-grey-border: #dadce0;
-            --google-dark: #202124;
-            --google-green: #34a853;
-            --google-red: #ea4335;
-            --google-yellow: #fbbc05;
-            --white: #ffffff;
-            --shadow-light: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-            --shadow-medium: 0 2px 6px 2px rgba(60, 64, 67, 0.15), 0 1px 2px 0 rgba(60, 64, 67, 0.3);
-            --border-radius: 8px;
-            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         body {
-            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--white);
-            color: var(--google-dark);
-            line-height: 1.5;
-            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+            background: var(--mdui-color-surface);
+            color: var(--mdui-color-on-surface);
+            line-height: 1.6;
         }
 
-        /* Header */
-        .header {
-            background: var(--white);
-            border-bottom: 1px solid var(--google-grey-border);
-            padding: 0 24px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1200px;
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        /* Header Styling */
+        .header-spacer {
             height: 64px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--google-dark);
-            font-weight: 500;
-            font-size: 20px;
-        }
-
-        .logo-icon {
-            font-size: 24px;
-            color: var(--google-blue);
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--google-grey);
-            font-weight: 400;
-            font-size: 14px;
-            transition: var(--transition);
-            padding: 8px 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-menu a:hover {
-            color: var(--google-dark);
-            border-bottom-color: var(--google-blue);
-        }
-
-        /* Main Content */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
         }
 
         /* Hero Section */
@@ -141,297 +81,234 @@
             text-align: center;
         }
 
+        .hero-badge {
+            margin-bottom: 24px;
+        }
+
         .hero-title {
             font-size: clamp(48px, 8vw, 80px);
             font-weight: 400;
-            color: var(--google-dark);
             margin-bottom: 24px;
             line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--google-grey);
-            margin-bottom: 16px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-        }
-
-        .ai-tagline {
-            font-size: 16px;
-            color: var(--google-blue);
-            margin-bottom: 48px;
-            font-weight: 500;
-            background: linear-gradient(135deg, var(--google-blue), var(--google-green));
+            background: linear-gradient(135deg, var(--mdui-color-primary), var(--mdui-color-tertiary));
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
         }
 
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--mdui-color-on-surface-variant);
+            margin-bottom: 16px;
+            font-weight: 400;
         }
 
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--mdui-color-tertiary);
+            margin-bottom: 48px;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* Download Section */
         .download-section {
-            background: var(--google-grey-light);
-            border-radius: var(--border-radius);
-            padding: 48px;
-            margin-bottom: 64px;
-            box-shadow: var(--shadow-light);
+            margin-bottom: 80px;
         }
 
         .download-title {
-            font-size: 28px;
-            font-weight: 400;
-            color: var(--google-dark);
+            font-size: 32px;
+            font-weight: 500;
             margin-bottom: 16px;
+            text-align: center;
         }
 
         .download-description {
             font-size: 16px;
-            color: var(--google-grey);
+            color: var(--mdui-color-on-surface-variant);
             margin-bottom: 32px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
+            line-height: 1.8;
         }
 
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--google-blue);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: var(--transition);
-            box-shadow: var(--shadow-medium);
-            border: none;
-            cursor: pointer;
-        }
-
-        .download-button:hover {
-            background: var(--google-blue-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px 0 rgba(60, 64, 67, 0.3);
-        }
-
-        .download-button i {
-            font-size: 18px;
-        }
-
-        .secondary-actions {
-            margin-top: 24px;
+        .button-group {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        .secondary-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--white);
-            color: var(--google-blue);
-            padding: 12px 24px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            border: 1px solid var(--google-grey-border);
-            transition: var(--transition);
-        }
-
-        .secondary-button:hover {
-            background: var(--google-grey-light);
-            border-color: var(--google-blue);
+            margin-top: 28px;
         }
 
         /* Features Grid */
         .features-section {
-            padding: 64px 0;
+            padding: 80px 0;
         }
 
-        .features-title {
-            font-size: 32px;
-            font-weight: 400;
-            color: var(--google-dark);
+        .section-title {
+            font-size: 42px;
+            font-weight: 500;
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 64px;
+            color: var(--mdui-color-primary);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-bottom: 64px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
         }
 
-        .feature-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 32px;
-            border: 1px solid var(--google-grey-border);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            box-shadow: var(--shadow-medium);
-            border-color: transparent;
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+        .feature-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
-            font-size: 24px;
-            color: var(--white);
-        }
-
-        .feature-icon.ai { background: linear-gradient(135deg, var(--google-blue), var(--google-green)); }
-        .feature-icon.security { background: linear-gradient(135deg, var(--google-red), var(--google-yellow)); }
-        .feature-icon.performance { background: linear-gradient(135deg, var(--google-green), var(--google-blue)); }
-
-        .feature-title {
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--google-dark);
-            margin-bottom: 12px;
-        }
-
-        .feature-description {
-            color: var(--google-grey);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* AI Highlight Section */
-        .ai-section {
-            background: linear-gradient(135deg, #f8f9ff, #e8f0fe);
-            border-radius: 16px;
-            padding: 64px 48px;
-            text-align: center;
-            margin: 64px 0;
-            border: 1px solid #e8eaed;
-        }
-
-        .ai-section-title {
-            font-size: 36px;
-            font-weight: 400;
-            color: var(--google-dark);
-            margin-bottom: 16px;
-        }
-
-        .ai-section-subtitle {
-            font-size: 18px;
-            color: var(--google-grey);
-            margin-bottom: 32px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .keyboard-shortcut {
-            background: var(--white);
-            border: 2px solid var(--google-grey-border);
-            border-radius: var(--border-radius);
-            padding: 16px 24px;
-            display: inline-block;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--google-dark);
-            margin-bottom: 16px;
-            box-shadow: var(--shadow-light);
-        }
-
-        .shortcut-description {
-            font-size: 14px;
-            color: var(--google-grey);
-        }
-
-        /* System Requirements */
-        .requirements-section {
-            background: var(--google-grey-light);
-            border-radius: var(--border-radius);
-            padding: 48px;
-            margin: 64px 0;
-        }
-
-        .requirements-title {
-            font-size: 24px;
-            font-weight: 400;
-            color: var(--google-dark);
             margin-bottom: 24px;
-            text-align: center;
+            font-size: 32px;
         }
 
+        .icon-hyprland {
+            background: linear-gradient(135deg, #00d9ff, #0080ff);
+            color: white;
+        }
+
+        .icon-arch {
+            background: linear-gradient(135deg, #1793d1, #0f6fb4);
+            color: white;
+        }
+
+        .icon-security {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .icon-aesthetic {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+        }
+
+        .icon-performance {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+        }
+
+        .icon-minimal {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        /* Requirements Grid */
         .requirements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
-        }
-
-        .requirement-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--google-grey-border);
+            margin-top: 40px;
         }
 
         .requirement-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--google-blue);
-            color: var(--white);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--mdui-color-primary-container);
+            color: var(--mdui-color-on-primary-container);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 24px;
+            margin-bottom: 12px;
         }
 
-        .requirement-text {
-            font-size: 14px;
-            color: var(--google-dark);
+        /* Keybindings */
+        .keybindings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .keyboard-shortcut {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--mdui-color-primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Included Features */
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--mdui-color-on-surface-variant);
+        }
+
+        .features-list li i {
+            color: var(--mdui-color-primary);
+            font-size: 20px;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .app-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--mdui-color-surface-container);
+            border-radius: 12px;
+        }
+
+        .app-item i {
+            color: var(--mdui-color-tertiary);
+            font-size: 24px;
         }
 
         /* Footer */
         .footer {
-            border-top: 1px solid var(--google-grey-border);
-            padding: 48px 24px 24px;
-            margin-top: 64px;
-            background: var(--google-grey-light);
+            margin-top: 100px;
+            padding: 64px 24px 32px;
+            background: var(--mdui-color-surface-container);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 48px;
+            max-width: 1400px;
+            margin: 0 auto 48px;
         }
 
         .footer-section h3 {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--google-dark);
-            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--mdui-color-primary);
         }
 
         .footer-section ul {
@@ -439,342 +316,196 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section a {
-            color: var(--google-grey);
-            text-decoration: none;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--google-blue);
+            margin-bottom: 12px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 24px;
-            margin-top: 24px;
-            border-top: 1px solid var(--google-grey-border);
-            color: var(--google-grey);
-            font-size: 12px;
+            padding-top: 32px;
+            border-top: 1px solid var(--mdui-color-outline-variant);
+            color: var(--mdui-color-on-surface-variant);
         }
 
-        /* Mobile Responsiveness */
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                padding: 0 16px;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .main-container {
-                padding: 0 16px;
-            }
-            
             .hero-section {
                 padding: 48px 0 80px;
             }
             
-            .download-section {
-                padding: 32px 24px;
-            }
-            
-            .ai-section {
-                padding: 48px 24px;
-            }
-            
-            .requirements-section {
-                padding: 32px 24px;
-            }
-            
-            .secondary-actions {
+            .button-group {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
             }
+            
+            .features-grid,
+            .tech-grid,
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom mdui adjustments */
+        mdui-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        mdui-card:hover {
+            transform: translateY(-4px);
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="#" class="logo">
-                <i class="fas fa-shield-alt logo-icon"></i>
-                Cybr Linux
-            </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Download</a></li>
-                    <li><a href="https://status.wolfos.uk" target="_blank">Status</a></li>
-                    <li><a href="#support">Support</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Top App Bar -->
+    <mdui-top-app-bar scroll-behavior="elevate">
+        <mdui-top-app-bar-title>
+            <i class="fab fa-linux" style="margin-right: 8px;"></i>
+            Cybr Linux
+        </mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        <mdui-button-icon icon="download" href="https://sourceforge.net/projects/wolfos/files/" target="_blank"></mdui-button-icon>
+        <mdui-button-icon icon="bug_report" href="https://status.wolfos.uk" target="_blank"></mdui-button-icon>
+    </mdui-top-app-bar>
 
-    <main class="main-container">
+    <div class="header-spacer"></div>
+
+    <main class="container">
+        <!-- Hero Section -->
         <section class="hero-section">
+            <mdui-chip variant="outlined" icon="folder_special">
+                Arch Linux Based • Rolling Release
+            </mdui-chip>
+            
             <h1 class="hero-title">Cybr Linux</h1>
-            <p class="hero-subtitle">A modern, secure operating system designed for the future</p>
-            <p class="ai-tagline">Powered by Neo AI - Your intelligent desktop assistant</p>
+            <p class="hero-subtitle">Where beauty meets power</p>
+            <p class="hero-tagline">"Dawn light shines upon the arches"</p>
 
-            <div class="download-section">
-                <h2 class="download-title">Get Cybr Linux</h2>
+            <mdui-card variant="elevated" class="download-section" style="padding: 48px; text-align: center;">
+                <h2 class="download-title">Experience the Next Generation</h2>
                 <p class="download-description">
-                    Experience the next generation of desktop computing with integrated AI assistance, 
-                    advanced security features, and optimal performance.
+                    Built on Arch Linux with Hyprland's stunning Wayland compositor and end-4's acclaimed 
+                    illogical-impulse dotfiles. Featuring BlackArch security tools, AGS widgets, and a 
+                    beautiful nwg-dock. This isn't just an OS—it's an experience.
                 </p>
-                <a href="https://sourceforge.net/projects/wolfos/files/" class="download-button" target="_blank">
-                    <i class="fas fa-download"></i>
-                    Download Cybr Linux
-                </a>
-                <div class="secondary-actions">
-                    <a href="#requirements" class="secondary-button">
-                        <i class="fas fa-info-circle"></i>
+                
+                <mdui-button 
+                    variant="filled" 
+                    icon="download"
+                    href="https://sourceforge.net/projects/wolfos/files/" 
+                    target="_blank"
+                    style="font-size: 16px; padding: 0 32px;">
+                    Download Cybr Arch
+                </mdui-button>
+                
+                <div class="button-group">
+                    <mdui-button variant="outlined" icon="memory">
                         System Requirements
-                    </a>
-                    <a href="#" class="secondary-button">
-                        <i class="fas fa-book"></i>
-                        Installation Guide
-                    </a>
+                    </mdui-button>
+                    <mdui-button variant="outlined" icon="code" href="https://github.com/end-4/dots-hyprland" target="_blank">
+                        View Dotfiles
+                    </mdui-button>
+                    <mdui-button variant="outlined" icon="book">
+                        Documentation
+                    </mdui-button>
                 </div>
-            </div>
+            </mdui-card>
         </section>
 
-        <section class="ai-section">
-            <h2 class="ai-section-title">Meet Neo AI</h2>
-            <p class="ai-section-subtitle">
-                Your personal AI assistant is just a keystroke away. Get instant help, 
-                automate tasks, and enhance your productivity.
-            </p>
-            <div class="keyboard-shortcut">Super + Shift + N</div>
-            <p class="shortcut-description">Press this combination anywhere to activate Neo AI</p>
+        <!-- Tech Stack -->
+        <section style="padding: 40px 0;">
+            <mdui-card variant="elevated" style="padding: 56px 48px; text-align: center;">
+                <h2 class="section-title" style="margin-bottom: 48px;">Built on Industry-Leading Technology</h2>
+                <div class="tech-grid">
+                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Arch Linux</div>
+                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Rolling release, cutting-edge</div>
+                    </mdui-card>
+                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Hyprland</div>
+                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Dynamic tiling Wayland</div>
+                    </mdui-card>
+                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">end-4 Dotfiles</div>
+                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">illogical-impulse config</div>
+                    </mdui-card>
+                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">AGS Shell</div>
+                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Beautiful GTK widgets</div>
+                    </mdui-card>
+                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">nwg-dock</div>
+                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Elegant application dock</div>
+                    </mdui-card>
+                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
+                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">BlackArch</div>
+                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">2800+ security tools</div>
+                    </mdui-card>
+                </div>
+            </mdui-card>
         </section>
 
-        <section class="features-section" id="features">
-            <h2 class="features-title">Built for modern computing</h2>
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2 class="section-title">Why Cybr Arch Edition?</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon ai">
-                        <i class="fas fa-brain"></i>
+                <mdui-card variant="elevated" style="padding: 40px;">
+                    <div class="feature-icon-wrapper icon-hyprland">
+                        <i class="fas fa-window-maximize"></i>
                     </div>
-                    <h3 class="feature-title">Neo AI Integration</h3>
-                    <p class="feature-description">
-                        Built-in AI assistant that understands context, helps with tasks, 
-                        and learns from your workflow to provide personalized assistance.
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Hyprland Window Manager</h3>
+                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
+                        Experience buttery-smooth animations, dynamic tiling, and a modern Wayland compositor 
+                        that's both powerful and beautiful. Customizable workspaces with drag-and-drop support.
                     </p>
-                </div>
+                </mdui-card>
 
-                <div class="feature-card">
-                    <div class="feature-icon security">
+                <mdui-card variant="elevated" style="padding: 40px;">
+                    <div class="feature-icon-wrapper icon-aesthetic">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">end-4 Illogical Impulse</h3>
+                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
+                        Stunning pre-configured dotfiles featuring AGS widgets, dynamic wallpapers, material 
+                        color generation, and a usability-first design that adapts to your style.
+                    </p>
+                </mdui-card>
+
+                <mdui-card variant="elevated" style="padding: 40px;">
+                    <div class="feature-icon-wrapper icon-security">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="feature-title">Advanced Security</h3>
-                    <p class="feature-description">
-                        Comprehensive security tools, automatic updates, and Kali repository 
-                        integration for professional security testing and analysis.
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">BlackArch Integration</h3>
+                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
+                        Full BlackArch repository access with over 2800 penetration testing and security tools. 
+                        Perfect for security professionals and ethical hackers.
                     </p>
-                </div>
+                </mdui-card>
 
-                <div class="feature-card">
-                    <div class="feature-icon performance">
+                <mdui-card variant="elevated" style="padding: 40px;">
+                    <div class="feature-icon-wrapper icon-arch">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Arch Linux Base</h3>
+                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
+                        Built on Arch's rock-solid foundation with rolling releases, access to the AUR, 
+                        and bleeding-edge packages. Stay ahead with the latest software.
+                    </p>
+                </mdui-card>
+
+                <mdui-card variant="elevated" style="padding: 40px;">
+                    <div class="feature-icon-wrapper icon-performance">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="feature-title">Optimized Performance</h3>
-                    <p class="feature-description">
-  
-                        mininal bloatware, simplified life.
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Optimized Performance</h3>
+                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
+                        Wayland's superior performance, efficient resource usage, and smooth 60+ FPS animations. 
+                        Built for speed without compromising on features.
                     </p>
-                </div>
-            </div>
-        </section>
+                </mdui-card>
 
-        <section class="requirements-section" id="requirements">
-            <h2 class="requirements-title">System Requirements</h2>
-            <div class="requirements-grid">
-                <div class="requirement-item">
-                    <div class="requirement-icon">
-                        <i class="fas fa-microchip"></i>
+                <mdui-card variant="elevated" style="padding: 40px;">
+                    <div class="feature-icon-wrapper icon-minimal">
+                        <i class="fas fa-feather"></i>
                     </div>
-                    <div class="requirement-text">
-                        <strong>Processor:</strong> 64-bit x86 processor, 2 GHz dual-core or better
-                    </div>
-                </div>
-
-                <div class="requirement-item">
-                    <div class="requirement-icon">
-                        <i class="fas fa-memory"></i>
-                    </div>
-                    <div class="requirement-text">
-                        <strong>Memory:</strong> 2 GB RAM minimum, 8 GB recommended
-                    </div>
-                </div>
-
-                <div class="requirement-item">
-                    <div class="requirement-icon">
-                        <i class="fas fa-hdd"></i>
-                    </div>
-                    <div class="requirement-text">
-                        <strong>Storage:</strong> 25 GB available disk space, SSD recommended
-                    </div>
-                </div>
-
-                <div class="requirement-item">
-                    <div class="requirement-icon">
-                        <i class="fas fa-display"></i>
-                    </div>
-                    <div class="requirement-text">
-                        <strong>Graphics:</strong> Any Intel HD graphics* or higher
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Product</h3>
-                <ul>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Neo AI</a></li>
-                    <li><a href="#">Security Tools</a></li>
-                    <li><a href="#">Performance</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Download</h3>
-                <ul>
-                    <li><a href="https://sourceforge.net/projects/wolfos/files/" target="_blank">Current Release</a></li>
-                    <li><a href="#">Previous Versions</a></li>
-                    <li><a href="#">Source Code</a></li>
-                    <li><a href="#">Checksums</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Community Forum</a></li>
-                    <li><a href="#">Installation Guide</a></li>
-                    <li><a href="https://status.wolfos.uk" target="_blank">System Status</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">GitHub Repository</a></li>
-                    <li><a href="#">Bug Reports</a></li>
-                    <li><a href="#">Contributing</a></li>
-                    <li><a href="#">License</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 WolfTech Innovations. Cybr Linux with Neo AI integration.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add subtle animations on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Apply animation setup to elements
-        document.querySelectorAll('.feature-card, .requirement-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Header scroll effect
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = 'var(--shadow-light)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Add click effect to buttons
-        document.querySelectorAll('.download-button, .secondary-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Add ripple animation keyframes
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Minimal Bloat</h3>
+                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
+                        Only what you need, nothing you don't. Clean system with essential 
