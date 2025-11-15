@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WolfTech Innovations Online Store</title>
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.5;
+            color: #1d1b20;
+            background: #fef7ff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: #1d1b20;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.25px;
+        }
+
+        .logo::before {
+            content: "🐺";
+            font-size: 1.75rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 4px;
+        }
+
+        nav a {
+            color: #49454f;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 16px;
+            display: block;
+            border-radius: 20px;
+            transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.875rem;
+            letter-spacing: 0.1px;
+        }
+
+        nav a:hover {
+            background-color: #e8def8;
+        }
+
+        .hero {
+            background: #ffffff;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #1d1b20;
+            margin-bottom: 16px;
+            letter-spacing: 0;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #49454f;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .products {
+            padding: 64px 24px;
+            background: #fef7ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: #1d1b20;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px 1px rgba(0,0,0,0.15);
+            transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 2px 6px 2px rgba(0,0,0,0.15);
+        }
+
+        .stripe-button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-section {
+            padding: 64px 24px;
+            background: #ffffff;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-card {
+            background: #f7f2fa;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 0 auto;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            color: #1d1b20;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-card a {
+            color: #6750a4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-card a:hover {
+            color: #7f67be;
+        }
+
+        footer {
+            background: #ffffff;
+            color: #49454f;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.25px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">WolfTech Innovations</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>WolfTech Innovations</h1>
+            
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="stripe-button-container">
+                        <stripe-buy-button
+                          buy-button-id="buy_btn_1STZX7P9rFIOItoJTILuHWd0"
+                          publishable-key="pk_live_51RDtdlP9rFIOItoJ2bPH88OMsAkAipBJYo5fJynVmjg2W1LxYUryKXHBTJ9AsNl6ZedI1UYGgbCJwPRSArmUUGOf00IBBDlcbN"
+                        >
+                        </stripe-buy-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-card">
+                    <p><a href="mailto:support@wolfos.uk">support@wolfos.uk</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 WolfTech Innovations</p>
+    </footer>
+</body>
+</html>
