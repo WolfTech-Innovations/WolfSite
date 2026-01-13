@@ -2,53 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="ajatmbktsLiNcWjikismW4_IX0UfVbazgdngJCHkHd4"/>
-    <script>
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rqygbany4e");
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr Linux Arch Edition - A beautiful Arch-based operating system with Hyprland, end-4 dotfiles, and BlackArch security tools. Dawn light shines upon the arches.">
-    <meta name="keywords" content="cybr linux, arch linux, hyprland, end-4, illogical-impulse, blackarch, wayland, neo ai, operating system">
+    <meta name="description" content="Cybr Linux Plasma Edition - Arch-based operating system with KDE Plasma and BlackArch security tools.">
+    <meta name="keywords" content="cybr linux, arch linux, kde plasma, blackarch, operating system">
     <meta name="author" content="WolfTech Innovations">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://wolfos.uk/">
-    <meta property="og:title" content="Cybr Linux - Arch Edition">
-    <meta property="og:description" content="Beautiful Arch Linux with Hyprland WM, end-4 dotfiles, and BlackArch tools. Dawn light shines upon the arches.">
+    
+    <meta property="og:title" content="Cybr Linux - Plasma Edition">
+    <meta property="og:description" content="Arch Linux with KDE Plasma Desktop and BlackArch tools.">
     <meta property="og:image" content="https://wolfos.pages.dev/img.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://wolfos.uk/">
-    <meta property="twitter:title" content="Cybr Linux Arch Edition">
-    <meta property="twitter:description" content="Arch Linux meets modern aesthetics. Hyprland + end-4 dotfiles + BlackArch security tools.">
-    <meta property="twitter:image" content="https://wolfos.pages.dev/img.png">
-
-    <link rel="canonical" href="https://wolfos.uk/">
-    <link rel="icon" type="image/png" href="https://wolfos.pages.dev/img.png">
-    <link rel="apple-touch-icon" href="https://wolfos.pages.dev/img.png">
-
-    <title>Cybr Linux - Arch Edition with Hyprland</title>
-    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
-<script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <title>Cybr Linux - Plasma Edition</title>
     
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         * {
             margin: 0;
@@ -57,481 +21,232 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: var(--mdui-color-surface);
-            color: var(--mdui-color-on-surface);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #000;
+            color: #fff;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header Styling */
-        .header-spacer {
-            height: 64px;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            padding: 80px 0 120px;
+        header {
             text-align: center;
+            padding: 120px 0 80px;
+            border-bottom: 1px solid #222;
         }
 
-        .hero-badge {
-            margin-bottom: 24px;
-        }
-
-        .hero-title {
-            font-size: clamp(48px, 8vw, 80px);
-            font-weight: 400;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--mdui-color-primary), var(--mdui-color-tertiary));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 24px;
-            color: var(--mdui-color-on-surface-variant);
+        h1 {
+            font-size: 64px;
+            font-weight: 300;
             margin-bottom: 16px;
-            font-weight: 400;
+            letter-spacing: -2px;
         }
 
-        .hero-tagline {
+        .tagline {
             font-size: 18px;
-            color: var(--mdui-color-tertiary);
+            color: #888;
+            font-weight: 300;
             margin-bottom: 48px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
             font-weight: 500;
-            font-style: italic;
+            transition: background 0.2s;
         }
 
-        /* Download Section */
-        .download-section {
-            margin-bottom: 80px;
+        .download-btn:hover {
+            background: #e0e0e0;
         }
 
-        .download-title {
-            font-size: 32px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .download-description {
-            font-size: 16px;
-            color: var(--mdui-color-on-surface-variant);
-            margin-bottom: 32px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 28px;
-        }
-
-        /* Features Grid */
-        .features-section {
+        section {
             padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 42px;
-            font-weight: 500;
+            border-bottom: 1px solid #222;
             text-align: center;
-            margin-bottom: 64px;
-            color: var(--mdui-color-primary);
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 80px;
-        }
-
-        .feature-icon-wrapper {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
+        h2 {
             font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 48px;
+            letter-spacing: -1px;
         }
 
-        .icon-hyprland {
-            background: linear-gradient(135deg, #00d9ff, #0080ff);
-            color: white;
-        }
-
-        .icon-arch {
-            background: linear-gradient(135deg, #1793d1, #0f6fb4);
-            color: white;
-        }
-
-        .icon-security {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-        }
-
-        .icon-aesthetic {
-            background: linear-gradient(135deg, #8b5cf6, #ec4899);
-            color: white;
-        }
-
-        .icon-performance {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-        }
-
-        .icon-minimal {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-        }
-
-        /* Tech Stack */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 48px;
-        }
-
-        /* Requirements Grid */
-        .requirements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .requirement-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--mdui-color-primary-container);
-            color: var(--mdui-color-on-primary-container);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-
-        /* Keybindings */
-        .keybindings-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-top: 32px;
+            gap: 40px;
+            text-align: left;
         }
 
-        .keyboard-shortcut {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--mdui-color-primary);
-            display: block;
+        .feature h3 {
+            font-size: 20px;
+            font-weight: 400;
             margin-bottom: 8px;
         }
 
-        /* Included Features */
-        .features-list {
+        .feature p {
+            color: #888;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        .specs {
             list-style: none;
-            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .features-list li {
-            padding: 12px 0;
+        .specs li {
+            padding: 16px 0;
+            border-bottom: 1px solid #222;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--mdui-color-on-surface-variant);
+            justify-content: space-between;
         }
 
-        .features-list li i {
-            color: var(--mdui-color-primary);
-            font-size: 20px;
+        .specs li:last-child {
+            border-bottom: none;
         }
 
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
+        .label {
+            color: #888;
         }
 
-        .app-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: var(--mdui-color-surface-container);
-            border-radius: 12px;
-        }
-
-        .app-item i {
-            color: var(--mdui-color-tertiary);
-            font-size: 24px;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 100px;
-            padding: 64px 24px 32px;
-            background: var(--mdui-color-surface-container);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 48px;
-            max-width: 1400px;
-            margin: 0 auto 48px;
-        }
-
-        .footer-section h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--mdui-color-primary);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-bottom {
+        footer {
+            padding: 80px 0 40px;
             text-align: center;
-            padding-top: 32px;
-            border-top: 1px solid var(--mdui-color-outline-variant);
-            color: var(--mdui-color-on-surface-variant);
+            color: #666;
+            font-size: 14px;
         }
 
-        /* Responsive */
+        footer a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
-            .hero-section {
-                padding: 48px 0 80px;
+            h1 {
+                font-size: 48px;
             }
             
-            .button-group {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .features-grid,
-            .tech-grid,
-            .requirements-grid {
+            .grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        /* Custom mdui adjustments */
-        mdui-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        mdui-card:hover {
-            transform: translateY(-4px);
         }
     </style>
 </head>
 <body>
-    <!-- Top App Bar -->
-    <mdui-top-app-bar scroll-behavior="elevate">
-        <mdui-top-app-bar-title>
-            <i class="fab fa-linux" style="margin-right: 8px;"></i>
-            Cybr Linux
-        </mdui-top-app-bar-title>
-        <div style="flex-grow: 1"></div>
-        <mdui-button-icon icon="download" href="https://sourceforge.net/projects/wolfos/files/" target="_blank"></mdui-button-icon>
-        <mdui-button-icon icon="bug_report" href="https://status.wolfos.uk" target="_blank"></mdui-button-icon>
-    </mdui-top-app-bar>
+    <div class="container">
+        <header>
+            <h1>Cybr Linux</h1>
+            <p class="tagline">Dawn light shines upon the arches</p>
+            <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="download-btn">Download</a>
+        </header>
 
-    <div class="header-spacer"></div>
-
-    <main class="container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <mdui-chip variant="outlined" icon="folder_special">
-                Arch Linux Based • Rolling Release
-            </mdui-chip>
-            
-            <h1 class="hero-title">Cybr Linux</h1>
-            <p class="hero-subtitle">Where beauty meets power</p>
-            <p class="hero-tagline">"Dawn light shines upon the arches"</p>
-
-            <mdui-card variant="elevated" class="download-section" style="padding: 48px; text-align: center;">
-                <h2 class="download-title">Experience the Next Generation</h2>
-                <p class="download-description">
-                    Built on Arch Linux with Hyprland's stunning Wayland compositor and end-4's acclaimed 
-                    illogical-impulse dotfiles. Featuring BlackArch security tools, AGS widgets, and a 
-                    beautiful nwg-dock. This isn't just an OS—it's an experience.
-                </p>
-                
-                <mdui-button 
-                    variant="filled" 
-                    icon="download"
-                    href="https://sourceforge.net/projects/wolfos/files/" 
-                    target="_blank"
-                    style="font-size: 16px; padding: 0 32px;">
-                    Download Cybr Arch
-                </mdui-button>
-                <!-- Material Design 3 Style Button -->
-<button onclick="window.location.href='https://noxmarket.vercel.app/'" style="
-    background-color: #6750a4;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 24px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.1px;
-    cursor: pointer;
-    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.15);
-    font-family: 'Roboto', sans-serif;
-">
-    Visit Nox | The PC part Marketplace of now and then
-</button>
-
-<style>
-button:hover {
-    background-color: #7f67be;
-    box-shadow: 0 2px 6px 2px rgba(0,0,0,0.15);
-}
-
-button:active {
-    background-color: #5a3d99;
-}
-</style>
-                <div class="button-group">
-                    <mdui-button variant="outlined" icon="memory">
-                        System Requirements
-                    </mdui-button>
-                    <mdui-button variant="outlined" icon="code" href="https://github.com/end-4/dots-hyprland" target="_blank">
-                        View Dotfiles
-                    </mdui-button>
-                    <mdui-button variant="outlined" icon="book">
-                        Documentation
-                    </mdui-button>
+        <section>
+            <h2>Features</h2>
+            <div class="grid">
+                <div class="feature">
+                    <h3>KDE Plasma</h3>
+                    <p>Modern desktop environment with powerful customization</p>
                 </div>
-            </mdui-card>
+                <div class="feature">
+                    <h3>Arch Linux</h3>
+                    <p>Rolling release with cutting-edge packages</p>
+                </div>
+                <div class="feature">
+                    <h3>Dracula Theme</h3>
+                    <p>Beautiful dark theme across all applications</p>
+                </div>
+                <div class="feature">
+                    <h3>BlackArch Tools</h3>
+                    <p>3000+ security and penetration testing tools</p>
+                </div>
+                <div class="feature">
+                    <h3>PipeWire Audio</h3>
+                    <p>Professional audio with low latency</p>
+                </div>
+                <div class="feature">
+                    <h3>Wayland Support</h3>
+                    <p>Modern display protocol with X11 fallback</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Tech Stack -->
-        <section style="padding: 40px 0;">
-            <mdui-card variant="elevated" style="padding: 56px 48px; text-align: center;">
-                <h2 class="section-title" style="margin-bottom: 48px;">Built on Industry-Leading Technology</h2>
-                <div class="tech-grid">
-                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
-                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Arch Linux</div>
-                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Rolling release, cutting-edge</div>
-                    </mdui-card>
-                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
-                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">Hyprland</div>
-                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Dynamic tiling Wayland</div>
-                    </mdui-card>
-                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
-                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">end-4 Dotfiles</div>
-                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">illogical-impulse config</div>
-                    </mdui-card>
-                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
-                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">AGS Shell</div>
-                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Beautiful GTK widgets</div>
-                    </mdui-card>
-                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
-                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">nwg-dock</div>
-                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">Elegant application dock</div>
-                    </mdui-card>
-                    <mdui-card variant="outlined" style="padding: 24px; text-align: center;">
-                        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">BlackArch</div>
-                        <div style="font-size: 14px; color: var(--mdui-color-on-surface-variant);">2800+ security tools</div>
-                    </mdui-card>
-                </div>
-            </mdui-card>
+        <section>
+            <h2>Specifications</h2>
+            <ul class="specs">
+                <li>
+                    <span class="label">Base</span>
+                    <span>Arch Linux</span>
+                </li>
+                <li>
+                    <span class="label">Desktop</span>
+                    <span>KDE Plasma</span>
+                </li>
+                <li>
+                    <span class="label">Display Server</span>
+                    <span>Wayland / X11</span>
+                </li>
+                <li>
+                    <span class="label">Theme</span>
+                    <span>Dracula</span>
+                </li>
+                <li>
+                    <span class="label">Audio</span>
+                    <span>PipeWire</span>
+                </li>
+                <li>
+                    <span class="label">Security</span>
+                    <span>BlackArch Repos</span>
+                </li>
+                <li>
+                    <span class="label">Requirements</span>
+                    <span>2GB RAM, 20GB Storage</span>
+                </li>
+            </ul>
         </section>
 
-        <!-- Features Section -->
-        <section class="features-section">
-            <h2 class="section-title">Why Cybr Arch Edition?</h2>
-            <div class="features-grid">
-                <mdui-card variant="elevated" style="padding: 40px;">
-                    <div class="feature-icon-wrapper icon-hyprland">
-                        <i class="fas fa-window-maximize"></i>
-                    </div>
-                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Hyprland Window Manager</h3>
-                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
-                        Experience buttery-smooth animations, dynamic tiling, and a modern Wayland compositor 
-                        that's both powerful and beautiful. Customizable workspaces with drag-and-drop support.
-                    </p>
-                </mdui-card>
+        <section>
+            <h2>Installation</h2>
+            <div class="grid">
+                <div class="feature">
+                    <h3>1. Download</h3>
+                    <p>Get the ISO from SourceForge</p>
+                </div>
+                <div class="feature">
+                    <h3>2. Create USB</h3>
+                    <p>Use Rufus, Etcher, or dd</p>
+                </div>
+                <div class="feature">
+                    <h3>3. Boot and Install</h3>
+                    <p>Follow the installation wizard</p>
+                </div>
+            </div>
+        </section>
 
-                <mdui-card variant="elevated" style="padding: 40px;">
-                    <div class="feature-icon-wrapper icon-aesthetic">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">end-4 Illogical Impulse</h3>
-                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
-                        Stunning pre-configured dotfiles featuring AGS widgets, dynamic wallpapers, material 
-                        color generation, and a usability-first design that adapts to your style.
-                    </p>
-                </mdui-card>
-
-                <mdui-card variant="elevated" style="padding: 40px;">
-                    <div class="feature-icon-wrapper icon-security">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">BlackArch Integration</h3>
-                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
-                        Full BlackArch repository access with over 2800 penetration testing and security tools. 
-                        Perfect for security professionals and ethical hackers.
-                    </p>
-                </mdui-card>
-
-                <mdui-card variant="elevated" style="padding: 40px;">
-                    <div class="feature-icon-wrapper icon-arch">
-                        <i class="fab fa-linux"></i>
-                    </div>
-                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Arch Linux Base</h3>
-                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
-                        Built on Arch's rock-solid foundation with rolling releases, access to the AUR, 
-                        and bleeding-edge packages. Stay ahead with the latest software.
-                    </p>
-                </mdui-card>
-
-                <mdui-card variant="elevated" style="padding: 40px;">
-                    <div class="feature-icon-wrapper icon-performance">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Optimized Performance</h3>
-                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
-                        Wayland's superior performance, efficient resource usage, and smooth 60+ FPS animations. 
-                        Built for speed without compromising on features.
-                    </p>
-                </mdui-card>
-
-                <mdui-card variant="elevated" style="padding: 40px;">
-                    <div class="feature-icon-wrapper icon-minimal">
-                        <i class="fas fa-feather"></i>
-                    </div>
-                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 14px;">Minimal Bloat</h3>
-                    <p style="color: var(--mdui-color-on-surface-variant); font-size: 15px; line-height: 1.7;">
-                        Only what you need, nothing you don't. Clean system with essential 
+        <footer>
+            <p>Cybr Linux by WolfTech Innovations</p>
+            <p style="margin-top: 8px;">
+                <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a> · 
+                <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a> · 
+                <a href="https://status.wolfos.uk">Status</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
