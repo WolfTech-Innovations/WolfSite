@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr Linux Plasma Edition - Arch-based operating system with KDE Plasma and BlackArch security tools.">
-    <meta name="keywords" content="cybr linux, arch linux, kde plasma, blackarch, operating system">
+    <meta name="description" content="Cybr Linux Plasma Edition - A powerful Arch-based operating system with KDE Plasma desktop and BlackArch security tools. Free, open-source, and GPL licensed.">
+    <meta name="keywords" content="cybr linux, arch linux, kde plasma, blackarch, linux distribution, operating system, security tools, penetration testing, wayland, pipewire, dracula theme, free linux, open source os">
     <meta name="author" content="WolfTech Innovations">
-    
-    <meta property="og:title" content="Cybr Linux - Plasma Edition">
-    <meta property="og:description" content="Arch Linux with KDE Plasma Desktop and BlackArch tools.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wolfos.pages.dev/">
+
+    <meta property="og:title" content="Cybr Linux - Plasma Edition | Arch Linux with KDE Plasma">
+    <meta property="og:description" content="Experience the power of Arch Linux with the elegance of KDE Plasma. Built for security enthusiasts and power users.">
     <meta property="og:image" content="https://wolfos.pages.dev/img.png">
-    
-    <title>Cybr Linux - Plasma Edition</title>
-    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wolfos.pages.dev/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cybr Linux - Plasma Edition">
+    <meta name="twitter:description" content="Arch Linux with KDE Plasma Desktop and BlackArch security tools.">
+    <meta name="twitter:image" content="https://wolfos.pages.dev/img.png">
+
+    <title>Cybr Linux - Plasma Edition | Arch Linux with KDE Plasma & BlackArch Tools</title>
+
     <style>
         * {
             margin: 0;
@@ -25,6 +34,7 @@
             background: #000;
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -37,6 +47,14 @@
             text-align: center;
             padding: 120px 0 80px;
             border-bottom: 1px solid #222;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         h1 {
@@ -59,19 +77,37 @@
             background: #fff;
             color: #000;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-weight: 500;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
         }
 
         .download-btn:hover {
             background: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
         }
 
         section {
             padding: 80px 0;
             border-bottom: 1px solid #222;
             text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
@@ -86,6 +122,14 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             text-align: left;
+        }
+
+        .feature {
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
         }
 
         .feature h3 {
@@ -112,6 +156,12 @@
             border-bottom: 1px solid #222;
             display: flex;
             justify-content: space-between;
+            transition: background 0.2s ease;
+        }
+
+        .specs li:hover {
+            background: rgba(255, 255, 255, 0.02);
+            padding-left: 8px;
         }
 
         .specs li:last-child {
@@ -132,19 +182,46 @@
         footer a {
             color: #888;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         footer a:hover {
             color: #fff;
         }
 
+        .legal-note {
+            margin-top: 48px;
+            color: #888;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 48px;
             }
-            
+
             .grid {
                 grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 80px 0 60px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -154,7 +231,7 @@
         <header>
             <h1>Cybr Linux</h1>
             <p class="tagline">Dawn light shines upon the arches</p>
-            <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="download-btn">Download</a>
+            <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="download-btn" aria-label="Download Cybr Linux Plasma Edition">Download</a>
         </header>
 
         <section>
@@ -239,12 +316,33 @@
             </div>
         </section>
 
+        <section>
+            <h2>Our Team</h2>
+            <ul class="specs">
+                <li>
+                    <span class="label">CEO & Development Lead</span>
+                    <span>Christopher F.</span>
+                </li>
+                <li>
+                    <span class="label">HR & Marketing</span>
+                    <span>Joseph D.</span>
+                </li>
+                <li>
+                    <span class="label">Programming Department</span>
+                    <span>Christopher</span>
+                </li>
+            </ul>
+            <p class="legal-note">
+                Cybr Linux is GPL Licensed and managed by WolfTech Innovations
+            </p>
+        </section>
+
         <footer>
-            <p>Cybr Linux by WolfTech Innovations</p>
+            <p>&copy; 2025 Cybr Linux by WolfTech Innovations</p>
             <p style="margin-top: 8px;">
-                <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a> · 
-                <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a> · 
-                <a href="https://status.wolfos.uk">Status</a>
+                <a href="https://github.com/WolfTech-Innovations/cybr" aria-label="Visit Cybr Linux on GitHub">GitHub</a> · 
+                <a href="https://sourceforge.net/projects/wolfos/" aria-label="Download from SourceForge">SourceForge</a> · 
+                <a href="https://status.wolfos.uk" aria-label="Check system status">Status</a>
             </p>
         </footer>
     </div>
