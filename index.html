@@ -37,6 +37,98 @@
             overflow-x: hidden;
         }
 
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-text {
+            font-size: 80px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .loader-text span {
+            opacity: 0;
+            display: inline-block;
+            color: #fff;
+        }
+
+        .loader-dot {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 50%;
+            top: 50%;
+            left: -120px;
+            transform: translateY(-50%);
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        .loader-dot.animate {
+            animation: moveDot 2.5s linear forwards;
+        }
+
+        @keyframes moveDot {
+            0% { left: -120px; }
+            100% { left: calc(100% + 120px); }
+        }
+
+        .loader-tagline {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #888;
+            font-weight: 300;
+            opacity: 0;
+        }
+
+        .loader-tagline.show {
+            animation: fadeInTagline 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInTagline {
+            to { opacity: 1; }
+        }
+
+        .reveal-letter {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        #main-content.visible {
+            opacity: 1;
+        }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -47,14 +139,6 @@
             text-align: center;
             padding: 120px 0 80px;
             border-bottom: 1px solid #222;
-            opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
         }
 
         h1 {
@@ -93,21 +177,6 @@
             padding: 80px 0;
             border-bottom: 1px solid #222;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.8s ease-out forwards;
-        }
-
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
-        section:nth-child(5) { animation-delay: 0.5s; }
-
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         h2 {
@@ -202,6 +271,10 @@
                 font-size: 48px;
             }
 
+            .loader-text {
+                font-size: 60px;
+            }
+
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -227,118 +300,172 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Cybr Linux</h1>
-            <p class="tagline">Dawn light shines upon the arches</p>
-            <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="download-btn" aria-label="Download Cybr Linux Plasma Edition">Download</a>
-        </header>
-
-        <section>
-            <h2>Features</h2>
-            <div class="grid">
-                <div class="feature">
-                    <h3>KDE Plasma</h3>
-                    <p>Modern desktop environment with powerful customization</p>
-                </div>
-                <div class="feature">
-                    <h3>Arch Linux</h3>
-                    <p>Rolling release with cutting-edge packages</p>
-                </div>
-                <div class="feature">
-                    <h3>Dracula Theme</h3>
-                    <p>Beautiful dark theme across all applications</p>
-                </div>
-                <div class="feature">
-                    <h3>PipeWire Audio</h3>
-                    <p>Professional audio with low latency</p>
-                </div>
-                <div class="feature">
-                    <h3>Wayland Support</h3>
-                    <p>Modern display protocol with X11 fallback</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Specifications</h2>
-            <ul class="specs">
-                <li>
-                    <span class="label">Base</span>
-                    <span>Arch Linux</span>
-                </li>
-                <li>
-                    <span class="label">Desktop</span>
-                    <span>KDE Plasma</span>
-                </li>
-                <li>
-                    <span class="label">Display Server</span>
-                    <span>Wayland / X11</span>
-                </li>
-                <li>
-                    <span class="label">Theme</span>
-                    <span>Dracula</span>
-                </li>
-                <li>
-                    <span class="label">Audio</span>
-                    <span>PipeWire</span>
-                </li>
-                <li>
-                    <span
-                <li>
-                    <span class="label">Requirements</span>
-                    <span>2GB RAM, 20GB Storage</span>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Installation</h2>
-            <div class="grid">
-                <div class="feature">
-                    <h3>1. Download</h3>
-                    <p>Get the ISO from SourceForge</p>
-                </div>
-                <div class="feature">
-                    <h3>2. Create USB</h3>
-                    <p>Use Rufus, Etcher, or dd</p>
-                </div>
-                <div class="feature">
-                    <h3>3. Boot and Install</h3>
-                    <p>Follow the installation wizard</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Our Team</h2>
-            <ul class="specs">
-                <li>
-                    <span class="label">CEO & Development Lead</span>
-                    <span>Christopher L Fox Jr.</span>
-                </li>
-                <li>
-                    <span class="label">HR & Marketing</span>
-                    <span>Joseph Daniels</span>
-                </li>
-                <li>
-                    <span class="label">Programming Department</span>
-                    <span>Christopher Fricks</span>
-                </li>
-            </ul>
-            <p class="legal-note">
-                Cybr Linux is GPL Licensed and managed by WolfTech Innovations
-            </p>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 Cybr Linux by WolfTech Innovations</p>
-            <p style="margin-top: 8px;">
-                <a href="https://github.com/WolfTech-Innovations/cybr" aria-label="Visit Cybr Linux on GitHub">GitHub</a> · 
-                <a href="https://sourceforge.net/projects/wolfos/" aria-label="Download from SourceForge">SourceForge</a> · 
-                <a href="https://status.wolfos.uk" aria-label="Check system status">Status</a>
-            </p>
-        </footer>
+    <div id="loader">
+        <div class="loader-text">
+            <div class="loader-dot"></div>
+            <span>C</span><span>y</span><span>b</span><span>r</span>
+        </div>
+        <div class="loader-tagline">Simple. Fast. Secure.</div>
     </div>
+
+    <div id="main-content">
+        <div class="container">
+            <header>
+                <h1>Cybr Linux</h1>
+                <p class="tagline">Dawn light shines upon the arches</p>
+                <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="download-btn" aria-label="Download Cybr Linux Plasma Edition">Download</a>
+            </header>
+
+            <section>
+                <h2>Features</h2>
+                <div class="grid">
+                    <div class="feature">
+                        <h3>KDE Plasma</h3>
+                        <p>Modern desktop environment with powerful customization</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Arch Linux</h3>
+                        <p>Rolling release with cutting-edge packages</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Dracula Theme</h3>
+                        <p>Beautiful dark theme across all applications</p>
+                    </div>
+                    <div class="feature">
+                        <h3>PipeWire Audio</h3>
+                        <p>Professional audio with low latency</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Wayland Support</h3>
+                        <p>Modern display protocol with X11 fallback</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Specifications</h2>
+                <ul class="specs">
+                    <li>
+                        <span class="label">Base</span>
+                        <span>Arch Linux</span>
+                    </li>
+                    <li>
+                        <span class="label">Desktop</span>
+                        <span>KDE Plasma</span>
+                    </li>
+                    <li>
+                        <span class="label">Display Server</span>
+                        <span>Wayland / X11</span>
+                    </li>
+                    <li>
+                        <span class="label">Theme</span>
+                        <span>Dracula</span>
+                    </li>
+                    <li>
+                        <span class="label">Audio</span>
+                        <span>PipeWire</span>
+                    </li>
+                    <li>
+                        <span class="label">Requirements</span>
+                        <span>2GB RAM, 20GB Storage</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Installation</h2>
+                <div class="grid">
+                    <div class="feature">
+                        <h3>1. Download</h3>
+                        <p>Get the ISO from SourceForge</p>
+                    </div>
+                    <div class="feature">
+                        <h3>2. Create USB</h3>
+                        <p>Use Rufus, Etcher, or dd</p>
+                    </div>
+                    <div class="feature">
+                        <h3>3. Boot and Install</h3>
+                        <p>Follow the installation wizard</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Our Team</h2>
+                <ul class="specs">
+                    <li>
+                        <span class="label">CEO & Development Lead</span>
+                        <span>Christopher L Fox Jr.</span>
+                    </li>
+                    <li>
+                        <span class="label">HR & Marketing</span>
+                        <span>Joseph Daniels</span>
+                    </li>
+                    <li>
+                        <span class="label">Programming Department</span>
+                        <span>Christopher Fricks</span>
+                    </li>
+                </ul>
+                <p class="legal-note">
+                    Cybr Linux is GPL Licensed and managed by WolfTech Innovations
+                </p>
+            </section>
+
+            <footer>
+                <p>&copy; 2026 Cybr Linux by WolfTech Innovations</p>
+                <p style="margin-top: 8px;">
+                    <a href="https://github.com/WolfTech-Innovations/cybr" aria-label="Visit Cybr Linux on GitHub">GitHub</a> · 
+                    <a href="https://sourceforge.net/projects/wolfos/" aria-label="Download from SourceForge">SourceForge</a> · 
+                    <a href="https://status.wolfos.uk" aria-label="Check system status">Status</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            const dot = document.querySelector('.loader-dot');
+            const letters = document.querySelectorAll('.loader-text span');
+            const tagline = document.querySelector('.loader-tagline');
+            const loader = document.getElementById('loader');
+            const mainContent = document.getElementById('main-content');
+            const loaderText = document.querySelector('.loader-text');
+            
+            // Start dot animation
+            dot.classList.add('animate');
+            
+            // Calculate letter positions and reveal timing
+            const dotDuration = 2500;
+            const textWidth = loaderText.offsetWidth;
+            const startPos = -120;
+            const endPos = textWidth + 120;
+            const totalDistance = endPos - startPos;
+            
+            letters.forEach((letter, index) => {
+                const letterLeft = letter.offsetLeft;
+                const letterCenter = letterLeft + (letter.offsetWidth / 2);
+                const dotCenter = 50; // dot radius
+                
+                // Calculate when dot center reaches letter center
+                const progress = (letterCenter + 120) / totalDistance;
+                const delay = dotDuration * progress;
+                
+                setTimeout(() => {
+                    letter.classList.add('reveal-letter');
+                }, delay);
+            });
+            
+            // Show tagline after dot completes
+            setTimeout(() => {
+                tagline.classList.add('show');
+            }, 2800);
+            
+            // Hide loader and show main content
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                mainContent.classList.add('visible');
+            }, 4000);
+        });
+    </script>
 </body>
 </html>
