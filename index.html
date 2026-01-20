@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v46c8wb8pj");
-</script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v46c8wb8pj");
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr Linux">
-    <meta name="keywords" content="cybr linux, arch linux, kde plasma, blackarch, linux distribution, operating system, security tools, penetration testing, wayland, pipewire, dracula theme, free linux, open source os, Ubuntu, linus torvalds">
-    <meta name="author" content="WolfTech Innovations">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://wolfos.pages.dev/">
-
-    <meta property="og:title" content="Cybr Linux">
-    <meta property="og:description" content="Experience the power of Arch Linux with the elegance of KDE Plasma. Built for security enthusiasts and power users.">
-    <meta property="og:image" content="https://wolfos.pages.dev/img.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://wolfos.pages.dev/">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cybr Linux - Plasma Edition">
-    <meta name="twitter:description" content="Arch Linux with KDE Plasma Desktop">
-    <meta name="twitter:image" content="https://wolfos.pages.dev/img.png">
-
+    <meta name="description" content="Cybr Linux - A beautiful Debian-based distribution with KDE Plasma">
+    <meta name="keywords" content="cybr linux, debian, kde plasma, linux distribution, calamares installer">
     <title>Cybr Linux</title>
-
     <style>
         * {
             margin: 0;
@@ -36,448 +20,464 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --text-muted: #666666;
+            --accent: #1793D1;
+            --border: #e0e0e0;
+            --card-bg: #f8f8f8;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: #000;
-            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
+            text-align: center;
+            position: relative;
+            padding: 4rem 2rem;
         }
 
-        #loader.hidden {
-            opacity: 0;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(23, 147, 209, 0.05) 0%, transparent 50%);
             pointer-events: none;
         }
 
-        .loader-text {
-            font-size: 80px;
-            font-weight: 300;
-            letter-spacing: 8px;
+        .hero-content {
             position: relative;
-            display: inline-block;
-            overflow: hidden;
-        }
-
-        .loader-text span {
-            opacity: 0;
-            display: inline-block;
-            color: #fff;
-        }
-
-        .loader-dot {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: #fff;
-            border-radius: 50%;
-            top: 50%;
-            left: -120px;
-            transform: translateY(-50%);
-            z-index: 10;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
-        }
-
-        .loader-dot.animate {
-            animation: moveDot 2.5s linear forwards;
-        }
-
-        @keyframes moveDot {
-            0% { left: -120px; }
-            100% { left: calc(100% + 120px); }
-        }
-
-        .loader-tagline {
-            margin-top: 30px;
-            font-size: 20px;
-            color: #888;
-            font-weight: 300;
-            opacity: 0;
-        }
-
-        .loader-tagline.show {
-            animation: fadeInTagline 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInTagline {
-            to { opacity: 1; }
-        }
-
-        .reveal-letter {
-            animation: fadeIn 0.3s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        #main-content {
-            opacity: 0;
-            transition: opacity 1s ease-out;
-        }
-
-        #main-content.visible {
-            opacity: 1;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        header {
-            text-align: center;
-            padding: 120px 0 80px;
-            border-bottom: 1px solid #222;
+            z-index: 1;
         }
 
         h1 {
-            font-size: 64px;
-            font-weight: 300;
-            margin-bottom: 16px;
-            letter-spacing: -2px;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            color: var(--text);
         }
 
         .tagline {
-            font-size: 18px;
-            color: #888;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 3rem;
             font-weight: 300;
-            margin-bottom: 48px;
         }
 
-        .download-btn {
-            display: inline-block;
-            padding: 16px 48px;
-            background: #fff;
-            color: #000;
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
             text-decoration: none;
-            border-radius: 8px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            font-size: 1rem;
         }
 
-        .download-btn:hover {
-            background: #e0e0e0;
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 2px 10px rgba(23, 147, 209, 0.2);
+        }
+
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(23, 147, 209, 0.3);
         }
 
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid #222;
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(23, 147, 209, 0.05);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
             text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -0.02em;
         }
 
-        h2 {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 48px;
-            letter-spacing: -1px;
-        }
-
-        .grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: left;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .feature {
-            transition: transform 0.3s ease;
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
-        .feature:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .feature h3 {
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 8px;
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
         }
 
-        .feature p {
-            color: #888;
-            font-size: 15px;
-            font-weight: 300;
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
-        .specs {
-            list-style: none;
-            text-align: left;
-            max-width: 600px;
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Screenshot Section */
+        .screenshot-section {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .screenshot-container {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .specs li {
-            padding: 16px 0;
-            border-bottom: 1px solid #222;
+        .screenshot {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+        }
+
+        /* Specs */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .spec-item {
+            background: var(--card-bg);
+            padding: 2rem;
             display: flex;
-            justify-content: space-between;
-            transition: background 0.2s ease;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        .specs li:hover {
-            background: rgba(255, 255, 255, 0.02);
-            padding-left: 8px;
+        .spec-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .specs li:last-child {
-            border-bottom: none;
+        .spec-value {
+            font-size: 1.25rem;
+            font-weight: 500;
         }
 
-        .label {
-            color: #888;
+        /* Installation Steps */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        footer {
-            padding: 80px 0 40px;
+        .step {
             text-align: center;
-            color: #666;
-            font-size: 14px;
         }
 
-        footer a {
-            color: #888;
+        .step-number {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.2s;
         }
 
-        footer a:hover {
-            color: #fff;
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
-        .legal-note {
-            margin-top: 48px;
-            color: #888;
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 1.8;
+        .team-grid {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .team-member {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .team-role {
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-name {
+            font-size: 1.125rem;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 48px;
+            .hero {
+                min-height: 80vh;
             }
-
-            .loader-text {
-                font-size: 60px;
+            
+            .section {
+                padding: 4rem 0;
             }
-
-            .grid {
+            
+            .features-grid {
                 grid-template-columns: 1fr;
-            }
-
-            header {
-                padding: 80px 0 60px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <div id="loader">
-        <div class="loader-text">
-            <div class="loader-dot"></div>
-            <span>C</span><span>y</span><span>b</span><span>r</span>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cybr Linux</h1>
+            <p class="tagline">Simple. Powerful. Debian-based.</p>
+            <div class="cta-buttons">
+                <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="btn btn-primary">Download ISO</a>
+                <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">View on GitHub</a>
+            </div>
         </div>
-        <div class="loader-tagline">Simple. Fast. Secure.</div>
-    </div>
+    </section>
 
-    <div id="main-content">
+    <section class="section">
         <div class="container">
-            <header>
-                <h1>Cybr Linux</h1>
-                <p class="tagline">Dawn light shines upon the arches</p>
-                <a href="https://sourceforge.net/projects/wolfos/files/plasma/" class="download-btn" aria-label="Download Cybr Linux Plasma Edition">Download</a>
-            </header>
-
-            <section>
-                <h2>Features</h2>
-                <div class="grid">
-                    <div class="feature">
-                        <h3>KDE Plasma</h3>
-                        <p>Modern desktop environment with powerful customization</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Arch Linux</h3>
-                        <p>Rolling release with cutting-edge packages</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Dracula Theme</h3>
-                        <p>Beautiful dark theme across all applications</p>
-                    </div>
-                    <div class="feature">
-                        <h3>PipeWire Audio</h3>
-                        <p>Professional audio with low latency</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Wayland Support</h3>
-                        <p>Modern display protocol with X11 fallback</p>
-                    </div>
+            <h2 class="section-title">Why Cybr?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">K</div>
+                    <h3>Beautiful Design</h3>
+                    <p>KDE Plasma desktop with carefully crafted dark theme for a premium experience</p>
                 </div>
-            </section>
-
-            <section>
-                <h2>Preview</h2>
-                <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Screenshot_2026-01-18_181457.png" alt="Cybr Linux Desktop Screenshot" style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);">
-            </section>
-
-            <section>
-                <h2>Specifications</h2>
-                <ul class="specs">
-                    <li>
-                        <span class="label">Base</span>
-                        <span>Arch Linux</span>
-                    </li>
-                    <li>
-                        <span class="label">Desktop</span>
-                        <span>KDE Plasma</span>
-                    </li>
-                    <li>
-                        <span class="label">Display Server</span>
-                        <span>Wayland / X11</span>
-                    </li>
-                    <li>
-                        <span class="label">Theme</span>
-                        <span>Dracula</span>
-                    </li>
-                    <li>
-                        <span class="label">Audio</span>
-                        <span>PipeWire</span>
-                    </li>
-                    <li>
-                        <span class="label">Requirements</span>
-                        <span>2GB RAM, 20GB Storage</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Installation</h2>
-                <div class="grid">
-                    <div class="feature">
-                        <h3>1. Download</h3>
-                        <p>Get the ISO from SourceForge</p>
-                    </div>
-                    <div class="feature">
-                        <h3>2. Create USB</h3>
-                        <p>Use Rufus, Etcher, or dd</p>
-                    </div>
-                    <div class="feature">
-                        <h3>3. Boot and Install</h3>
-                        <p>Follow the installation wizard</p>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">D</div>
+                    <h3>Debian Stable</h3>
+                    <p>Built on Debian Bookworm for rock-solid reliability and extensive package support</p>
                 </div>
-            </section>
-
-            <section>
-                <h2>Our Team</h2>
-                <ul class="specs">
-                    <li>
-                        <span class="label">CEO & Development Lead</span>
-                        <span>Christopher L Fox Jr.</span>
-                    </li>
-                    <li>
-                        <span class="label">HR & Marketing</span>
-                        <span>Joseph Daniels</span>
-                    </li>
-                    <li>
-                        <span class="label">Programming Department</span>
-                        <span>Christopher Fricks</span>
-                    </li>
-                </ul>
-                <p class="legal-note">
-                    Cybr Linux is GPL Licensed and managed by WolfTech Innovations
-                </p>
-            </section>
-
-            <footer>
-                <p>&copy; 2026 Cybr Linux by WolfTech Innovations</p>
-                <p style="margin-top: 8px;">
-                    <a href="https://github.com/WolfTech-Innovations/cybr" aria-label="Visit Cybr Linux on GitHub">GitHub</a> · 
-                    <a href="https://sourceforge.net/projects/wolfos/" aria-label="Download from SourceForge">SourceForge</a> · 
-                    <a href="https://status.wolfos.uk" aria-label="Check system status">Status</a>
-                </p>
-            </footer>
+                <div class="feature-card">
+                    <div class="feature-icon">C</div>
+                    <h3>Ready to Use</h3>
+                    <p>Pre-configured with essential apps, codecs, and drivers for immediate productivity</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">I</div>
+                    <h3>Easy Installation</h3>
+                    <p>Calamares installer makes setup simple with a beautiful graphical interface</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">P</div>
+                    <h3>Privacy First</h3>
+                    <p>No telemetry, no tracking. Your data stays on your machine</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">F</div>
+                    <h3>Fully Customizable</h3>
+                    <p>Tweak every aspect of your desktop with KDE's powerful configuration tools</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        window.addEventListener('load', function() {
-            const dot = document.querySelector('.loader-dot');
-            const letters = document.querySelectorAll('.loader-text span');
-            const tagline = document.querySelector('.loader-tagline');
-            const loader = document.getElementById('loader');
-            const mainContent = document.getElementById('main-content');
-            const loaderText = document.querySelector('.loader-text');
-            
-            // Start dot animation
-            dot.classList.add('animate');
-            
-            // Calculate letter positions and reveal timing
-            const dotDuration = 2500;
-            const textWidth = loaderText.offsetWidth;
-            const startPos = -120;
-            const endPos = textWidth + 120;
-            const totalDistance = endPos - startPos;
-            
-            letters.forEach((letter, index) => {
-                const letterLeft = letter.offsetLeft;
-                const letterCenter = letterLeft + (letter.offsetWidth / 2);
-                const dotCenter = 50; // dot radius
-                
-                // Calculate when dot center reaches letter center
-                const progress = (letterCenter + 120) / totalDistance;
-                const delay = dotDuration * progress;
-                
-                setTimeout(() => {
-                    letter.classList.add('reveal-letter');
-                }, delay);
-            });
-            
-            // Show tagline after dot completes
-            setTimeout(() => {
-                tagline.classList.add('show');
-            }, 2800);
-            
-            // Hide loader and show main content
-            setTimeout(() => {
-                loader.classList.add('hidden');
-                mainContent.classList.add('visible');
-            }, 4000);
-        });
-    </script>
+    <section class="section screenshot-section">
+        <div class="container">
+            <h2 class="section-title">See It In Action</h2>
+            <div class="screenshot-container">
+                <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Screenshot_2026-01-18_181457.png" 
+                     alt="Cybr Linux Desktop" 
+                     class="screenshot">
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <span class="spec-label">Base System</span>
+                    <span class="spec-value">Debian Bookworm</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Desktop Environment</span>
+                    <span class="spec-value">KDE Plasma</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Display Server</span>
+                    <span class="spec-value">Wayland / X11</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Installer</span>
+                    <span class="spec-value">Calamares</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Audio System</span>
+                    <span class="spec-value">PipeWire</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Package Manager</span>
+                    <span class="spec-value">APT + Flatpak</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Get Started in 3 Steps</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Download</h3>
+                    <p>Get the latest ISO from SourceForge</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Create Bootable Media</h3>
+                    <p>Use Rufus, Etcher, or dd to create a USB drive</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Install</h3>
+                    <p>Boot and follow the Calamares installer wizard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-role">CEO & Development Lead</div>
+                    <div class="team-name">Christopher L Fox Jr.</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">HR & Marketing</div>
+                    <div class="team-name">Joseph Daniels</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">Programming Department</div>
+                    <div class="team-name">Christopher Fricks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
+                <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
+                <a href="https://status.wolfos.uk">Status</a>
+                <a href="https://wolfos.uk">WolfTech</a>
+            </div>
+            <p>&copy; 2026 Cybr Linux by WolfTech Innovations</p>
+            <p style="margin-top: 1rem; font-size: 0.875rem;">GPL Licensed • Free and Open Source</p>
+        </div>
+    </footer>
 </body>
 </html>
