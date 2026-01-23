@@ -11,9 +11,9 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr - The first Linux distribution built for handheld gaming PCs. Plasma Mobile + Steam + Liquorix kernel.">
-    <meta name="keywords" content="cybr, handheld gaming, plasma mobile, linux distribution, steam deck alternative, gaming, liquorix, GPD, AYANEO">
-    <title>Cybr - Mobile Gaming Reimagined</title>
+    <meta name="description" content="Cybr - The first Linux distribution built for handheld gaming PCs. Phosh + Steam + Liquorix kernel.">
+    <meta name="keywords" content="cybr, handheld gaming, phosh, linux distribution, steam deck alternative, gaming, liquorix, GPD, AYANEO">
+    <title>Cybr - Your portable gaming OS</title>
     <style>
         * {
             margin: 0;
@@ -22,21 +22,20 @@
         }
 
         :root {
-            --bg: #0a0a0a;
-            --text: #ffffff;
-            --text-muted: #a0a0a0;
-            --accent: #00d4ff;
-            --accent-dim: rgba(0, 212, 255, 0.1);
-            --border: #1a1a1a;
-            --card-bg: #111111;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent: #0066ff;
+            --background: #ffffff;
+            --surface: #f8f9fa;
+            --border: #e5e7eb;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -45,68 +44,28 @@
             padding: 0 2rem;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 8rem 0 6rem;
             text-align: center;
-            position: relative;
-            padding: 4rem 2rem;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, var(--accent-dim) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-            50% { transform: scale(1.1) rotate(5deg); opacity: 0.5; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         h1 {
-            font-size: clamp(3.5rem, 12vw, 7rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
         }
 
         .tagline {
-            font-size: clamp(1.1rem, 3vw, 1.75rem);
-            color: var(--text-muted);
-            margin-bottom: 1rem;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
             font-weight: 400;
         }
 
-        .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            color: var(--accent);
-            margin-bottom: 3rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .cta-buttons {
+        .cta-group {
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -114,123 +73,88 @@
         }
 
         .btn {
-            padding: 1.2rem 3rem;
-            border-radius: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            transition: all 0.2s;
             display: inline-block;
             font-size: 1rem;
-            border: 2px solid transparent;
         }
 
         .btn-primary {
             background: var(--accent);
-            color: var(--bg);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.5);
+            background: #0052cc;
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--text);
-            border-color: var(--border);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
             border-color: var(--accent);
-            background: var(--accent-dim);
+            color: var(--accent);
         }
 
-        /* Features Section */
+        /* Section */
         .section {
-            padding: 8rem 0;
-            position: relative;
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: var(--surface);
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
             text-align: center;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--text-muted);
-            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
             margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .features-grid {
+        /* Features Grid */
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .feature-card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 1.5rem;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+        .feature {
+            text-align: left;
         }
 
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
         }
 
-        .feature-card p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-size: 1.05rem;
+        .feature p {
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        /* Perfect For Section */
-        .perfect-for {
-            background: var(--card-bg);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .devices-grid {
+        /* Device Grid */
+        .devices {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
@@ -240,85 +164,68 @@
         .device {
             text-align: center;
             padding: 2rem;
-            border-radius: 1rem;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .device:hover {
-            border-color: var(--accent);
-            transform: scale(1.05);
-        }
-
-        .device-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
         }
 
         .device h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .device p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
-        /* Screenshot Section */
-        .screenshot-section {
-            background: var(--bg);
-        }
-
-        .screenshot-container {
-            max-width: 1100px;
+        /* Screenshot */
+        .screenshot-wrapper {
+            max-width: 1000px;
             margin: 0 auto;
-            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         .screenshot {
             width: 100%;
-            border-radius: 1.5rem;
-            box-shadow: 0 30px 80px rgba(0, 212, 255, 0.2);
-            border: 2px solid var(--border);
+            display: block;
         }
 
         /* Specs */
-        .specs-grid {
+        .specs {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1px;
             background: var(--border);
-            border-radius: 1.5rem;
+            border-radius: 12px;
             overflow: hidden;
+            margin-top: 3rem;
         }
 
-        .spec-item {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+        .spec {
+            background: var(--background);
+            padding: 2rem;
+            text-align: center;
         }
 
         .spec-label {
-            color: var(--text-muted);
             font-size: 0.875rem;
+            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
         }
 
         .spec-value {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--text-primary);
         }
 
-        /* Installation Steps */
+        /* Steps */
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
@@ -328,104 +235,92 @@
         }
 
         .step-number {
-            width: 4rem;
-            height: 4rem;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
-            color: var(--bg);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .step p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        /* Team */
+        .team {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        .team-member {
+            padding: 1.5rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .team-role {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-name {
+            font-size: 1.125rem;
+            font-weight: 500;
         }
 
         /* Footer */
         footer {
-            padding: 4rem 0 2rem;
+            padding: 3rem 0;
             border-top: 1px solid var(--border);
             text-align: center;
-            color: var(--text-muted);
+            color: var(--text-secondary);
+            margin-top: 5rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
             color: var(--accent);
         }
 
-        .team-grid {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .team-member {
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .team-member:hover {
-            border-color: var(--accent);
-        }
-
-        .team-role {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .team-name {
-            font-size: 1.25rem;
-            font-weight: 500;
-        }
-
         @media (max-width: 768px) {
             .hero {
-                min-height: 85vh;
+                padding: 4rem 0 3rem;
             }
 
             .section {
-                padding: 5rem 0;
+                padding: 3rem 0;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .devices-grid {
+            .features,
+            .devices {
                 grid-template-columns: 1fr;
             }
         }
@@ -433,41 +328,36 @@
 </head>
 <body>
     <section class="hero">
-        <div class="hero-content">
+        <div class="container">
             <h1>Cybr</h1>
-            <p class="subtitle">For Handheld Gaming PCs</p>
-            <p class="tagline">Mobile Gaming. Reimagined.</p>
-            <div class="cta-buttons">
-                <a href="https://sourceforge.net/projects/wolfos/files/gaming/" class="btn btn-primary">Download ISO</a>
+            <p class="tagline">Your portable gaming OS</p>
+            <div class="cta-group">
+                <a href="https://sourceforge.net/projects/wolfos/files/gaming/" class="btn btn-primary">Download</a>
                 <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">View on GitHub</a>
             </div>
         </div>
     </section>
 
-    <section class="section perfect-for">
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Perfect For</h2>
-            <p class="section-subtitle">The first Linux distro built for handheld gaming devices</p>
-            <div class="devices-grid">
+            <h2 class="section-title">Made for handheld gaming</h2>
+            <p class="section-subtitle">The first Linux distribution designed specifically for portable gaming devices.</p>
+            <div class="devices">
                 <div class="device">
-                    <div class="device-icon">🎮</div>
                     <h3>Handheld PCs</h3>
-                    <p>GPD Win, AYANEO, OneXPlayer, Steam Deck alternatives</p>
+                    <p>GPD Win, AYANEO, OneXPlayer, and Steam Deck alternatives</p>
                 </div>
                 <div class="device">
-                    <div class="device-icon">📱</div>
                     <h3>Gaming Tablets</h3>
                     <p>x86 tablets with controllers or docking stations</p>
                 </div>
                 <div class="device">
-                    <div class="device-icon">💻</div>
                     <h3>2-in-1 Laptops</h3>
                     <p>Convertibles in tablet mode for touch gaming</p>
                 </div>
                 <div class="device">
-                    <div class="device-icon">🖥️</div>
-                    <h3>Desktop Too</h3>
-                    <p>Works perfectly with traditional keyboard & mouse</p>
+                    <h3>Desktop</h3>
+                    <p>Works perfectly with keyboard and mouse</p>
                 </div>
             </div>
         </div>
@@ -475,49 +365,42 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Why Cybr?</h2>
-            <p class="section-subtitle">Touch-optimized gaming with desktop-class performance</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Plasma Mobile</h3>
-                    <p>KDE's touch-optimized desktop with virtual keyboard, gesture navigation, and handheld-friendly UI</p>
+            <h2 class="section-title">Everything you need</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Touch-optimized interface</h3>
+                    <p>Phosh mobile desktop with on-screen keyboard and gesture navigation for seamless handheld gaming.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Steam Ready</h3>
-                    <p>Pre-installed Steam with Proton for Windows games, full Vulkan support, and controller compatibility</p>
+                <div class="feature">
+                    <h3>Steam ready</h3>
+                    <p>Pre-installed Steam with Proton for Windows games and full Vulkan support for maximum compatibility.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Discord + Vencord</h3>
-                    <p>Voice chat with friends, screen sharing, and optional Vencord mods for enhanced features</p>
+                <div class="feature">
+                    <h3>Gaming kernel</h3>
+                    <p>Liquorix kernel optimized for low latency with 1000Hz tick rate and performance tuning.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Liquorix Kernel</h3>
-                    <p>Gaming-optimized kernel with 1000Hz tick rate, ultra-low latency, and performance tuning</p>
+                <div class="feature">
+                    <h3>Instant communication</h3>
+                    <p>Discord pre-installed with Vencord support for enhanced features and customization.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Privacy First</h3>
-                    <p>No telemetry, no tracking, no data collection. Your gaming stays private</p>
+                <div class="feature">
+                    <h3>Privacy focused</h3>
+                    <p>No telemetry, no tracking, no data collection. Your gaming stays private.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🐧</div>
-                    <h3>Debian Stable</h3>
-                    <p>Built on Debian Bookworm for rock-solid reliability and huge software repositories</p>
+                <div class="feature">
+                    <h3>Debian stable</h3>
+                    <p>Built on Debian Bookworm for rock-solid reliability and extensive software repositories.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section screenshot-section">
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <div class="screenshot-container">
+            <h2 class="section-title">See it in action</h2>
+            <div class="screenshot-wrapper">
                 <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Screenshot_2026-01-18_181457.png" 
-                     alt="Cybr Desktop with Plasma Mobile" 
+                     alt="Cybr desktop interface" 
                      class="screenshot">
             </div>
         </div>
@@ -525,48 +408,47 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Technical Specifications</h2>
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <span class="spec-label">Base System</span>
-                    <span class="spec-value">Debian Bookworm</span>
+            <h2 class="section-title">Technical specifications</h2>
+            <div class="specs">
+                <div class="spec">
+                    <div class="spec-label">Base</div>
+                    <div class="spec-value">Debian Bookworm</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Desktop</span>
-                    <span class="spec-value">Plasma Mobile</span>
+                <div class="spec">
+                    <div class="spec-label">Desktop</div>
+                    <div class="spec-value">Phosh</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Display Manager</span>
-                    <span class="spec-value">SDDM</span>
+                <div class="spec">
+                    <div class="spec-label">Display Manager</div>
+                    <div class="spec-value">GDM3</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Kernel</span>
-                    <span class="spec-value">Liquorix</span>
+                <div class="spec">
+                    <div class="spec-label">Kernel</div>
+                    <div class="spec-value">Liquorix</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Gaming</span>
-                    <span class="spec-value">Steam + Proton</span>
+                <div class="spec">
+                    <div class="spec-label">Gaming</div>
+                    <div class="spec-value">Steam + Proton</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Installer</span>
-                    <span class="spec-value">Refractainstaller</span>
+                <div class="spec">
+                    <div class="spec-label">Installer</div>
+                    <div class="spec-value">Refractainstaller</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Packages</span>
-                    <span class="spec-value">APT + Flatpak</span>
+                <div class="spec">
+                    <div class="spec-label">Packages</div>
+                    <div class="spec-value">APT + Flatpak</div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Bootloader</span>
-                    <span class="spec-value">SYSLINUX</span>
+                <div class="spec">
+                    <div class="spec-label">Bootloader</div>
+                    <div class="spec-value">SYSLINUX</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Get Started</h2>
-            <p class="section-subtitle">Ready to game in 3 simple steps</p>
+            <h2 class="section-title">Get started</h2>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -580,7 +462,7 @@
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Install & Play</h3>
+                    <h3>Install and play</h3>
                     <p>Boot, install, and start gaming immediately</p>
                 </div>
             </div>
@@ -589,8 +471,8 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">The Team</h2>
-            <div class="team-grid">
+            <h2 class="section-title">The team</h2>
+            <div class="team">
                 <div class="team-member">
                     <div class="team-role">CEO & Lead Developer</div>
                     <div class="team-name">Christopher L Fox Jr.</div>
@@ -615,7 +497,7 @@
                 <a href="https://getcybr.org">Website</a>
             </div>
             <p>&copy; 2026 Cybr by WolfTech Innovations</p>
-            <p style="margin-top: 1rem; font-size: 0.875rem;">GPL Licensed • Free and Open Source</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">GPL Licensed • Free and Open Source</p>
         </div>
     </footer>
 </body>
