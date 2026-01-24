@@ -9,587 +9,496 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "v46c8wb8pj");
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr - The first Linux distribution built for handheld gaming. Touch-optimized Phosh interface, Steam + Proton, Liquorix kernel, and Steam Deck support. Download now for GPD Win, AYANEO, 2-in-1s, and more.">
-    <meta name="keywords" content="cybr, handheld gaming linux, phosh gaming os, steam deck alternative, GPD linux, AYANEO linux, gaming distribution, liquorix kernel, portable gaming, 2-in-1 gaming, vesktop, vencord discord, touch gaming, handheld pc os">
-    <meta property="og:title" content="Cybr - Your Portable Gaming OS">
-    <meta property="og:description" content="The first Linux distro built for handheld gaming. Touch-optimized, Steam ready, privacy focused.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://getcybr.org">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cybr - Your Portable Gaming OS">
-    <meta name="twitter:description" content="Built for handhelds with Phosh, Steam, Liquorix kernel, and Steam Deck support.">
-    <title>Cybr - Your Portable Gaming OS | Linux Distribution for Handheld Gaming</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #000000;
-            --white: #ffffff;
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-400: #a3a3a3;
-            --gray-600: #525252;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            font-size: 18px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 12rem 0 10rem;
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: var(--black);
-            color: var(--white);
-            border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            letter-spacing: 0.02em;
-        }
-
-        h1 {
-            font-size: clamp(5rem, 15vw, 10rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            margin-bottom: 2.5rem;
-            line-height: 0.95;
-        }
-
-        .tagline {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            color: var(--gray-600);
-            margin-bottom: 5rem;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.5rem 3rem;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            display: inline-block;
-            font-size: 1.1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .btn-primary {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--black);
-            border: 2px solid var(--black);
-        }
-
-        .btn-secondary:hover {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        /* Section */
-        .section {
-            padding: 10rem 0;
-        }
-
-        .section-alt {
-            background: var(--gray-50);
-        }
-
-        .section-title {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2rem;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-600);
-            font-size: 1.5rem;
-            margin-bottom: 8rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            letter-spacing: -0.01em;
-        }
-
-        /* Features Grid */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 6rem 4rem;
-            margin-top: 6rem;
-        }
-
-        .feature h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .feature p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            font-size: 1.125rem;
-        }
-
-        /* Devices Grid */
-        .devices {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 5rem 3rem;
-            margin-top: 6rem;
-        }
-
-        .device {
-            text-align: left;
-        }
-
-        .device-number {
-            font-size: 1rem;
-            color: var(--gray-400);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .device h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .device p {
-            color: var(--gray-600);
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-
-        /* Screenshot */
-        .screenshot-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .screenshot {
-            width: 100%;
-            display: block;
-        }
-
-        /* Specs */
-        .specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 0;
-            margin-top: 6rem;
-            border: 1px solid var(--gray-200);
-        }
-
-        .spec {
-            padding: 3rem 2rem;
-            text-align: left;
-            border-right: 1px solid var(--gray-200);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .spec:nth-child(4n) {
-            border-right: none;
-        }
-
-        .spec-label {
-            font-size: 0.95rem;
-            color: var(--gray-400);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .spec-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        /* Steps */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 6rem 4rem;
-            margin-top: 6rem;
-        }
-
-        .step {
-            text-align: left;
-        }
-
-        .step-number {
-            font-size: 1rem;
-            color: var(--gray-400);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .step h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .step p {
-            color: var(--gray-600);
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-
-        /* Team */
-        .team {
-            max-width: 800px;
-            margin: 6rem auto 0;
-            display: grid;
-            gap: 2rem;
-        }
-
-        .team-member {
-            padding: 3rem;
-            border: 1px solid var(--gray-200);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .team-info {
-            flex: 1;
-        }
-
-        .team-name {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .team-role {
-            font-size: 1rem;
-            color: var(--gray-600);
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            padding: 6rem 0;
-            border-top: 1px solid var(--gray-200);
-            margin-top: 12rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .footer-links a {
-            color: var(--black);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: opacity 0.2s;
-        }
-
-        .footer-links a:hover {
-            opacity: 0.6;
-        }
-
-        .footer-bottom {
-            color: var(--gray-600);
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 8rem 0 6rem;
-            }
-
-            .section {
-                padding: 6rem 0;
-            }
-
-            .features,
-            .devices,
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
-            .container {
-                padding: 0 2rem;
-            }
-
-            .specs {
-                grid-template-columns: 1fr;
-            }
-
-            .spec {
-                border-right: none;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 2rem;
-                align-items: flex-start;
-            }
-
-            .team-member {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybr Linux - Your portable gaming OS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background: #000000;
+    }
+    
+    .hero {
+      background: #000000;
+      padding: 8rem 2rem 6rem;
+      text-align: center;
+      border-bottom: 1px solid #222222;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 4rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      letter-spacing: -1px;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #888888;
+      font-weight: 300;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+    
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: #ffffff;
+      color: #000000;
+    }
+    
+    .btn-primary:hover {
+      background: #e0e0e0;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+    }
+    
+    .btn-secondary:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #111111;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-weight: 300;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      color: #888888;
+      font-size: 1.1rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-card {
+      background: #080808;
+      padding: 2rem;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+      border: 1px solid #1a1a1a;
+    }
+    
+    .feature-card:hover {
+      border-color: #333333;
+      background: #0a0a0a;
+    }
+    
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+      font-weight: 400;
+    }
+    
+    .feature-card p {
+      color: #888888;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    .devices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .device-card {
+      background: #080808;
+      padding: 2rem;
+      border-radius: 2px;
+      text-align: center;
+      border: 1px solid #1a1a1a;
+      transition: all 0.2s ease;
+    }
+    
+    .device-card:hover {
+      border-color: #333333;
+      background: #0a0a0a;
+    }
+    
+    .device-card p {
+      color: #888888;
+      font-size: 0.95rem;
+    }
+    
+    .specs-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .spec-item {
+      background: #080808;
+      padding: 1.5rem;
+      border-radius: 2px;
+      border: 1px solid #1a1a1a;
+    }
+    
+    .spec-label {
+      font-weight: 400;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .spec-item div:last-child {
+      color: #888888;
+      font-size: 0.95rem;
+    }
+    
+    .screenshot {
+      max-width: 100%;
+      border-radius: 2px;
+      border: 1px solid #222222;
+      margin: 2rem 0;
+    }
+    
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .step {
+      text-align: center;
+    }
+    
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: #ffffff;
+      color: #000000;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .step p {
+      color: #888888;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .team-card {
+      background: #080808;
+      padding: 2rem;
+      border-radius: 2px;
+      text-align: center;
+      border: 1px solid #1a1a1a;
+    }
+    
+    .role {
+      color: #888888;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .name {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #ffffff;
+    }
+    
+    footer {
+      background: #000000;
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid #111111;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #888888;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+    }
+    
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+    
+    footer p {
+      color: #555555;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .hero {
+        padding: 5rem 1rem 4rem;
+      }
+      
+      section {
+        padding: 3rem 0;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="container">
-            <div class="badge">BUILT FOR HANDHELD GAMING</div>
-            <h1>Cybr</h1>
-            <p class="tagline">Your portable gaming OS</p>
-            <div class="cta-group">
-                <a href="https://sourceforge.net/projects/wolfos/files/gaming/" class="btn btn-primary">Download</a>
-                <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">GitHub</a>
-            </div>
-        </div>
-    </section>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Cybr Linux</h1>
+      <p class="tagline">Your portable gaming OS</p>
+      <div class="cta-buttons">
+        <a href="https://sourceforge.net/projects/wolfos/files/gaming/" class="btn btn-primary">Download ISO</a>
+        <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">View on GitHub</a>
+      </div>
+    </div>
+  </div>
 
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Made for handheld gaming</h2>
-            <p class="section-subtitle">The first Linux distribution designed specifically for portable gaming devices with touch-optimized interface and Steam Deck support.</p>
-            <div class="devices">
-                <div class="device">
-                    <div class="device-number">01</div>
-                    <h3>Handheld PCs</h3>
-                    <p>GPD Win, AYANEO, OneXPlayer, and Steam Deck alternatives</p>
-                </div>
-                <div class="device">
-                    <div class="device-number">02</div>
-                    <h3>Gaming Tablets</h3>
-                    <p>x86 tablets with controllers or docking stations</p>
-                </div>
-                <div class="device">
-                    <div class="device-number">03</div>
-                    <h3>2-in-1 Laptops</h3>
-                    <p>Convertibles in tablet mode for touch gaming</p>
-                </div>
-                <div class="device">
-                    <div class="device-number">04</div>
-                    <h3>Desktop</h3>
-                    <p>Works perfectly with keyboard and mouse</p>
-                </div>
-            </div>
+  <section>
+    <div class="container">
+      <h2>Made for handheld gaming</h2>
+      <p class="section-subtitle">
+        The first Linux distribution designed specifically for portable gaming devices
+      </p>
+      <div class="devices-grid">
+        <div class="device-card">
+          <h3>Handheld PCs</h3>
+          <p>GPD Win, AYANEO, OneXPlayer, and Steam Deck alternatives</p>
         </div>
-    </section>
+        <div class="device-card">
+          <h3>Gaming Tablets</h3>
+          <p>x86 tablets with controllers or docking stations</p>
+        </div>
+        <div class="device-card">
+          <h3>2-in-1 Laptops</h3>
+          <p>Convertibles in tablet mode for touch gaming</p>
+        </div>
+        <div class="device-card">
+          <h3>Desktop</h3>
+          <p>Works perfectly with keyboard and mouse</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Everything you need</h2>
-            <div class="features">
-                <div class="feature">
-                    <h3>Touch-optimized interface</h3>
-                    <p>Phosh mobile desktop with on-screen keyboard and gesture navigation for seamless handheld gaming.</p>
-                </div>
-                <div class="feature">
-                    <h3>Steam + Multiple Launchers</h3>
-                    <p>Pre-installed Steam, Heroic (Epic/GOG), Lutris, and RetroArch. Proton for Windows games with full Vulkan support.</p>
-                </div>
-                <div class="feature">
-                    <h3>Gaming kernel</h3>
-                    <p>Liquorix kernel optimized for low latency with 1000Hz tick rate and performance tuning.</p>
-                </div>
-                <div class="feature">
-                    <h3>Vesktop with Vencord</h3>
-                    <p>Enhanced Discord client with Vencord built-in for better features, themes, and customization.</p>
-                </div>
-                <div class="feature">
-                    <h3>Privacy focused</h3>
-                    <p>No telemetry, no tracking, no data collection. Your gaming stays private.</p>
-                </div>
-                <div class="feature">
-                    <h3>Debian stable</h3>
-                    <p>Built on Debian Bookworm for rock-solid reliability and extensive software repositories.</p>
-                </div>
-            </div>
+  <section>
+    <div class="container">
+      <h2>Everything you need</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Touch-optimized interface</h3>
+          <p>Phosh mobile desktop with on-screen keyboard and gesture navigation for seamless handheld gaming</p>
         </div>
-    </section>
+        <div class="feature-card">
+          <h3>Steam ready</h3>
+          <p>Pre-installed Steam with Proton for Windows games and full Vulkan support for maximum compatibility</p>
+        </div>
+        <div class="feature-card">
+          <h3>Gaming kernel</h3>
+          <p>Liquorix kernel optimized for low latency with 1000Hz tick rate and performance tuning</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instant communication</h3>
+          <p>Discord pre-installed for voice chat and community while gaming on the go</p>
+        </div>
+        <div class="feature-card">
+          <h3>Multiple launchers</h3>
+          <p>Heroic Games Launcher for Epic/GOG, Lutris for non-Steam games, and RetroArch for emulation</p>
+        </div>
+        <div class="feature-card">
+          <h3>Privacy focused</h3>
+          <p>No telemetry, no tracking, no data collection. Your gaming stays private</p>
+        </div>
+        <div class="feature-card">
+          <h3>Performance monitoring</h3>
+          <p>MangoHud for FPS overlay, GOverlay for configuration, and GameScope compositor support</p>
+        </div>
+        <div class="feature-card">
+          <h3>Debian stable</h3>
+          <p>Built on Debian Bookworm for rock-solid reliability and extensive software repositories</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">See it in action</h2>
-            <div class="screenshot-wrapper">
-                <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Screenshot_2026-01-18_181457.png" 
-                     alt="Cybr desktop interface showing Phosh environment" 
-                     class="screenshot"
-                     loading="lazy">
-            </div>
-        </div>
-    </section>
+  <section>
+    <div class="container">
+      <h2>See it in action</h2>
+      <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Screenshot_2026-01-18_181457.png" alt="Cybr desktop interface" class="screenshot">
+    </div>
+  </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Technical specifications</h2>
-            <div class="specs">
-                <div class="spec">
-                    <div class="spec-label">Base</div>
-                    <div class="spec-value">Debian Bookworm</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Desktop</div>
-                    <div class="spec-value">Phosh</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Display Manager</div>
-                    <div class="spec-value">GDM3</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Kernel</div>
-                    <div class="spec-value">Liquorix</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Gaming</div>
-                    <div class="spec-value">Steam + Proton</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Launchers</div>
-                    <div class="spec-value">Heroic + Lutris</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Discord</div>
-                    <div class="spec-value">Vesktop</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Tools</div>
-                    <div class="spec-value">MangoHud</div>
-                </div>
-            </div>
+  <section>
+    <div class="container">
+      <h2>Technical specifications</h2>
+      <div class="specs-table">
+        <div class="spec-item">
+          <div class="spec-label">Base</div>
+          <div>Debian Bookworm</div>
         </div>
-    </section>
+        <div class="spec-item">
+          <div class="spec-label">Desktop</div>
+          <div>Phosh</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Display Manager</div>
+          <div>GDM3</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Kernel</div>
+          <div>Liquorix</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Gaming</div>
+          <div>Steam + Proton</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Installer</div>
+          <div>Refractainstaller</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Packages</div>
+          <div>APT + Flatpak</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Bootloader</div>
+          <div>SYSLINUX</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Get started</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">STEP 01</div>
-                    <h3>Download</h3>
-                    <p>Get the latest ISO from SourceForge</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">STEP 02</div>
-                    <h3>Create USB</h3>
-                    <p>Use Rufus, Etcher, or dd to make bootable media</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">STEP 03</div>
-                    <h3>Install and play</h3>
-                    <p>Boot, install, and start gaming immediately</p>
-                </div>
-            </div>
+  <section>
+    <div class="container">
+      <h2>Get started</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Download</h3>
+          <p>Get the latest ISO from SourceForge</p>
         </div>
-    </section>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Create USB</h3>
+          <p>Use Rufus, Etcher, or dd to make bootable media</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Install and play</h3>
+          <p>Boot, install, and start gaming immediately</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">The team</h2>
-            <div class="team">
-                <div class="team-member">
-                    <div class="team-info">
-                        <div class="team-name">Christopher L Fox Jr.</div>
-                        <div class="team-role">CEO & Lead Developer</div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-info">
-                        <div class="team-name">Joseph Daniels Stratton</div>
-                        <div class="team-role">HR & Marketing</div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-info">
-                        <div class="team-name">Christopher Ray Fricks</div>
-                        <div class="team-role">Programming & Finance</div>
-                    </div>
-                </div>
-            </div>
+  <section>
+    <div class="container">
+      <h2>The team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="role">CEO & Lead Developer</div>
+          <div class="name">Christopher L Fox Jr.</div>
         </div>
-    </section>
+        <div class="team-card">
+          <div class="role">HR & Marketing</div>
+          <div class="name">Joseph Daniels Stratton</div>
+        </div>
+        <div class="team-card">
+          <div class="role">Programming & Finance</div>
+          <div class="name">Christopher Ray Fricks</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
-                    <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
-                    <a href="https://getcybr.org">Website</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Cybr by WolfTech Innovations • GPL Licensed • Free and Open Source</p>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
+        <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
+        <a href="https://getcybr.org">Website</a>
+      </div>
+      <p>© 2026 Cybr by WolfTech Innovations</p>
+      <p style="margin-top: 0.5rem;">GPL Licensed • Free and Open Source</p>
+    </div>
+  </footer>
 </body>
 </html>
