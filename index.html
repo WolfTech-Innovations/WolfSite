@@ -134,22 +134,61 @@
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .feature {
-            text-align: left;
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-titlebar {
+            background: #323232;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .traffic-light.red {
+            background: #ff5f57;
+        }
+
+        .traffic-light.yellow {
+            background: #ffbd2e;
+        }
+
+        .traffic-light.green {
+            background: #28ca42;
+        }
+
+        .feature-content {
+            padding: 1.5rem;
         }
 
         .feature h3 {
             font-size: 1.5rem;
             margin-bottom: 0.75rem;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .feature p {
-            color: var(--text-secondary);
+            color: #b0b0b0;
             line-height: 1.7;
         }
 
@@ -270,18 +309,27 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .team-role {
             font-size: 0.875rem;
             color: var(--accent);
             font-weight: 500;
-            margin-bottom: 0.25rem;
         }
 
         .team-name {
             font-size: 1.125rem;
             font-weight: 500;
+        }
+
+        .team-member img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 0.5rem;
         }
 
         /* Footer */
@@ -368,28 +416,82 @@
             <h2 class="section-title">Everything you need</h2>
             <div class="features">
                 <div class="feature">
-                    <h3>Touch-optimized interface</h3>
-                    <p>Phosh mobile desktop with on-screen keyboard and gesture navigation for seamless handheld gaming.</p>
+                    <div class="feature-titlebar">
+                        <div class="traffic-lights">
+                            <div class="traffic-light red"></div>
+                            <div class="traffic-light yellow"></div>
+                            <div class="traffic-light green"></div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Touch-optimized interface</h3>
+                        <p>Phosh mobile desktop with on-screen keyboard and gesture navigation for seamless handheld gaming.</p>
+                    </div>
                 </div>
                 <div class="feature">
-                    <h3>Steam ready</h3>
-                    <p>Pre-installed Steam with Proton for Windows games and full Vulkan support for maximum compatibility.</p>
+                    <div class="feature-titlebar">
+                        <div class="traffic-lights">
+                            <div class="traffic-light red"></div>
+                            <div class="traffic-light yellow"></div>
+                            <div class="traffic-light green"></div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Steam ready</h3>
+                        <p>Pre-installed Steam with Proton for Windows games and full Vulkan support for maximum compatibility.</p>
+                    </div>
                 </div>
                 <div class="feature">
-                    <h3>Gaming kernel</h3>
-                    <p>Liquorix kernel optimized for low latency with 1000Hz tick rate and performance tuning.</p>
+                    <div class="feature-titlebar">
+                        <div class="traffic-lights">
+                            <div class="traffic-light red"></div>
+                            <div class="traffic-light yellow"></div>
+                            <div class="traffic-light green"></div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Gaming kernel</h3>
+                        <p>Liquorix kernel optimized for low latency with 1000Hz tick rate and performance tuning.</p>
+                    </div>
                 </div>
                 <div class="feature">
-                    <h3>Instant communication</h3>
-                    <p>Discord pre-installed with Vencord support for enhanced features and customization.</p>
+                    <div class="feature-titlebar">
+                        <div class="traffic-lights">
+                            <div class="traffic-light red"></div>
+                            <div class="traffic-light yellow"></div>
+                            <div class="traffic-light green"></div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Instant communication</h3>
+                        <p>Discord pre-installed with Vencord support for enhanced features and customization.</p>
+                    </div>
                 </div>
                 <div class="feature">
-                    <h3>Privacy focused</h3>
-                    <p>No telemetry, no tracking, no data collection. Your gaming stays private.</p>
+                    <div class="feature-titlebar">
+                        <div class="traffic-lights">
+                            <div class="traffic-light red"></div>
+                            <div class="traffic-light yellow"></div>
+                            <div class="traffic-light green"></div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Privacy focused</h3>
+                        <p>No telemetry, no tracking, no data collection. Your gaming stays private.</p>
+                    </div>
                 </div>
                 <div class="feature">
-                    <h3>Debian stable</h3>
-                    <p>Built on Debian Bookworm for rock-solid reliability and extensive software repositories.</p>
+                    <div class="feature-titlebar">
+                        <div class="traffic-lights">
+                            <div class="traffic-light red"></div>
+                            <div class="traffic-light yellow"></div>
+                            <div class="traffic-light green"></div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Debian stable</h3>
+                        <p>Built on Debian Bookworm for rock-solid reliability and extensive software repositories.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -463,15 +565,10 @@
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Install and play</h3>
-                    <p>Boot, install, and start gaming immediately</p>
+                    <p>Boot, open console, run: su -l -c refractainstaller</p>
                 </div>
             </div>
         </div>
-<div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Install and play</h3>
-                    <p>Boot, open console, run: su -l -c refractainstaller</p>
-                </div>
     </section>
 
     <section class="section">
@@ -480,8 +577,8 @@
             <div class="team">
                 <div class="team-member">
                     <div class="team-role">CEO & Lead Developer</div>
-                    <div class="team-name">Christopher L Fox Jr. (@gubiwolf on Discord</div>
-<img src=https://github.com/WolfTech-Innovations/cybr/blob/master/images/a61461eb5aa17bc11e57c985cb68e248.png img>
+                    <div class="team-name">Christopher L Fox Jr. (@gubiwolf on Discord)</div>
+                    <img src="https://github.com/WolfTech-Innovations/cybr/blob/master/images/a61461eb5aa17bc11e57c985cb68e248.png?raw=true" alt="Christopher L Fox Jr.">
                 </div>
                 <div class="team-member">
                     <div class="team-role">HR & Marketing</div>
@@ -489,9 +586,8 @@
                 </div>
                 <div class="team-member">
                     <div class="team-role">Programming & Finance</div>
-                    <div class="team-name">Christopher Ray Fricks <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Snapchat-969259657.jpg" 
-         alt="Cybr image"
-         style="max-width: 100%; height: auto;"></div>
+                    <div class="team-name">Christopher Ray Fricks</div>
+                    <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Snapchat-969259657.jpg" alt="Christopher Ray Fricks">
                 </div>
             </div>
         </div>
