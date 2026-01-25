@@ -11,9 +11,9 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybr - The first Linux distribution built for handheld gaming PCs. Phosh + Steam + Liquorix kernel.">
-    <meta name="keywords" content="cybr, handheld gaming, phosh, linux distribution, steam deck alternative, gaming, liquorix, GPD, AYANEO">
-    <title>Cybr - Your portable gaming OS</title>
+    <meta name="description" content="Cybr - Linux gaming OS. Debian + i3 + Latte Dock. Under 500MB.">
+    <meta name="keywords" content="cybr, linux gaming, i3wm, debian, steam deck alternative">
+    <title>Cybr - Linux Gaming OS</title>
     <style>
         * {
             margin: 0;
@@ -22,20 +22,19 @@
         }
 
         :root {
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
+            --text: #1a1a1a;
+            --gray: #666;
             --accent: #0066ff;
-            --background: #ffffff;
+            --bg: #ffffff;
             --surface: #f8f9fa;
             --border: #e5e7eb;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
-            background: var(--background);
-            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -46,26 +45,40 @@
 
         /* Hero */
         .hero {
-            padding: 8rem 0 6rem;
+            padding: 6rem 0 4rem;
             text-align: center;
         }
 
         h1 {
             font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .tagline {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
         }
 
-        .cta-group {
+        .badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--surface);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--gray);
+            border: 1px solid var(--border);
+        }
+
+        .cta {
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -78,8 +91,6 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s;
-            display: inline-block;
-            font-size: 1rem;
         }
 
         .btn-primary {
@@ -89,143 +100,91 @@
 
         .btn-primary:hover {
             background: #0052cc;
-            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--text-primary);
+            color: var(--text);
             border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
             border-color: var(--accent);
-            color: var(--accent);
         }
 
         /* Section */
         .section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
         .section-alt {
             background: var(--surface);
         }
 
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+        h2 {
+            font-size: 2.5rem;
             font-weight: 600;
             text-align: center;
             margin-bottom: 3rem;
-            letter-spacing: -0.02em;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Features Grid */
-        .features {
+        /* Grid */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
-        .feature {
+        .card {
             background: #1e1e1e;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .feature-titlebar {
+        .card-header {
             background: #323232;
             padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        .traffic-lights {
+        .dots {
             display: flex;
             gap: 0.5rem;
         }
 
-        .traffic-light {
+        .dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
 
-        .traffic-light.red {
-            background: #ff5f57;
-        }
+        .dot.red { background: #ff5f57; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #28ca42; }
 
-        .traffic-light.yellow {
-            background: #ffbd2e;
-        }
-
-        .traffic-light.green {
-            background: #28ca42;
-        }
-
-        .feature-content {
+        .card-body {
             padding: 1.5rem;
         }
 
-        .feature h3 {
+        .card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.75rem;
-            font-weight: 600;
-            color: #ffffff;
+            color: #fff;
         }
 
-        .feature p {
+        .card p {
             color: #b0b0b0;
-            line-height: 1.7;
-        }
-
-        /* Device Grid */
-        .devices {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .device {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .device h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .device p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
         }
 
         /* Screenshot */
-        .screenshot-wrapper {
+        .screenshot {
             max-width: 1000px;
             margin: 0 auto;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
-        .screenshot {
+        .screenshot img {
             width: 100%;
             display: block;
         }
@@ -233,50 +192,44 @@
         /* Specs */
         .specs {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1px;
             background: var(--border);
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            margin-top: 3rem;
         }
 
         .spec {
-            background: var(--background);
-            padding: 2rem;
+            background: var(--bg);
+            padding: 1.5rem;
             text-align: center;
         }
 
         .spec-label {
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            color: var(--gray);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
         }
 
         .spec-value {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--text-primary);
         }
 
-        /* Steps */
+        /* Install */
         .steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 2rem;
         }
 
         .step {
             text-align: center;
         }
 
-        .step-number {
+        .step-num {
             display: inline-flex;
-            align-items: center;
-            justify-content: center;
             width: 3rem;
             height: 3rem;
             background: var(--accent);
@@ -284,93 +237,96 @@
             border-radius: 50%;
             font-size: 1.5rem;
             font-weight: 600;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1rem;
         }
 
         .step h3 {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
         .step p {
-            color: var(--text-secondary);
+            color: var(--gray);
         }
 
         /* Team */
         .team {
-            max-width: 600px;
-            margin: 3rem auto 0;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .team-member {
+        .member {
+            display: flex;
+            gap: 1.5rem;
             padding: 1.5rem;
-            background: var(--background);
+            background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 8px;
             margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
         }
 
-        .team-role {
+        .member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .role {
             font-size: 0.875rem;
             color: var(--accent);
             font-weight: 500;
+            margin-bottom: 0.25rem;
         }
 
-        .team-name {
+        .name {
             font-size: 1.125rem;
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
         }
 
-        .team-member img {
-            max-width: 200px;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 0.5rem;
+        .contact {
+            font-size: 0.875rem;
+            color: var(--gray);
         }
 
         /* Footer */
         footer {
-            padding: 3rem 0;
+            padding: 2rem 0;
             border-top: 1px solid var(--border);
             text-align: center;
-            color: var(--text-secondary);
-            margin-top: 5rem;
+            color: var(--gray);
+            margin-top: 4rem;
         }
 
-        .footer-links {
+        .links {
             display: flex;
             gap: 2rem;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
+        .links a {
+            color: var(--gray);
             text-decoration: none;
-            transition: color 0.2s;
         }
 
-        .footer-links a:hover {
+        .links a:hover {
             color: var(--accent);
         }
 
         @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 0 3rem;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .features,
-            .devices {
-                grid-template-columns: 1fr;
-            }
+            .hero { padding: 4rem 0 2rem; }
+            .section { padding: 3rem 0; }
+            .grid, .steps { grid-template-columns: 1fr; }
+            .member { flex-direction: column; text-align: center; }
+            .member img { margin: 0 auto; }
         }
     </style>
 </head>
@@ -378,119 +334,100 @@
     <section class="hero">
         <div class="container">
             <h1>Cybr</h1>
-            <p class="tagline">Your portable gaming OS</p>
-            <div class="cta-group">
+            <p class="tagline">Linux gaming OS</p>
+            <div class="badges">
+                <span class="badge">Debian 12</span>
+                <span class="badge">i3 + Latte Dock</span>
+                <span class="badge">< 500MB</span>
+                <span class="badge">Steam + Proton</span>
+            </div>
+            <div class="cta">
                 <a href="https://sourceforge.net/projects/wolfos/files/gaming/" class="btn btn-primary">Download</a>
-                <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">View on GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Made for handheld gaming</h2>
-            <p class="section-subtitle">The first Linux distribution designed specifically for portable gaming devices.</p>
-            <div class="devices">
-                <div class="device">
-                    <h3>Handheld PCs</h3>
-                    <p>GPD Win, AYANEO, OneXPlayer, and Steam Deck alternatives</p>
-                </div>
-                <div class="device">
-                    <h3>Gaming Tablets</h3>
-                    <p>x86 tablets with controllers or docking stations</p>
-                </div>
-                <div class="device">
-                    <h3>2-in-1 Laptops</h3>
-                    <p>Convertibles in tablet mode for touch gaming</p>
-                </div>
-                <div class="device">
-                    <h3>Desktop</h3>
-                    <p>Works perfectly with keyboard and mouse</p>
-                </div>
+                <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">GitHub</a>
             </div>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Everything you need</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-titlebar">
-                        <div class="traffic-lights">
-                            <div class="traffic-light red"></div>
-                            <div class="traffic-light yellow"></div>
-                            <div class="traffic-light green"></div>
+            <h2>What's included</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
                         </div>
                     </div>
-                    <div class="feature-content">
-                        <h3>Touch-optimized interface</h3>
-                        <p>Phosh mobile desktop with on-screen keyboard and gesture navigation for seamless handheld gaming.</p>
+                    <div class="card-body">
+                        <h3>i3 + Latte Dock</h3>
+                        <p>Tiling window manager with macOS-style dock. Keyboard shortcuts and mouse-friendly.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-titlebar">
-                        <div class="traffic-lights">
-                            <div class="traffic-light red"></div>
-                            <div class="traffic-light yellow"></div>
-                            <div class="traffic-light green"></div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
                         </div>
                     </div>
-                    <div class="feature-content">
+                    <div class="card-body">
+                        <h3>UPX compressed</h3>
+                        <p>All binaries compressed with UPX --best --lzma. 50-70% size reduction, under 500MB ISO.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
                         <h3>Steam ready</h3>
-                        <p>Pre-installed Steam with Proton for Windows games and full Vulkan support for maximum compatibility.</p>
+                        <p>Pre-installed with Vulkan drivers and Proton for Windows games.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-titlebar">
-                        <div class="traffic-lights">
-                            <div class="traffic-light red"></div>
-                            <div class="traffic-light yellow"></div>
-                            <div class="traffic-light green"></div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
                         </div>
                     </div>
-                    <div class="feature-content">
-                        <h3>Gaming kernel</h3>
-                        <p>Liquorix kernel optimized for low latency with 1000Hz tick rate and performance tuning.</p>
+                    <div class="card-body">
+                        <h3>Touch support</h3>
+                        <p>Squeekboard on-screen keyboard. Works on handhelds, tablets, and 2-in-1s.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-titlebar">
-                        <div class="traffic-lights">
-                            <div class="traffic-light red"></div>
-                            <div class="traffic-light yellow"></div>
-                            <div class="traffic-light green"></div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
                         </div>
                     </div>
-                    <div class="feature-content">
-                        <h3>Instant communication</h3>
-                        <p>Discord pre-installed with Vencord support for enhanced features and customization.</p>
+                    <div class="card-body">
+                        <h3>Apps included</h3>
+                        <p>Firefox, Discord, MangoHud, Dolphin, Alacritty, GParted.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-titlebar">
-                        <div class="traffic-lights">
-                            <div class="traffic-light red"></div>
-                            <div class="traffic-light yellow"></div>
-                            <div class="traffic-light green"></div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
                         </div>
                     </div>
-                    <div class="feature-content">
-                        <h3>Privacy focused</h3>
-                        <p>No telemetry, no tracking, no data collection. Your gaming stays private.</p>
-                    </div>
-                </div>
-                <div class="feature">
-                    <div class="feature-titlebar">
-                        <div class="traffic-lights">
-                            <div class="traffic-light red"></div>
-                            <div class="traffic-light yellow"></div>
-                            <div class="traffic-light green"></div>
-                        </div>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Debian stable</h3>
-                        <p>Built on Debian Bookworm for rock-solid reliability and extensive software repositories.</p>
+                    <div class="card-body">
+                        <h3>Debian base</h3>
+                        <p>Bookworm stable. Rock-solid reliability, extensive repos.</p>
                     </div>
                 </div>
             </div>
@@ -499,50 +436,40 @@
 
     <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">See it in action</h2>
-            <div class="screenshot-wrapper">
-                <img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/1000001379-aa5ce0ec.png/max/max/1" 
-                     alt="Cybr desktop interface" 
-                     class="screenshot">
+            <h2>Screenshot</h2>
+            <div class="screenshot">
+                <img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/1000001379-aa5ce0ec.png/max/max/1" alt="Cybr desktop">
             </div>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Technical specifications</h2>
+            <h2>Specs</h2>
             <div class="specs">
                 <div class="spec">
                     <div class="spec-label">Base</div>
-                    <div class="spec-value">Debian Bookworm</div>
+                    <div class="spec-value">Debian 12</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Desktop</div>
-                    <div class="spec-value">Phosh</div>
+                    <div class="spec-value">i3 + Latte</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Display Manager</div>
-                    <div class="spec-value">GDM3</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Kernel</div>
-                    <div class="spec-value">Liquorix</div>
+                    <div class="spec-label">Display</div>
+                    <div class="spec-value">LightDM</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Gaming</div>
-                    <div class="spec-value">Steam + Proton</div>
+                    <div class="spec-value">Steam</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Installer</div>
-                    <div class="spec-value">Debian installer</div>
+                    <div class="spec-value">Calamares</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Packages</div>
-                    <div class="spec-value">APT + Flatpak</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Bootloader</div>
-                    <div class="spec-value">SYSLINUX</div>
+                    <div class="spec-label">Size</div>
+                    <div class="spec-value">< 500MB</div>
                 </div>
             </div>
         </div>
@@ -550,22 +477,22 @@
 
     <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Get started</h2>
+            <h2>Install</h2>
             <div class="steps">
                 <div class="step">
-                    <div class="step-number">1</div>
+                    <div class="step-num">1</div>
                     <h3>Download</h3>
-                    <p>Get the latest ISO from SourceForge</p>
+                    <p>Get ISO from SourceForge</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Create USB</h3>
-                    <p>Use Rufus, Etcher, or dd to make bootable media</p>
+                    <div class="step-num">2</div>
+                    <h3>Flash USB</h3>
+                    <p>Use Rufus, Etcher, or dd</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Install and play</h3>
-                    <p>Boot, open console, run: su -l -c refractainstaller</p>
+                    <div class="step-num">3</div>
+                    <h3>Boot & Install</h3>
+                    <p>Use Calamares installer</p>
                 </div>
             </div>
         </div>
@@ -573,21 +500,28 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="section-title">The team</h2>
+            <h2>Team</h2>
             <div class="team">
-                <div class="team-member">
-                    <div class="team-role">CEO & Lead Developer</div>
-                    <div class="team-name">Christopher L Fox Jr. (@gubiwolf on Discord)</div>
+                <div class="member">
                     <img src="https://github.com/WolfTech-Innovations/cybr/blob/master/images/a61461eb5aa17bc11e57c985cb68e248.png?raw=true" alt="Christopher L Fox Jr.">
+                    <div class="member-info">
+                        <div class="role">CEO & Lead Developer</div>
+                        <div class="name">Christopher L Fox Jr.</div>
+                        <div class="contact">@gubiwolf on Discord</div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="team-role">HR & Marketing</div>
-                    <div class="team-name">Joseph Daniels Stratton</div>
+                <div class="member">
+                    <div class="member-info">
+                        <div class="role">HR & Marketing</div>
+                        <div class="name">Joseph Daniels Stratton</div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="team-role">Programming & Finance</div>
-                    <div class="team-name">Christopher Ray Fricks</div>
+                <div class="member">
                     <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Snapchat-969259657.jpg" alt="Christopher Ray Fricks">
+                    <div class="member-info">
+                        <div class="role">Programming & Finance</div>
+                        <div class="name">Christopher Ray Fricks</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -595,13 +529,12 @@
 
     <footer>
         <div class="container">
-            <div class="footer-links">
+            <div class="links">
                 <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
                 <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
-                <a href="https://getcybr.org">Website</a>
+                <a href="https://github.com/WolfTech-Innovations/cybr/issues">Issues</a>
             </div>
-            <p>&copy; 2026 Cybr by WolfTech Innovations</p>
-            <p style="margin-top: 0.5rem; font-size: 0.875rem;">GPL Licensed • Free and Open Source</p>
+            <p>&copy; 2026 Cybr - WolfTech Innovations - GPL Licensed</p>
         </div>
     </footer>
 </body>
