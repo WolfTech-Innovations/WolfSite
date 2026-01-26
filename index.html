@@ -5,29 +5,30 @@
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","v46c8wb8pj")</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Cybr - Mobile gaming OS. Debian + Phosh + Liquorix. Network installer under 50MB.">
-<title>Cybr - Mobile Gaming Edition</title>
+<meta name="description" content="Cybr K9 - Lightweight Linux desktop with K9 Desktop Environment. Modern X11-based DE with blur effects and rounded windows.">
+<title>Cybr K9 - Desktop Edition</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--text:#1a1a1a;--gray:#666;--accent:#06f;--bg:#fff;--surface:#f8f9fa;--border:#e5e7eb}
+:root{--text:#1a1a1a;--gray:#666;--accent:#06f;--bg:#fff;--surface:#f8f9fa;--border:#e5e7eb;--k9-purple:#9333ea;--k9-blue:#3b82f6}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem}
-.hero{padding:6rem 0 4rem;text-align:center}
+.hero{padding:6rem 0 4rem;text-align:center;background:linear-gradient(135deg,var(--k9-purple),var(--k9-blue));color:#fff}
 h1{font-size:clamp(3rem,8vw,5rem);font-weight:700;margin-bottom:1rem}
-.tagline{font-size:1.5rem;color:var(--gray);margin-bottom:2rem}
+.tagline{font-size:1.5rem;margin-bottom:2rem;opacity:.9}
 .badges{display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.badge{background:var(--surface);padding:.5rem 1rem;border-radius:20px;font-size:.875rem;color:var(--gray);border:1px solid var(--border)}
+.badge{background:rgba(255,255,255,.2);backdrop-filter:blur(10px);padding:.5rem 1rem;border-radius:20px;font-size:.875rem;border:1px solid rgba(255,255,255,.3)}
 .cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn{padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;transition:all .2s}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#05c}
-.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
-.btn-secondary:hover{border-color:var(--accent)}
+.btn-primary{background:#fff;color:var(--k9-purple)}
+.btn-primary:hover{background:#f0f0f0;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.1)}
 .section{padding:4rem 0}
 .section-alt{background:var(--surface)}
 h2{font-size:2.5rem;font-weight:600;text-align:center;margin-bottom:3rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-.card{background:#1e1e1e;border-radius:8px;overflow:hidden}
+.card{background:#1e1e1e;border-radius:12px;overflow:hidden;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
 .card-header{background:#323232;padding:.75rem 1rem}
 .dots{display:flex;gap:.5rem}
 .dot{width:12px;height:12px;border-radius:50%}
@@ -36,8 +37,8 @@ h2{font-size:2.5rem;font-weight:600;text-align:center;margin-bottom:3rem}
 .dot.green{background:#28ca42}
 .card-body{padding:1.5rem}
 .card h3{font-size:1.5rem;margin-bottom:.75rem;color:#fff}
-.card p{color:#b0b0b0}
-.terminal{max-width:900px;margin:0 auto;background:#1e1e1e;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.card p{color:#b0b0b0;line-height:1.7}
+.terminal{max-width:900px;margin:0 auto;background:#1e1e1e;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15)}
 .terminal-header{background:#323232;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem}
 .terminal-body{padding:2rem;font-family:'SF Mono',Monaco,'Courier New',monospace;font-size:.9rem;line-height:1.8;color:#e8e8e8}
 .terminal-line{margin-bottom:.25rem}
@@ -45,44 +46,54 @@ h2{font-size:2.5rem;font-weight:600;text-align:center;margin-bottom:3rem}
 .command{color:#94e}
 .output{color:#b0b0b0}
 .success{color:#28ca42}
-.screenshot{max-width:1000px;margin:0 auto;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.screenshot{max-width:1000px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1)}
 .screenshot img{width:100%;display:block}
-.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border-radius:8px;overflow:hidden}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border-radius:12px;overflow:hidden}
 .spec{background:var(--bg);padding:1.5rem;text-align:center}
 .spec-label{font-size:.875rem;color:var(--gray);text-transform:uppercase;margin-bottom:.5rem}
 .spec-value{font-size:1.25rem;font-weight:600}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
+.feature{text-align:center;padding:2rem}
+.feature-icon{font-size:3rem;margin-bottom:1rem}
+.feature h3{font-size:1.25rem;margin-bottom:.5rem}
+.feature p{color:var(--gray)}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 .step{text-align:center}
-.step-num{display:inline-flex;width:3rem;height:3rem;background:var(--accent);color:#fff;border-radius:50%;font-size:1.5rem;font-weight:600;align-items:center;justify-content:center;margin-bottom:1rem}
+.step-num{display:inline-flex;width:3rem;height:3rem;background:var(--k9-purple);color:#fff;border-radius:50%;font-size:1.5rem;font-weight:600;align-items:center;justify-content:center;margin-bottom:1rem}
 .step h3{font-size:1.25rem;margin-bottom:.5rem}
 .step p{color:var(--gray)}
 .team{max-width:700px;margin:0 auto}
-.member{display:flex;gap:1.5rem;padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;margin-bottom:1rem}
+.member{display:flex;gap:1.5rem;padding:1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;margin-bottom:1rem;transition:all .2s}
+.member:hover{border-color:var(--k9-purple);transform:translateX(4px)}
 .member img{width:80px;height:80px;border-radius:50%;object-fit:cover}
 .member-info{flex:1}
-.role{font-size:.875rem;color:var(--accent);font-weight:500;margin-bottom:.25rem}
+.role{font-size:.875rem;color:var(--k9-purple);font-weight:500;margin-bottom:.25rem}
 .name{font-size:1.125rem;font-weight:600;margin-bottom:.25rem}
 .contact{font-size:.875rem;color:var(--gray)}
+.keybindings{max-width:600px;margin:2rem auto;background:var(--surface);border-radius:12px;padding:2rem}
+.keybinding{display:flex;justify-content:space-between;padding:1rem;border-bottom:1px solid var(--border)}
+.keybinding:last-child{border-bottom:none}
+.key{background:var(--bg);padding:.25rem .75rem;border-radius:6px;font-family:monospace;font-weight:600;border:1px solid var(--border)}
 footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color:var(--gray);margin-top:4rem}
-.links{display:flex;gap:2rem;justify-content:center;margin-bottom:1rem}
-.links a{color:var(--gray);text-decoration:none}
-.links a:hover{color:var(--accent)}
-@media(max-width:768px){.hero{padding:4rem 0 2rem}.section{padding:3rem 0}.grid,.steps{grid-template-columns:1fr}.member{flex-direction:column;text-align:center}.member img{margin:0 auto}}
+.links{display:flex;gap:2rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap}
+.links a{color:var(--gray);text-decoration:none;transition:color .2s}
+.links a:hover{color:var(--k9-purple)}
+@media(max-width:768px){.hero{padding:4rem 0 2rem}.section{padding:3rem 0}.grid,.steps,.features{grid-template-columns:1fr}.member{flex-direction:column;text-align:center}.member img{margin:0 auto}}
 </style>
 </head>
 <body>
 <section class="hero">
 <div class="container">
-<h1>Cybr</h1>
-<p class="tagline">Mobile Gaming Edition</p>
+<h1>Cybr K9</h1>
+<p class="tagline">Desktop Edition</p>
 <div class="badges">
 <span class="badge">Debian Bookworm</span>
-<span class="badge">Phosh Desktop</span>
-<span class="badge">Liquorix Kernel</span>
-<span class="badge">Network Installer</span>
+<span class="badge">K9 Desktop Environment</span>
+<span class="badge">Minimal X11</span>
+<span class="badge">Live ISO</span>
 </div>
 <div class="cta">
-<a href="https://sourceforge.net/projects/wolfos/files/gaming/" class="btn btn-primary">Download</a>
+<a href="https://sourceforge.net/projects/wolfos/files/gaming/k9/" class="btn btn-primary">Download</a>
 <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">GitHub</a>
 </div>
 </div>
@@ -90,31 +101,28 @@ footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color
 
 <section class="section">
 <div class="container">
-<h2>What's included</h2>
-<div class="grid">
-<div class="card">
-<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
-<div class="card-body"><h3>Phosh Desktop</h3><p>GNOME-based mobile interface with touch gestures, adaptive apps, and responsive UI designed for handheld gaming.</p></div>
+<h2>Meet K9 Desktop Environment</h2>
+<p style="text-align:center;color:var(--gray);max-width:700px;margin:0 auto 3rem">A lightweight, modern X11-based desktop environment featuring custom window management, blur effects, and rounded decorations. Built for speed and aesthetics.</p>
+<div class="features">
+<div class="feature">
+<div class="feature-icon">✨</div>
+<h3>Blur Effects</h3>
+<p>XRender-powered background blur for a modern, polished look</p>
 </div>
-<div class="card">
-<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
-<div class="card-body"><h3>Liquorix Kernel</h3><p>High-performance kernel optimized for desktop and gaming. Low latency, smooth frame rates, better hardware support.</p></div>
+<div class="feature">
+<div class="feature-icon">⬜</div>
+<h3>Rounded Windows</h3>
+<p>Smooth, rounded window decorations throughout the interface</p>
 </div>
-<div class="card">
-<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
-<div class="card-body"><h3>Steam + 32-bit support</h3><p>Pre-installed with Steam, full 32-bit library support, Vulkan drivers, and Mesa for seamless Windows game compatibility.</p></div>
+<div class="feature">
+<div class="feature-icon">⚡</div>
+<h3>Lightweight</h3>
+<p>Minimal resource usage with maximum performance</p>
 </div>
-<div class="card">
-<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
-<div class="card-body"><h3>Network Installer</h3><p>Ultra-minimal installer at approximately 50MB. Downloads the latest base system during installation for always-fresh deployments.</p></div>
-</div>
-<div class="card">
-<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
-<div class="card-body"><h3>Discord included</h3><p>Discord pre-installed with desktop shortcut. Stay connected with voice chat and gaming communities.</p></div>
-</div>
-<div class="card">
-<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
-<div class="card-body"><h3>Essential apps</h3><p>Firefox, GParted, NetworkManager with WiFi support. Auto-login configured with Steam and Discord shortcuts on desktop.</p></div>
+<div class="feature">
+<div class="feature-icon">🎨</div>
+<h3>Custom Compositor</h3>
+<p>Integrated compositor with smooth animations</p>
 </div>
 </div>
 </div>
@@ -122,41 +130,86 @@ footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color
 
 <section class="section section-alt">
 <div class="container">
-<h2>Installation Demo</h2>
+<h2>What's Included</h2>
+<div class="grid">
+<div class="card">
+<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
+<div class="card-body"><h3>K9 Desktop Environment</h3><p>Custom X11-based desktop with integrated window manager, compositor, blur effects, rounded windows, and system panel. Built from source during installation.</p></div>
+</div>
+<div class="card">
+<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
+<div class="card-body"><h3>Minimal Xorg</h3><p>Only essential X11 packages installed. No bloat, just what's needed for K9 to run smoothly with optimal performance.</p></div>
+</div>
+<div class="card">
+<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
+<div class="card-body"><h3>Live Boot System</h3><p>ISO boots directly into K9 desktop with overlay filesystem. All changes stored in RAM for a clean, fresh experience every boot.</p></div>
+</div>
+<div class="card">
+<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
+<div class="card-body"><h3>Network Ready</h3><p>NetworkManager included for WiFi and Ethernet support. Connect to your network and browse the web immediately.</p></div>
+</div>
+<div class="card">
+<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
+<div class="card-body"><h3>System Tools</h3><p>GParted for disk management, nano and vim for text editing, essential utilities for system administration.</p></div>
+</div>
+<div class="card">
+<div class="card-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
+<div class="card-body"><h3>Auto-login</h3><p>Configured with automatic login and X11 startup. Boot straight into K9 desktop with no login prompts or delays.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2>Keybindings</h2>
+<div class="keybindings">
+<div class="keybinding">
+<span>Open System Info</span>
+<span class="key">Super + I</span>
+</div>
+<div class="keybinding">
+<span>Open System Menu</span>
+<span class="key">Super + M</span>
+</div>
+<div class="keybinding">
+<span>Context Menu</span>
+<span class="key">Right Click</span>
+</div>
+<div class="keybinding">
+<span>Window Management</span>
+<span class="key">Mouse + Drag</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-alt">
+<div class="container">
+<h2>Live Boot Demo</h2>
 <div class="terminal">
 <div class="terminal-header"><div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div></div>
 <div class="terminal-body">
-<div class="terminal-line"><span class="output">=======================================</span></div>
-<div class="terminal-line"><span class="output">  Cybr Network Installer v1.0</span></div>
-<div class="terminal-line"><span class="output">=======================================</span></div>
+<div class="terminal-line"><span class="output">Starting Cybr K9 Live System...</span></div>
 <div class="terminal-line">&nbsp;</div>
-<div class="terminal-line"><span class="output">Commands:</span></div>
-<div class="terminal-line"><span class="output">  wifi     - Configure WiFi</span></div>
-<div class="terminal-line"><span class="output">  install  - Install Cybr to disk</span></div>
-<div class="terminal-line"><span class="output">  shell    - Drop to shell</span></div>
+<div class="terminal-line"><span class="output">[ OK ] Mount filesystems</span></div>
+<div class="terminal-line"><span class="output">[ OK ] Load network modules</span></div>
+<div class="terminal-line"><span class="output">[ OK ] Mount ISO filesystem</span></div>
+<div class="terminal-line"><span class="output">[ OK ] Mount SquashFS</span></div>
+<div class="terminal-line"><span class="output">[ OK ] Create overlay</span></div>
+<div class="terminal-line"><span class="output">[ OK ] Switch to new root</span></div>
 <div class="terminal-line">&nbsp;</div>
-<div class="terminal-line"><span class="prompt">cybr></span> <span class="command">wifi</span></div>
-<div class="terminal-line"><span class="output">Scanning for WiFi networks...</span></div>
-<div class="terminal-line"><span class="output">Enter SSID: MyNetwork</span></div>
-<div class="terminal-line"><span class="output">Enter password: ********</span></div>
-<div class="terminal-line"><span class="success">[OK] Connected!</span></div>
+<div class="terminal-line"><span class="success">Booting into K9 Desktop Environment...</span></div>
 <div class="terminal-line">&nbsp;</div>
-<div class="terminal-line"><span class="prompt">cybr></span> <span class="command">install</span></div>
-<div class="terminal-line"><span class="output">Available disks:</span></div>
-<div class="terminal-line"><span class="output">/dev/sda: 512GB SSD</span></div>
-<div class="terminal-line"><span class="output">Enter disk (e.g., sda): sda</span></div>
-<div class="terminal-line">&nbsp;</div>
-<div class="terminal-line"><span class="output">[1/6] Partitioning...</span></div>
-<div class="terminal-line"><span class="output">[2/6] Formatting...</span></div>
-<div class="terminal-line"><span class="output">[3/6] Mounting...</span></div>
-<div class="terminal-line"><span class="output">[4/6] Downloading base system...</span></div>
-<div class="terminal-line"><span class="output">Downloading cybr-base-v123.squashfs...</span></div>
-<div class="terminal-line"><span class="output">[5/6] Extracting (this takes a while)...</span></div>
-<div class="terminal-line"><span class="output">[6/6] Installing bootloader...</span></div>
+<div class="terminal-line"><span class="output">Starting X11 server...</span></div>
+<div class="terminal-line"><span class="output">Loading K9 window manager...</span></div>
+<div class="terminal-line"><span class="output">Initializing compositor...</span></div>
+<div class="terminal-line"><span class="output">Applying blur effects...</span></div>
 <div class="terminal-line">&nbsp;</div>
 <div class="terminal-line"><span class="success">=======================================</span></div>
-<div class="terminal-line"><span class="success">  Installation Complete!</span></div>
-<div class="terminal-line"><span class="success">  Remove USB and reboot</span></div>
+<div class="terminal-line"><span class="success">  Welcome to Cybr K9 Desktop!</span></div>
+<div class="terminal-line"><span class="success">  Press Super+I for system info</span></div>
+<div class="terminal-line"><span class="success">  Press Super+M for menu</span></div>
 <div class="terminal-line"><span class="success">=======================================</span></div>
 </div>
 </div>
@@ -166,7 +219,7 @@ footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color
 <section class="section">
 <div class="container">
 <h2>Screenshot</h2>
-<div class="screenshot"><img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/1000001379-aa5ce0ec.png/max/max/1" alt="Cybr desktop"></div>
+<div class="screenshot"><img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/1000001379-aa5ce0ec.png/max/max/1" alt="Cybr K9 desktop"></div>
 </div>
 </section>
 
@@ -175,23 +228,23 @@ footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color
 <h2>Specs</h2>
 <div class="specs">
 <div class="spec"><div class="spec-label">Base</div><div class="spec-value">Debian 12</div></div>
-<div class="spec"><div class="spec-label">Desktop</div><div class="spec-value">Phosh</div></div>
-<div class="spec"><div class="spec-label">Display</div><div class="spec-value">GDM3</div></div>
-<div class="spec"><div class="spec-label">Kernel</div><div class="spec-value">Liquorix</div></div>
-<div class="spec"><div class="spec-label">Installer</div><div class="spec-value">Network</div></div>
-<div class="spec"><div class="spec-label">ISO Size</div><div class="spec-value">~50MB</div></div>
+<div class="spec"><div class="spec-label">Desktop</div><div class="spec-value">K9 DE</div></div>
+<div class="spec"><div class="spec-label">Window Manager</div><div class="spec-value">Custom X11</div></div>
+<div class="spec"><div class="spec-label">Compositor</div><div class="spec-value">Integrated</div></div>
+<div class="spec"><div class="spec-label">Boot Type</div><div class="spec-value">Live ISO</div></div>
+<div class="spec"><div class="spec-label">RAM Usage</div><div class="spec-value">~512MB</div></div>
 </div>
 </div>
 </section>
 
 <section class="section">
 <div class="container">
-<h2>Install</h2>
+<h2>Get Started</h2>
 <div class="steps">
-<div class="step"><div class="step-num">1</div><h3>Download ISO</h3><p>Get network installer from SourceForge</p></div>
+<div class="step"><div class="step-num">1</div><h3>Download ISO</h3><p>Get the live ISO from SourceForge</p></div>
 <div class="step"><div class="step-num">2</div><h3>Flash & Boot</h3><p>Use Rufus, Etcher, or dd to create bootable USB</p></div>
-<div class="step"><div class="step-num">3</div><h3>Connect WiFi</h3><p>Run wifi command to configure network</p></div>
-<div class="step"><div class="step-num">4</div><h3>Install System</h3><p>Run install to download and deploy</p></div>
+<div class="step"><div class="step-num">3</div><h3>Boot Live System</h3><p>Select "Cybr K9 Live" from GRUB menu</p></div>
+<div class="step"><div class="step-num">4</div><h3>Explore K9</h3><p>K9 Desktop starts automatically - enjoy!</p></div>
 </div>
 </div>
 </section>
@@ -209,7 +262,7 @@ footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color
 </div>
 <div class="member">
 <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Snapchat-969259657.jpg" alt="Christopher Ray Fricks">
-<div class="member-info"><div class="role">Programming & Finance & Testing</div><div class="name">Christopher Ray Fricks</div></div>
+<div class="member-info"><div class="role">Programming, Finance & Testing</div><div class="name">Christopher Ray Fricks</div></div>
 </div>
 </div>
 </div>
@@ -219,10 +272,11 @@ footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color
 <div class="container">
 <div class="links">
 <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
+<a href="https://github.com/WolfTech-Innovations/K9">K9 Source</a>
 <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
 <a href="https://github.com/WolfTech-Innovations/cybr/issues">Issues</a>
 </div>
-<p>&copy; 2026 Cybr - WolfTech Innovations - GPL Licensed</p>
+<p>&copy; 2026 Cybr K9 - WolfTech Innovations - GPL Licensed</p>
 </div>
 </footer>
 </body>
