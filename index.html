@@ -1,262 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="canonical" href="https://lebnix.org/">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="WolfTech Innovations — Lebnix, lightweight Debian 12 + LXDE. Fast, stable, open source.">
+<meta name="author" content="WolfTech Innovations">
+<meta property="og:title" content="WolfTech Innovations — Lebnix">
+<meta property="og:description" content="Little Debian Linux. Lightweight, LXDE-powered live ISO.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lebnix.org/">
+<meta name="twitter:card" content="summary"><link rel="canonical" href="https://lebnix.org/">
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","v46c8wb8pj")</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Lebnix - Little Debian Linux with LXDE Desktop Environment. Fast, stable, and energy-efficient lightweight desktop.">
-<title>Lebnix - Little Debian Linux</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@700&family=Roboto:wght@400;500&family=Roboto+Mono&display=swap" rel="stylesheet">
+<title>WolfTech Innovations — Lebnix</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#333;line-height:1.7;font-size:1.125rem}
-.container{max-width:800px;margin:0 auto;padding:0 2rem}
-.hero{padding:6rem 0 4rem;text-align:center}
-h1{font-size:3rem;font-weight:700;margin-bottom:.5rem;color:#000}
-.tagline{font-size:1.25rem;margin-bottom:2rem;color:#666}
-.badges{display:flex;gap:.75rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.badge{padding:.5rem 1rem;font-size:.875rem;color:#666;border:1px solid #ddd;border-radius:4px}
-.cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn{padding:.875rem 1.75rem;text-decoration:none;font-weight:500;border-radius:4px}
-.btn-primary{background:#000;color:#fff}
-.btn-primary:hover{background:#333}
-.btn-secondary{background:#fff;color:#000;border:1px solid #ddd}
-.btn-secondary:hover{border-color:#000}
-.section{padding:4rem 0;border-top:1px solid #eee}
-h2{font-size:2rem;font-weight:700;margin-bottom:2rem;color:#000}
-.intro{color:#666;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;text-align:center}
-.grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:600px;margin:0 auto}
-.card{padding:1.5rem;border:1px solid #eee;border-radius:4px}
-.card h3{font-size:1.125rem;margin-bottom:.5rem;font-weight:600}
-.card p{color:#666;font-size:1rem}
-.terminal{max-width:700px;margin:2rem auto;background:#f8f8f8;border:1px solid #eee;border-radius:4px;padding:2rem;font-family:monospace;font-size:.875rem;line-height:1.6;color:#333}
-.terminal-line{margin-bottom:.25rem}
-.success{color:#000;font-weight:600}
-.screenshot{max-width:700px;margin:2rem auto;border:1px solid #eee;border-radius:4px;overflow:hidden}
-.screenshot img{width:100%;display:block}
-.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:#eee;max-width:600px;margin:0 auto;border:1px solid #eee;border-radius:4px;overflow:hidden}
-.spec{background:#fff;padding:1.5rem;text-align:center}
-.spec-label{font-size:.75rem;color:#999;text-transform:uppercase;margin-bottom:.5rem;letter-spacing:.05em}
-.spec-value{font-size:1rem;font-weight:600;color:#000}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:600px;margin:2rem auto}
-.feature{text-align:center}
-.feature-icon{font-size:2rem;margin-bottom:.75rem}
-.feature h3{font-size:1rem;margin-bottom:.25rem;font-weight:600}
-.feature p{color:#666;font-size:.875rem}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;max-width:600px;margin:0 auto}
-.step{text-align:center}
-.step-num{display:inline-flex;width:2.5rem;height:2.5rem;background:#000;color:#fff;border-radius:50%;font-size:1.25rem;font-weight:600;align-items:center;justify-content:center;margin-bottom:.75rem}
-.step h3{font-size:1rem;margin-bottom:.25rem;font-weight:600}
-.step p{color:#666;font-size:.875rem}
-.team{max-width:600px;margin:0 auto}
-.member{display:flex;gap:1rem;padding:1.5rem;border:1px solid #eee;border-radius:4px;margin-bottom:1rem}
-.member img{width:60px;height:60px;border-radius:50%;object-fit:cover}
-.member-info{flex:1}
-.role{font-size:.875rem;color:#666;margin-bottom:.25rem}
-.name{font-size:1rem;font-weight:600;margin-bottom:.25rem}
-.contact{font-size:.875rem;color:#999}
-.keybindings{max-width:500px;margin:2rem auto;border:1px solid #eee;border-radius:4px;overflow:hidden}
-.keybinding{display:flex;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid #eee}
-.keybinding:last-child{border-bottom:none}
-.key{font-family:monospace;font-weight:600;color:#000}
-footer{padding:2rem 0;border-top:1px solid #eee;text-align:center;color:#999;margin-top:4rem;font-size:.875rem}
-.links{display:flex;gap:2rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap}
-.links a{color:#999;text-decoration:none}
-.links a:hover{color:#000}
-@media(max-width:768px){h1{font-size:2.5rem}.hero{padding:4rem 0 2rem}.section{padding:3rem 0}.grid,.steps,.features{grid-template-columns:1fr}.specs{grid-template-columns:repeat(2,1fr)}.member{flex-direction:column;text-align:center}.member img{margin:0 auto}}
+:root{--b:#1a73e8;--t:#202124;--t2:#5f6368;--bg:#fff;--bg2:#f8f9fa;--br:#dadce0}
+@media(prefers-color-scheme:dark){:root{--b:#4a90d9;--t:#f2f2f7;--t2:#aeaeb2;--bg:#1c1c1e;--bg2:#2c2c2e;--br:#3a3a3c}}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+a{color:var(--b);text-decoration:none}a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--b);outline-offset:2px;border-radius:3px}
+.w{max-width:860px;margin:0 auto;padding:0 1.5rem}
+/* nav */
+nav{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--br);padding:.75rem 1.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+nav a{font-size:.875rem;font-weight:500;color:var(--t2);padding:.4rem .6rem;border-radius:4px}
+nav a:hover{background:var(--bg2);color:var(--t);text-decoration:none}
+.brand{font-family:'Google Sans',sans-serif;font-weight:700;font-size:1rem;color:var(--t)!important;margin-right:auto}
+.dl{background:var(--b);color:#fff!important;padding:.4rem 1rem!important}
+.dl:hover{opacity:.9;background:var(--b)!important}
+/* hero */
+header{padding:5rem 0 4rem;text-align:center;background:linear-gradient(var(--bg),var(--bg2))}
+h1{font-family:'Google Sans',sans-serif;font-size:clamp(2rem,6vw,3.75rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:.5rem}
+h1 span{color:var(--b)}
+.sub{color:var(--t2);margin-bottom:1.5rem}
+.tags{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.tag{font-size:.8rem;color:var(--t2);border:1px solid var(--br);border-radius:16px;padding:.25rem .75rem}
+.btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.5rem;border-radius:4px;font-weight:500;font-size:.9375rem;text-decoration:none!important}
+.btn-p{background:var(--b);color:#fff!important}.btn-p:hover{opacity:.9}
+.btn-s{border:1.5px solid var(--br);color:var(--b)!important}.btn-s:hover{background:var(--bg2)}
+/* sections */
+section{padding:3.5rem 0;border-top:1px solid var(--br)}
+h2{font-family:'Google Sans',sans-serif;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}
+p.d{color:var(--t2);margin-bottom:1.5rem;font-size:.9375rem}
+/* grid cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+.card{padding:1.25rem;border:1px solid var(--br);border-radius:8px}
+.card h3{font-family:'Google Sans',sans-serif;font-size:.9375rem;font-weight:600;margin-bottom:.25rem}
+.card p,.card small{font-size:.875rem;color:var(--t2)}
+/* sponsor card */
+.scard{max-width:680px;margin:0 auto;border:1px solid var(--br);border-radius:10px;overflow:hidden}
+.shd{background:linear-gradient(135deg,#1a73e8,#1a237e);padding:2rem;color:#fff}
+.shd h3{font-family:'Google Sans',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:.375rem}
+.shd p{opacity:.85;font-size:.9375rem;max-width:420px}
+.sbody{padding:1.5rem}
+.srow{display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--bg2);border:1px solid var(--br);border-radius:8px;margin-bottom:1.25rem;flex-wrap:wrap}
+.srow strong{font-family:'Google Sans',sans-serif;font-size:.9375rem;display:block}
+.srow small{color:var(--t2);font-size:.8125rem}
+.badge-g{margin-left:auto;background:#e6f4ea;color:#1e8e3e;font-size:.75rem;font-weight:600;padding:.2rem .6rem;border-radius:12px}
+@media(prefers-color-scheme:dark){.badge-g{background:#1b3a22;color:#57bb6f}}
+.sbtn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.75rem;background:var(--b);color:#fff!important;border-radius:4px;font-weight:500;text-decoration:none!important}
+.sbtn:hover{opacity:.9}
+.sft{padding:.75rem 1.5rem;background:var(--bg2);border-top:1px solid var(--br);font-size:.8125rem;color:var(--t2)}
+/* table */
+.tbl{max-width:500px;margin:1rem auto 0;border:1px solid var(--br);border-radius:8px;overflow:hidden}
+.row{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1.25rem;border-bottom:1px solid var(--br);font-size:.9375rem}
+.row:last-child{border-bottom:none}.row:hover{background:var(--bg2)}
+.row span:last-child{font-family:'Roboto Mono',monospace;font-size:.8125rem;color:var(--b);background:#e8f0fe;padding:.15rem .5rem;border-radius:4px}
+@media(prefers-color-scheme:dark){.row span:last-child{background:#1a2f4a}}
+/* terminal */
+.term{max-width:640px;margin:1rem auto 0;background:#1e1e2e;border-radius:8px;overflow:hidden}
+.tbar{background:#2a2a3e;padding:.5rem 1rem;display:flex;gap:.375rem;align-items:center}
+.dot{width:11px;height:11px;border-radius:50%}
+pre{padding:1.25rem;font-family:'Roboto Mono',monospace;font-size:.8125rem;line-height:1.75;color:#cdd6f4;white-space:pre-wrap}
+.ok{color:#a6e3a1}.hi{color:#89dceb;font-weight:500}
+/* screenshot */
+.ss{max-width:640px;margin:1rem auto 0;border:1px solid var(--br);border-radius:8px;overflow:hidden}
+.ss img{width:100%;display:block}
+/* specs */
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:1px;background:var(--br);max-width:560px;margin:1rem auto 0;border:1px solid var(--br);border-radius:8px;overflow:hidden}
+.spec{background:var(--bg);padding:1.125rem;text-align:center}
+.spec small{display:block;font-size:.6875rem;color:var(--t2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem}
+.spec strong{font-family:'Google Sans',sans-serif;font-size:.9375rem}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1.25rem;max-width:540px;margin:1rem auto 0;text-align:center}
+.step em{display:inline-flex;width:2rem;height:2rem;background:var(--b);color:#fff;border-radius:50%;align-items:center;justify-content:center;font-family:'Google Sans',sans-serif;font-style:normal;font-weight:700;margin-bottom:.5rem}
+.step h3{font-family:'Google Sans',sans-serif;font-size:.9375rem;font-weight:600;margin-bottom:.2rem}
+.step p{font-size:.8125rem;color:var(--t2)}
+/* team */
+.team{max-width:560px;margin:0 auto;display:grid;gap:.75rem}
+.member{display:flex;gap:1rem;padding:1rem 1.25rem;border:1px solid var(--br);border-radius:8px;align-items:center}
+.member img,.av{width:44px;height:44px;border-radius:50%;flex-shrink:0;object-fit:cover}
+.av{background:var(--bg2);display:flex;align-items:center;justify-content:center;font-family:'Google Sans',sans-serif;font-weight:700;color:var(--t2)}
+.member small{display:block;font-size:.6875rem;color:var(--b);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.member strong{display:block;font-family:'Google Sans',sans-serif;font-size:.9375rem}
+.member span{font-size:.8125rem;color:var(--t2)}
+/* footer */
+footer{padding:2rem 0;border-top:1px solid var(--br);text-align:center}
+footer nav{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:.75rem;border:none;position:static;padding:0;background:none}
+footer nav a{font-size:.875rem;color:var(--t2)}
+footer p{font-size:.8125rem;color:var(--t2)}
 </style>
 </head>
 <body>
-<section class="hero">
-<div class="container">
-<h1>Lebnix</h1>
-<p class="tagline">Little Debian Linux</p>
-<div class="badges">
-<span class="badge">Debian 12</span>
-<span class="badge">LXDE Desktop</span>
-<span class="badge">Live ISO</span>
-</div>
-<div class="cta">
-<a href="https://sourceforge.net/projects/wolfos/files/gaming/lxde/" class="btn btn-primary">Download</a>
-<a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-secondary">GitHub</a>
-</div>
-</div>
+<a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--b);color:#fff;padding:.5rem 1rem;z-index:999" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<nav aria-label="Site navigation">
+  <a href="#" class="brand">WolfTech Innovations</a>
+  <a href="#about">About</a>
+  <a href="#sponsor">Sponsor</a>
+  <a href="#team">Team</a>
+  <a href="https://nox.lebnix.org">Nox</a>
+  <a href="https://sourceforge.net/projects/wolfos/files/gaming/lxde/" class="dl">Download</a>
+</nav>
+
+<main id="main">
+<header>
+  <div class="w">
+    <h1>WolfTech <span>Innovations</span></h1>
+    <p class="sub">Lebnix — Little Debian Linux</p>
+    <div class="tags">
+      <span class="tag">Debian 12</span><span class="tag">LXDE Desktop</span><span class="tag">Live ISO</span><span class="tag">~256MB RAM</span>
+    </div>
+    <div class="btns">
+      <a href="https://sourceforge.net/projects/wolfos/files/gaming/lxde/" class="btn btn-p">⬇ Download ISO</a>
+      <a href="https://github.com/WolfTech-Innovations/cybr" class="btn btn-s">GitHub</a>
+      <a href="https://nox.lebnix.org" class="btn btn-s">🛒 Nox Marketplace</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" aria-labelledby="h-about">
+  <div class="w">
+    <h2 id="h-about">About Lebnix</h2>
+    <p class="d">A lightweight Debian-based distribution from WolfTech Innovations featuring LXDE. Built for machines where resources matter.</p>
+    <div class="grid">
+      <div class="card">⚡ <h3>Fast</h3><p>Minimal resource usage, snappy on older hardware.</p></div>
+      <div class="card">🪶 <h3>Lightweight</h3><p>~256MB RAM — runs where heavier desktops can't.</p></div>
+      <div class="card">✅ <h3>Stable</h3><p>Built on Debian 12 (Bookworm).</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>About</h2>
-<p class="intro">A lightweight Debian-based distribution featuring the LXDE desktop environment. Fast, stable, and energy-efficient.</p>
-<iframe src="https://github.com/sponsors/WolfTech-Innovations/card" title="Sponsor WolfTech-Innovations" height="225" width="600" style="border: 0;"></iframe>
-<div class="features">
-<div class="feature">
-<div class="feature-icon">⚡</div>
-<h3>Fast</h3>
-<p>Minimal resource usage</p>
-</div>
-<div class="feature">
-<div class="feature-icon">🪶</div>
-<h3>Lightweight</h3>
-<p>Low RAM and CPU</p>
-</div>
-<div class="feature">
-<div class="feature-icon">✅</div>
-<h3>Stable</h3>
-<p>Based on Debian 12</p>
-</div>
-</div>
-</div>
+<section id="sponsor" aria-labelledby="h-sponsor">
+  <div class="w">
+    <h2 id="h-sponsor">Support WolfTech Innovations</h2>
+    <p class="d">Help fund active hardware and software development — including our ARM-based digital signage SBC.</p>
+    <div class="scard">
+      <div class="shd">
+        <h3>Fund the WolfTech Digital Signage Device</h3>
+        <p>An ARM-based SBC purpose-built for digital menu and display signage — designed and built by WolfTech Innovations.</p>
+      </div>
+      <div class="sbody">
+        <div class="srow">
+          <span style="font-size:1.5rem">🖥️</span>
+          <div><strong>WolfTech SBC — Digital Signage</strong><small>ARM · Custom PCB · 2-layer</small></div>
+          <span class="badge-g">In Development</span>
+        </div>
+        <a href="https://github.com/sponsors/WolfTech-Innovations" class="sbtn" target="_blank" rel="noopener">♥ Sponsor on GitHub</a>
+        <img src="https://raw.githubusercontent.com/WolfTech-Innovations/WolfSite/c2df07526725b63d911d8ba556f3b07e0ec16c1f/img-etc/render.png" alt="WolfTech digital signage SBC render" loading="lazy" style="width:100%;border-radius:6px;margin-top:1.25rem;display:block">
+      </div>
+      <div class="sft">🔒 Payments via GitHub Sponsors · GPL-licensed project</div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>What's Included</h2>
-<div class="grid">
-<div class="card">
-<h3>LXDE Desktop</h3>
-<p>Complete desktop environment with Openbox, LXPanel, PCManFM, and LXTerminal.</p>
-</div>
-<div class="card">
-<h3>Essential Apps</h3>
-<p>Firefox ESR, GParted, text editors, and system utilities included.</p>
-</div>
-<div class="card">
-<h3>Network Ready</h3>
-<p>NetworkManager for WiFi and Ethernet connectivity out of the box.</p>
-</div>
-<div class="card">
-<h3>Live Boot</h3>
-<p>Boots directly into LXDE with all changes stored in RAM.</p>
-</div>
-</div>
-</div>
+<section aria-labelledby="h-inc">
+  <div class="w">
+    <h2 id="h-inc">What's Included</h2>
+    <div class="grid">
+      <div class="card"><h3>LXDE Desktop</h3><p>Openbox, LXPanel, PCManFM, LXTerminal.</p></div>
+      <div class="card"><h3>Essential Apps</h3><p>Firefox ESR, GParted, text editors, utilities.</p></div>
+      <div class="card"><h3>Network Ready</h3><p>NetworkManager for WiFi and Ethernet.</p></div>
+      <div class="card"><h3>Live Boot</h3><p>Boots into LXDE, changes stored in RAM.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Components</h2>
-<div class="keybindings">
-<div class="keybinding"><span>Window Manager</span><span class="key">Openbox</span></div>
-<div class="keybinding"><span>Panel</span><span class="key">LXPanel</span></div>
-<div class="keybinding"><span>File Manager</span><span class="key">PCManFM</span></div>
-<div class="keybinding"><span>Terminal</span><span class="key">LXTerminal</span></div>
-<div class="keybinding"><span>Display Manager</span><span class="key">LXDM</span></div>
-<div class="keybinding"><span>Browser</span><span class="key">Firefox ESR</span></div>
-</div>
-</div>
+<section aria-labelledby="h-comp">
+  <div class="w">
+    <h2 id="h-comp">Components</h2>
+    <div class="tbl" role="table" aria-label="Software components">
+      <div class="row" role="row"><span>Window Manager</span><span>Openbox</span></div>
+      <div class="row" role="row"><span>Panel</span><span>LXPanel</span></div>
+      <div class="row" role="row"><span>File Manager</span><span>PCManFM</span></div>
+      <div class="row" role="row"><span>Terminal</span><span>LXTerminal</span></div>
+      <div class="row" role="row"><span>Display Manager</span><span>LXDM</span></div>
+      <div class="row" role="row"><span>Browser</span><span>Firefox ESR</span></div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Boot Sequence</h2>
-<div class="terminal">
-<div class="terminal-line">Starting Lebnix Live System...</div>
-<div class="terminal-line">&nbsp;</div>
-<div class="terminal-line">[ OK ] Mount filesystems</div>
-<div class="terminal-line">[ OK ] Load network modules</div>
-<div class="terminal-line">[ OK ] Mount ISO filesystem</div>
-<div class="terminal-line">[ OK ] Create overlay</div>
-<div class="terminal-line">&nbsp;</div>
-<div class="terminal-line success">Booting into LXDE Desktop...</div>
-<div class="terminal-line">&nbsp;</div>
-<div class="terminal-line">Starting LXDM display manager...</div>
-<div class="terminal-line">Loading Openbox window manager...</div>
-<div class="terminal-line">Auto-login as lebnix...</div>
-<div class="terminal-line">&nbsp;</div>
-<div class="terminal-line success">Welcome to Lebnix Desktop</div>
-<div class="terminal-line success">Little Debian Linux</div>
-</div>
-</div>
+<section aria-labelledby="h-boot">
+  <div class="w">
+    <h2 id="h-boot">Boot Sequence</h2>
+    <div class="term" role="region" aria-label="Boot log">
+      <div class="tbar" aria-hidden="true">
+        <div class="dot" style="background:#ea4335"></div>
+        <div class="dot" style="background:#fbbc04"></div>
+        <div class="dot" style="background:#34a853"></div>
+      </div>
+      <pre>Starting Lebnix Live System...
+
+<span class="ok">[ OK ] Mount filesystems
+[ OK ] Load network modules
+[ OK ] Mount ISO filesystem
+[ OK ] Create overlay</span>
+
+<span class="hi">Booting into LXDE Desktop...</span>
+
+Starting LXDM display manager...
+Loading Openbox window manager...
+Auto-login as lebnix...
+
+<span class="hi">Welcome to Lebnix — WolfTech Innovations</span></pre>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Screenshot</h2>
-<div class="screenshot"><img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/1000001379-aa5ce0ec.png/max/max/1" alt="Lebnix desktop"></div>
-</div>
+<section aria-labelledby="h-ss">
+  <div class="w">
+    <h2 id="h-ss">Screenshot</h2>
+    <div class="ss"><img src="https://a.fsdn.com/con/app/proj/wolfos/screenshots/1000001379-aa5ce0ec.png/max/max/1" alt="Lebnix LXDE desktop — WolfTech Innovations" loading="lazy" width="700" height="450"></div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Specifications</h2>
-<div class="specs">
-<div class="spec"><div class="spec-label">Base</div><div class="spec-value">Debian 12</div></div>
-<div class="spec"><div class="spec-label">Desktop</div><div class="spec-value">LXDE</div></div>
-<div class="spec"><div class="spec-label">WM</div><div class="spec-value">Openbox</div></div>
-<div class="spec"><div class="spec-label">DM</div><div class="spec-value">LXDM</div></div>
-<div class="spec"><div class="spec-label">Type</div><div class="spec-value">Live ISO</div></div>
-<div class="spec"><div class="spec-label">RAM</div><div class="spec-value">~256MB</div></div>
-</div>
-</div>
+<section aria-labelledby="h-spec">
+  <div class="w">
+    <h2 id="h-spec">Specifications</h2>
+    <div class="specs" role="table" aria-label="Specifications">
+      <div class="spec"><small>Base</small><strong>Debian 12</strong></div>
+      <div class="spec"><small>Desktop</small><strong>LXDE</strong></div>
+      <div class="spec"><small>WM</small><strong>Openbox</strong></div>
+      <div class="spec"><small>DM</small><strong>LXDM</strong></div>
+      <div class="spec"><small>Type</small><strong>Live ISO</strong></div>
+      <div class="spec"><small>RAM</small><strong>~256MB</strong></div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Get Started</h2>
-<div class="steps">
-<div class="step">
-<div class="step-num">1</div>
-<h3>Download</h3>
-<p>Get the ISO</p>
-</div>
-<div class="step">
-<div class="step-num">2</div>
-<h3>Flash</h3>
-<p>Create USB</p>
-</div>
-<div class="step">
-<div class="step-num">3</div>
-<h3>Boot</h3>
-<p>Start live system</p>
-</div>
-<div class="step">
-<div class="step-num">4</div>
-<h3>Enjoy</h3>
-<p>Use LXDE</p>
-</div>
-</div>
-</div>
+<section aria-labelledby="h-gs">
+  <div class="w">
+    <h2 id="h-gs">Get Started</h2>
+    <div class="steps">
+      <div class="step"><em>1</em><h3>Download</h3><p>Get the ISO from SourceForge</p></div>
+      <div class="step"><em>2</em><h3>Flash</h3><p>Write to USB with Etcher</p></div>
+      <div class="step"><em>3</em><h3>Boot</h3><p>Start the live system</p></div>
+      <div class="step"><em>4</em><h3>Enjoy</h3><p>Use the LXDE desktop</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Team</h2>
-<div class="team">
-<div class="member">
-<img src="https://github.com/WolfTech-Innovations/cybr/blob/master/images/a61461eb5aa17bc11e57c985cb68e248.png?raw=true" alt="Christopher L Fox Jr.">
-<div class="member-info">
-<div class="role">CEO & Lead Developer</div>
-<div class="name">Christopher L Fox Jr.</div>
-<div class="contact">@gubiwolf on Discord</div>
-</div>
-</div>
-<div class="member">
-<div class="member-info">
-<div class="role">HR & Marketing</div>
-<div class="name">Joseph Daniels Stratton</div>
-</div>
-</div>
-<div class="member">
-<img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Snapchat-969259657.jpg" alt="Christopher Ray Fricks">
-<div class="member-info">
-<div class="role">Programming, Finance & Testing</div>
-<div class="name">Christopher Ray Fricks</div>
-</div>
-</div>
-</div>
-</div>
+<section id="team" aria-labelledby="h-team">
+  <div class="w">
+    <h2 id="h-team">Team</h2>
+    <div class="team">
+      <div class="member">
+        <img src="https://github.com/WolfTech-Innovations/cybr/blob/master/images/a61461eb5aa17bc11e57c985cb68e248.png?raw=true" alt="Christopher L Fox Jr." loading="lazy">
+        <div><small>CEO &amp; Lead Developer</small><strong>Christopher L Fox Jr.</strong><span>@gubiwolf on Discord</span></div>
+      </div>
+      <div class="member">
+        <div class="av">JD</div>
+        <div><small>HR &amp; Marketing</small><strong>Joseph Daniels Stratton</strong></div>
+      </div>
+      <div class="member">
+        <img src="https://raw.githubusercontent.com/WolfTech-Innovations/cybr/refs/heads/master/images/Snapchat-969259657.jpg" alt="Christopher Ray Fricks" loading="lazy">
+        <div><small>Programming, Finance &amp; Testing</small><strong>Christopher Ray Fricks</strong></div>
+      </div>
+    </div>
+  </div>
 </section>
+</main>
 
 <footer>
-<div class="container">
-<div class="links">
-<a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
-<a href="https://lxde.org">LXDE Project</a>
-<a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
-<a href="https://github.com/WolfTech-Innovations/cybr/issues">Issues</a>
-</div>
-<p>&copy; 2026 Lebnix - WolfTech Innovations - GPL Licensed</p>
-</div>
+  <div class="w">
+    <nav aria-label="Footer links">
+      <a href="https://github.com/WolfTech-Innovations/cybr">GitHub</a>
+      <a href="https://nox.lebnix.org">Nox Marketplace</a>
+      <a href="https://lxde.org">LXDE</a>
+      <a href="https://sourceforge.net/projects/wolfos/">SourceForge</a>
+      <a href="https://github.com/WolfTech-Innovations/cybr/issues">Issues</a>
+      <a href="https://github.com/sponsors/WolfTech-Innovations">Sponsor</a>
+    </nav>
+    <p>&copy; 2026 WolfTech Innovations — GPL Licensed</p>
+  </div>
 </footer>
 </body>
 </html>
