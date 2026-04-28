@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,6 +8,10 @@
 <meta property="og:description" content="KibaOS — Make the switch to simple. Debian 13 + KDE Plasma 6.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="https://lebnix.org/">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <title>WolfTech Innovations — KibaOS</title>
@@ -25,6 +29,34 @@
   a { color: #111; text-decoration: none; }
   a:hover { text-decoration: underline; }
   a:focus-visible { outline: 2px solid #111; outline-offset: 3px; border-radius: 4px; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #fff !important;
+    padding: 8px 16px;
+    z-index: 1000;
+    transition: top 0.2s;
+    border-radius: 0 0 10px 10px;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
 
   .w { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -180,7 +212,7 @@
   }
   .spec { background: #fff; padding: 1.125rem; text-align: center; }
   .spec small {
-    display: block; font-size: .6875rem; color: #888;
+    display: block; font-size: .6875rem; color: #666;
     text-transform: uppercase; letter-spacing: .07em; margin-bottom: .25rem;
   }
   .spec strong { font-size: .9375rem; font-weight: 600; }
@@ -227,7 +259,7 @@
     background: #e8e8e8; display: flex; align-items: center;
     justify-content: center; font-weight: 700; color: #666; font-size: .875rem;
   }
-  .member small { display: block; font-size: .6875rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  .member small { display: block; font-size: .6875rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
   .member strong { display: block; font-size: .9375rem; font-weight: 600; }
 
   /* THEME TABLE */
@@ -241,7 +273,7 @@
   }
   .swatch-color { height: 36px; }
   .swatch-info { background: #fff; padding: .45rem .65rem; }
-  .swatch-info small { display: block; font-size: .7rem; color: #888; }
+  .swatch-info small { display: block; font-size: .7rem; color: #666; }
   .swatch-info span { font-family: 'DM Mono', monospace; font-size: .75rem; font-weight: 500; }
 
   /* SPONSOR */
@@ -261,7 +293,7 @@
     border-radius: 14px; margin-bottom: 1.25rem; flex-wrap: wrap;
   }
   .srow strong { font-size: .9375rem; display: block; }
-  .srow small { color: #888; font-size: .8125rem; }
+  .srow small { color: #666; font-size: .8125rem; }
   .badge-g {
     margin-left: auto; background: #e8f5e9; color: #2e7d32;
     font-size: .75rem; font-weight: 600; padding: .2rem .7rem;
@@ -277,7 +309,7 @@
   .sbtn:hover { background: #333; }
   .sft {
     padding: .75rem 1.5rem; background: #fafafa;
-    border-top: 1px solid #ebebeb; font-size: .8125rem; color: #888;
+    border-top: 1px solid #ebebeb; font-size: .8125rem; color: #666;
   }
 
   /* FOOTER */
@@ -290,9 +322,9 @@
     border: none; position: static; padding: 0;
     background: none; box-shadow: none; border-radius: 0;
   }
-  footer nav a { font-size: .875rem; color: #888; }
+  footer nav a { font-size: .875rem; color: #666; }
   footer nav a:hover { color: #111; }
-  footer p { font-size: .8125rem; color: #aaa; }
+  footer p { font-size: .8125rem; color: #666; }
 
   /* CREDENTIALS TABLE */
   .cred-tbl { border: 1.5px solid #ebebeb; border-radius: 14px; overflow: hidden; max-width: 340px; margin: 1rem 0 0; }
@@ -311,7 +343,7 @@
 </head>
 <body>
 
-<a href="#main" style="position:absolute;left:-9999px;top:0;background:#111;color:#fff;padding:.5rem 1rem;z-index:999" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to main content</a>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <nav aria-label="Site navigation">
   <a href="#" class="brand">WolfTech Innovations</a>
@@ -319,7 +351,7 @@
   <a href="#sponsor">Sponsor</a>
   <a href="#team">Team</a>
   <a href="https://nox.lebnix.org">Nox</a>
-  <a href="https://sourceforge.net/projects/kibaos/files/latest/download" class="dl">⬇ Download</a>
+  <a href="https://sourceforge.net/projects/kibaos/files/latest/download" class="dl"><span aria-hidden="true">⬇</span> Download</a>
 </nav>
 
 <main id="main">
@@ -338,9 +370,9 @@
         <span class="tag">Live ISO</span>
       </div>
       <div class="btns">
-        <a href="https://sourceforge.net/projects/kibaos/files/latest/download" class="btn btn-p">⬇ Download ISO</a>
+        <a href="https://sourceforge.net/projects/kibaos/files/latest/download" class="btn btn-p"><span aria-hidden="true">⬇</span> Download ISO</a>
         <a href="https://github.com/WolfTech-Innovations/Kiba" class="btn btn-s">GitHub</a>
-        <a href="https://nox.lebnix.org" class="btn btn-s">🛒 Nox Marketplace</a>
+        <a href="https://nox.lebnix.org" class="btn btn-s"><span aria-hidden="true">🛒</span> Nox Marketplace</a>
       </div>
     </div>
   </div>
@@ -352,10 +384,10 @@
       <h2>About KibaOS</h2>
       <p class="d">A clean, modern Linux distribution built on Debian 13 (Trixie) with KDE Plasma 6. Everything is pre-configured and ready to use — no post-install tweaking required.</p>
       <div class="grid">
-        <div class="card">✨ <h3>Pre-configured</h3><p>Dracula theme, Zsh, and a floating taskbar — all set up out of the box.</p></div>
-        <div class="card">🖥️ <h3>KDE Plasma 6</h3><p>Wayland by default with rounded corners and a modern compositor.</p></div>
-        <div class="card">✅ <h3>Stable Base</h3><p>Built on Debian 13 Trixie, supported until 2030.</p></div>
-        <div class="card">🚫 <h3>No Bloat</h3><p>Only what you need is installed — nothing more.</p></div>
+        <div class="card"><span aria-hidden="true">✨</span> <h3>Pre-configured</h3><p>Dracula theme, Zsh, and a floating taskbar — all set up out of the box.</p></div>
+        <div class="card"><span aria-hidden="true">🖥️</span> <h3>KDE Plasma 6</h3><p>Wayland by default with rounded corners and a modern compositor.</p></div>
+        <div class="card"><span aria-hidden="true">✅</span> <h3>Stable Base</h3><p>Built on Debian 13 Trixie, supported until 2030.</p></div>
+        <div class="card"><span aria-hidden="true">🚫</span> <h3>No Bloat</h3><p>Only what you need is installed — nothing more.</p></div>
       </div>
     </div>
   </div>
@@ -494,7 +526,7 @@ Auto-login as user (live session)...
       <h2>Writing to USB</h2>
       <p class="d">Use Balena Etcher, Ventoy, or <code style="background:#f0f0f0;padding:.1rem .4rem;border-radius:6px;font-family:'DM Mono',monospace;font-size:.85em">dd</code> on Linux.</p>
       <div class="code-block">sudo dd if=kibaos-vN.iso of=/dev/sdX bs=4M status=progress oflag=sync</div>
-      <p style="font-size:.85rem;color:#888;margin-top:.6rem">Replace <code style="background:#f0f0f0;padding:.1rem .3rem;border-radius:5px;font-family:'DM Mono',monospace">/dev/sdX</code> with your drive and <code style="background:#f0f0f0;padding:.1rem .3rem;border-radius:5px;font-family:'DM Mono',monospace">N</code> with the build number.</p>
+      <p style="font-size:.85rem;color:#666;margin-top:.6rem">Replace <code style="background:#f0f0f0;padding:.1rem .3rem;border-radius:5px;font-family:'DM Mono',monospace">/dev/sdX</code> with your drive and <code style="background:#f0f0f0;padding:.1rem .3rem;border-radius:5px;font-family:'DM Mono',monospace">N</code> with the build number.</p>
     </div>
   </div>
 </section>
@@ -524,11 +556,11 @@ Auto-login as user (live session)...
       </div>
       <div class="sbody">
         <div class="srow">
-          <span style="font-size:1.5rem">🖥️</span>
+          <span style="font-size:1.5rem" aria-hidden="true">🖥️</span>
           <div><strong>WolfTech SBC — Digital Signage</strong><small>ARM · Custom PCB · 2-layer</small></div>
           <span class="badge-g">In Development</span>
         </div>
-        <a href="https://github.com/sponsors/WolfTech-Innovations" class="sbtn" target="_blank" rel="noopener">♥ Sponsor on GitHub</a>
+        <a href="https://github.com/sponsors/WolfTech-Innovations" class="sbtn" target="_blank" rel="noopener"><span aria-hidden="true">♥</span> Sponsor on GitHub</a>
         <img src="https://raw.githubusercontent.com/WolfTech-Innovations/WolfSite/c2df07526725b63d911d8ba556f3b07e0ec16c1f/img-etc/render.png" alt="WolfTech digital signage SBC render" loading="lazy" style="width:100%;border-radius:12px;margin-top:1.25rem;display:block">
       </div>
       <div class="sft">🔒 Payments via GitHub Sponsors · MIT Licensed</div>
