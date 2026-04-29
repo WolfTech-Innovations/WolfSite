@@ -20,7 +20,22 @@
   html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
   }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
 
   body {
     font-family: 'DM Sans', sans-serif;
@@ -65,13 +80,17 @@
 
   /* NAV */
   nav {
-    position: sticky; top: 0; z-index: 9;
-    background: #fff;
-    border-radius: 0 0 20px 20px;
+    position: sticky; top: 1rem; z-index: 99;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 24px;
     padding: .75rem 1.5rem;
     display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
-    margin-bottom: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,.04);
+    margin: 0 1rem;
+    max-width: calc(100% - 2rem);
   }
   nav a {
     display: inline-block;
@@ -82,8 +101,9 @@
   nav a:hover { background: #f2f2f2; color: #111; text-decoration: none; }
   nav a:active { transform: scale(0.97); }
   .brand {
-    font-weight: 700; font-size: 1rem; color: #111 !important;
+    font-weight: 700; font-size: 1.1rem; color: #111 !important;
     margin-right: auto;
+    letter-spacing: -0.02em;
   }
   .dl {
     background: #111; color: #fff !important;
@@ -101,11 +121,12 @@
 
   .hero-card {
     background: #fff;
-    border-radius: 28px;
-    padding: 3.5rem 2rem;
-    max-width: 640px;
+    border-radius: 32px;
+    padding: 4rem 2.5rem;
+    max-width: 720px;
     margin: 0 auto;
-    box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    box-shadow: 0 8px 32px rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.03);
   }
 
   .kiba-banner {
@@ -114,14 +135,20 @@
   }
 
   h1 {
-    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-size: clamp(2.25rem, 7vw, 4rem);
     font-weight: 700;
-    letter-spacing: -.03em;
-    line-height: 1.1;
-    margin-bottom: .5rem;
+    letter-spacing: -.04em;
+    line-height: 1.05;
+    margin-bottom: .75rem;
   }
 
-  .sub { color: #555; margin-bottom: 1.5rem; font-size: 1rem; }
+  .sub {
+    color: #555;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 
   .tags {
     display: flex; gap: .4rem; justify-content: center;
@@ -137,7 +164,7 @@
   .btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
   .btn {
     display: inline-flex; align-items: center; gap: .4rem;
-    padding: .65rem 1.4rem; border-radius: 14px;
+    padding: .75rem 1.6rem; border-radius: 30px;
     font-weight: 500; font-size: .9375rem;
     text-decoration: none !important;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -149,20 +176,21 @@
   .btn:active { transform: scale(0.97); }
 
   /* SECTIONS */
-  section { padding: 3rem 0; }
+  section { padding: 4rem 0; }
 
   .section-card {
     background: #fff;
-    border-radius: 24px;
-    padding: 2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    border-radius: 28px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.03);
+    border: 1px solid rgba(0,0,0,.02);
   }
 
   h2 {
-    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
-    letter-spacing: -.025em;
-    margin-bottom: .375rem;
+    letter-spacing: -.03em;
+    margin-bottom: .5rem;
   }
 
   p.d { color: #666; margin-bottom: 1.5rem; font-size: .9375rem; }
@@ -170,9 +198,11 @@
   /* GRID CARDS */
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; margin-top: 1rem; }
   .card {
-    padding: 1.25rem; border: 1.5px solid #ebebeb;
-    border-radius: 16px; background: #fafafa;
+    padding: 1.5rem; border: 1px solid #f0f0f0;
+    border-radius: 20px; background: #fafafa;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.05); }
   .card h3 { font-size: .9375rem; font-weight: 600; margin-bottom: .25rem; margin-top: .25rem; }
   .card p { font-size: .875rem; color: #666; }
 
@@ -367,7 +397,7 @@
 
 <header>
   <div class="w">
-    <div class="hero-card">
+    <div class="hero-card reveal">
       <img src="https://github.com/WolfTech-Innovations/Kiba/raw/18c12ea77043ab04b0cd34722c75073a0f861c20/branding/kibaos_banner.png" alt="KibaOS Banner" class="kiba-banner">
       <h1>KibaOS</h1>
       <p class="sub">Make the switch to simple — by WolfTech Innovations</p>
@@ -389,7 +419,7 @@
 
 <section id="about">
   <div class="w">
-    <div class="section-card">
+    <div class="section-card reveal">
       <h2>About KibaOS</h2>
       <p class="d">A clean, modern Linux distribution built on Debian 13 (Trixie) with KDE Plasma 6. Everything is pre-configured and ready to use — no post-install tweaking required.</p>
       <div class="grid">
@@ -555,7 +585,7 @@ Auto-login as user (live session)...
 </section>
 
 <section id="sponsor">
-  <div class="w">
+  <div class="w reveal">
     <h2 style="margin-bottom:.5rem">Support WolfTech Innovations</h2>
     <p class="d">Help fund active hardware and software development — including our ARM-based digital signage SBC.</p>
     <div class="scard">
@@ -578,7 +608,7 @@ Auto-login as user (live session)...
 </section>
 
 <section id="team">
-  <div class="w">
+  <div class="w reveal">
     <h2 style="margin-bottom:1rem">Team</h2>
     <div class="team">
       <div class="member">
