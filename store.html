@@ -68,13 +68,17 @@
             padding: 10px 16px;
             display: block;
             border-radius: 20px;
-            transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.875rem;
             letter-spacing: 0.1px;
         }
 
         nav a:hover {
             background-color: #e8def8;
+        }
+
+        nav a:active {
+            transform: scale(0.97);
         }
 
         .hero {
