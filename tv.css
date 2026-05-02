@@ -1,0 +1,131 @@
+.tv-container {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  position: relative;
+}
+.tv {
+  position: relative;
+  width: 90%;
+  height: 80%;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateX(2deg);
+}
+.tv-frame {
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  position: relative;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 0 10px rgba(255,255,255,0.05);
+  border: 1px solid #333;
+  z-index: 2;
+}
+.tv-screen {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 40px rgba(0,0,0,1);
+}
+.tv-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  filter: brightness(1.2) contrast(1.1);
+  animation: tvPowerOn 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+}
+.tv-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.3;
+}
+.tv-stand {
+  width: 120px;
+  height: 40px;
+  background: #2a2a2a;
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+.tv-stand::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  background: #1a1a1a;
+}
+.tv-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(189, 147, 249, 0.15) 0%, rgba(189, 147, 249, 0) 70%);
+  z-index: 0;
+  opacity: 0;
+  animation: glowFadeIn 2s ease-out forwards;
+  animation-delay: 1.5s;
+}
+@keyframes tvPowerOn {
+  0% {
+    opacity: 0;
+    transform: scaleX(0) scaleY(0.01);
+    filter: brightness(5);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1) scaleY(0.01);
+    filter: brightness(3);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    filter: brightness(1);
+  }
+}
+@keyframes glowFadeIn {
+  to { opacity: 1; }
+}
+@media (max-width: 640px) {
+  .tv-container { height: 300px; }
+}
+@media (max-width: 400px) {
+  .tv-container { height: 220px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tv-screen img { opacity: 1; animation: none; transform: none; }
+  .tv-glow { opacity: 0.5; animation: none; }
+}
