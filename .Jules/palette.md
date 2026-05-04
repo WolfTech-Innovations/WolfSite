@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-05-04 - [Subtle Animations for Device Illustrations]
+**Learning:** Adding a slow, rhythmic pulsing animation (2s Ease-in-out) to "power" indicators in device-themed illustrations (like the hero TV) provides a subtle sense of activity and "life" to static components without being distracting.
+**Action:** Use `@keyframes` to oscillate `opacity` and `box-shadow` on small indicator elements to enhance the perceived quality of illustrated hardware.
