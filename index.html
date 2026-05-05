@@ -422,6 +422,11 @@
     align-items: center;
     justify-content: center;
   }
+  @keyframes ledPulse {
+    0% { opacity: 0.4; box-shadow: 0 0 2px #ff5555; }
+    50% { opacity: 1; box-shadow: 0 0 8px #ff5555; }
+    100% { opacity: 0.4; box-shadow: 0 0 2px #ff5555; }
+  }
   .tv-screen {
     width: 98%;
     height: 96%;
@@ -430,6 +435,17 @@
     position: relative;
     overflow: hidden;
     box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+  }
+  .tv-screen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    transform: translateX(-50%);
+    pointer-events: none;
   }
   .tv-frame::after {
     content: '';
@@ -442,6 +458,7 @@
     border-radius: 50%;
     box-shadow: 0 0 5px #ff5555;
     opacity: 0.8;
+    animation: ledPulse 2s infinite ease-in-out;
   }
   .tv-stand {
     width: 4px;
@@ -470,6 +487,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .tv { transform: none; }
+    .tv-frame::after { animation: none; opacity: 0.8; }
   }
 </style>
 </head>
