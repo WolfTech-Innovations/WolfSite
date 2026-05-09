@@ -313,9 +313,32 @@
   .theme-swatch {
     border-radius: 12px; overflow: hidden;
     border: 1.5px solid #ebebeb;
+    padding: 0; background: none; cursor: pointer;
+    font-family: inherit; text-align: left;
+    display: block; width: 100%;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
   }
-  .swatch-color { height: 36px; }
-  .swatch-info { background: #fff; padding: .45rem .65rem; }
+  .theme-swatch:hover { border-color: #bd93f9; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+  .theme-swatch:active { transform: scale(0.97); }
+  .theme-swatch:focus-visible {
+    outline: 3px solid #bd93f9;
+    outline-offset: -3px;
+  }
+  .theme-swatch::after {
+    content: 'Copied!';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(189, 147, 249, 0.9);
+    color: #111; font-weight: 700; font-size: .85rem;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 2;
+  }
+  .theme-swatch.copied::after { opacity: 1; }
+
+  .swatch-color { height: 36px; display: block; }
+  .swatch-info { background: #fff; padding: .45rem .65rem; text-align: left; display: block; }
   .swatch-info small { display: block; font-size: .7rem; color: #666; }
   .swatch-info span { font-family: 'DM Mono', monospace; font-size: .75rem; font-weight: 500; }
 
@@ -605,14 +628,14 @@
       <h2>Dracula Theme</h2>
       <p class="d">KibaTV ships the full Dracula palette system-wide — every surface, widget, and terminal window is consistent.</p>
       <div class="theme-grid">
-        <div class="theme-swatch"><div class="swatch-color" style="background:#282a36"></div><div class="swatch-info"><small>Background</small><span>#282a36</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#44475a"></div><div class="swatch-info"><small>Current Line</small><span>#44475a</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#bd93f9"></div><div class="swatch-info"><small>Purple</small><span>#bd93f9</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#ff79c6"></div><div class="swatch-info"><small>Pink</small><span>#ff79c6</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#8be9fd"></div><div class="swatch-info"><small>Cyan</small><span>#8be9fd</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#50fa7b"></div><div class="swatch-info"><small>Green</small><span>#50fa7b</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#f1fa8c"></div><div class="swatch-info"><small>Yellow</small><span>#f1fa8c</span></div></div>
-        <div class="theme-swatch"><div class="swatch-color" style="background:#ff5555"></div><div class="swatch-info"><small>Red</small><span>#ff5555</span></div></div>
+        <button class="theme-swatch" data-hex="#282a36" aria-label="Copy Background color #282a36"><span class="swatch-color" style="background:#282a36"></span><span class="swatch-info"><small>Background</small><span>#282a36</span></span></button>
+        <button class="theme-swatch" data-hex="#44475a" aria-label="Copy Current Line color #44475a"><span class="swatch-color" style="background:#44475a"></span><span class="swatch-info"><small>Current Line</small><span>#44475a</span></span></button>
+        <button class="theme-swatch" data-hex="#bd93f9" aria-label="Copy Purple color #bd93f9"><span class="swatch-color" style="background:#bd93f9"></span><span class="swatch-info"><small>Purple</small><span>#bd93f9</span></span></button>
+        <button class="theme-swatch" data-hex="#ff79c6" aria-label="Copy Pink color #ff79c6"><span class="swatch-color" style="background:#ff79c6"></span><span class="swatch-info"><small>Pink</small><span>#ff79c6</span></span></button>
+        <button class="theme-swatch" data-hex="#8be9fd" aria-label="Copy Cyan color #8be9fd"><span class="swatch-color" style="background:#8be9fd"></span><span class="swatch-info"><small>Cyan</small><span>#8be9fd</span></span></button>
+        <button class="theme-swatch" data-hex="#50fa7b" aria-label="Copy Green color #50fa7b"><span class="swatch-color" style="background:#50fa7b"></span><span class="swatch-info"><small>Green</small><span>#50fa7b</span></span></button>
+        <button class="theme-swatch" data-hex="#f1fa8c" aria-label="Copy Yellow color #f1fa8c"><span class="swatch-color" style="background:#f1fa8c"></span><span class="swatch-info"><small>Yellow</small><span>#f1fa8c</span></span></button>
+        <button class="theme-swatch" data-hex="#ff5555" aria-label="Copy Red color #ff5555"><span class="swatch-color" style="background:#ff5555"></span><span class="swatch-info"><small>Red</small><span>#ff5555</span></span></button>
       </div>
     </div>
   </div>
@@ -752,6 +775,22 @@ Auto-login as user (live session)...
     <p>&copy; 2026 WolfTech Innovations — MIT Licensed</p>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.theme-swatch').forEach(button => {
+    button.addEventListener('click', () => {
+      const hex = button.getAttribute('data-hex');
+      navigator.clipboard.writeText(hex).then(() => {
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
