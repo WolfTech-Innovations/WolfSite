@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-05-15 - [Interactive Color Swatches and Visual Feedback]
+**Learning:** Turning static design tokens (like theme swatches) into interactive copy-to-clipboard buttons provides immediate utility for developers and enthusiasts. Using a CSS pseudo-element (`::after`) with a transition for the "Copied!" feedback avoids layout shifts and provides a smooth, tactile experience.
+**Action:** Implement interactive color swatches with CSS-only feedback overlays for brand/theme-heavy sites to increase engagement.
