@@ -46,7 +46,7 @@
 
   a { color: #111; text-decoration: none; }
   a:hover { text-decoration: underline; }
-  a:focus-visible { outline: 2px solid #111; outline-offset: 3px; border-radius: 4px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #bd93f9; outline-offset: 3px; border-radius: 4px; }
 
   .sr-only {
     position: absolute; width: 1px; height: 1px; padding: 0;
@@ -56,10 +56,11 @@
 
   .skip-link {
     position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-    background: #111; color: #fff !important; padding: 8px 16px;
+    background: #bd93f9; color: #111 !important; padding: 8px 16px;
+    font-weight: 700;
     z-index: 1000; transition: top 0.2s; border-radius: 0 0 10px 10px;
   }
-  .skip-link:focus { top: 0; }
+  .skip-link:focus-visible { top: 0; outline: 3px solid #111; outline-offset: -3px; }
 
   .w { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -214,7 +215,7 @@
   .member img, .av {
     width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; object-fit: cover;
   }
-  .av { background: #e8e8e8; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #666; font-size: .875rem; }
+  .av { background: #e8e8e8; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #111; font-size: .875rem; }
   .member small { display: block; font-size: .6875rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
   .member strong { display: block; font-size: .9375rem; font-weight: 600; }
 
@@ -311,7 +312,7 @@
         <div class="laptop">
           <div class="laptop-lid">
             <div class="laptop-screen">
-              <img src="/img-etc/Screenshot_20260429_203727.png" alt="KibaOS Desktop">
+              <img src="/img-etc/Screenshot_20260429_203727-front.png" alt="KibaOS Desktop">
             </div>
           </div>
           <div class="laptop-base"></div>

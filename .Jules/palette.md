@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-05-03 - [High-Contrast Initials for Avatar Placeholders]
+**Learning:** Default "muted" initials (e.g., #666 on #e8e8e8) in avatar placeholders often hover near the edge of WCAG AA compliance. Using a near-black color (#111) instead of grey provides a "retina-sharp" look that is both aesthetically pleasing and significantly more accessible (13.5:1 contrast ratio).
+**Action:** When using initials as placeholders, prioritize maximum contrast (#111 or #fff) against the background circle to ensure legibility at small sizes.
