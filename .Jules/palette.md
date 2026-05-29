@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-05-03 - [Micro-UX: Tactile Feedback and Display Properties]
+**Learning:** Adding a `scale(0.97)` transform on the `:active` state provides an immediate "pressed" sensation that makes digital interfaces feel more physical and responsive. However, CSS transforms do not apply to inline elements.
+**Action:** When applying tactile feedback transforms to `<a>` tags or other inline elements, ensure they are set to `display: inline-block` or `display: flex` to enable the transform animation. Always clean up development artifacts and binary media before submission.
