@@ -37,7 +37,7 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -54,6 +54,15 @@ body {
 a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+
+/* Tactile feedback */
+.nav-brand, .nav-links a, .btn-ghost, .btn-solid, .btn-hero-primary, .btn-hero-secondary, .feature-cta, .faq-q {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex; /* Ensure transform applies correctly */
+}
+.nav-brand:active, .nav-links a:active, .btn-ghost:active, .btn-solid:active, .btn-hero-primary:active, .btn-hero-secondary:active, .feature-cta:active, .faq-q:active {
+  transform: scale(0.97);
+}
 
 .skip-link {
   position: absolute; top: -40px; left: 1rem;
@@ -606,22 +615,22 @@ footer {
     </div>
     <div class="pillars-grid">
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">⚡</span></div>
         <h3>Starts fast, stays fast</h3>
         <p>KibaOS is built lean. No startup services you didn't ask for, no background processes accumulating over time. It performs on day one and keeps performing.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">🛡️</span></div>
         <h3>Security by design</h3>
         <p>Built on a read-only compressed filesystem with automatic update support and no legacy cruft. Your system stays in a known, clean state.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">🎨</span></div>
         <h3>A desktop worth looking at</h3>
         <p>The Budgie desktop brings a cohesive visual experience with Papirus icons, a unified Arc-Dark theme, and a Wayland compositor that renders everything crisply.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">📦</span></div>
         <h3>Software, your way</h3>
         <p>gnome-software and Flatpak give you access to a vast library of applications in a sandboxed environment — installed, updated, and removed without risk to your core system.</p>
       </div>
@@ -640,7 +649,7 @@ footer {
         <a href="https://github.com/WolfTech-Innovations/Kiba/blob/main/WIKI.md" target="_blank" rel="noopener" class="feature-cta">Learn more</a>
       </div>
       <div class="feature-img-wrap" aria-hidden="true">
-        <div class="feature-icon-big"></div>
+        <div class="feature-icon-big"><span aria-hidden="true">🖥️</span></div>
       </div>
     </div>
   </div>
