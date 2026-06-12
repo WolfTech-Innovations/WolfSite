@@ -26,6 +26,7 @@
   --gray-400: #9aa0a6;
   --gray-700: #5f6368;
   --gray-900: #202124;
+  --purple: #bd93f9;
   --text: #202124;
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -37,7 +38,10 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -57,11 +61,16 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 
 .skip-link {
   position: absolute; top: -40px; left: 1rem;
-  background: var(--navy); color: var(--white) !important;
+  background: var(--purple); color: var(--navy-deep) !important;
   padding: 8px 16px; z-index: 1000; transition: top .2s;
   border-radius: 0 0 8px 8px; font-size: .875rem;
+  font-weight: 700;
 }
-.skip-link:focus { top: 0; }
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
+}
 
 /* ─── NAV ─────────────────────────────────────────────── */
 .site-nav {
@@ -78,33 +87,41 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: .9375rem; font-weight: 500; color: var(--gray-700) !important;
   white-space: nowrap; text-decoration: none !important;
   display: flex; align-items: center; gap: .5rem;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.nav-brand:active { transform: scale(0.97); }
 .nav-brand span { color: var(--text); font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: .25rem; flex: 1; }
 .nav-links a {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--gray-700);
   padding: .5rem .875rem; border-radius: 6px;
-  transition: background .15s, color .15s;
+  transition: background .15s, color .15s, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
 }
 .nav-links a:hover { background: var(--gray-100); color: var(--text); text-decoration: none; }
+.nav-links a:active { transform: scale(0.97); }
 .nav-cta {
   display: flex; align-items: center; gap: .75rem; margin-left: auto;
   flex-shrink: 0;
 }
 .btn-ghost {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--blue);
   padding: .5rem 1.25rem; border-radius: 8px;
   border: 1.5px solid var(--blue);
-  transition: background .15s, color .15s;
+  transition: background .15s, color .15s, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-ghost:hover { background: var(--blue-pale); text-decoration: none; }
+.btn-ghost:active { transform: scale(0.97); }
 .btn-solid {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--white) !important;
   padding: .5rem 1.25rem; border-radius: 8px;
   background: var(--blue);
-  transition: background .15s, box-shadow .15s;
+  transition: background .15s, box-shadow .15s, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.btn-solid:active { transform: scale(0.97); }
 .btn-solid:hover { background: #1557b0; box-shadow: var(--shadow-sm); text-decoration: none; }
 
 @media (max-width: 768px) {
@@ -167,17 +184,19 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: .9375rem; font-weight: 600;
   padding: .875rem 2rem; border-radius: var(--radius-pill);
   box-shadow: var(--shadow-md);
-  transition: transform .15s, box-shadow .15s;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .15s;
 }
 .btn-hero-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); text-decoration: none; }
+.btn-hero-primary:active { transform: scale(0.97); }
 .btn-hero-secondary {
   display: inline-flex; align-items: center; gap: .5rem;
   background: transparent; color: var(--white) !important;
   font-size: .9375rem; font-weight: 500;
   padding: .875rem 2rem; border-radius: var(--radius-pill);
   border: 1.5px solid rgba(255,255,255,.35);
-  transition: background .15s, border-color .15s;
+  transition: background .15s, border-color .15s, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.btn-hero-secondary:active { transform: scale(0.97); }
 .btn-hero-secondary:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); text-decoration: none; }
 
 /* hero screenshot */
@@ -289,9 +308,10 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   margin-top: 1.5rem; color: var(--blue) !important;
   font-size: .9375rem; font-weight: 600;
   border-bottom: 2px solid transparent;
-  transition: border-color .15s;
+  transition: border-color .15s, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .feature-cta:hover { border-color: var(--blue); text-decoration: none; }
+.feature-cta:active { transform: scale(0.97); }
 .feature-cta::after { content: '→'; transition: transform .15s; }
 .feature-cta:hover::after { transform: translateX(3px); }
 
@@ -337,7 +357,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 .spec-cell small {
   display: block; font-size: .6875rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
-  color: var(--gray-400); margin-bottom: .375rem;
+  color: var(--gray-700); margin-bottom: .375rem;
 }
 .spec-cell strong {
   font-size: 1rem; font-weight: 600; color: var(--gray-900);
@@ -376,7 +396,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 .req-card:hover { box-shadow: var(--shadow-sm); }
 .req-card small {
   font-size: .6875rem; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--gray-400); display: block; margin-bottom: .375rem;
+  text-transform: uppercase; color: var(--gray-700); display: block; margin-bottom: .375rem;
 }
 .req-card strong { font-size: .9375rem; font-weight: 600; color: var(--gray-900); }
 
@@ -443,7 +463,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 }
 .team-info small {
   font-size: .6875rem; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--gray-400); display: block;
+  text-transform: uppercase; color: var(--gray-700); display: block;
 }
 .team-info strong { font-size: .9375rem; font-weight: 600; color: var(--gray-900); }
 
@@ -457,7 +477,9 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: 1rem; font-weight: 600; color: var(--gray-900);
   cursor: pointer; display: flex; justify-content: space-between; align-items: center;
   gap: 1rem; list-style: none; user-select: none;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.faq-q:active { transform: scale(0.97); }
 .faq-q::after {
   content: '+'; font-size: 1.25rem; font-weight: 300;
   color: var(--blue); flex-shrink: 0;
@@ -606,22 +628,22 @@ footer {
     </div>
     <div class="pillars-grid">
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">⚡</span></div>
         <h3>Starts fast, stays fast</h3>
         <p>KibaOS is built lean. No startup services you didn't ask for, no background processes accumulating over time. It performs on day one and keeps performing.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">🛡️</span></div>
         <h3>Security by design</h3>
         <p>Built on a read-only compressed filesystem with automatic update support and no legacy cruft. Your system stays in a known, clean state.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">🎨</span></div>
         <h3>A desktop worth looking at</h3>
         <p>The Budgie desktop brings a cohesive visual experience with Papirus icons, a unified Arc-Dark theme, and a Wayland compositor that renders everything crisply.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">📦</span></div>
         <h3>Software, your way</h3>
         <p>gnome-software and Flatpak give you access to a vast library of applications in a sandboxed environment — installed, updated, and removed without risk to your core system.</p>
       </div>
@@ -640,7 +662,7 @@ footer {
         <a href="https://github.com/WolfTech-Innovations/Kiba/blob/main/WIKI.md" target="_blank" rel="noopener" class="feature-cta">Learn more</a>
       </div>
       <div class="feature-img-wrap" aria-hidden="true">
-        <div class="feature-icon-big"></div>
+        <div class="feature-icon-big">🖥️</div>
       </div>
     </div>
   </div>
