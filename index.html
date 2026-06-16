@@ -37,7 +37,7 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -82,6 +82,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 .nav-brand span { color: var(--text); font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: .25rem; flex: 1; }
 .nav-links a {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--gray-700);
   padding: .5rem .875rem; border-radius: 6px;
   transition: background .15s, color .15s;
@@ -93,6 +94,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   flex-shrink: 0;
 }
 .btn-ghost {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--blue);
   padding: .5rem 1.25rem; border-radius: 8px;
   border: 1.5px solid var(--blue);
@@ -100,6 +102,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 }
 .btn-ghost:hover { background: var(--blue-pale); text-decoration: none; }
 .btn-solid {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--white) !important;
   padding: .5rem 1.25rem; border-radius: 8px;
   background: var(--blue);
@@ -337,7 +340,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 .spec-cell small {
   display: block; font-size: .6875rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
-  color: var(--gray-400); margin-bottom: .375rem;
+  color: var(--gray-700); margin-bottom: .375rem;
 }
 .spec-cell strong {
   font-size: 1rem; font-weight: 600; color: var(--gray-900);
@@ -376,7 +379,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 .req-card:hover { box-shadow: var(--shadow-sm); }
 .req-card small {
   font-size: .6875rem; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--gray-400); display: block; margin-bottom: .375rem;
+  text-transform: uppercase; color: var(--gray-700); display: block; margin-bottom: .375rem;
 }
 .req-card strong { font-size: .9375rem; font-weight: 600; color: var(--gray-900); }
 
@@ -443,7 +446,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
 }
 .team-info small {
   font-size: .6875rem; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--gray-400); display: block;
+  text-transform: uppercase; color: var(--gray-700); display: block;
 }
 .team-info strong { font-size: .9375rem; font-weight: 600; color: var(--gray-900); }
 
@@ -462,6 +465,14 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   content: '+'; font-size: 1.25rem; font-weight: 300;
   color: var(--blue); flex-shrink: 0;
   transition: transform .2s;
+}
+
+/* Tactile feedback */
+.nav-brand, .nav-links a, .btn-ghost, .btn-solid, .btn-hero-primary, .btn-hero-secondary, .feature-cta, .faq-q {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-brand:active, .nav-links a:active, .btn-ghost:active, .btn-solid:active, .btn-hero-primary:active, .btn-hero-secondary:active, .feature-cta:active, .faq-q:active {
+  transform: scale(0.97);
 }
 .faq-item.open .faq-q::after { transform: rotate(45deg); }
 .faq-a {
@@ -606,22 +617,22 @@ footer {
     </div>
     <div class="pillars-grid">
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">⚡</span></div>
         <h3>Starts fast, stays fast</h3>
         <p>KibaOS is built lean. No startup services you didn't ask for, no background processes accumulating over time. It performs on day one and keeps performing.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">🛡️</span></div>
         <h3>Security by design</h3>
         <p>Built on a read-only compressed filesystem with automatic update support and no legacy cruft. Your system stays in a known, clean state.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">🎨</span></div>
         <h3>A desktop worth looking at</h3>
         <p>The Budgie desktop brings a cohesive visual experience with Papirus icons, a unified Arc-Dark theme, and a Wayland compositor that renders everything crisply.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon"></div>
+        <div class="pillar-icon"><span aria-hidden="true">📦</span></div>
         <h3>Software, your way</h3>
         <p>gnome-software and Flatpak give you access to a vast library of applications in a sandboxed environment — installed, updated, and removed without risk to your core system.</p>
       </div>
@@ -640,7 +651,7 @@ footer {
         <a href="https://github.com/WolfTech-Innovations/Kiba/blob/main/WIKI.md" target="_blank" rel="noopener" class="feature-cta">Learn more</a>
       </div>
       <div class="feature-img-wrap" aria-hidden="true">
-        <div class="feature-icon-big"></div>
+        <div class="feature-icon-big"><span aria-hidden="true">🖥️</span></div>
       </div>
     </div>
   </div>
