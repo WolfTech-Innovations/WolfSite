@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-06-18 - [Tactile Feedback and Accessible Emojis]
+**Learning:** Interactive elements like links and buttons benefit from tactile feedback (e.g., `scale(0.97)`) on the `:active` state to simulate a physical press. For this to work on `<a>` tags, they must have a non-inline display property (like `inline-block`). Additionally, decorative emojis in icon containers should always be wrapped in `<span aria-hidden="true">` to prevent them from being announced by screen readers.
+**Action:** Apply `scale(0.97)` to `:active` states of all interactive elements, ensuring correct `display` properties, and always use `aria-hidden` for decorative icons.
