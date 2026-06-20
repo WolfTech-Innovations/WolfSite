@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-06-12 - [Contrast, Delight, and Feedback Synchronisation]
+**Learning:** Secondary labels using --gray-400 (#9aa0a6) on white backgrounds fail WCAG AA. Upgrading to --gray-700 (#5f6368) maintains visual hierarchy while meeting 4.5:1 contrast. Populating empty decorative containers with thematic emojis (hidden from screen readers) provides a quick way to add visual delight to generic layouts.
+**Action:** Always sync contrast improvements across all small-text elements (small, label, caption). Ensure all interactive elements that use scale transforms have a non-inline display property (inline-block, flex) to ensure the transform applies correctly.
