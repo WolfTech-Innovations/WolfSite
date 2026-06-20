@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-05-03 - [Decorative Delight and Label Contrast]
+**Learning:** Decorative emojis in feature grids provide immediate visual hierarchy and "delight," but must be wrapped in `<span aria-hidden="true">` to remain accessible. Additionally, using `var(--gray-700)` (approx #5f6368) instead of lighter grays for secondary labels ensures WCAG AA compliance (4.5:1) while maintaining a professional, balanced UI.
+**Action:** Always wrap decorative emojis/icons in aria-hidden spans and prefer higher-contrast grays for small supporting text to guarantee readability.
