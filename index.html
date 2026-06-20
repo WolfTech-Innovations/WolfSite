@@ -78,13 +78,15 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: .9375rem; font-weight: 500; color: var(--gray-700) !important;
   white-space: nowrap; text-decoration: none !important;
   display: flex; align-items: center; gap: .5rem;
+  transition: transform .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-brand span { color: var(--text); font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: .25rem; flex: 1; }
 .nav-links a {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--gray-700);
   padding: .5rem .875rem; border-radius: 6px;
-  transition: background .15s, color .15s;
+  transition: background .15s, color .15s, transform .15s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
 }
 .nav-links a:hover { background: var(--gray-100); color: var(--text); text-decoration: none; }
@@ -93,17 +95,19 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   flex-shrink: 0;
 }
 .btn-ghost {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--blue);
   padding: .5rem 1.25rem; border-radius: 8px;
   border: 1.5px solid var(--blue);
-  transition: background .15s, color .15s;
+  transition: background .15s, color .15s, transform .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-ghost:hover { background: var(--blue-pale); text-decoration: none; }
 .btn-solid {
+  display: inline-block;
   font-size: .875rem; font-weight: 500; color: var(--white) !important;
   padding: .5rem 1.25rem; border-radius: 8px;
   background: var(--blue);
-  transition: background .15s, box-shadow .15s;
+  transition: background .15s, box-shadow .15s, transform .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-solid:hover { background: #1557b0; box-shadow: var(--shadow-sm); text-decoration: none; }
 
@@ -167,7 +171,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: .9375rem; font-weight: 600;
   padding: .875rem 2rem; border-radius: var(--radius-pill);
   box-shadow: var(--shadow-md);
-  transition: transform .15s, box-shadow .15s;
+  transition: transform .15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .15s;
 }
 .btn-hero-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); text-decoration: none; }
 .btn-hero-secondary {
@@ -176,7 +180,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: .9375rem; font-weight: 500;
   padding: .875rem 2rem; border-radius: var(--radius-pill);
   border: 1.5px solid rgba(255,255,255,.35);
-  transition: background .15s, border-color .15s;
+  transition: background .15s, border-color .15s, transform .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-hero-secondary:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); text-decoration: none; }
 
@@ -289,7 +293,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   margin-top: 1.5rem; color: var(--blue) !important;
   font-size: .9375rem; font-weight: 600;
   border-bottom: 2px solid transparent;
-  transition: border-color .15s;
+  transition: border-color .15s, transform .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .feature-cta:hover { border-color: var(--blue); text-decoration: none; }
 .feature-cta::after { content: '→'; transition: transform .15s; }
@@ -457,6 +461,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   font-size: 1rem; font-weight: 600; color: var(--gray-900);
   cursor: pointer; display: flex; justify-content: space-between; align-items: center;
   gap: 1rem; list-style: none; user-select: none;
+  transition: transform .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .faq-q::after {
   content: '+'; font-size: 1.25rem; font-weight: 300;
@@ -470,6 +475,8 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-ra
   transition: max-height .3s ease, padding .3s ease;
 }
 .faq-item.open .faq-a { max-height: 200px; padding-top: .75rem; }
+
+.nav-brand:active, .nav-links a:active, .btn-ghost:active, .btn-solid:active, .btn-hero-primary:active, .btn-hero-secondary:active, .feature-cta:active, .faq-q:active { transform: scale(0.97); }
 
 /* ─── FOOTER ──────────────────────────────────────────── */
 footer {
