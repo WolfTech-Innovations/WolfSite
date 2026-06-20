@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-06-05 - [Targeted vs. Global Contrast Fixes]
+**Learning:** When improving color contrast in a shared design system, modifying global CSS variables (like `--gray-400`) at the root level is high-risk as it can cause regressions in decorative or secondary elements across the entire app. Targeted overrides for specific text elements ensure accessibility without disrupting the broader visual hierarchy.
+**Action:** Prefer applying specific, high-contrast variables (e.g., `--gray-700`) to text-heavy elements while keeping global color tokens stable for decorative use.
