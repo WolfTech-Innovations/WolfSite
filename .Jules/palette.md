@@ -13,3 +13,7 @@
 ## 2026-05-02 - [Accessible Branding for Skip Links]
 **Learning:** Skip links are critical for keyboard navigation but are often styled as afterthoughts. Using a brand accent color (like Dracula Purple #bd93f9) with bold, high-contrast text (#111) makes the link feel like an intentional part of the UI rather than a "hidden" utility. A prominent internal focus outline (`outline-offset: -3px`) ensures visibility even on complex headers.
 **Action:** Always theme skip links with high-contrast brand colors and use inset outlines to ensure visibility against varied header backgrounds.
+
+## 2026-05-03 - [Expressive Iconography with Zero Weight]
+**Learning:** In performance-sensitive static sites where custom SVG libraries are absent, high-quality emojis can serve as effective, zero-weight visual markers for feature pillars. They provide immediate semantic context and visual delight, but MUST be wrapped in `aria-hidden` spans to avoid interfering with screen reader navigation.
+**Action:** Use representative emojis for feature icons when custom assets are unavailable; always pair with `aria-hidden="true"` and ensure they scale naturally with text.
