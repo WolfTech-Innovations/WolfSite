@@ -3,850 +3,1281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KibaOS — A friendly, ready-to-use desktop</title>
-<meta name="description" content="KibaOS is a friendly, ready-to-use desktop built on Arch Linux and Budgie, with LSW built in to run Windows programs full-screen.">
+<title>KibaOS — Minimal, Fast, Ready Desktop</title>
+<meta name="description" content="KibaOS is a minimalist desktop operating system built on Arch Linux and Budgie, featuring a built-in full-screen Windows Subsystem (LSW).">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --bg-dark: #060e23;
-    --glass: rgba(255,255,255,.08);
-    --glass-strong: rgba(255,255,255,.14);
-    --border: rgba(255,255,255,.14);
-    --accent: #6b8cff;
+  :root {
+    --bg: #000000;
+    --surface: #0a0a0a;
+    --surface-subtle: #121212;
+    --surface-hover: #1a1a1a;
+    --border: #222222;
+    --border-strong: #383838;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-muted: #666666;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --container: 1040px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-pill: 9999px;
   }
 
-  *{
+  *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
   }
 
-  html{
+  html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  body{
-    background:
-      linear-gradient(rgba(6,14,35,.55), rgba(6,14,35,.85)),
-      url("https://raw.githubusercontent.com/WolfTech-Innovations/Kiba/refs/heads/main/branding/file_000000008ac881f5beb3622a8ec72855.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
+  body {
+    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--text-primary);
     overflow-x: hidden;
+    line-height: 1.6;
+    font-size: 16px;
   }
 
-  a { color: inherit; }
-
-  /* ── Layout primitives ─────────────────────────────────────────── */
-  .container {
-    width: min(1280px, calc(100% - 64px));
-    margin: auto;
-  }
-
-  section {
-    padding: 8rem 0;
-  }
-
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-  }
-
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  @media (max-width: 900px) {
-    .feature-grid,
-    .split {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* ── Nav (80px) ─────────────────────────────────────────────────── */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    background: rgba(6,14,35,.55);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-    z-index: 999;
-  }
-
-  nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 21px;
-    font-weight: 700;
-    letter-spacing: -.01em;
-  }
-
-  nav ul {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
-  nav a.link {
+  /* Accessible Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    background: #ffffff;
+    color: #000000;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    z-index: 9999;
+    transition: top 0.2s ease;
     text-decoration: none;
-    opacity: .8;
-    font-weight: 500;
-    font-size: .95rem;
-    transition: .2s;
+  }
+  .skip-link:focus {
+    top: 20px;
   }
 
-  nav a.link:hover { opacity: 1; }
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease, opacity 0.15s ease;
+  }
 
-  .nav-right {
+  .container {
+    width: min(var(--container), calc(100% - 40px));
+    margin-inline: auto;
+  }
+
+  /* ── Header ───────────────────────────────────────────────────────── */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .brand-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  nav.nav-menu ul {
     display: flex;
     align-items: center;
     gap: 28px;
+    list-style: none;
   }
 
-  /* ── Buttons ────────────────────────────────────────────────────── */
-  .button {
-    display: inline-block;
-    padding: 16px 38px;
-    border-radius: 999px;
-    text-decoration: none;
-    color: white;
+  nav.nav-menu a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  nav.nav-menu a:hover {
+    color: #ffffff;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mobile-btn {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    color: #ffffff;
+    padding: 6px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  /* ── Buttons ──────────────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     font-weight: 600;
-    background: var(--accent);
-    border: 1px solid rgba(255,255,255,.2);
-    transition: .3s;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
   }
 
-  .button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(107,140,255,.35);
+  .btn-primary {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
   }
 
-  .button.ghost {
-    background: rgba(255,255,255,.08);
-    backdrop-filter: blur(16px);
+  .btn-primary:hover {
+    background: #e0e0e0;
+    border-color: #e0e0e0;
   }
 
-  .button.ghost:hover {
-    background: rgba(255,255,255,.16);
-    box-shadow: none;
+  .btn-secondary {
+    background: transparent;
+    border-color: var(--border-strong);
+    color: #ffffff;
   }
 
-  .button.small {
+  .btn-secondary:hover {
+    background: var(--surface-hover);
+    border-color: #666666;
+  }
+
+  .btn-sm {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+  }
+
+  .btn-lg {
     padding: 12px 26px;
-    font-size: .9rem;
+    font-size: 0.98rem;
   }
 
-  /* ── Hero (900px) ───────────────────────────────────────────────── */
-  .hero {
-    min-height: 90vh;
-    padding-top: 80px;
+  /* ── Mobile Menu ─────────────────────────────────────────────────── */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    z-index: 99;
+  }
+
+  .mobile-drawer.open {
+    display: block;
+  }
+
+  .mobile-drawer ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
-
-  .hero::before {
-    content: "K";
-    position: absolute;
-    top: 10%;
-    font-size: 42rem;
-    font-weight: 800;
-    opacity: .04;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .eyebrow {
-    font-size: .85rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    opacity: .6;
+    gap: 14px;
     margin-bottom: 20px;
   }
 
-  .hero h1 {
-    font-size: 4.4rem;
-    font-weight: 800;
-    line-height: 1.08;
-    max-width: 900px;
-    margin-bottom: 22px;
+  .mobile-drawer a {
+    color: var(--text-secondary);
+    font-size: 1rem;
   }
 
-  .hero p {
-    font-size: 1.2rem;
-    opacity: .85;
-    line-height: 1.7;
-    max-width: 640px;
-    margin: 0 auto 40px;
+  .mobile-drawer a:hover {
+    color: #ffffff;
+  }
+
+  /* ── Hero ─────────────────────────────────────────────────────────── */
+  .hero-block {
+    padding: 90px 0 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+
+  .hero-description {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 660px;
+    margin-bottom: 36px;
   }
 
   .hero-buttons {
     display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-
-  .hero img {
-    width: min(1100px, 100%);
-    margin-top: 5rem;
-    border-radius: 24px;
-    box-shadow: 0 40px 90px rgba(0,0,0,.45);
-    border: 1px solid var(--border);
-  }
-
-  /* ── Badge / trust bar ──────────────────────────────────────────── */
-  .badge-bar {
-    padding: 3rem 0 0;
-  }
-
-  .badge-bar .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .badge-bar img {
-    height: 28px;
-    display: block;
-  }
-
-  /* ── Section headers ────────────────────────────────────────────── */
-  .section-head {
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto 60px;
-  }
-
-  .section-head .eyebrow { margin-bottom: 14px; }
-
-  .section-head h2 {
-    font-size: 2.6rem;
-    font-weight: 800;
-    margin-bottom: 16px;
-    line-height: 1.15;
-  }
-
-  .section-head p {
-    opacity: .8;
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  /* ── Cards / glass panels ───────────────────────────────────────── */
-  .panel {
-    background: var(--glass);
-    backdrop-filter: blur(22px);
-    border: 1px solid var(--border);
-    border-radius: 26px;
-    padding: 42px;
-    transition: .3s;
-  }
-
-  .panel:hover { transform: translateY(-6px); }
-
-  .panel h3 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-  }
-
-  .panel p {
-    opacity: .82;
-    line-height: 1.7;
-    font-size: .98rem;
-  }
-
-  .panel-lg {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 420px;
-    background:
-      linear-gradient(0deg, rgba(6,14,35,.9) 10%, rgba(6,14,35,.2) 60%),
-      url("https://raw.githubusercontent.com/WolfTech-Innovations/Kiba/refs/heads/main/branding/file_000000008ac881f5beb3622a8ec72855.png");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .panel-lg h3 { font-size: 1.9rem; }
-
-  .stack {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .pill-tag {
-    display: inline-block;
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    background: rgba(107,140,255,.18);
-    color: #a9bcff;
-    border: 1px solid rgba(107,140,255,.35);
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 16px;
-  }
-
-  /* ── Split sections ─────────────────────────────────────────────── */
-  .split img,
-  .split .visual {
-    width: 100%;
-    border-radius: 24px;
-    box-shadow: 0 30px 70px rgba(0,0,0,.4);
-    border: 1px solid var(--border);
-  }
-
-  .split .visual {
-    aspect-ratio: 4/3;
-    background: var(--glass);
-    backdrop-filter: blur(22px);
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 6rem;
-    font-weight: 800;
-    opacity: .5;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
   }
 
-  .split h2 {
-    font-size: 2.3rem;
-    font-weight: 800;
-    margin-bottom: 18px;
-    line-height: 1.15;
-  }
-
-  .split p {
-    opacity: .82;
-    line-height: 1.8;
-    font-size: 1.02rem;
-    margin-bottom: 16px;
-  }
-
-  .split .kbd {
-    display: inline-block;
-    background: rgba(255,255,255,.12);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 3px 10px;
-    font-family: monospace;
-    font-size: .9rem;
-  }
-
-  /* ── Stats ──────────────────────────────────────────────────────── */
-  .stats {
+  /* Minimalist Spec Strip */
+  .hero-facts-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    text-align: center;
-  }
-
-  @media (max-width: 900px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .stat {
-    background: var(--glass);
-    backdrop-filter: blur(22px);
+    gap: 1px;
+    background: var(--border);
     border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 38px 20px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
   }
 
-  .stat .num {
-    font-size: 2.2rem;
-    font-weight: 800;
+  .fact-cell {
+    background: var(--surface);
+    padding: 20px;
+  }
+
+  .fact-value {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
     display: block;
-    margin-bottom: 8px;
-  }
-
-  .stat .label {
-    opacity: .75;
-    font-size: .92rem;
-  }
-
-  /* ── Download CTA ───────────────────────────────────────────────── */
-  .download {
-    max-width: 760px;
-    margin: auto;
-    padding: 70px;
-    text-align: center;
-    background: var(--glass);
-    border-radius: 34px;
-    backdrop-filter: blur(24px);
-    border: 1px solid var(--border);
-  }
-
-  .download h2 {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
-  }
-
-  .download p {
-    opacity: .8;
-    margin-bottom: 36px;
-    font-size: 1.02rem;
-  }
-
-  .download .meta {
-    margin-top: 24px;
-    opacity: .6;
-    font-size: .88rem;
-  }
-
-  /* ── Team ───────────────────────────────────────────────────────── */
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  @media (max-width: 900px) {
-    .team-grid { grid-template-columns: 1fr; }
-  }
-
-  .team-card {
-    text-align: center;
-    padding: 36px 24px;
-  }
-
-  .team-avatar {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #6b8cff, #1c2b5e);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.3rem;
-    margin: 0 auto 18px;
-  }
-
-  .team-card h3 {
-    font-size: 1.1rem;
     margin-bottom: 4px;
   }
 
-  .team-card span {
-    opacity: .65;
-    font-size: .88rem;
+  .fact-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 
-  /* ── FAQ ────────────────────────────────────────────────────────── */
-  .faq {
-    max-width: 800px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  /* ── Content Sections ─────────────────────────────────────────────── */
+  section.content-section {
+    padding: 70px 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  .faq details {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 22px 28px;
-    backdrop-filter: blur(18px);
-  }
-
-  .faq summary {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1.05rem;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .faq summary::-webkit-details-marker { display: none; }
-
-  .faq summary::after {
-    content: "+";
-    font-size: 1.4rem;
-    opacity: .6;
-    transition: .25s;
-  }
-
-  .faq details[open] summary::after {
-    transform: rotate(45deg);
-  }
-
-  .faq p {
-    opacity: .8;
-    line-height: 1.7;
-    margin-top: 14px;
-    font-size: .98rem;
-  }
-
-  /* ── Footer ─────────────────────────────────────────────────────── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 70px 0 40px;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 50px;
-  }
-
-  @media (max-width: 900px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  .footer-grid h4 {
-    font-size: .82rem;
-    letter-spacing: .08em;
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
     text-transform: uppercase;
-    opacity: .55;
-    margin-bottom: 18px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
   }
 
-  .footer-grid ul {
-    list-style: none;
+  .section-headline {
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 36px;
+  }
+
+  /* ── Minimal Grid ─────────────────────────────────────────────────── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .feature-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 28px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .feature-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -0.015em;
+  }
+
+  .feature-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* Minimalist Monospace Interactive Panels */
+  .mono-box {
+    background: #000000;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+
+  .mono-box .cmd {
+    color: #ffffff;
+  }
+
+  .mono-box .muted {
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .kbd {
+    border: 1px solid var(--border-strong);
+    background: var(--surface-subtle);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* ── Interactive LSW Box ─────────────────────────────────────────── */
+  .lsw-toggle-wrapper {
+    background: #000000;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .lsw-bar {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .lsw-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px 14px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    transition: all 0.15s ease;
+  }
+
+  .lsw-tab:last-child {
+    border-right: none;
+  }
+
+  .lsw-tab.active {
+    background: #000000;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .lsw-body {
+    padding: 18px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .lsw-pane {
+    display: none;
+  }
+
+  .lsw-pane.active {
+    display: block;
+  }
+
+  /* ── Package Manager Interactive Demo ────────────────────────────── */
+  .cli-demo {
+    background: #000000;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+
+  .cli-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .cli-btn {
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+  }
+
+  .cli-btn:hover {
+    background: var(--surface-hover);
+    color: #ffffff;
+    border-color: var(--border-strong);
+  }
+
+  /* ── Specifications Table ────────────────────────────────────────── */
+  .specs-wrapper {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .specs-table th,
+  .specs-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .specs-table th {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    background: #000000;
+  }
+
+  .specs-table td {
+    color: var(--text-secondary);
+  }
+
+  .specs-table td strong {
+    color: #ffffff;
+  }
+
+  .specs-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* ── Download Section ────────────────────────────────────────────── */
+  .download-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 40px;
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .download-box h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .download-box p {
+    color: var(--text-secondary);
+    font-size: 0.96rem;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .download-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .checksum-row {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    background: #000000;
+    display: inline-flex;
+    align-items: center;
     gap: 12px;
   }
 
-  .footer-grid a {
-    text-decoration: none;
-    opacity: .8;
-    font-size: .95rem;
-    transition: .2s;
+  .copy-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: underline;
   }
 
-  .footer-grid a:hover { opacity: 1; }
+  .copy-btn:hover {
+    color: var(--text-secondary);
+  }
 
-  .footer-bottom {
+  /* ── Team Section ─────────────────────────────────────────────────── */
+  .team-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .member-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+  }
+
+  .member-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.98rem;
+    margin-bottom: 4px;
+  }
+
+  .member-role {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* ── FAQ ──────────────────────────────────────────────────────────── */
+  .faq-container {
+    max-width: 760px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 22px;
+    text-align: left;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .faq-symbol {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .faq-item.open .faq-symbol {
+    color: #ffffff;
+  }
+
+  .faq-answer {
+    padding: 0 22px 20px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    display: none;
+  }
+
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+
+  /* ── Footer ───────────────────────────────────────────────────────── */
+  footer.site-footer {
+    padding: 50px 0 30px;
+    background: #000000;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .footer-nav a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-nav a:hover {
+    color: #ffffff;
+  }
+
+  .footer-copyright {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border);
-    opacity: .6;
-    font-size: .88rem;
+    gap: 12px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
   }
 
-  /* ── Small screens ──────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .hero h1 { font-size: 2.7rem; }
-    .hero::before { font-size: 16rem; }
-    nav ul { display: none; }
-    .section-head h2 { font-size: 2rem; }
-    .split h2 { font-size: 1.8rem; }
-    .download { padding: 44px 28px; }
-    .download h2 { font-size: 2.1rem; }
+  /* ── Responsive ───────────────────────────────────────────────────── */
+  @media (max-width: 820px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-facts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .team-row {
+      grid-template-columns: 1fr;
+    }
+    nav.nav-menu {
+      display: none;
+    }
+    .mobile-btn {
+      display: block;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .hero-facts-grid {
+      grid-template-columns: 1fr;
+    }
+    .download-box {
+      padding: 24px 16px;
+    }
+    .footer-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="container">
-    <div class="logo">KibaOS</div>
+<a href="#main-content" class="skip-link" id="skip-nav">Skip to main content</a>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="container nav-row">
+    <a href="#" class="brand" aria-label="KibaOS Homepage">
+      <span>KibaOS</span>
+      <span class="brand-badge">2026</span>
+    </a>
+
+    <nav class="nav-menu" aria-label="Main Navigation">
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#lsw">LSW</a></li>
+        <li><a href="#package-manager">Package Manager</a></li>
+        <li><a href="#specs">Specs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://github.com/WolfTech-Innovations/Kiba" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#download" class="btn btn-primary btn-sm" id="nav-download-btn">Download ISO</a>
+      <button class="mobile-btn" id="mobile-toggle-btn" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </div>
+
+  <div class="mobile-drawer" id="mobile-drawer">
     <ul>
-      <li><a class="link" href="#features">Features</a></li>
-      <li><a class="link" href="#design">Design</a></li>
-      <li><a class="link" href="#lsw">LSW</a></li>
-      <li><a class="link" href="https://github.com/WolfTech-Innovations/Kiba">Docs</a></li>
+      <li><a href="#features" class="mobile-nav-link">Features</a></li>
+      <li><a href="#lsw" class="mobile-nav-link">Linux Subsystem for Windows</a></li>
+      <li><a href="#package-manager" class="mobile-nav-link">Package Manager</a></li>
+      <li><a href="#specs" class="mobile-nav-link">Hardware Requirements</a></li>
+      <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+      <li><a href="https://github.com/WolfTech-Innovations/Kiba" target="_blank" rel="noopener noreferrer">Source Code</a></li>
     </ul>
-    <div class="nav-right">
-      <a class="button small" href="#download">Download</a>
-    </div>
+    <a href="#download" class="btn btn-primary btn-sm" style="width: 100%;">Download ISO</a>
   </div>
-</nav>
+</header>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     HERO
-     ══════════════════════════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="container" style="display:flex;flex-direction:column;align-items:center;">
-    <div class="eyebrow">Free &middot; Open Source &middot; Built on Arch Linux</div>
-    <h1>A friendly desktop,<br>ready the moment it starts.</h1>
-    <p>KibaOS is a general-purpose desktop for people switching to simple — nothing to configure, nothing to figure out, and a real Windows environment built in for the programs that need it.</p>
-    <div class="hero-buttons">
-      <a class="button" href="#download">Download KibaOS</a>
-      <a class="button ghost" href="#features">See what's included</a>
-    </div>
-    <img src="https://raw.githubusercontent.com/WolfTech-Innovations/Kiba/refs/heads/main/branding/file_000000008ac881f5beb3622a8ec72855.png" alt="KibaOS desktop">
-  </div>
-</section>
+<main id="main-content">
 
-<div class="badge-bar">
-  <div class="container">
-    <img src="https://img.shields.io/github/actions/workflow/status/WolfTech-Innovations/Kiba/build.yml?branch=main&label=Build&style=for-the-badge&logo=githubactions&logoColor=white" alt="Build Status">
-    <img src="https://img.shields.io/badge/License-MIT-3DDC97?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License">
-    <img src="https://img.shields.io/badge/Base-Arch_Linux-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" alt="Arch Linux base">
-    <img src="https://img.shields.io/badge/Desktop-Budgie-2C001E?style=for-the-badge&logo=linux&logoColor=white" alt="Budgie Desktop">
-    <img src="https://img.shields.io/sourceforge/dt/kibaos?style=for-the-badge&color=orange" alt="SourceForge Downloads">
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     FEATURE GRID
-     ══════════════════════════════════════════════════════════════════ -->
-<section id="features">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">What's included</div>
-      <h2>Everything you need, already there.</h2>
-      <p>No afternoon lost installing extra software just to get a usable computer. KibaOS is ready right after setup.</p>
-    </div>
-
-    <div class="feature-grid">
-      <div class="panel panel-lg">
-        <span class="pill-tag">LSW</span>
-        <h3>A real Windows environment, one click away.</h3>
-        <p>Run Office, Photoshop, and most other Windows-only programs full-screen from KibaOS — no dual boot, no separate computer.</p>
+  <!-- ══════════════════════════════════════════════════════════════════
+       HERO (Minimal, Black & White)
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="hero-block" id="hero">
+    <div class="container">
+      <div class="hero-meta">
+        Arch Linux &middot; Budgie Desktop &middot; Rolling Release &middot; MIT License
       </div>
-      <div class="stack">
-        <div class="panel">
-          <h3>kibapkg</h3>
-          <p>A friendly app manager with plain-language commands — install, remove, and update software without memorizing package-manager flags.</p>
+
+      <h1 class="hero-headline">
+        A minimal desktop,<br>ready from first boot.
+      </h1>
+
+      <p class="hero-description">
+        KibaOS is a general-purpose operating system for people switching to simple. Zero tedious manual configuration, plain-language software management, and a full-screen Windows subsystem built in for essential applications.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#download" class="btn btn-primary btn-lg" id="hero-download-btn">
+          Download KibaOS ISO
+        </a>
+        <a href="https://github.com/WolfTech-Innovations/Kiba" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" id="hero-github-btn">
+          GitHub Repository
+        </a>
+      </div>
+
+      <div class="hero-facts-grid">
+        <div class="fact-cell">
+          <span class="fact-value">4 GB</span>
+          <span class="fact-label">Minimum RAM requirement</span>
         </div>
-        <div class="panel">
-          <h3>Guided setup</h3>
-          <p>KibaOS's own built-in installer asks one simple question at a time, with a short confirmation before anything's written to disk.</p>
+        <div class="fact-cell">
+          <span class="fact-value">Super + K</span>
+          <span class="fact-label">Windows workspace toggle</span>
+        </div>
+        <div class="fact-cell">
+          <span class="fact-value">Rolling</span>
+          <span class="fact-label">Silent continuous updates</span>
+        </div>
+        <div class="fact-cell">
+          <span class="fact-value">100% Free</span>
+          <span class="fact-label">Open source &middot; No telemetry</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     SPLIT: DESIGN & THEMING
-     ══════════════════════════════════════════════════════════════════ -->
-<section id="design">
-  <div class="container">
-    <div class="split">
-      <div class="visual">K</div>
-      <div>
-        <div class="eyebrow">Design &amp; theming</div>
-        <h2>One coherent product, not a pile of default icons.</h2>
-        <p>Every visual layer is deliberately chosen: a Numix Plymouth boot splash, a consistent Numix Circle icon set across every app, and a calm Adwaita-dark base with a rounded KibaOS panel.</p>
-        <p>Even motion is unified — KibaOS's own "Organic Motion Language" keeps window opens and panel transitions feeling like part of one system instead of a grab-bag of default animations.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- ══════════════════════════════════════════════════════════════════
+       FEATURES (Black & White Bento)
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="content-section" id="features">
+    <div class="container">
+      <div class="section-label">Architecture</div>
+      <h2 class="section-headline">Everything needed, nothing extraneous.</h2>
+      <p class="section-lead">
+        Carefully assembled on top of Arch Linux and Budgie to provide immediate day-one utility without configuration fatigue.
+      </p>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     SPLIT: LSW
-     ══════════════════════════════════════════════════════════════════ -->
-<section id="lsw">
-  <div class="container">
-    <div class="split">
-      <div>
-        <div class="eyebrow">LSW — Linux Subsystem for Windows</div>
-        <h2>Windows apps, without leaving KibaOS.</h2>
-        <p>The first time you open "Run Windows Workspace," KibaOS installs a real Windows environment automatically in the background — no product key, nothing to click through.</p>
-        <p>After that, it opens full-screen in seconds. Press <span class="kbd">Super</span> + <span class="kbd">K</span> any time to switch back to your KibaOS desktop without closing Windows.</p>
-        <a class="button ghost small" href="#faq">Read the FAQ</a>
-      </div>
-      <div class="visual" style="font-size:3.2rem;">Super + K</div>
-    </div>
-  </div>
-</section>
+      <div class="features-grid">
+        <!-- Feature 1: LSW -->
+        <div class="feature-box" id="lsw">
+          <div>
+            <div class="feature-num">[01] Subsystem</div>
+            <h3 class="feature-title">Linux Subsystem for Windows (LSW)</h3>
+            <p class="feature-text">
+              Run Windows applications full-screen directly from KibaOS. Zero dual-boot partitioning, zero license key friction, and zero extra hardware needed. Toggle instantly with <span class="kbd">Super</span> + <span class="kbd">K</span>.
+            </p>
+          </div>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     SPLIT: UPDATES
-     ══════════════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <div class="split">
-      <div class="visual">↻</div>
-      <div>
-        <div class="eyebrow">Always current</div>
-        <h2>Small fixes, applied quietly.</h2>
-        <p>Built on a rolling release, so KibaOS stays up to date rather than waiting on big yearly versions. Updates download and apply on their own in the background, without interrupting what you're doing.</p>
-      </div>
-    </div>
-  </div>
-</section>
+          <div class="lsw-toggle-wrapper">
+            <div class="lsw-bar">
+              <button class="lsw-tab active" id="tab-linux" onclick="switchLsw('linux')">Native Budgie</button>
+              <button class="lsw-tab" id="tab-windows" onclick="switchLsw('windows')">Windows Workspace</button>
+            </div>
+            <div class="lsw-body">
+              <div class="lsw-pane active" id="pane-linux">
+                <strong>Workspace 1: Linux Native</strong><br>
+                Runs lightweight Budgie desktop environment with native Linux apps, browser, shell utilities, and low memory consumption.
+              </div>
+              <div class="lsw-pane" id="pane-windows">
+                <strong>Workspace 2: Windows Subsystem (LSW)</strong><br>
+                Dedicated isolated environment configured on first call. Runs desktop productivity software without requiring manual ISO mounting.
+              </div>
+            </div>
+          </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     STATS
-     ══════════════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Runs comfortably</div>
-      <h2>Modest requirements, real hardware.</h2>
-    </div>
-    <div class="stats">
-      <div class="stat">
-        <span class="num">4 GB</span>
-        <span class="label">minimum RAM</span>
-      </div>
-      <div class="stat">
-        <span class="num">128 GB</span>
-        <span class="label">free disk space</span>
-      </div>
-      <div class="stat">
-        <span class="num">x86_64</span>
-        <span class="label">UEFI systems</span>
-      </div>
-      <div class="stat">
-        <span class="num">MIT</span>
-        <span class="label">licensed build scripts</span>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Feature 2: kibapkg -->
+        <div class="feature-box" id="package-manager">
+          <div>
+            <div class="feature-num">[02] Package Management</div>
+            <h3 class="feature-title">kibapkg</h3>
+            <p class="feature-text">
+              Natural-language app management without memorizing obscure flags or commands.
+            </p>
+          </div>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     DOWNLOAD CTA
-     ══════════════════════════════════════════════════════════════════ -->
-<section id="download">
-  <div class="container">
-    <div class="download">
-      <h2>Ready to try KibaOS?</h2>
-      <p>Boot it from a USB drive first — nothing is changed on your computer until you choose to install.</p>
-      <a class="button" href="https://sourceforge.net/projects/kibaos/files/latest/download">Download ISO</a>
-      <div class="meta">x86_64 &middot; UEFI &middot; SHA256 checksums provided with every release</div>
-    </div>
-  </div>
-</section>
+          <div class="cli-demo">
+            <div>
+              <span style="color:var(--text-muted);">kiba $ </span>
+              <span id="cli-cmd-display" class="cmd">kibapkg install firefox</span>
+            </div>
+            <div id="cli-output-display" class="muted">
+              &gt; Resolving package in verified repos...<br>
+              &gt; Installed Firefox Web Browser.<br>
+              &gt; Ready in Budgie Application Menu.
+            </div>
+            <div class="cli-buttons">
+              <button class="cli-btn" onclick="runCli('install')">install</button>
+              <button class="cli-btn" onclick="runCli('search')">search</button>
+              <button class="cli-btn" onclick="runCli('update')">update</button>
+            </div>
+          </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     TEAM
-     ══════════════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Kiba Labs</div>
-      <h2>The team</h2>
-    </div>
-    <div class="team-grid">
-      <div class="panel team-card">
-        <div class="team-avatar">R</div>
-        <h3>Remi Mixo</h3>
-        <span>Kiba Labs</span>
-      </div>
-      <div class="panel team-card">
-        <div class="team-avatar">C</div>
-        <h3>Christopher Fricks</h3>
-        <span>Kiba Labs</span>
-      </div>
-      <div class="panel team-card">
-        <div class="team-avatar">J</div>
-        <h3>Joseph Daniels</h3>
-        <span>Kiba Labs</span>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Feature 3: Calamares Setup -->
+        <div class="feature-box">
+          <div>
+            <div class="feature-num">[03] Guided Setup</div>
+            <h3 class="feature-title">Calamares Installer</h3>
+            <p class="feature-text">
+              Asks one clear question at a time. Plain-language summaries explain every partition change before any bytes are written to disk.
+            </p>
+          </div>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     FAQ
-     ══════════════════════════════════════════════════════════════════ -->
-<section id="faq">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Questions</div>
-      <h2>Frequently asked questions.</h2>
+          <div class="mono-box">
+            <div>1. Boot Live USB &mdash; test hardware compatibility without touching drive</div>
+            <div style="margin-top:8px;">2. Select drive &mdash; automatic partition recommendations</div>
+            <div style="margin-top:8px;">3. Confirm changes &mdash; installation completes in minutes</div>
+          </div>
+        </div>
+
+        <!-- Feature 4: Rolling Updates -->
+        <div class="feature-box">
+          <div>
+            <div class="feature-num">[04] Maintenance</div>
+            <h3 class="feature-title">Continuous Rolling Release</h3>
+            <p class="feature-text">
+              Built on Arch Linux, updates apply incrementally in the background. No disruptive yearly major version reinstalls or forced reboot popups.
+            </p>
+          </div>
+
+          <div class="mono-box">
+            <div>Foundation: Arch Linux x86_64</div>
+            <div style="margin-top:8px;">Desktop: Budgie 10.9 (Wayland)</div>
+            <div style="margin-top:8px;">Display Manager: LightDM / Plymouth boot</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="faq">
-      <details>
-        <summary>Can I try KibaOS before installing it?</summary>
-        <p>Yes. Boot from the USB drive to try a full live session — nothing is saved or changed on your computer until you open the installer and confirm.</p>
-      </details>
-      <details>
-        <summary>How much does KibaOS cost?</summary>
-        <p>KibaOS is free to download and use. The build scripts and configuration in the KibaOS repository are released under the MIT License.</p>
-      </details>
-      <details>
-        <summary>Will my Windows programs work?</summary>
-        <p>Many will, through LSW (Linux Subsystem for Windows), which runs a real Windows environment full-screen from inside KibaOS. Compatibility depends on the program itself rather than on KibaOS.</p>
-      </details>
-      <details>
-        <summary>How long does installation take?</summary>
-        <p>The guided installer usually takes a few minutes once you've confirmed your choices, not counting how long it takes to write the ISO to a USB drive first.</p>
-      </details>
-      <details>
-        <summary>How do I get updates?</summary>
-        <p>KibaOS checks for small, official patches in the background and applies them automatically. There's generally nothing you need to do.</p>
-      </details>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SPECIFICATIONS
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="content-section" id="specs">
+    <div class="container">
+      <div class="section-label">Compatibility</div>
+      <h2 class="section-headline">Hardware specifications</h2>
+      <p class="section-lead">
+        Engineered for modest resource consumption, ensuring responsiveness on older laptops and modern systems alike.
+      </p>
+
+      <div class="specs-wrapper">
+        <table class="specs-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Minimum Requirement</th>
+              <th>Recommended</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Memory (RAM)</strong></td>
+              <td>4 GB RAM</td>
+              <td>8 GB+ for LSW workloads</td>
+            </tr>
+            <tr>
+              <td><strong>Storage</strong></td>
+              <td>64 GB free disk space</td>
+              <td>128 GB+ Solid State Drive</td>
+            </tr>
+            <tr>
+              <td><strong>Firmware</strong></td>
+              <td>UEFI 64-bit</td>
+              <td>UEFI with Secure Boot configurable</td>
+            </tr>
+            <tr>
+              <td><strong>Processor</strong></td>
+              <td>x86_64 Intel or AMD</td>
+              <td>Dual-core 2.0 GHz or higher</td>
+            </tr>
+            <tr>
+              <td><strong>Graphics</strong></td>
+              <td>Standard VGA / Intel HD</td>
+              <td>Hardware-accelerated GPU</td>
+            </tr>
+            <tr>
+              <td><strong>License</strong></td>
+              <td>MIT License</td>
+              <td>Open source build scripts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       DOWNLOAD
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="content-section" id="download">
+    <div class="container">
+      <div class="download-box">
+        <h2>Download KibaOS ISO</h2>
+        <p>
+          Boot directly from a USB drive to test your display, Wi-Fi, and sound before making any changes to your computer.
+        </p>
+
+        <div class="download-links">
+          <a 
+            href="https://sourceforge.net/projects/kibaos/files/latest/download" 
+            class="btn btn-primary btn-lg" 
+            id="sourceforge-btn"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Download via SourceForge
+          </a>
+          <a 
+            href="https://github.com/WolfTech-Innovations/Kiba" 
+            class="btn btn-secondary btn-lg" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            GitHub Release
+          </a>
+        </div>
+
+        <div>
+          <div class="checksum-row">
+            <span>Mirror: SourceForge Official</span>
+            <span>&middot;</span>
+            <button class="copy-btn" onclick="copyIsoLink()">
+              <span id="copy-status">Copy Mirror Link</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       CREATORS
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="content-section" id="team">
+    <div class="container">
+      <div class="section-label">Organization</div>
+      <h2 class="section-headline">Kiba Labs</h2>
+      <p class="section-lead">
+        Developed by Kiba Labs, focused on accessible, predictable desktop computing.
+      </p>
+
+      <div class="team-row">
+        <div class="member-card">
+          <div class="member-name">Remi Mixo</div>
+          <div class="member-role">Core Maintainer</div>
+        </div>
+        <div class="member-card">
+          <div class="member-name">Christopher Fricks</div>
+          <div class="member-role">Systems Engineer</div>
+        </div>
+        <div class="member-card">
+          <div class="member-name">Joseph Daniels</div>
+          <div class="member-role">Distribution &amp; QA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FAQ
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="content-section" id="faq">
+    <div class="container">
+      <div class="section-label">Questions &amp; Answers</div>
+      <h2 class="section-headline">Frequently asked questions</h2>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What is KibaOS based on?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-answer">
+            KibaOS is built on Arch Linux and uses the Budgie desktop environment. It operates on a rolling release cadence, keeping software up to date without requiring destructive OS reinstalls.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the Windows Subsystem (LSW) work?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-answer">
+            LSW runs a hardware-accelerated, full-screen Windows environment inside an isolated workspace. You can switch between your Linux desktop and your Windows tools at any moment by pressing Super + K.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I test KibaOS without installing it to my disk?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Flashing the ISO to a USB flash drive allows you to boot into a fully functioning live session. No changes are written to your computer until you explicitly launch and confirm the Calamares installer.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What are the system requirements?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-answer">
+            A 64-bit x86 processor with UEFI support, at least 4 GB of RAM, and 64 GB of free storage. 8 GB of RAM is recommended if you frequently run intensive Windows applications inside LSW.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Is KibaOS free and open source?</span>
+            <span class="faq-symbol">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. The distribution build scripts and configuration files are released under the MIT License. There are no fees, ads, or telemetry tracking.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <!-- ══════════════════════════════════════════════════════════════════
      FOOTER
      ══════════════════════════════════════════════════════════════════ -->
-<footer>
+<footer class="site-footer" id="site-footer">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-row">
       <div>
-        <div class="logo" style="margin-bottom:14px;">KibaOS</div>
-        <p style="opacity:.7;font-size:.92rem;line-height:1.7;max-width:320px;">
-          A friendly, ready-to-use desktop built for people switching to simple.
-        </p>
+        <span style="font-weight:700; color:#ffffff;">KibaOS</span>
+        <span style="color:var(--text-muted); font-size:0.85rem; margin-left:8px;">Kiba Labs &middot; WolfTech Innovations</span>
       </div>
-      <div>
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#design">Design &amp; Theming</a></li>
-          <li><a href="#lsw">LSW</a></li>
-          <li><a href="#download">Download</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Help</h4>
-        <ul>
-          <li><a href="https://github.com/WolfTech-Innovations/Kiba">Documentation</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="https://github.com/WolfTech-Innovations">Kiba Labs</a></li>
-          <li><a href="https://github.com/WolfTech-Innovations/Kiba">GitHub</a></li>
-        </ul>
-      </div>
+
+      <ul class="footer-nav">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#lsw">LSW</a></li>
+        <li><a href="#specs">Specs</a></li>
+        <li><a href="/mtos">Mobile Terms</a></li>
+        <li><a href="/privacypolicy">Privacy Policy</a></li>
+        <li><a href="https://github.com/WolfTech-Innovations/Kiba" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 Kiba Labs. All rights reserved.</div>
-      <div>Built in the open on GitHub.</div>
+
+    <div class="footer-copyright">
+      <span>&copy; 2026 Kiba Labs, LLC. Released under the MIT License.</span>
+      <span>Budgie is a trademark of the Buddies of Budgie organization. Linux is a registered trademark of Linus Torvalds.</span>
     </div>
   </div>
 </footer>
+
+<script>
+  // Mobile drawer toggle
+  const mobileToggle = document.getElementById('mobile-toggle-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('open');
+      mobileToggle.textContent = isOpen ? 'Close' : 'Menu';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+        mobileToggle.textContent = 'Menu';
+      });
+    });
+  }
+
+  // LSW Tab Switcher
+  function switchLsw(view) {
+    const tabLinux = document.getElementById('tab-linux');
+    const tabWindows = document.getElementById('tab-windows');
+    const paneLinux = document.getElementById('pane-linux');
+    const paneWindows = document.getElementById('pane-windows');
+
+    if (view === 'linux') {
+      tabLinux.classList.add('active');
+      tabWindows.classList.remove('active');
+      paneLinux.classList.add('active');
+      paneWindows.classList.remove('active');
+    } else {
+      tabWindows.classList.add('active');
+      tabLinux.classList.remove('active');
+      paneWindows.classList.add('active');
+      paneLinux.classList.remove('active');
+    }
+  }
+
+  // CLI Demo
+  const cliCommands = {
+    install: {
+      cmd: 'kibapkg install discord',
+      output: '> Finding discord in verified repository...\n> Installed Discord Desktop 0.0.42.\n> Ready in Budgie Application Menu.'
+    },
+    search: {
+      cmd: 'kibapkg search steam',
+      output: '> Found 1 match:\n> steam (1.0.0.79) - Valve Digital Software Platform\n> Run `kibapkg install steam` to install.'
+    },
+    update: {
+      cmd: 'kibapkg update',
+      output: '> Checking rolling mirrors...\n> All 482 packages up to date.\n> System clean, no reboot required.'
+    }
+  };
+
+  function runCli(type) {
+    const data = cliCommands[type] || cliCommands.install;
+    const cmdEl = document.getElementById('cli-cmd-display');
+    const outEl = document.getElementById('cli-output-display');
+    if (cmdEl && outEl) {
+      cmdEl.textContent = data.cmd;
+      outEl.innerHTML = data.output.replace(/\n/g, '<br>');
+    }
+  }
+
+  // Copy ISO link
+  function copyIsoLink() {
+    const url = 'https://sourceforge.net/projects/kibaos/files/latest/download';
+    navigator.clipboard.writeText(url).then(() => {
+      const statusEl = document.getElementById('copy-status');
+      if (statusEl) {
+        statusEl.textContent = 'Copied to clipboard';
+        setTimeout(() => {
+          statusEl.textContent = 'Copy Mirror Link';
+        }, 2200);
+      }
+    }).catch(() => {
+      const statusEl = document.getElementById('copy-status');
+      if (statusEl) {
+        statusEl.textContent = 'https://sourceforge.net/projects/kibaos/';
+      }
+    });
+  }
+
+  // FAQ Accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      const s = i.querySelector('.faq-symbol');
+      if (s) s.textContent = '+';
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      const s = item.querySelector('.faq-symbol');
+      if (s) s.textContent = '—';
+    }
+  }
+</script>
 
 </body>
 </html>
