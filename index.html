@@ -83,7 +83,7 @@
     text-align: center;
   }
 
-  /* ── Header (Cutefish OS style sticky navigation) ──────────────────── */
+  /* ── Header (Deepin OS style sticky navigation) ──────────────────── */
   header.site-header {
     position: sticky;
     top: 0;
@@ -1043,7 +1043,7 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════════
-     CUTEFISH DE GLASS TASKBAR & 15-SECOND LOADING INTRO ANIMATION
+     Deepin DE GLASS TASKBAR & 15-SECOND LOADING INTRO ANIMATION
      ══════════════════════════════════════════════════════════════════════ */
   body.intro-active {
     overflow: hidden;
@@ -1169,8 +1169,8 @@
     letter-spacing: -0.01em;
   }
 
-  /* ── The Cutefish Glass-like Taskbar / Dock Container ────────────── */
-  .cutefish-dock-arena {
+  /* ── The Deepin Glass-like Taskbar / Dock Container ────────────── */
+  .Deepin-dock-arena {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -1178,7 +1178,7 @@
     padding: 36px 20px 24px;
   }
 
-  .cutefish-glass-taskbar {
+  .Deepin-glass-taskbar {
     position: relative;
     background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(28px) saturate(180%);
@@ -1352,7 +1352,7 @@
   }
 
   @media (max-width: 600px) {
-    .cutefish-glass-taskbar {
+    .Deepin-glass-taskbar {
       gap: 6px;
       padding: 6px 10px;
       border-radius: 18px;
@@ -1381,9 +1381,9 @@
 <script>document.body.classList.add('intro-active');</script>
 
 <!-- ══════════════════════════════════════════════════════════════════
-     CUTEFISH DE GLASS TASKBAR & 15-SECOND LOADING ANIMATION OVERLAY
+     Deepin DE GLASS TASKBAR & 15-SECOND LOADING ANIMATION OVERLAY
      ══════════════════════════════════════════════════════════════════ -->
-<div id="dock-intro-overlay" class="dock-intro-overlay" role="dialog" aria-modal="true" aria-label="Cutefish Desktop Environment Preview">
+<div id="dock-intro-overlay" class="dock-intro-overlay" role="dialog" aria-modal="true" aria-label="Deepin Desktop Environment Preview">
   <div class="intro-topbar">
     <div class="intro-brand-meta">
       <span class="intro-pill-badge">KibaOS Desktop</span>
@@ -1396,8 +1396,8 @@
     <p class="intro-brand-sub">Simple, Fast, and Friendly Desktop</p>
 
     <!-- Glass Dock & Virtual Animated Cursor Container -->
-    <div class="cutefish-dock-arena" id="dock-arena">
-      <div class="cutefish-glass-taskbar" id="cutefish-taskbar" role="toolbar" aria-label="Cutefish DE Taskbar">
+    <div class="Deepin-dock-arena" id="dock-arena">
+      <div class="Deepin-glass-taskbar" id="Deepin-taskbar" role="toolbar" aria-label="Deepin DE Taskbar">
         <!-- App 1: Launcher -->
         <div class="dock-app-item" id="dock-app-0" data-name="App Launcher" tabindex="0">
           <div class="dock-app-tooltip">App Launcher</div>
@@ -1510,7 +1510,7 @@
 <a href="#main-content" class="skip-link" id="skip-nav">Skip to content</a>
 
 <!-- ══════════════════════════════════════════════════════════════════
-     HEADER (Cutefish OS style clean navigation)
+     HEADER (Deepin OS style clean navigation)
      ══════════════════════════════════════════════════════════════════ -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
@@ -2085,7 +2085,7 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
-     CUTEFISH DE 15-SECOND INTRO ANIMATION CONTROLLER
+     Deepin DE 15-SECOND INTRO ANIMATION CONTROLLER
      ══════════════════════════════════════════════════════════════════ */
   let introAnimId = null;
   let introTimerId = null;
@@ -2305,7 +2305,7 @@
     }
   });
 
-  // Enable real-mouse hover interaction on the Cutefish dock apps
+  // Enable real-mouse hover interaction on the Deepin dock apps
   document.querySelectorAll('.dock-app-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
       document.querySelectorAll('.dock-app-item').forEach(el => el.classList.remove('is-popped', 'is-adjacent'));
